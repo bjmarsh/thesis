@@ -1,21 +1,134 @@
-\chapter{QCD Background: The Rebalance and Smear Method}
+\chapter{QCD Multijet Background: The Rebalance and Smear Method}
 
 The third and final background of the \mttwo analysis arises from mis-measured
-jets in QCD multijet events. This background is greatly suppressed by the
-\mttwo and \dpmin cuts and hence is the smallest of the three backgrounds. 
+jets in QCD multijet events (and, to a much lesser degree, in events with 
+hadronically-decaying top quarks or vector bosons). 
+This background is greatly suppressed by the
+\mttwo and \dphimet cuts and hence is the smallest of the three backgrounds. 
 However, it is also the most difficult to model and estimate since it depends
 strongly on the peculiarities of the CMS detector and its imperfect response to jets.
+
+QCD Monte Carlo cannot be relied upon to model this correctly (and statistics are too poor
+anyway, due to the high cross section and low acceptance), so a data-driven technique is required.
 This iteration of the analysis employs a new ``Rebalance and Smear'' method 
-to estimate this background. We briefly describe the old method and reasons 
+to estimate the multijet background. We briefly describe the old method and reasons 
 for switching, then explain in detail the new technique.
 
 \section{The $\Delta\phi$-ratio method}
+
 Previous iterations of this analysis \cite{CMS:mt22016,CMS:mt22015} 
-used the ``$\Delta\phi$ -ratio'' method to estimate QCD background.
+used the ``$\Delta\phi$-ratio'' method to estimate QCD background.
+The method utilizes the variable $\dpmin \equiv \dphimet$ defined in
+Sec.~\ref{sec:objvardefs}. Events with a badly measured jet tend to have
+small \dpmin, as a single mis-measured jet drives the \vMet. Consequently,
+inverting the $\dpmin>0.3$ requirement in the signal regions gives a 
+conrol region enriched in QCD multijet events.
+
+The $\Delta\phi$-ratio method estimates multijet contribution to the 
+signal region by scaling events in this low-\dpmin control region
+by a transfer factor $r_\phi(\mttwo) = N(\dpmin > 0.3) / N(\dpmin < 0.3)$.
+Note that the numerator is ``signal region-like'' (\vMet far from any jets),
+while the denominator is ``background-like'' (\vMet close to a jet).
+From simulation, the functional form of this ratio as a function of \mttwo
+is found to be well-described by a power law,
+\be
+r_\phi(\mttwo) = \frac{N(\dpmin > 0.3)}{N(\dpmin < 0.3)} = a\cdot\mttwo^b,
+\ee
+for sufficientyly high \mttwo. Below $\mttwo\approx60$ GeV, the power law
+form breaks down as the dominant source of \vMet is not from jet mismeasurement
+(e.g. energy from pileup may contribute more significantly).
+
+This ratio is measured in data in a low-\mttwo sideband, 
+with an upper bound of $\mttwo=100$ GeV.
+Above this, the contribution from electroweak processes (\ttjets and V+jets)
+is too high relative to QCD to allow an accurate measurement. The lower bound
+is 60 GeV for $\Ht<1200$ GeV, and 70 GeV for $\Ht\geq1200$ GeV. Data for the measurement
+is taken from pure-\Ht triggers (prescaled for $\Ht<1200$ GeV). The fit is done inclusively
+in \njets and \nbtags, and in the same \Ht bins as the main analysis. Fig.~\ref{fig:rphi}
+shows example fits for 2017 data in the medium and high \Ht regions.
+
+\begin{figure}
+  \includegraphics[width=0.48\linewidth]{figs/qcd/rphi_data_ht575to1200.pdf}
+  \includegraphics[width=0.48\linewidth]{figs/qcd/rphi_data_ht1200to1500.pdf}
+  \caption{Example measurements of $r_\phi(\mttwo)$ in 2017 data, 
+    for the medium and high \Ht regions. Black points are straight from data;
+    white points have contribution from electroweak MC subtracted off from 
+    both the numerator and denominator. Vertical dashed lines show the fit region.
+    The red line is the central fit; the green and blue lines show the variations
+    from extending the fit window one bin on the low or high edge, respectively.}
+  \label{fig:rphi}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=0.48\linewidth]{figs/qcd/fj_ht1200to1500.pdf}
+  \includegraphics[width=0.48\linewidth]{figs/qcd/rb_j4to6.pdf}
+  \caption{Transfer factors $f_j$ (left) and $r_b$ (right) measured in 2018 data. $f_j$
+    is shown for $1200\leq\Ht<1500$ GeV, and $r_b$ is shown for $4\leq\njets\leq6$.
+    Data agrees with simulation within the uncertainties.
+}
+  \label{fig:fjrb}
+\end{figure}
+
+Each event in the low-\dpmin control region (integrated across \njets and \nbtags)
+ is weighted by $r_\phi(\mttwo)$ to get its contribution to the signal region.
+It remains to distribute events among the \njets and \nbtags bins. This is done through
+transfer factors $f_j$ and $r_b$. The first, $f_j$ is the fraction of events falling into a particular
+\njets bin, and the second, $r_b$, is the fraction of events in a given \njets bin falling into a particular
+\nbtags bin. It is found through simulation that both $f_j$ and $r_b$ 
+are invariant with respect to $\mttwo$, and $r_b$ is invariant with respect to \Ht.
+It is further found that the shapes are equivalent at $\dpmin < 0.3$ and $\dpmin >0.3$.
+These facts allow us to measure $f_j$ and $r_b$ in a QCD-enriched control region ($\dpmin<0.3$,
+$100 < \mttwo < 200$ GeV), $f_j$ in bins of \Ht and $r_b$ in bins of \njets.
+Example measurements of $f_j$ and $r_b$ in 2018 data are shown in Fig.~\ref{fig:fjrb}.
+
+Once all three of $r_\phi$, $f_j$, and $r_b$ are measured, we can get a final
+signal region estimate as
+\be
+N_\mrm{SR}(\Ht,\njets,\nbtags,\mttwo) = \left(\sum_{\dpmin<0.3} r_\phi(\mttwo) \right) \cdot f_j(\Ht) \cdot r_b(\njets),
+\ee
+where the sum is taken over all events in a given \Ht region, inclusively in \njets and \nbtags.
 
 \section{Overview of Rebalance and Smear}
 
+While the $\Delta\phi$-ratio method has been used as the primary multijet estimation technique
+in the past, there are a number of motivations to look for a better, more robust method.
+Most importantly, the $\Delta\phi$-ratio method relies on a fairly severe extrapolation 
+($r_\phi$ is measured in $60 < \mttwo < 100$ GeV, and is used to predict signal region 
+yields at $\mttwo>200$ GeV), with no way to explicitly check its validity in the 
+region of interest. Moreover, the power law fit function itself is emperically derived
+from simulation, with no underlying theoretical motivation that would give one confidence
+in its applicability.
+
+An alternate method that is used as the primary multijet estimation technique in this 
+iteration of the analysis is known as Rebalance and Smear (\rs).
+The method consists of two distinct steps. The first, ``rebalancing'', seeks to adjust
+the \pt of jets in multijet events such that the resulting \ptmiss is approximately zero.
+This is performed through a likelihood maximization, accounting for jet energy resolution.
+The output of the rebalancing is an inclusive sample of multijet events with approximately
+zero \ptmiss that are used as a seed for the second step, the ``smearing''. In this step, the
+\pt values of the rebalanced jets are smeared according to jet response functions, in order
+to model the instrumental effects that lead to nonzero \ptmiss. The smearing step is repeated many
+times for each rebalanced event, which allows the accumulation of events in the tails
+of kinematic distributions such as \ptmiss and \mttwo and for a more precise estimate 
+of the multijet background in the signal regions.
+
+Both the rebalancing and smearing steps make use of ``jet response templates'', which are distributions
+of the ratio of reconstructed jet \pt to generator-level jet \pt. The templates are derived from simulation
+in bins of jet \pt and $\eta$, separately for b-tagged and non-b-tagged jets. Details on the deriviation
+of the templates are given in Sec.~\cite{sec:jrt}.
+
+\subsection{Samples and event selection}
+% MC samples, data triggers
+% Jet selection for rebalancing (pt>10, PU id, etc)
+blah blah blah.
+
+\subsection{Rebalancing}
+
+\subsection{Smearing}
+
+
 \section{Derivation of jet response templates}
+\label{sec:jrt}
 
 \section{Performance in Monte Carlo}
 
