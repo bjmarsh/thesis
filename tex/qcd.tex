@@ -346,11 +346,11 @@ Correction Factor & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 \\
 \section{Performance in data control regions}
 
 In order to gauge the performance of the \rs method in data we define three control regions that are orthogonal to the search regions and enriched in QCD events.
-The first control region is obtained from the baseline selection by inverting the $\dphimet$ cut, requiring $\dphimet < 0.3$. The second control region is the $\mttwo$
-sideband $100< \mttwo <$ 200 \GeV. The third control region is defined by both inverting the $\dphimet$ selection and selecting the $\mttwo$ sideband. Figures
+The first control region is obtained from the baseline selection by inverting the $\dpmin$ cut, requiring $\dpmin < 0.3$. The second control region is the $\mttwo$
+sideband $100< \mttwo <$ 200 \GeV. The third control region is defined by both inverting the $\dpmin$ selection and selecting the $\mttwo$ sideband. Figures
 ~\ref{Fig:rs_crRSInvertDPhiInclusiveHT1200toInf} - \ref{Fig:rs_crRSDPhiMT2InclusiveHT450to1200} show several kinematic distributions in the control regions for
 $450 <\Ht<$ 1200~\GeV and $\Ht > 1200$~\GeV separately. Non-QCD background contributions in these control regions are taken from Monte Carlo. Selecting just the $\mttwo$
-sideband or just inverting \dphimet for $450<\Ht<$ 1200 GeV is not enough to make QCD a significant fraction of the total background in this \Ht region,
+sideband or just inverting \dpmin for $450<\Ht<$ 1200 GeV is not enough to make QCD a significant fraction of the total background in this \Ht region,
  so these plots are not shown.
 
 \begin{figure}[!htbp]
@@ -360,7 +360,7 @@ sideband or just inverting \dphimet for $450<\Ht<$ 1200 GeV is not enough to mak
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_data/c_crRSInvertDPhiInclusiveHT1200toInf_h_nJet30.pdf}
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_data/c_crRSInvertDPhiInclusiveHT1200toInf_h_nBJet20.pdf}
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_data/c_crRSInvertDPhiInclusiveHT1200toInf_h_mt2.pdf}
-    \caption{Comparison of kinematic distributions for data and background in the inverted $\dphimet$ control region for $\Ht > 1200$~\GeV. The QCD background is from the
+    \caption{Comparison of kinematic distributions for data and background in the inverted $\dpmin$ control region for $\Ht > 1200$~\GeV. The QCD background is from the
              rebalance and smear data-driven prediction. Non-QCD backgrounds are taken from Monte Carlo.
             }
     \label{Fig:rs_crRSInvertDPhiInclusiveHT1200toInf}
@@ -388,7 +388,7 @@ sideband or just inverting \dphimet for $450<\Ht<$ 1200 GeV is not enough to mak
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_data/c_crRSDPhiMT2InclusiveHT1200toInf_h_nJet30.pdf}
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_data/c_crRSDPhiMT2InclusiveHT1200toInf_h_nBJet20.pdf}
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_data/c_crRSDPhiMT2InclusiveHT1200toInf_h_mt2.pdf}
-    \caption{Comparison of kinematic distributions for data and background in the $\mttwo$ sideband + inverted $\dphimet$ control region for $\Ht > 1200$~\GeV. The QCD background is from the
+    \caption{Comparison of kinematic distributions for data and background in the $\mttwo$ sideband + inverted $\dpmin$ control region for $\Ht > 1200$~\GeV. The QCD background is from the
              rebalance and smear data-driven prediction. Non-QCD backgrounds are taken from Monte Carlo.
             }
     \label{Fig:rs_crRSDPhiMT2InclusiveHT1200toInf}
@@ -402,7 +402,7 @@ sideband or just inverting \dphimet for $450<\Ht<$ 1200 GeV is not enough to mak
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_data/c_crRSDPhiMT2InclusiveHT450to1200_h_nJet30.pdf}
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_data/c_crRSDPhiMT2InclusiveHT450to1200_h_nBJet20.pdf}
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_data/c_crRSDPhiMT2InclusiveHT450to1200_h_mt2.pdf}
-    \caption{Comparison of kinematic distributions for data and background in the $\mttwo$ sideband + inverted $\dphimet$ control region for $450<\Ht<$ 1200 \GeV. The QCD background is from the
+    \caption{Comparison of kinematic distributions for data and background in the $\mttwo$ sideband + inverted $\dpmin$ control region for $450<\Ht<$ 1200 \GeV. The QCD background is from the
              rebalance and smear data-driven prediction. Non-QCD backgrounds are taken from Monte Carlo.
             }
     \label{Fig:rs_crRSDPhiMT2InclusiveHT450to1200}
@@ -420,7 +420,7 @@ In all cases, data agrees with prediction within the assigned error.
 \begin{figure}[htbp]
   \begin{center}
     \includegraphics[width=0.99\textwidth]{figs/qcd/rs_data/comp_InvertDPhi.pdf}
-    \caption{Data closure in the inverted-\dphimet control region. Electroweak backgrounds are data-driven, and the gray band in the ratio plot represents the statistical error on the prediction plus the systematic error we assign.}
+    \caption{Data closure in the inverted-\dpmin control region. Electroweak backgrounds are data-driven, and the gray band in the ratio plot represents the statistical error on the prediction plus the systematic error we assign.}
     \label{Fig:rs_dataCR_InvertDPhi}
   \end{center}
 \end{figure}
@@ -433,10 +433,10 @@ In all cases, data agrees with prediction within the assigned error.
   \end{center}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[ht]
   \begin{center}
     \includegraphics[width=0.99\textwidth]{figs/qcd/rs_data/comp_DPhiMT2.pdf}
-    \caption{Data closure in the inverted-\dphimet plus \mttwo Sideband control region. Electroweak backgrounds are data-driven, and the gray band in the ratio plot represents the statistical error on the prediction plus the systematic error we assign.}
+    \caption{Data closure in the inverted-\dpmin plus \mttwo Sideband control region. Electroweak backgrounds are data-driven, and the gray band in the ratio plot represents the statistical error on the prediction plus the systematic error we assign.}
     \label{Fig:rs_dataCR_DPhiMT2}
   \end{center}
 \end{figure}
@@ -444,20 +444,17 @@ In all cases, data agrees with prediction within the assigned error.
 \section{Extension to monojet regions}
 
 Rebalance and Smear is also used for estimating background from QCD events in the monojet signal regions.
-The methodology is exactly the same as for the multijet case. The procedure is validated in an inverted-\dphimet dijet
+The methodology is exactly the same as for the multijet case. The procedure is validated in an inverted-\dpmin dijet
 control region, with exactly 2 jets, $\Ht>250$ \GeV and $\ptmiss>250$ \GeV. Fig.~\ref{Fig:rs_monojet_mc_validation} shows QCD MC
 compared against the prediction from Rebalance and Smear applied to MC in this control region,
 both inclusively and in the $30 < \pt(\mrm{jet 2}) < 60$ \GeV
 sideband nearest the monojet signal region. Good agreement is seen in both cases.
 
-Fig.~\ref{Fig:rs_monojet_data_validation} shows closure between data and the Rebalance and Smear method applied to data
-in the same dijet control region. Electroweak backgrounds are from MC. Again, good agreement is seen.
-
-\begin{figure}[htbp]
+\begin{figure}[htp!]
   \begin{center}
-    \includegraphics[width=0.48\textwidth]{figs/qcd/rs_data/monojet/mc_crRSInvertDPhibaseJ_htbins.pdf}
-    \includegraphics[width=0.48\textwidth]{figs/qcd/rs_data/monojet/mc_crRSInvertDPhibaseJ_htbins_jet2pt_30_60.pdf}
-    \caption{Closure between QCD MC and the prediction from Rebalance and Smear, in an inverted-\dphimet dijet
+    \includegraphics[width=0.49\textwidth]{figs/qcd/rs_data/monojet/mc_crRSInvertDPhibaseJ_htbins.pdf}
+    \includegraphics[width=0.49\textwidth]{figs/qcd/rs_data/monojet/mc_crRSInvertDPhibaseJ_htbins_jet2pt_30_60.pdf}
+    \caption{Closure between QCD MC and the prediction from Rebalance and Smear, in an inverted-\dpmin dijet
 control region. The left plot is inclusive in jet \pt, while the right is in a $30 < \pt(\mrm{jet 2}) < 60$ \GeV
 sideband that is adjacent to the monojet signal region.
             }
@@ -465,17 +462,20 @@ sideband that is adjacent to the monojet signal region.
   \end{center}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[htp!]
   \begin{center}
     \includegraphics[width=0.60\textwidth]{figs/qcd/rs_data/monojet/dataAll_crRSInvertDPhibaseJ_htbins.pdf}
-    \caption{Closure between data and the prediction from Rebalance and Smear, in an inverted-\dphimet dijet
+    \caption{Closure between data and the prediction from Rebalance and Smear, in an inverted-\dpmin dijet
 control region. Electroweak backgrounds are from MC.
             }
     \label{Fig:rs_monojet_data_validation}
   \end{center}
 \end{figure}
 
-\newpage
+Fig.~\ref{Fig:rs_monojet_data_validation} shows closure between data and the Rebalance and Smear method applied to data
+in the same dijet control region. Electroweak backgrounds are from MC. Again, good agreement is seen.
+
+%\newpage
 \section{Systematic uncertainties}
 \label{sec:rs_systematics}
 
@@ -490,11 +490,11 @@ Here we study in both MC and data how the rebalance and smear prediction is affe
 The core of the response is identified by fitting a gaussian to a narrow window around the peak response, as described in Sec.~\ref{sec:jrt_fits}.
 
 In MC, we test the effect by increasing the width of the gaussian core by a uniform factor for all jet response templates. 
-The procedure for doing this is again described in Sec.~\ref{sec:jrt_fits}. 
+The procedure for performing this widening is again described in Sec.~\ref{sec:jrt_fits}. 
 Figure~\ref{Fig:rs_modify_core} shows the effect of increasing the width of the gaussian core by 10\% and 25\% on the rebalance and smear predictions from MC in the 
 analysis topological regions.
 
-\begin{figure}[htp]
+\begin{figure}[ht]
   \begin{center}
     \includegraphics[width=1.0\textwidth]{figs/qcd/rs_mc/mc_coreWidth.pdf}
     \caption{Comparison of yields in topological regions for QCD from MC (yellow points), standard \rs prediction from MC (black points), \rs with response core width + 10\% (blue points), and
@@ -505,11 +505,11 @@ analysis topological regions.
   \end{center}
 \end{figure}
 
-We also study this in data by varying the width of the core by the JER smear factor uncertainties derived by the JetMET group, listed in Table \ref{tab:jrt_jersfs}.
+We also study this in data by varying the width of the core by the jet energy resolution (JER) smear factor uncertainties derived by the JetMET group, listed in Table \ref{tab:jrt_jersfs}.
 The result of varying the width up/down by this amount is shown in Figure~\ref{Fig:rs_data_JER_var}. Variations in each \Ht-region are shown in colored text near
 the top of the plot. These are used to derive a systematic in Sec. \ref{sec:rs_finalsyst}.
 
-\begin{figure}[htbp]
+\begin{figure}[ht]
   \begin{center}
     \includegraphics[width=1.0\textwidth]{figs/qcd/rs_data/data_JER_systVar.pdf}
     \caption{Comparison of yields in topological regions for \rs from data for nominal JER (black), JER varied UP (green), and JER varied DOWN (red). Variations with respect to the nominal yield
@@ -520,15 +520,177 @@ the top of the plot. These are used to derive a systematic in Sec. \ref{sec:rs_f
 \end{figure}
 
 
-
 \subsection{Effect of modifying size of jet response tail}
 \label{sec:rs_jrt_tail}
+
+Next, we study in Monte Carlo how the \rs method is affected by increasing the size of the non-gaussian tail component of the jet response templates.
+As described in Sec.~\ref{sec:jrt_fits}, the tail is defined as simply the subtraction of the fitted gaussian core from the raw template.
+For this study, we increase the size of the tails by 25\% and 50\% for all templates, simply by scaling the tail components by a constant factor
+(while also scaling down the core normalization by an appropriate amount to preserve normalization).
+Figure~\ref{Fig:rs_modify_tail} shows the result of this scaling in each of the analysis topological regions, and Table~\ref{tab:rs_table_modify_tail}
+summarizes the change in yields for each \Ht region.
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth]{figs/qcd/rs_mc/mc_tailSize.pdf}
+    \caption{Comparison of yields in topological regions for QCD from MC (yellow points), standard \rs prediction from MC (black points), \rs with response tail size + 25\% (red points), and
+             \rs with response tail size + 50\% (blue points). The bottom histogram shows the ratios of yields in topological regions for response tail size + 25\% and response tail size + 50\%
+             with respect to the standard \rs prediction.
+            }
+    \label{Fig:rs_modify_tail}
+  \end{center}
+\end{figure}
+
+\begin{table}[h!]
+\caption{Effect of increasing the size of the jet response tails in each $\Ht$ region.
+\label{tab:rs_table_modify_tail}}
+\centering
+\begin{tabular}{l|cc}
+\hline
+ & tail+25\% / standard \rs & tail+50\% / standard \rs \\
+\hline
+very low $\Ht$ & 1.17 & 1.34 \\
+low $\Ht$ & 1.18 & 1.33 \\
+medium $\Ht$ & 1.24 & 1.47 \\
+high $\Ht$ & 1.25 & 1.50 \\
+extreme $\Ht$ & 1.25 & 1.49 \\
+\hline
+\end{tabular}
+\end{table}
+
 
 \subsection{Effect of shifting mean of jet response}
 \label{sec:rs_jrt_mean}
 
+Next, we study in Monte Carlo how the \rs method is affected by shifting the mean of each jet response template by a constant amount,
+chose here to by +4\%. This simulates deriving the jet response templates on a sample that has a jet energy scale that is 4\% higher 
+than the sample on which the templates are used for a prediction.
+Figure~\ref{Fig:rs_modify_mean} shows the effect of shifting the jet response mean by +4\% on the \rs predictions from MC in the analysis topological regions.
+Table~\ref{tab:rs_table_modify_mean} summarizes the change in yields for each $\Ht$ region.
+
+\begin{figure}[ht]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth]{figs/qcd/rs_mc/mc_meanShift.pdf}
+    \caption{Comparison of yields in topological regions for QCD from MC (yellow points), standard \rs prediction from MC (black points), and \rs with response mean shifted higher by 4\% (blue points).
+             The bottom histogram shows the ratio of yields in topological regions for response mean shifted higher by 4\% with respect to the standard \rs prediction.
+            }
+    \label{Fig:rs_modify_mean}
+  \end{center}
+\end{figure}
+
+\begin{table}[h]
+\caption{Effect of shifting the mean of the jet response in each $\Ht$ region.
+\label{tab:rs_table_modify_mean}}
+\centering
+\begin{tabular}{l|c}
+\hline
+ & mean+4\% / standard \rs \\
+\hline
+very low $\Ht$ & 0.82 \\
+low $\Ht$ & 0.69 \\
+medium $\Ht$ & 0.75 \\
+high $\Ht$ & 0.99 \\
+extreme $\Ht$ & 1.11 \\
+\hline
+\end{tabular}
+\end{table}
+
+
 \subsection{Effect of modifying $\sigma_\mrm{T}^\mrm{soft}$}
 \label{sec:rs_sigmasoft}
 
+Finally, we check how the \rs prediction changes based on the value chosen for the $\sigma_\mrm{T}^\mrm{soft}$ parameter used in rebalancing.
+The parameter controls how tightly the \vMet is constrained to be near 0 post-rebalancing.
+It is nominally chosen to be 20~\GeV based on the width of the \ptmiss distribution in minimum-bias data. 
+Figure~\ref{Fig:rs_modify_sigmasoft} shows the effect of changing $\sigma_\mrm{T}^\mrm{soft}$ by $\pm20$\% (i.e. to 15 or 25~\GeV)
+on the \rs prediction from MC in the analysis topological regions.
+Table~\ref{tab:rs_table_modify_sigmasoft} summarizes the change in yields for each $\Ht$ region.
+
+\begin{figure}[ht]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth]{figs/qcd/rs_mc/mc_sigmasoft.pdf}
+    \caption{Comparison of yields in topological regions for QCD from MC (yellow points), standard \rs prediction from MC (black points), \rs with $\sigma_\mrm{T}^\mrm{soft}$ = 15 GeV (blue points), and
+             \rs with $\sigma_\mrm{T}^\mrm{soft}$ = 25 GeV (red points). The bottom histogram shows the ratios of yields in topological regions for $\sigma_\mrm{T}^\mrm{soft}$ = 15 GeV and
+             $\sigma_\mrm{T}^\mrm{soft}$ = 25 GeV with respect to the standard \rs prediction.
+            }
+    \label{Fig:rs_modify_sigmasoft}
+  \end{center}
+\end{figure}
+
+\begin{table}[ht]
+\caption{Effect of changing $\sigma_\mrm{T}^\mrm{soft}$ in each $\Ht$ region.
+\label{tab:rs_table_modify_sigmasoft}}
+\centering
+\begin{tabular}{l|cc}
+\hline
+ & $\sigma_\mrm{T}^\mrm{soft}$ = 15 GeV / standard \rs & $\sigma_\mrm{T}^\mrm{soft}$ = 25 GeV / standard \rs \\
+\hline
+very low $\Ht$ & 0.99 & 1.00 \\
+low $\Ht$ & 1.08 & 0.97 \\
+medium $\Ht$ & 1.12 & 1.05 \\
+high $\Ht$ & 1.07 &1.06 \\
+extreme $\Ht$ & 1.05 & 1.04 \\
+\hline
+\end{tabular}
+\end{table}
+
+
 \subsection{Final systematic uncertainties assessed on estimate}
 \label{sec:rs_finalsyst}
+We assign systematic uncertainties from three main sources: jet energy resolution uncertainty, template tail size uncertainty, and $\sigma_{T}^{soft}$ uncertainty.
+As seen from Figures~\ref{Fig:rs_data_JER_var}, \ref{Fig:rs_modify_tail}, \ref{Fig:rs_modify_sigmasoft}, the effect of varying these features has no strong
+\Nj/\Nb dependence and varies mainly by \Ht region. Therefore, we assign these systematics by \Ht region and take them as correlated across all bins. Due to low statistics,
+we combine the Very Low and Low \Ht regions when deriving systematics.
+For JER uncertainty, we take the maximum yield variation after varying JER up/down in data. For tail size uncertainty, we take the MC yield variation resulting from a 25\% increase
+in tail size. And for $\sigma_\mrm{T}^\mrm{soft}$ variation, we take the maximum yield variation after varying $\sigma_\mrm{T}^\mrm{soft}$ by $\pm5$ GeV (20\%). The results are given in
+Table~\ref{tab:rs_table_systematics}.
+
+\begin{table}[h]
+\caption{Systematics assigned to each \Ht-region based on uncertainties in JER, tail size modeling, and $\sigma_\mrm{T}^\mrm{soft}$.
+The ``Total'' column is the 3 systematics added in quadrature.
+\label{tab:rs_table_systematics}}
+\centering
+\begin{tabular}{r|ccc|c}
+\hline
+ & JER & Tail size & $\sigma_{T}^{soft}$ & Total \\
+\hline
+Very Low \Ht & 5\% & 17\% & 1\% & 18\% \\
+Low \Ht & 14\% & 17\% & 1\% & 22\% \\
+Medium \Ht & 18\% & 24\% & 12\% & 32\% \\
+High \Ht & 13\% & 25\% & 7\% & 29\% \\
+Extreme \Ht & 10\% & 25\% & 5\% & 27\% \\
+Monojet, 0b & 10\% & 21\% & 17\% & 29\% \\
+Monojet, $\geq1$b & 5\% & 8\% & 25\% & 27\% \\
+\hline
+\end{tabular}
+\end{table}
+
+As the above systematics are integrated across all variables except \Ht, we assign final systematics on the modeling of \Nj and \Nb shapes,
+derived from the \Nj and \Nb plots in the inverted-\dpmin control region (Figure \ref{Fig:rs_crRSInvertDPhiInclusiveHT1200toInf}). These systematics
+grow with \Nj and \Nb and are correlated within each \Ht region. Table~\ref{tab:rs_njnb_systematics} lists the assigned systematics.
+
+\begin{table}[h]
+\caption{Assingned systematics to each \Nj/\Nb bin, based on observed discrepancies in \Nj/\Nb shapes in the inverted-\dpmin control regions.
+The uncertainties are taken as completely correlated within each \Ht region, and uncorrelated between \Ht regions.
+The signs indicate the directon of correlation.
+\label{tab:rs_njnb_systematics}}
+\centering
+\begin{tabular}{c|cc}
+\hline
+ & $\Ht<1200$ & $\Ht\geq1200$ \\
+\hline
+2-3 jets      & $0$\%   & $2$\% \\
+4-6 jets      & $1$\%  & $3$\% \\
+2-6 jets      & $1$\%   & $3$\% \\
+7-9 jets      & $-8$\%  & $-7$\% \\
+$\geq7$ jets  & $-8$\%  & $-7$\% \\
+$\geq10$ jets & $-20$\% & $-19$\% \\
+\hline
+0 b-jets       & $5$\%     & $4$\% \\
+1 b-jets       & $-9$\%    & $-5$\% \\
+2 b-jets       & $-9$\%   & $-5$\% \\
+3 b-jets       & $-14$\%   & $-16$\% \\
+$\geq3$ b-jets & $-14$\%   & $-16$\% \\
+$\geq4$ b-jets & $-14$\%   & $-16$\% \\
+\end{tabular}
+\end{table}

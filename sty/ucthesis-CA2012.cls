@@ -988,8 +988,8 @@
 %% Needs to use package tabularx
 \newlength\abovecaptionskip
 \newlength\belowcaptionskip
-\setlength\abovecaptionskip{10\p@}
-\setlength\belowcaptionskip{0\p@}
+\setlength\abovecaptionskip{7\p@}
+\setlength\belowcaptionskip{3\p@}
 \long\def\@makecaption#1#2{%
   \vskip\abovecaptionskip
   \sbox\@tempboxa{\smallssp {#1}: #2}%
