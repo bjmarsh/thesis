@@ -90,7 +90,7 @@ differences in jet resolution between data and MC.
     \includegraphics[width=0.45\textwidth]{figs/jetmet/pt10_eta06_nonbjets_log.pdf} \\
     \caption{A selection of three example jet response templates for various \pt/$\eta$/b-jet bins, shown in linear (left) and log (right) scales.
     The dark blue points are the raw templates. The red curves are the fitted gaussian ``cores'' of the templates, and the green
-    curves are the ``tails'', as described in Section~\ref{sec:app_jrtTemplates_fits}.
+    curves are the ``tails'', as described in Section~\ref{sec:jrt_fits}.
            }
     \label{fig:jrt_examples}
   \end{center}
@@ -118,7 +118,7 @@ differences in jet resolution between data and MC.
 The process for matching gen and reco jets in order to derive jet response templates begins with QCD Monte Carlo,
 in which both the generator-level and reconstructed particles have been clustered into jets.
 It is important to use gen jets that include neutrinos, as we are interested in modeling jet mismeasurement due
-to energy carried away by neutrinos. Reco jet energies are fully corrected with the same jet energy corrections
+to energy carried away by neutrinos such. Reco jet energies are fully corrected with the same jet energy corrections
 as used in the main analysis. Gen jet flavor is determined by identifying the flavor of 
 hadrons within the jet cone. Once this is all done, all reco and gen jets with $\pt>10$ GeV are selected and saved.
 
@@ -142,7 +142,7 @@ The algorithm for matching is outlined here; the reasoning for and effect of var
     \hphantom{1 cm}$w_\text{non-b} = 1-w_\text{b}$,
   \end{itemize}
   where $\varepsilon_\text{b-tag}$ is the efficiency for tagging a particular flavor of gen jet, as measured in MC, and $SF_\text{b-tag}$ is 
-  the CMS-derived scale factor to correct this efficiency for known differences between data and MC~\cite{BtagSFMethods}.
+  the CMS-derived scale factor to correct this efficiency for known differences between data and MC.
 \end{enumerate}
 
 Step 1 rejects entire events that fail one of the MET filters applied in the main analysis.
@@ -200,7 +200,7 @@ the effect on an example template on the right.
     \includegraphics[width=0.54\textwidth]{figs/jetmet/ecalDeadCells.pdf}
     \includegraphics[width=0.45\textwidth]{figs/jetmet/compare_ecalDeadCell.pdf}
     \caption{(left) an $\eta-\phi$ map for jet pairs with $\pt^\text{gen}> 300$ GeV and
-    $\pt^\text{reco}/\pt^\text{gen} < 0.5$ from Fall17 simulation. Identified hot-spots
+    $\pt^\text{reco}/\pt^\text{gen} < 0.5$ from 2017 simulation. Identified hot-spots
     are outlined in red. Pairs with reco jets in these regions are not used.
     (right) The effect of this removal on an example template. Relatively large reductions
     in the left tail are seen for templates containing affected regions.
@@ -210,7 +210,6 @@ the effect on an example template on the right.
 \end{figure}
 
 Step 7 rejects pairs in which the reco jet fails tight jet ID.
-This jet ID is meant to identify fake, badly reconstructed, and/or noisy jets~\cite{JetID}.
 In the main analysis, we reject the entire event if any jet with $\pt>30$ GeV
 fails this ID. We apply the same ID here to avoid including these jets in 
 the templates. It is found to have minimal effect, except for very high eta ($|\eta|>4.0$).
@@ -312,7 +311,7 @@ f_\alpha(x) = \frac{1}{\alpha}\cdot\text{Core}((x-1)/\alpha+1) + \text{Tail}(x).
 \]
 
 \begin{table}[htp]
-\caption{Jet energy resolution scale factors (data resolution divided by MC resolution) provided by the JetMET group~\cite{JetResolution}.
+\caption{Jet energy resolution scale factors (data resolution divided by MC resolution) provided by the JetMET group.
              Uncertainties are statistical plus systematic.}
 \label{tab:jrt_jersfs}
 \centering
