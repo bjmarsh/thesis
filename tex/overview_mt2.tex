@@ -2,8 +2,6 @@
 
 \section{Motivation for an all-hadronic search}
 
-\section{Sources of backgrounds}
-
 \begin{figure}[h]
   \begin{center}
     \includegraphics[width=0.40\textwidth]{figs/susy_diagrams/T1tttt.pdf}
@@ -16,8 +14,34 @@
   \end{center}
 \end{figure}
 
+\section{Sources of backgrounds}
+\label{sec:mt2_backgrounds}
+
+The \mttwo analysis targets new physics signatures in all-hadronic events with large amounts of missing transverse momentum.
+This selection leads to backgrounds that fall into three main categories:
+\begin{enumerate}
+\item \textbf{Invisible Z}: \znunu events produced in associated with jets contain genuine \ptmiss, and represent
+an \emph{irriducible} background to the analysis. While there is no real handle to eliminate these events, as they
+look exactly like signal, the events contain no inherent b-jets so the background becomes less important in
+signal regions with large numbers of b-tagged jets. This background is estimated using $Z\to l^+l^-$ events,
+as described in Chapter~\ref{chap:zinv}.
+\item \textbf{Lost lepton}: events with leptonically-decaying $W$ bosons contain genuine \ptmiss from the neutrino, 
+but are largely rejected based on the presence of the charged lepton.
+However, they can populate the signal regions if the lepton is in some way ``lost'' (usually, if it is outside of detector acceptance,
+or it isn't isolated). The primary processes making up this background are \ttbar and \wjets (\ttbar is more important in regions
+with b-tagged jets), but there are also minor contributions from rarer processes such as single top, $\ttbar Z$, $\ttbar W$,
+$\ttbar H$, and $tt\bar{t}\bar{t}$. These are combined with \ttbar and referred to as ``top'' in the plots and tables in this
+dissertation. The lost lepton background is primarily estimated with a single-lepton control sample, as described in
+Chapter~\ref{chap:lostlep}.
+\item \textbf{QCD multijet}: the process with by far the largest cross section at the LHC is the QCD production of
+multijet events. These events have no genuine \ptmiss, but can enter high-\ptmiss signal regions if one or more
+jets is mis-measured. There are a number of handles that can be used to reject these events, such as the $\Delta\phi$
+between the jets and \vMet vector, and the \mttwo variable described in the next section. The remaining background
+is estimated through a data-driven procedure known as ``Rebalance and Smear'', detailed in Chapter~\ref{chap:qcd}.
+\end{enumerate}
 
 \section{The $M_\text{T2}$ variable}
+\label{sec:mt2_variable}
 
 Defining the \emph{transverse energy} of a particle as $E_\mrm{T}^2\equiv m^2+\pt^2$, we can define the \emph{transverse mass} of a two-particle system as
 \be\label{eq:mtlong}
@@ -31,7 +55,7 @@ Assuming massless particles (or, equivalently, particles that are highly relativ
 \be\label{eq:mt}
 M_\mrm{T}^2 = 2p_\mrm{T,1}p_\mrm{T,2}(1-\cos\theta),
 \ee
-where $\theta$ is the opening angle between the particle momentum vectors.
+where $\theta$ is the angle between the particle transverse momentum vectors.
 
 This variable is frequently useful when a particle decays to something visible and something invisible (e.g. $W\to e\nu$).
 Assuming that the invisible particle is the dominant source of missing energy in the event, the \vMet vector is approximately the
@@ -53,7 +77,7 @@ are due to experimental resolution on the muon momentum and \vMet vectors.
   \end{center}
 \end{figure}
 
-Computing the transverse mass of a decaying SUSY particle would be useful, since they tend to be much heavier than
+Computing the transverse mass of a decaying SUSY particle would be useful in distinguinging signal from background, since they tend to be much heavier than
 SM particles that make up the background. However, the SUSY particles are \emph{pair-produced}, and computing the transverse mass 
 of each system is not possible because it is not possible to resolve the \vMet vector into components from
 each invisible particle. An example of this is the SUSY bottom squark pair production shown in 
@@ -61,7 +85,7 @@ Fig.~\ref{Fig:example_susy_feyn} (right). Each bottom squark decays into a b qua
 as a jet in the detector (potentially b-tagged), and a neutralino, which is invisible.
 
 Absent this information, the best we can do is to try \emph{all possible partitions} of the \vMet vector
-and choose the one that gives the weakest $M_\mrm{T}$ bound. This quantity should be bounded above
+and choose the one that gives the weakest $M_\mrm{T}$ bound. This minimized quantity should be bounded above
 by the mass of the pair-produced parent particles.
 So, following \cite{mt2_def} we define
 \be
@@ -69,7 +93,7 @@ So, following \cite{mt2_def} we define
 \left[\max\left(M_\mrm{T}^{(1)},M_\mrm{T}^{(2)}\right)\right],
 \ee
 where (from Eq.~\ref{eq:mtlong})
-\be
+\be\label{eq:mti}
 M_\mrm{T}^{(i)2} = m_{\mrm{vis}(i)}^2 + m_X^2 + 
 2\left(E_\mrm{T}^{\mrm{vis}(i)}E_\mrm{T}^{X(i)} - \vSS{p}{\mrm{T}}{\mrm{vis}(i)}\cdot\vSS{p}{\mrm{T}}{X(i)}\right)
 \;\;(i=1,2),
@@ -83,14 +107,61 @@ in an event (either the event is accompanied by ISR or pileup jets, or the decay
 object. For example, gluino decay into top quarks, illustrated in Fig.~\ref{Fig:example_susy_feyn} (left), produces multiple jets per
 decaying gluino). If the original pair-produced particles are produced back-to back, the visible systems tend to be in opposite
 hemispheres. So before computing \mttwo, all jets in the event are clustered into two \emph{pseudojets} following the algorithm
-described in Ref.~\cite{CMS:tdr}, Section 13.4. First, two initial seed axes are chosen. In this analysis they are chosen
+described in Ref.~\cite{CMS:tdr}, Section 13.4, and these pseudojets are used as the two visible systems. 
+First, two initial seed axes are chosen. In this analysis they are chosen
 by identifying the two jets that have the largest dijet invariant mass. Next, other jets are associated to one of these axes
 according to a clustering criterion. Here we use the minimal Lund distance, meaning that jet $k$ is associated to hemisphere
 $i$ rather than hemisphere $j$ if
 \be
-(E_i-p_i\cos\theta_{ik})\frac{E_i}{(E_i+E_k)^2} < (E_j-p_j\cos\theta_{jk})\frac{E_j}{(E_j+E_k)^2}.
+(E_i-p_i\cos\theta_{ik})\frac{E_i}{(E_i+E_k)^2} < (E_j-p_j\cos\theta_{jk})\frac{E_j}{(E_j+E_k)^2},
 \ee
-
+where $E_i$ and $p_i$ are the energy and momentum of pseudojet $i$, and $\theta_{ik}$ is the angle between pseudojet $i$ and jet $k$.
 After all jets are associated to one or the other axis, the axes are recalculated as the sum of the
 momenta of all jets connected to a hemisphere. The association is iterated using these new axes
 until no jets switch from one group to the other.
+
+A second complication arises in choosing the mass terms in Eq.~\ref{eq:mti}. Computing the masses of
+the two pseudojets ($m_{\mrm{vis}(i)}$) is possible, but mis-measured multijet events with large pseudojet masses
+may give rise to large \mttwo, eliminating some of the discriminating power of the variable. Setting
+these pseudojet masses to 0 is found to further suppress multijet events while maintaining signal sensitivity.
+The invisible particle mass, $m_X$, on the contrary is an unknown parameter and could not be set to its
+proper value even if desired. It is found that setting $m_X=0$ is sufficient in maintaining discriminating power.
+Hence, in this analysis both mass terms in Eq.~\ref{eq:mti} are set to 0 when computing \mttwo.
+
+As discussed in Sec.~\ref{sec:mt2_backgrounds}, a big challenge in hadronic searches is the huge cross section
+for QCD production of multijet events at the LHC. While requiring large \ptmiss suppresses much of this, there is still
+a large contribution from events with \ptmiss from mis-measured jets. The \mttwo variable allows further suppression
+of these events, by taking advantage of the different event topologies between signal and mis-measured multijet events.
+
+This is illustrated in Figs.~\ref{Fig:inclusive_mt2} and \ref{Fig:metmt2}.
+Fig.~\ref{Fig:inclusive_mt2} shows distributions of \mttwo for signal and background after an inclusive selection,
+while Fig.~\ref{Fig:metmt2} shows 2D distributions of \mttwo vs. \ptmiss separately for signal and QCD multijet events.
+In SUSY events, the large mass scale of the produced sparticles and acoplanarity of the visible objects tends to concentrate
+the events in the high-\mttwo region (\mttwo follows \ptmiss quite closely). On the contrary, mis-measured multijet events
+populate the low-\mttwo region regardless of \ptmiss or jet \pt, since they tend to be ``back-to-back''.
+Electroweak backgrounds have larger \mttwo tails than does QCD, since they contain real missing energy from neutrinos.
+Because of this, after requiring high \mttwo, QCD multijet events become a sub-dominant background in all signal regions.
+
+
+\begin{figure}[ht]
+  \begin{center}
+    \includegraphics[width=0.50\textwidth]{figs/overview_mt2/inclusive_mt2.pdf}
+    \caption{\mttwo distributions for an example signal and backgrounds after an inclusive selection of $\Ht>250~\GeV$, $\ptmiss>30~\GeV$, and $\Nj\geq2$.
+      The signal shown is gluino pair production where each gluino decays to two light-flavor quarks and a neutralino, with 
+      $m_\glu=1500~\GeV$ and $m_\lsp=100~\GeV$.
+      The QCD multijet background falls rapidly with \mttwo, while signal extends out to large values. The electroweak backgrounds
+      have larger tails, since they containt true \ptmiss, but some discriminating power remains.
+            }
+    \label{Fig:inclusive_mt2}
+  \end{center}
+\end{figure}
+
+\begin{figure}[ht]
+  \begin{center}
+    \includegraphics[width=0.98\textwidth]{figs/overview_mt2/metmt2.pdf}
+    \caption{Distributions of \mttwo vs. \ptmiss, for QCD multijet events (left), and gluino pair production (right).
+      For signal, $\mttwo\sim\ptmiss$, while for background, \mttwo tends to be much smaller than \ptmiss.
+            }
+    \label{Fig:metmt2}
+  \end{center}
+\end{figure}
