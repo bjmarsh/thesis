@@ -1,10 +1,139 @@
 \chapter{Event Selection and Triggering}
 
+The general strategy of the \mttwo analysis is to apply a baseline selection
+motivated by the available triggers and by the desire to reduce QCD multijet
+background to manageable levels, and then to categorize the selected events
+into bins of differing levels of hadronic activty, number of b-tagged jets, 
+and missing transverse energy. The ``namesake'' variable \mttwo, used to reduce
+QCD background, was described in Sec.~\ref{sec:mt2_variable}, but a number of other
+variables are used to constrain backgrounds and categorize events.
+Sec.~\ref{sec:objvardefs} defines the
+relevant physics objects (jets, leptons, etc.) and kinematic variables, Sec.~\ref{sec:triggers} describes
+the triggers used in the analysis, Sec.~\ref{sec:baselinesel} outlines the
+baseline selection, and Sec.~\ref{sec:srdefs} gives the precise definitions
+of the signal regions.
+
 \section{Object and variable definitions}
 \label{sec:objvardefs}
 
+In CMS, individual particles are identified by combining information from the tracker, calorimeters, and muon system
+using the ``particle flow'' algorithm, described in Sec.~\ref{sec:cms_det}. This particle-level information is
+then used to cluster jets, reconstruct vertices, and compute the missing transverse energy. Here we list the various
+physics objects used in this analysis and the selections applied on them.
+
+\subsection{Vertices}
+``Vertex finding'' is a process of finding points in space from which groups of reconstructed particle tracks that, loosely,
+come from the same ``interaction'', emanate. There is generally a single ``primary vertex'', where the hard interaction
+took place, pileup vertices from pileup interactions, and, potentially, secondary vertices from longer-lived decaying particles
+such as b hadrons. Algorithms for reconstructing vertices are described in \cite{TRK_vertexing}. For this analysis,
+we consider a reconstructed vertex as good if it satisfies:
+\begin{itemize}
+\item not ``fake'' - if no vertices are reconstructed from tracks, a default vertex based on the beam-spot 
+(luminous region produced by proton beam collision) is used, and is labeled as ``fake''.
+\item $N_\mrm{dof}>4$ - $N_\mrm{dof}$ is the number of degrees of freedom in the fit of the position
+of the vertex, essentially the number of tracks consistent with originating from the vertex.
+\item $|z|<25$ cm - the longitudinal distance from the beam-spot.
+\item $\rho<2$ cm - the distance from the beam axis.
+\end{itemize}
+
+When more than one good reconstructed vertex is found in the event, the reconstructed vertex
+with the largest value of summed physics-object $\pt^2$ is taken to be the primary interaction
+vertex.
+
+\subsection{Jets}
+
+Jets are clustered using the anti-$k_\mrm{T}$ algorithm with distance parameter $R=0.4$.
+Charged hadrons from pileup interactions are identified and removed based on the ``charged hadron
+subtraction'' algorithm \cite{JME_pileup_removal_algo}.
+Jet energies are corrected for pileup contamination and detector response with CMS-derived
+era-dependent jet energy corrections.
+We select jets that satisfy $\pt>30~\GeV$ and $|\eta|<2.4$, and pass PF jet loose ID (2016)
+or tight ID (2017+18). For events with only one jet, we require tighter ID requirements to reject noisy jets. 
+All jet ID cuts are summarized in Table~\ref{tab:jet_id}.
+
+\begin{table}[h]
+\caption{Jet ID definitions}
+\label{tab:jet_id}
+\centering
+\begin{tabular}{l|c|c|c}
+\hline
+ & 2016 & 2017-18 & Monojet (all years) \\ \hline
+Neutral hadron fraction & $<0.99$ & $<0.90$ & $<0.80$ \\
+Neutral EM fraction & $<0.99$ & $<0.90$ & $<0.70$ \\
+Number of constituents & $>1$ & $>1$ & $>1$ \\
+Charged hadron fraction & $>0$ & $>0$ & $>0.05$ \\
+Charged multiplicity & $>0$ & $>0$ & $>0$ \\
+Charged EM fraction & $<0.99$ & -- & $<0.99$ \\
+\hline
+\end{tabular}
+\end{table}
+
+We define \Nj as the number of jets passing the above selections, and \Ht as 
+the scalar sum of \pt values for all such jets.
+
+Jets originating from b quarks are tagged using the DeepCSV algorithm \cite{BTV_btagging}, at the medium working point. 
+For the purposes of counting the number of b-tags (\Nb), we loosen the \pt threshold for b-tagged jets to 20~\GeV.
+This helps to add sensitivity to compressed-spectrum signals with jets from b quarks.
+
+\subsection{\ptmiss}
+We use type 1-corrected PFMET, defined in Sec.~\ref{sec:jetmet}, using the same jet energy corrections
+as applied to the jets. We additionally define \vMht as
+\be
+\vMht = -\sum_\mrm{jets} \vec{p}_{\mrm{T},i},
+\ee
+where the sum is taken over all jets passing the above requirements. The difference with respect to \vMet is that
+this excludes forward or low-\pt jets and unclustered energy.
+
+\subsection{\ptmiss filters}
+In addition to real missing energy due to invisible particles, events may have some amount of ``fake \ptmiss'' due to either
+detector effects or external sources (e.g. cosmic rays or beam-halo particles). We have discussed fake \ptmiss from 
+standard jet mis-measurement due to stochaistic smearing in the calorimeters, but more pathological effects are also possible,
+such as noisy calorimeter cells or bad track reconstructions. To eliminate as best as possible events containing such sources
+of fake \ptmiss, the JetMET group at CMS recommends a set of ``\ptmiss filters'' that use features of the reconstructed
+event to identify certain classes of bad events. We apply all standard recommended filters, listed here:
+\begin{itemize}\setlength\itemsep{-1mm}
+\item primary vertex filter
+\item CSC super-tight beam halo 2016 filter (despite name, used in all 3 years)
+\item HBHE noise filter
+\item HBHE iso noise filter
+\item EE badSC noise filter
+\item ECAL dead cell trigger primitive filter
+\item bad muon filter
+\item ECAL bad calibration filter (2017+18 only)
+\end{itemize}
+
+There are also a few custom \ptmiss filters developed by this analysis or the CMS SUSY group that are applied to protect 
+against other observed sources of fake \ptmiss.
+First, we reject any event containing a jet with $\pt>30~\GeV$ and $|\eta|<4.7$ which fails the PF jet loose/tight ID as described above.
+Since this jet would not enter the collection used to compute \mttwo, the pseudojets would likely be imbalanced and the resulting
+\mttwo biased.
+This is not applied to fast simulation MC samples since the input variables are not correctly modeled, and \mttwo
+is expected to already be high anyway.
+
+Next, we require that the ratio of PFMET over caloMET (\ptmiss computed only with calorimeter deposits) is less than 5.
+This was found to remove events with a bad high-\pt muon track inside a jet, which are not removed by either the lepton
+vetoes or the bad muon track filter. 
+Also to reduce the effect of mis-measured muons, we veto events that contain a jet with $\pt>200~\GeV$, a muon fraction
+larger than 50\%, and satisfy $|\Delta\phi(\mrm{jet},\ptmiss)| > \pi-0.4$.
+
+Finally, to remove certain known pathological events in fast simulation MC, we remove events in such MC containing
+a jet satisfying $\pt>20~\GeV$, $|\eta|<2.5$, charged hadron fraction $<0.1$, and no matching generator-level jet
+within $\Delta R<0.3$.
+
+\subsection{Electrons}
+\subsection{Muons}
+\subsection{Isolated tracks}
+\subsection{\dphimet}
+The variable \dphimet (referred to as \dpmin in the following) is defined as the minimum $\Delta\phi$ between
+\vMet and any of the four highest \pt jets in the event. For this variable only, we consider jets with
+$\pt>30~\GeV$ and $|\eta|<4.7$.
+
+
 \section{Triggers}
+\label{sec:triggers}
 
 \section{Baseline selections}
+\label{sec:baselinesel}
 
 \section{Signal region definitions}
+\label{sec:srdefs}
