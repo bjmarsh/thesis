@@ -121,8 +121,110 @@ a jet satisfying $\pt>20~\GeV$, $|\eta|<2.5$, charged hadron fraction $<0.1$, an
 within $\Delta R<0.3$.
 
 \subsection{Electrons}
+
+While the analysis signal regions are purely hadronic, it is still necessary to define lepton candidates, 
+both in order to define a lepton veto and to select events for the leptonic control regions.
+Electron candidates are required to satisfy $\pt>10~\GeV$ and $|\eta|<2.4$. Good electrons are identified
+using cut-based ID working points developed by the EGamma group at CMS: the ``veto'' working point is used for
+the signal region veto and the single-lepton control region, and the ``loose'' working point is used for
+the dileptonic \zll control region. The cuts are summarized in Table~\ref{tab:electron_id}, and definitions
+for the various variables are listed here.
+\begin{itemize}\setlength\itemsep{-1mm}
+\item $\sigma_{i\eta i\eta}$ - a variable describing the width of the shower in the ECAL; computed using the 
+reconstructed hits in a 5x5 seed cluster
+\item $|\Delta\eta_\mrm{Seed}|$ - difference in $\eta$ between a ECAL cluster position and track direction at vertex extrapolated to ECAL
+\item $|\Delta\phi_{In}|$ - difference in $\phi$ between a ECAL cluster position and track direction at vertex extrapolated to ECAL
+\item $H/E$ - ratio of energy in HCAL behind ECAL cluster to the energy in the ECAL cluster
+\item $|1/E-1/p|$ - tests consistency of ECAL cluster energy and track momentum
+\item $|d0|$ - transverse impact parameter of the track with respect to the primary vertex
+\item $|dz|$ - longitudinal impact parameter of the track with respect to the primary vertex
+\item conversion veto - reject electron candidates that look like photon conversions to $e^+e^-$ pairs
+\end{itemize}
+
+\begin{table}[htbp]
+\caption{Cut-based electron ID for the Veto and Loose ID working points, for electrons in the barrel (endcap).}
+\label{tab:electron_id}
+\scriptsize
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{c|c|c}
+\hline
+&Veto ID & Loose ID \\
+\hline
+\hline
+$\sigma_{i\eta i\eta}$ & \multirow{2}{*}{$ < 0.0126$ ($0.0457$)} & \multirow{2}{*}{$ < 0.0112$ ($0.0425$)}\\
+(RecHits in 5x5 seed cluster)& &\\ 
+\hline
+$|\Delta\eta_\mrm{Seed}|$& $ < 0.00463$ ($0.00814$)& $ < 0.00377$ ($0.00674$) \\ 
+\hline
+$|\Delta\phi_{In}|$ &$ < 0.148$ ($0.19$) & $ < 0.0884$ ($0.169$) \\ 
+\hline
+\multirow{2}{*}{$H/E$} &  $ < 0.05+1.16/E_{\mathrm{SC}}+0.0324~\rho/E_{\mathrm{SC}}$ &$ < 0.05+1.16/E_{\mathrm{SC}}+0.0324~\rho/E_{\mathrm{SC}}$ \\
+&($ < 0.05+2.54/E_{\mathrm{SC}}+0.183~\rho/E_{\mathrm{SC}}$)  & ($0.0441+2.54/E_{\mathrm{SC}}+0.183~\rho/E_{\mathrm{SC}}$)\\ 
+\hline
+$|\frac{1}{E} - \frac{1}{p}|$  &$ < 0.209$ ($0.132$) &$ < 0.193$ ($0.169$)\\ 
+\hline
+$|d0|$ (w.r.t. primary vertex) &$ < 0.2$ ($0.2$)~cm & $ < 0.2$ ($0.2$)~cm\\ 
+\hline
+$|dz| $(w.r.t. primary vertex)  &$ < 0.5$ ($0.5$)~cm  &$ < 0.5$ ($0.5$)~cm \\ 
+\hline
+\# of expected missing inner hits &$ \leq 2$ (3)&$ \leq 1$ (1)\\ 
+\hline
+conversion veto& yes & yes \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+In addition to the ID described above, electrons are required to be isolated. This is defined using relative
+mini-PF isolation, as miniPFIso$/\pt<0.1$. ``PF isolation'' is just the sum of the \pt values of all particle flow candidates
+within a cone around the electron candidate, and the ``mini'' part means that this cone size gets smaller
+with higher electron \pt. Precisely, the cone size used is
+\begin{equation}
+\label{eqn:miniiso}
+ \Delta R =
+  \begin{cases}
+   0.2          & \text{if } \pt < 50\GeV \\
+   10\GeV/\pt   & \text{if } 50 < \pt < 200\GeV \\
+   0.05         & \text{if } \pt > 200\GeV
+  \end{cases}
+\end{equation}
+
+A correction to the isolation to account for pileup contamination is applied, based on the event-level energy
+density and the effective area of the electron cone.
+
 \subsection{Muons}
+
+Muon candidates are required to pass $\pt>10~\GeV$ and $|\eta|<2.4$, and a loose ID selection defined as:
+\begin{itemize}\setlength\itemsep{-1mm}
+\item matched to a particle flow muon
+\item either a global muon (tracker+muon system) or a tracker-only muon
+\item $|d0|<0.2$~cm (transverse impact parameter with respect to the primary vertex)
+\item $|dz|<0.5$~cm (longitudinal impact parameter with respect to the primary vertex)
+\end{itemize}
+
+We require the muons to be isolated using the same relative mini PF isolation as used for the electrons,
+this time requiring miniPFIso$/\pt<0.2$.
+
 \subsection{Isolated tracks}
+
+In addition to vetoing events with the reconstructed leptons described above, we further add a veto
+for events with ``isolated tracks'' that weren't reconstructed as leptons, either because
+they are charged hadrons or they failed some criteria to be promoted to a full reconstructed lepton.
+This allows better rejection of backgrounds with hadronically decaying $\tau$ leptons (these frequently
+produce isolated pions) or with isolated leptons that weren't caught be the lepton veto, without
+appreciably affecting signal efficiency.
+We select charged particle flow candidates with different requirements depending on the type of candidate.
+
+For particle flow electrons and muons, we require them to pass $\pt>5\GeV$, $|\eta|<2.4$, $|dz|<0.1$~cm,
+$|dxy|<0.2$~cm, and a track isolation cut of iso$/\pt<0.2$. The track isolation is computed as the sum
+of all charged hadron particle flow candidates with in a cone of $\Delta R<0.3$, and that satisfy 
+$|dz|<0.1$~cm with respect to the primary vertex. For lepton counting, particle flow leptons
+within $\Delta R<0.01$ of selected reconstructed leptons are removed.
+
+Charged particle flow hadrons are required to pass $\pt>10\GeV$, $|\eta|<2.4$, $|dz|<0.1$~cm,
+$|dxy|<0.2$~cm, and a track isolation cut of iso$/\pt<0.1$, computed in the same way as above.
+
 \subsection{\dphimet}
 The variable \dphimet (referred to as \dpmin in the following) is defined as the minimum $\Delta\phi$ between
 \vMet and any of the four highest \pt jets in the event. For this variable only, we consider jets with
