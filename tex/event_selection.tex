@@ -22,6 +22,7 @@ then used to cluster jets, reconstruct vertices, and compute the missing transve
 physics objects used in this analysis and the selections applied on them.
 
 \subsection{Vertices}
+\label{sec:vertices}
 ``Vertex finding'' is a process of finding points in space from which groups of reconstructed particle tracks that, loosely,
 come from the same ``interaction'', emanate. There is generally a single ``primary vertex'', where the hard interaction
 took place, pileup vertices from pileup interactions, and, potentially, secondary vertices from longer-lived decaying particles
@@ -85,6 +86,7 @@ where the sum is taken over all jets passing the above requirements. The differe
 this excludes forward or low-\pt jets and unclustered energy.
 
 \subsection{\ptmiss filters}
+\label{sec:metfilters}
 In addition to real missing energy due to invisible particles, events may have some amount of ``fake \ptmiss'' due to either
 detector effects or external sources (e.g. cosmic rays or beam-halo particles). We have discussed fake \ptmiss from 
 standard jet mis-measurement due to stochaistic smearing in the calorimeters, but more pathological effects are also possible,
@@ -121,6 +123,7 @@ a jet satisfying $\pt>20~\GeV$, $|\eta|<2.5$, charged hadron fraction $<0.1$, an
 within $\Delta R<0.3$.
 
 \subsection{Electrons}
+\label{sec:electrons}
 
 While the analysis signal regions are purely hadronic, it is still necessary to define lepton candidates, 
 both in order to define a lepton veto and to select events for the leptonic control regions.
@@ -194,6 +197,7 @@ A correction to the isolation to account for pileup contamination is applied, ba
 density and the effective area of the electron cone.
 
 \subsection{Muons}
+\label{sec:muons}
 
 Muon candidates are required to pass $\pt>10~\GeV$ and $|\eta|<2.4$, and a loose ID selection defined as:
 \begin{itemize}\setlength\itemsep{-1mm}
@@ -207,6 +211,7 @@ We require the muons to be isolated using the same relative mini PF isolation as
 this time requiring miniPFIso$/\pt<0.2$.
 
 \subsection{Isolated tracks}
+\label{sec:isotracks}
 
 In addition to vetoing events with the reconstructed leptons described above, we further add a veto
 for events with ``isolated tracks'' that weren't reconstructed as leptons, either because
@@ -234,8 +239,292 @@ $\pt>30~\GeV$ and $|\eta|<4.7$.
 \section{Triggers}
 \label{sec:triggers}
 
-\section{Baseline selections}
+\subsection{Signal region triggers}
+\label{sec:srtrigs}
+The baseline \Ht and \ptmiss cuts used for the signal regions are constrained by the available
+triggers utilized in the data-taking, which can be different from year to year. The signal
+regions use an OR of various \Ht- and \ptmiss-based triggers, that cover different (but
+overlapping) regions of phase space.
+
+The exact triggers used are an OR of the following:
+
+\noindent
+\textbf{2016 data}
+\vspace{-\topsep}
+\begin{itemize}\setlength\itemsep{-1mm}
+\item \texttt{HLT\_PFHT900} - pure-\Ht trigger; nominally turns on at 900\GeV but observed plateau near 1000\GeV.
+\item \texttt{HLT\_PFJet450} - triggers on any jet with $\pt>450\GeV$. Not strictly necessary, but used anyway
+to cover for any potential small inefficiency.
+\item \texttt{HLT\_PFHT300\_PFMET100} - triggers on a combination of $\Ht>300\GeV$ and $\ptmiss>100\GeV$.
+Again not strictly necessary, but covers for any potential inefficiency of the \pt miss triggers in the 
+intermediate \Ht regions.
+\item \texttt{HLT\_PFMET[NoMu]120\_PFMHT[NoMu]120\_IDTight} - a pure \ptmiss trigger, where the \ptmiss
+is computed either with or without muons. Observed plateau around $\ptmiss=250\GeV$.
+\end{itemize}
+
+\noindent
+\textbf{2017+18 data} (similar triggers to 2016, but with raised thresholds)
+\vspace{-\topsep}
+\begin{itemize}\setlength\itemsep{-1mm}
+\item \texttt{HLT\_PFHT1050}
+\item \texttt{HLT\_PFJet500}
+\item \texttt{HLT\_PFHT800\_PFMET75\_PFMHT75} OR \texttt{HLT\_PFHT500\_PFMET100\_PFMHT100}
+\item \texttt{HLT\_PFMET[NoMu]120\_PFMHT[NoMu]120\_PFHT60\_IDTight}
+\end{itemize}
+
+An illustration of the trigger coverage in the baseline signal region (defined in Sec.~\ref{sec:baselinesel})
+is shown in Fig.~\ref{fig:trig_diagram}. At low \Ht, the only available trigger is the pure-\ptmiss trigger,
+which necessetates the \ptmiss cut of 250\GeV. At higher \Ht ($>$1200\GeV), the pure-\Ht trigger can be used
+and allows for the relaxing of the \ptmiss cut to 30\GeV. The \Ht+\ptmiss triggers (and jet \pt trigger)
+provide redundancy in the intermediate to high \Ht regions.
+
+\begin{figure}[ht]
+  \begin{center}
+    \includegraphics[width=0.65\textwidth]{figs/event_selection/trig_diagram.pdf}
+    \caption{Illustration of the trigger coverage of the baseline signal region (defined in Sec.~\ref{sec:baselinesel}).
+      The pure-\ptmiss triggers cover the low-\Ht regions, starting at $\ptmiss=250\GeV$.
+      The pure-\Ht trigger covers the high-\Ht regions, starting at $\Ht=1200\GeV$.
+      The \Ht+\ptmiss triggers provide redundancy and cover for any
+      small inefficiencies in the intermediate \Ht regions.
+            }
+    \label{fig:trig_diagram}
+  \end{center}
+\end{figure}
+
+Measuring the efficiency of the triggers is imporant to ensure the signal regions are fully covered and trigger
+at near 100\%. To make this measurement, a selection in the plateau of an orthogonal ``reference trigger''
+is made, and then the efficiency of the desired trigger is plotted as a function of the relevant kinematic
+variable. 
+
+The efficiency of the pure-\Ht triggers is measured in two ways: one using an electron trigger
+reference, and one using a \ptmiss trigger reference. Both methods start by selecting events that pass
+all \ptmiss filter, and that have at least 2 jets with $\pt>30\GeV$ and no leptons (other than the 
+potential reference electron). The electron method further requires
+that the event passes a single electron trigger, and contains an electron with $\pt>35\GeV$ that is 
+isolated and passes a tight cut-based ID. The \ptmiss method requires that the event passes the
+pure-\ptmiss trigger and has $\ptmiss>300\GeV$. Both methods give consistent results, with 
+pleateau efficiencies of $>$98\%. After combining with the \texttt{HLT\_PFJetXXX} trigger,
+the efficiency is $>$99\% in all years. Example measurements are shown in Fig.~\ref{fig:trigmeas_HT}.
+
+\begin{figure}[ht]
+  \begin{center}
+    \includegraphics[width=0.49\textwidth]{figs/event_selection/pfht1050_2017_met.pdf}
+    \includegraphics[width=0.49\textwidth]{figs/event_selection/pfht1050_2018_el.pdf}
+    \caption{Trigger efficiency measurements for the pure-\Ht \texttt{HLT\_PFHT1050} trigger,
+      (left) for 2017 data using a \ptmiss-based reference trigger, and (right) for 2018 data
+      using an electron-based reference trigger. The dashed (solid) blue histograms
+      are the denominator (numerator) event counts, and the red lines are logistic function fits to the
+      efficiency curves.
+            }
+    \label{fig:trigmeas_HT}
+  \end{center}
+\end{figure}
+
+The pure-\ptmiss trigger efficiencies are measured using the electron-based method described above.
+The \Ht and \ptmiss leggs of the \Ht+\ptmiss triggers must be measured separately. The \Ht leg is measured
+using a \ptmiss trigger reference, and the \ptmiss leg is measured using an electron trigger reference
+(with the additional requirement of $\Ht>700\GeV$ to ensure that we are in the plateau of the \Ht leg).
+Efficiencies of close to 100\% are observed in all cases. Example measurements of the \ptmiss and \Ht+\ptmiss
+trigger efficienes are shown in Fig.~\ref{fig:trigmeas_HTMET}.
+
+\begin{figure}[ht]
+  \begin{center}
+    \includegraphics[width=0.49\textwidth]{figs/event_selection/pfht500met100_2017_htleg_met.pdf}
+    \includegraphics[width=0.49\textwidth]{figs/event_selection/pfmet120nomu_2018_el.pdf}
+    \caption{Trigger efficiency measurements (left) for the \Ht-leg of the \texttt{HLT\_PFHT500\_PFMET100}
+      trigger in 2017 data, measured with a \ptmiss-based reference trigger, 
+      and (right) for the pure-\ptmiss \texttt{HLT\_PFMETNoMu120\_PFMHTNoMu120} trigger
+      in 2018 data, measured using an electron-based reference trigger. The dashed (solid) blue histograms
+      are the denominator (numerator) event counts, and the red lines are logistic function fits to the
+      efficiency curves.
+            }
+    \label{fig:trigmeas_HTMET}
+  \end{center}
+\end{figure}
+
+\subsection{Control region triggers}
+\label{sec:crtrigs}
+
+Control region definitions are given in Sec.~\ref{sec:crdefs}. Here we only summarize the triggers used,
+and it is sufficient to know that there are both single-lepton and dilepton control regions used for
+predicting the electroweak backgrounds, and an inclusive low-\Ht data sample used in the estimate
+of the QCD multijet background.
+
+The single-lepton control region is triggered with the same triggers as the signal region, since
+the cuts on the relevant kinematic variables are the same (the only difference is the requirement of
+exactly one lepton, instead of zero).
+
+This is not true for the dilepton control region, since as we will see the leptons are removed from
+the \Ht and added to the \vMet vector before cutting on these variables. So the standard \Ht and
+\ptmiss triggers will not work, and special dilepton triggers are used instead.
+
+The dimuon selection is triggered with a combination of isolated and non-isolated
+dimuon triggers and non-isolated single-muon triggers (non-isolated and single-muon
+paths are to recover inefficiencies at high muon \pt).
+
+Similarly, the dielectron selection is triggered with a combination of isolated and non-isolated
+dielectron triggers as well as a single-photon trigger.
+
+Finally, there is an opposite-flavor (i.e. $e\mu$) control regoin used for estimating \ttbar contamination
+in the same-flavor region, that is triggered with a combination of isolated and non-isolated
+$e\mu$ triggers, non-isolated single-muon triggers, and a single-photon trigger.
+
+Efficiencies of these dilepton can be measured using pure-\Ht triggers as a reference (both non-prescaled
+and lower threshold prescaled triggers).
+Plots of measured trigger efficiency as a function of leading and subleading lepton \pt in the relevant
+section of phase space are shown in Fig.~\ref{fig:trigmeas_dilep}, for 2017 data. Measurements for 2016 
+and 2018 are similar. Inefficiencies up to $\sim10$\% are present; these are accounted for by
+applying them as weights to MC on a year-by-year basis as a function of leading and subleading \pt.
+
+\begin{figure}[t]
+  \begin{center}
+    \includegraphics[width=0.49\textwidth]{figs/event_selection/trigeff_dilep_mm_2d_ht_2017fullYear.pdf}
+    \includegraphics[width=0.49\textwidth]{figs/event_selection/trigeff_dilep_ee_2d_ht_2017fullYear.pdf} \\
+    \includegraphics[width=0.49\textwidth]{figs/event_selection/trigeff_dilep_em_2d_ht_2017fullYear.pdf}
+    \caption{Measured dilepton trigger efficiences as a function of leading and subleading lepton \pt
+      in 2017 data, for (top left) dimuon, (top right) dielectron,
+      and (bottom) $e\mu$ selections. Triggers used are a logical OR of the various triggers described
+      in Sec.~\ref{sec:crtrigs}. Measurements in 2016 and 2018 are similar.
+            }
+    \label{fig:trigmeas_dilep}
+  \end{center}
+\end{figure}
+
+Though not technically a control region, an inclusive selection of low-\Ht events is used in the Rebalance and
+Smear method for computing QCD multijet background, described in Chapter~\ref{chap:qcd}. This selection
+makes use of low-threshold pure-\Ht triggers, that are necessarily prescaled due to their very
+high rates. Though event-by-event prescale values are stored in the data (the exact prescale rate
+depends on the instantaneous luminosity and the exact trigger menu being used, so vary with time),
+yearly ``effective prescales'' are measured as a constistency check. This is done by measuring the
+ratio of rates of different triggers as a function of \Ht, and fitting the ratio
+in the plateau. Comparing to the high threshold unprescaled trigger, the effective prescales of
+all others can be determined.
+
+A plot measuring the effective prescales in 2017 data is shown in Fig.~\ref{fig:pureht_prescales} (left).
+On the right is the observed \Ht spectrum using these prescale values, which is smooth as
+is expected if the correct prescales are measured.
+
+\begin{figure}[t]
+  \begin{center}
+    \includegraphics[width=0.45\textwidth]{figs/event_selection/prescales_2017.pdf}
+    \includegraphics[width=0.54\textwidth]{figs/event_selection/htSpect2017_meth1.pdf} \\
+    \caption{(left) A plot of the ratio of rates of various pure-\Ht triggers in
+      2017 data. The value at the plateau gives the relative prescale between two triggers,
+      and comparing to the unprescaled \texttt{HLT\_PFHT1050} gives the absolute prescale.
+      (right) The observed \Ht spectrum using these prescales, which is smooth as is expected 
+      if the correct values are measured.
+            }
+    \label{fig:pureht_prescales}
+  \end{center}
+\end{figure}
+
+\section{Baseline selection}
 \label{sec:baselinesel}
+
+Using the object and variable definitions detailed in Sec.~\ref{sec:objvardefs}, the
+baseline selection used for all analysis signal regions is as follows:
+\begin{itemize}\setlength\itemsep{-1mm}
+\item at least one good vertex, as defined in Sec.~\ref{sec:vertices}
+\item pass all \ptmiss filters, as defined in Sec.~\ref{sec:metfilters}
+\item pass the logical OR of all signal region triggers listed in Sec.~\ref{sec:srtrigs}
+\item $\Ht>1200\GeV$ and $\ptmiss>30\GeV$, or $\Ht>250\GeV$ and $\ptmiss>250\GeV$. These cuts are
+based on the available trigger thresholds, and illustrated in Fig.~\ref{fig:trig_diagram}.
+\item $\dphimet>0.3$. This protects against large \ptmiss from jet mis-measurement in multijet events,
+and rejects a large fraction of QCD background.
+\item $|\vMht-\vMet|/\ptmiss<0.5$. This requires that \vMht be similar to \vMet, and in doing so
+protects agains bias in the shape of \mttwo. \ptmiss is sensitive to reconstructed objects with
+$\pt<30\GeV$ or $|\eta|>2.4$, where as these are not used in \vMht or in the construction of
+pseudojets for \mttwo, so a large contribution from these objects to the missing transverse energy
+can bias the \mttwo distribution.
+\item lepton veto: to reduce the background from events with a $W$ boson decay, we reject events if they contain
+\vspace{-\topsep}
+\begin{itemize}\setlength\itemsep{-1mm}
+\item a reconstructed electron or muon as defined in Secs.~\ref{sec:electrons} and \ref{sec:muons}
+\item a particle flow electron, muon, or hadron candidate as defined in Sec.~\ref{sec:isotracks},
+with the additional requirement of $M_\mrm{T}(\mrm{cand},\vMet)<100\GeV$ (to avoid vetoing
+signal events, which contain \ptmiss not from the leptonic $W$ decay and hence have high $M_\mrm{T}$).
+\end{itemize}
+\item $\mttwo>200\GeV$ (only for events with at least 2 jets). This provides a large rejection of QCD
+multijet events that have large \ptmiss from mis-measured jets, as discussed in Sec.~\ref{sec:mt2_variable}.
+The threshold is raised to $\mttwo>400\GeV$ for events with $\Ht>1500\GeV$, in order to ensure that
+QCD multijet events remain a subdominant background.
+\end{itemize}
 
 \section{Signal region definitions}
 \label{sec:srdefs}
+
+After the baseline selection defined in Sec.~\ref{sec:baselinesel}, signal regions are further categorized
+into different bins of \Ht, \Nj, \Nb, and \mttwo.
+
+First, we categorize $\Nj\geq2$ (multijet) events by \Ht, \Nj, and \Nb. Each $(\Ht,\Nj,\Nb)$ bin is referred to as a
+\emph{topological region}.
+\begin{itemize}\setlength\itemsep{-1mm}
+\item Five \Ht regions: $[250,450],[450,575],[575,1200],[1200,1500],[1500,\infty]$ \GeV.
+These bins are referred to here and throughout this dissertation as Very Low, Low, Medium,
+High, and Extreme \Ht, respectively.
+\item For the first three \Ht regions, we use 11 bins in \Nj and \Nb:
+\vspace{-\topsep}
+\begin{itemize}\setlength\itemsep{-1mm}
+\item 2--3 jets; 0, 1, 2 b tags
+\item 4--6 jets; 0, 1, 2 b tags
+\item 2--6 jets; $\geq$3 b tags
+\item $\geq$7 jets; 0, 1, 2, $\geq$3 b tags
+\end{itemize}
+\item For the highest two \Ht regions, we further subdivide the $\Nj\geq7$ regions
+for a total of 17 bins in \Nj and \Nb:
+\vspace{-\topsep}
+\begin{itemize}\setlength\itemsep{-1mm}
+\item 2--3 jets; 0, 1, 2 b tags
+\item 4--6 jets; 0, 1, 2 b tags
+\item 2--6 jets; $\geq$3 b tags
+\item 7--9 jets; 0, 1, 2, 3, $\geq$4 b tags
+\item $\geq$10 jets; 0, 1, 2, 3, $\geq$4 b tags
+\end{itemize}
+\end{itemize}
+
+The division into topological regions for the High \Ht region is shown in Fig.\ref{fig:piechart_H}, along
+with background composition in each region. We see that QCD multijet background becomes more important with
+increasing \Nj, and top background becomes more dominant with increasing \Nb.
+
+\begin{figure}[t]
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{figs/event_selection/piecharts_H.pdf}
+    \caption{Topological region binning (defined by the solid gray lines)
+      for the High \Ht region ($1200\leq\Ht<1500\GeV$). The proportion
+      of each background type is shown as a pie chart in each topological region. QCD multijet becomes more imporant
+      with increasing \Nj, and top backgrounds become more dominant at high \Nb. Background composition is estimated
+      using the data-driven techniques described in the following chapters.
+            }
+    \label{fig:piechart_H}
+  \end{center}
+\end{figure}
+
+Finally, we further divide each topological region into bins of \mttwo. The bin thresholds are chosen according
+to the following criteria:
+\begin{itemize}\setlength\itemsep{-1mm}
+\item The lower edge of the first \mttwo bin is 200\GeV, except for $\Ht>1500\GeV$ (Extreme \Ht) where it is 400\GeV.
+\item In each topological region, we select the lower threshold of the last \mttwo bin such that this
+bin is expected, from simulation, to contain approximately one background event. Moreover, the upper limit on \Ht
+effectively places an upper limit on \mttwo. Therefore, this lower \mttwo threshold should not be larger than the upper limit
+on \Ht, in each \Ht region.
+\item Bin widths are nominally chosen to be 100\GeV. In each topological region, we merge \mttwo bins which are 
+expected to contain less than one background event. In a few cases, we merge intermediate \mttwo bins
+to minimize the number of signal region bins.
+\end{itemize}
+
+The final \mttwo binning for the multijet search regions can be found in 
+Tables~\ref{tab:yieldsVL} through \ref{tab:yieldsUHh} in Appendix~\ref{app:yield_tables}
+
+In addition to the $\Nj\geq2$ bins described above, we also select events with $\Nj=1$ (monojet), with the jet required to have
+$\pt(\mrm{jet})>250\GeV$. Events are then categorized as follows:
+\begin{itemize}\setlength\itemsep{-1mm}
+\item Two \Nb regions: $\Nb=0$ and $\Nb\geq1$ (since the \pt threshold for \Nb is lower than that for \Nj, it
+is possible that $\Nb>1$ even when $\Nj=1$)
+\item For $\Nb=0$, \Ht bin edges of $[250,350,450,575,700,1000,1200,\infty]$\GeV
+\item For $\Nb\geq1$, \Ht bin edges of $[250,350,450,575,700,\infty]$\GeV
+\end{itemize}
+
+In total, there are 270 multijet and 12 monojet regions for a total of 282 signal region search bins.
+
+\section{Control regions}
+\label{sec:crdefs}
