@@ -180,7 +180,7 @@ conversion veto& yes & yes \\
 \end{table}
 
 In addition to the ID described above, electrons are required to be isolated. This is defined using relative
-mini-PF isolation, as miniPFIso$/\pt<0.1$. ``PF isolation'' is just the sum of the \pt values of all particle flow candidates
+mini-PF isolation, as miniPFIso$/\pt<0.1$. ``PF isolation'' is just the sum of the \pt values of all particle-flow candidates
 within a cone around the electron candidate, and the ``mini'' part means that this cone size gets smaller
 with higher electron \pt. Precisely, the cone size used is
 \begin{equation}
@@ -201,7 +201,7 @@ density and the effective area of the electron cone.
 
 Muon candidates are required to pass $\pt>10~\GeV$ and $|\eta|<2.4$, and a loose ID selection defined as:
 \begin{itemize}\setlength\itemsep{-1mm}
-\item matched to a particle flow muon
+\item matched to a particle-flow muon
 \item either a global muon (tracker+muon system) or a tracker-only muon
 \item $|d0|<0.2$~cm (transverse impact parameter with respect to the primary vertex)
 \item $|dz|<0.5$~cm (longitudinal impact parameter with respect to the primary vertex)
@@ -219,15 +219,15 @@ they are charged hadrons or they failed some criteria to be promoted to a full r
 This allows better rejection of backgrounds with hadronically decaying $\tau$ leptons (these frequently
 produce isolated pions) or with isolated leptons that weren't caught be the lepton veto, without
 appreciably affecting signal efficiency.
-We select charged particle flow candidates with different requirements depending on the type of candidate.
+We select charged particle-flow candidates with different requirements depending on the type of candidate.
 
-For particle flow electrons and muons, we require them to pass $\pt>5\GeV$, $|\eta|<2.4$, $|dz|<0.1$~cm,
+For particle-flow electrons and muons, we require them to pass $\pt>5\GeV$, $|\eta|<2.4$, $|dz|<0.1$~cm,
 $|dxy|<0.2$~cm, and a track isolation cut of iso$/\pt<0.2$. The track isolation is computed as the sum
-of all charged hadron particle flow candidates with in a cone of $\Delta R<0.3$, and that satisfy 
-$|dz|<0.1$~cm with respect to the primary vertex. For lepton counting, particle flow leptons
+of all charged hadron particle-flow candidates with in a cone of $\Delta R<0.3$, and that satisfy 
+$|dz|<0.1$~cm with respect to the primary vertex. For lepton counting, particle-flow leptons
 within $\Delta R<0.01$ of selected reconstructed leptons are removed.
 
-Charged particle flow hadrons are required to pass $\pt>10\GeV$, $|\eta|<2.4$, $|dz|<0.1$~cm,
+Charged particle-flow hadrons are required to pass $\pt>10\GeV$, $|\eta|<2.4$, $|dz|<0.1$~cm,
 $|dxy|<0.2$~cm, and a track isolation cut of iso$/\pt<0.1$, computed in the same way as above.
 
 \subsection{\dphimet}
@@ -365,7 +365,7 @@ paths are to recover inefficiencies at high muon \pt).
 Similarly, the dielectron selection is triggered with a combination of isolated and non-isolated
 dielectron triggers as well as a single-photon trigger.
 
-Finally, there is an opposite-flavor (i.e. $e\mu$) control regoin used for estimating \ttbar contamination
+Finally, there is an different-flavor (i.e. $e\mu$) control regoin used for estimating \ttbar contamination
 in the same-flavor region, that is triggered with a combination of isolated and non-isolated
 $e\mu$ triggers, non-isolated single-muon triggers, and a single-photon trigger.
 
@@ -440,7 +440,7 @@ can bias the \mttwo distribution.
 \vspace{-\topsep}
 \begin{itemize}\setlength\itemsep{-1mm}
 \item a reconstructed electron or muon as defined in Secs.~\ref{sec:electrons} and \ref{sec:muons}
-\item a particle flow electron, muon, or hadron candidate as defined in Sec.~\ref{sec:isotracks},
+\item a particle-flow electron, muon, or hadron candidate as defined in Sec.~\ref{sec:isotracks},
 with the additional requirement of $M_\mrm{T}(\mrm{cand},\vMet)<100\GeV$ (to avoid vetoing
 signal events, which contain \ptmiss not from the leptonic $W$ decay and hence have high $M_\mrm{T}$).
 \end{itemize}
@@ -528,3 +528,85 @@ In total, there are 270 multijet and 12 monojet regions for a total of 282 signa
 
 \section{Control regions}
 \label{sec:crdefs}
+
+To estimate the various backgrounds for this analysis, we make use of a number of control regions orthogonal 
+to the signal region. These include a single lepton selection, a dileptonic selection (mostly \zll events), 
+and a selection enriched in QCD multijet events.
+
+\subsection{Single lepton control region}
+A single lepton selection is used to esimate backgrounds from \ttbar and \wjets (``lost lepton'' background).
+The selection is the same as the baseline selection described in Sec.~\ref{sec:baselinesel}, with
+the exception of the lepton veto. Instead, we require exactly one candidate passing the reconstructed lepton
+or particle-flow lepton selections ($e$ or $\mu$ only). We further require this lepton candidate to satisfy
+$M_\mrm{T}(\mrm{cand},\ptmiss)<100\GeV$ to reduce signal contamination. Events in which both the lepton
+and missing energy are from leptonic $W$ decay tend to have $M_\mrm{T}\lesssim M_W=80\GeV$, while signal
+events (in which the predominant source of \ptmiss is \emph{not} $W$ decay) tend to have much larger $M_\mrm{T}$.
+As the \Ht and \ptmiss selections are the same as in the baseline signal region selection, 
+the same triggers as used in the signal region are used for this single lepton control region.
+
+When a true lepton is within detector acceptance, it is generally reconstructed in some form, even if
+not classified as an isolated lepton candidate. We therefore remove the closest jet within
+$\Delta R<0.4$ of the lepton candidate and count the lepton as a visible object for the purpose of computing
+the variables \Ht, \Mht, \dphimet, $|\vMht-\vMet|/\ptmiss$, and \mttwo. The lepton is \emph{not} however used
+in computing \Nj, as most leptons have low \pt.
+
+The baseline single lepton control region is separated into $(\Ht,\Nj,\Nb)$ topological regions
+in the same way as the signal region, with the exception of events with $\Nj\geq7$.
+The regions with $\geq$7 jets and $\geq$1 b tag are all predicted using control region bins with $\geq$7 jets and 1--2 b tags
+(but with the same \Ht binning as the signal regions).
+This is motivated by the low control region statistics in bins with $\geq$10 jets or $\geq$7 jets and $\geq$2 b tags,
+as well as potential signal contamination in bins with $\geq$7 jets and $\geq$3 b tags.
+Similarly, regions with either 7--9 or $\geq$10 jets and 0 b tags are all predicted using control region bins
+with $\geq7$ jets and 0 b tags, due to low control region statisitcs in bins with $\geq$10 jets.
+
+The single lepton control region is not binned in \mttwo like the signal regions. Instead, the lost
+lepton prediction along the \mttwo dimension is estimated using a hybrid technique described in 
+Chapter~\ref{chap:lostlep}.
+
+\subsection{Dilepton control regions}
+We make use of two dilepton control regions: a same-flavor $e^\pm e^\mp/\mu^\pm\mu^\mp$ control region, consisting mostly
+of \zll events and used to estimate the \znunu background, and an different-flavor $e^\pm\mu^\mp$
+control region, used to estimate contamination from flavor-symmetric processes (mainly \ttbar)
+in the same-flavor region.
+
+In either case, we require two opposite-charge leptons passing the reconstructed lepton selections
+given in Secs.~\ref{sec:electrons} and \ref{sec:muons}. Dileptonic triggers are used, 
+and to improve trigger efficiency we further
+require that electrons pass a slightly tigher cut-based ID requirement (``loose'' instead of ``veto'').
+The leptons must satisfy $\pt(\ell\ell)>200\GeV$ (to ensure similar kinematics to high-\pt \znunu
+events that populate the signal regions), and leading/subpleading lepton $\pt>100/35\GeV$. The invariant
+mass $m_{\ell\ell}$ must satisfy $|m_{\ell\ell}-m_Z|<20\GeV$ in order to ensure we select mainly $Z$ events.
+
+Since the leptons take the place of the neutrinos in \znunu events, to emulate the kinematics the
+lepton \vSS{p}{T}{} vectors are added to the \vMet vector for use in the computation of all
+kinematic variables. Further, since leptons are usually reconstucted as (at least components of) jets,
+the closest jet within $\Delta R<0.4$ of each lepton is removed from the event before computing kinematic
+quantities. The variables \Nj, \Nb, \Ht, \Mht, \dphimet, $|\vMht-\vMet|/\ptmiss$, and \mttwo are all
+potentially modified by these changes.
+
+In addition to the main same-flavor and different-flavor control regions described above, there is
+additionally an auxilliary different-flavor region enriched in \ttbar, used to measure the ratio
+of same-flavor to different-flavor events from flavor-symmetric processes. This is defined by
+inverting the $\pt(\ell\ell)$ and $m_{\ell\ell}$ selections, so that $\pt(\ell\ell)<200\GeV$
+and $|m_{\ell\ell}-m_Z|>20\GeV$.
+
+Similarly as for the single lepton control region, the dilepton control region is binned into
+topological in the same way as the signal region, with the exception of bins with $\geq$7 jets.
+This time, signal regions with 7--9 or $\geq$10 jets and 0 b tags are predicted with control
+region bins with $\geq$7 jets and 0 b tags, and signal regions with 7--9 or $\geq$10 jets and
+$\geq$ 1 b tag are predicted using control regions with $\geq$ 7 jets and $\geq$ 1 b tag
+(still with the same \Ht binning as the signal regions).
+
+\subsection{QCD-enriched control regions}
+We define a few control regions orthogonal to the signal region that are enriched in
+QCD multijet events, in order to validate the estimate of the QCD multijet background.
+This is done by inverting cuts on the two kinematic variables mainly responsible for
+rejecting QCD background. The baseline signal region selection is applied, with the
+exception of one of the following:
+\begin{itemize}\setlength\itemsep{-1mm}
+\item the \dphimet requirement is inverted to $\dphimet<0.3$.
+\item the \mttwo requirement is shifted to $100<\mttwo<200\GeV$
+\item \emph{both} the \dphimet and \mttwo cuts are changed as above
+\end{itemize}
+%
+The same triggers are used as in the signal regions.
