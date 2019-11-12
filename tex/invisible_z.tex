@@ -76,17 +76,17 @@ used to extrapolate along the \mttwo dimension, as described in Sec.~\ref{sec:zi
 The final estimate in each $(\Ht,\Nj,\Nb,\mttwo)$ signal region can then be summarized as
 \be\label{eq:zinv_est}
 N_{\znunu}^\mrm{SR} = \left[ N_\mrm{2-lep}^\mrm{CRSF}\; P_{\zll}\; R_\mrm{MC}^{\znunu/\zll} \right]
-(\Ht,\Nj,\Nb) \times k_\mrm{hybrid}(\mttwo),
+(\Omega) \times k_\mrm{hybrid}(\mttwo|\Omega),
 \ee
 where
-\begin{itemize}\setlength\itemsep{-1mm}
+\begin{itemize}\setlength\itemsep{0mm}
 \item $N_\mrm{2-lep}^\mrm{CRSF}$, $P_{\zll}$, and $R_\mrm{MC}^{\znunu/\zll}$ are measured in each topological
-region, integrated over \mttwo
+region (referred to here as $\Omega\equiv(\Ht,\Nj,\Nb)$), integrated over \mttwo
 \item $N_\mrm{2-lep}^\mrm{CRSF}$ is the number of observed events in data in the same-flavor dilepton control region
 \item $P_{\zll}$ is the \emph{purity}, or fraction of \zll events in the dilepton control region 
 (see Sec.~\ref{sec:dilep_bkgs})
 \item $R_\mrm{MC}^{\znunu/\zll}$ is the ratio between \znunu and \zll MC yields in this region
-\item $k_\mrm{hybrid}(\mttwo)$ is a normalized template used to distribute events as a function
+\item $k_\mrm{hybrid}(\mttwo|\Omega)$ is a normalized template used to distribute events as a function
 of \mttwo in each topological region (see Sec.~\ref{sec:zinv_mt2}).
 \end{itemize}
 
@@ -173,5 +173,60 @@ dilepton control region.
 \section{\texorpdfstring{\mttwo}{MT2} extrapolation}
 \label{sec:zinv_mt2}
 
+To project the per-topological region estimate described in the previous section along the \mttwo dimension, we use
+a ``hybrid'' \mttwo template derived using both data and MC ($k_\mrm{hybrid}(\mttwo|\Omega)$ in Eq.~\ref{eq:zinv_est}).
+
+In every \Ht region, the \mttwo shape for both \znunu and \zll MC events is observed to be independent of \Nb.
+An example of this is shown in Fig.~\ref{fig:zinv_nbshape}, for the medium \Ht region. Furthermore,
+in the extreme \Ht region ($[1500,\infty]\GeV$), the \mttwo shape is observed to also be independent of \Nj
+up to \mttwo values of about 1\TeV.
+
+Thus, we build \mttwo shape templates from data and MC in each $(\Ht,\Nj)$ bin for regions
+with $\Ht<1500\GeV$, integrating over \Nb, while one single hybrid template is built for the
+extreme $\Ht>1500\GeV$ region, integrating also over \Nj. The one exception is for regions with
+exactly 2 or 2--6 jets and $\geq$3 b tags. To avoid sculpting the \Nj distribution by requiring
+$\Nb\geq3$, we use regions with $\Nj\geq3$ to obtain \mttwo shape templates in these regoins.
+
+\begin{figure}[ht]
+  \begin{center}
+    \includegraphics[width=0.24\textwidth]{figs/zinv/MT2vsNB_1M.pdf}
+    \includegraphics[width=0.24\textwidth]{figs/zinv/MT2vsNB_4M.pdf}
+    \includegraphics[width=0.24\textwidth]{figs/zinv/MT2vsNB_7M.pdf}
+    \includegraphics[width=0.24\textwidth]{figs/zinv/MT2vsNB_26M.pdf} \\
+    \includegraphics[width=0.24\textwidth]{figs/zinv/MT2vsNB_1MDY.pdf}
+    \includegraphics[width=0.24\textwidth]{figs/zinv/MT2vsNB_4MDY.pdf}
+    \includegraphics[width=0.24\textwidth]{figs/zinv/MT2vsNB_7MDY.pdf}
+    \includegraphics[width=0.24\textwidth]{figs/zinv/MT2vsNB_26MDY.pdf} \\
+    \caption{Example \mttwo distributions in various bins of \Nj and \Nb in the
+      \Ht region $[575,1000]\GeV$, for \zll (top) and \znunu (bottom) MC.
+      We see that the \mttwo shape is independent of \Nb in all \Nj regions.
+            }
+    \label{fig:zinv_nbshape}
+  \end{center}
+\end{figure}
+
+Starting from the highest \mttwo bin in each topological region in the dilepton control region,
+we merge bins until the sum of expected yields in the merged bins is at least 50 events, 
+as predicted by MC for the full integrated luminosity of \Lint.
+For the lower non-merged \mttwo bins, which have larger statistics, the \mttwo shapes are built
+directly from \zll data, corrected by the \znunu/\zll MC ratio in order to account
+for lepton reconstruction effects. The \znunu MC \mttwo shape is instead used to distribute
+events across the merged \mttwo bins, after renormalizing the MC to the total data yield in
+the same bins. For the $\Ht>1500\GeV$ region, we use \Nj-binned \znunu MC shapes for 
+the extrapolation, to avoid the mild \Nj dependence observed at high \mttwo.
+
+For the lower \mttwo bins, where the \mttwo shapes are built directly from \zll data, an
+uncertainty corresponding to the statistical uncertainty in data in each \mttwo bin is accounted for.
+For the bins where \znunu MC is used, an additional systematic uncertainty, as large as 40\%
+in the last \mttwo bin, is assessed, as described in Sec.~\ref{sec:zinv_syst}.
+
+%% show validation znunu vs zll plots, tables of yield/purity/R?
+
 \section{Systematic uncertainties}
 \label{sec:zinv_syst}
+
+The following systematics are assessed on the \znunu background prediction:
+\begin{itemize}\setlength\itemsep{0mm}
+\item control region statistical error: based on the \zll control region statistics in data,
+uncorrelated across signal region bins
+\end{itemize}
