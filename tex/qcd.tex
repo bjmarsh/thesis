@@ -35,16 +35,16 @@ is found to be well-described by a power law,
 \be
 r_\phi(\mttwo) = \frac{N(\dpmin > 0.3)}{N(\dpmin < 0.3)} = a\cdot\mttwo^b,
 \ee
-for sufficientyly high \mttwo. Below $\mttwo\approx60$ \GeV, the power law
+for sufficientyly high \mttwo. Below $\mttwo\approx60$\GeV, the power law
 form breaks down as the dominant source of \vMet is not from jet mismeasurement
 (e.g. energy from pileup may contribute more significantly).
 
 This ratio is measured in data in a low-\mttwo sideband, 
-with an upper bound of $\mttwo=100$ \GeV.
+with an upper bound of $\mttwo=100$\GeV.
 Above this, the contribution from electroweak processes (\ttjets and V+jets)
 is too high relative to QCD to allow an accurate measurement. The lower bound
-is 60 \GeV for $\Ht<1200$ \GeV, and 70 \GeV for $\Ht\geq1200$ \GeV. Data for the measurement
-is taken from pure-\Ht triggers (prescaled for $\Ht<1200$ \GeV). The fit is done inclusively
+is 60\GeV for $\Ht<1200$\GeV, and 70\GeV for $\Ht\geq1200$\GeV. Data for the measurement
+is taken from pure-\Ht triggers (prescaled for $\Ht<1200$\GeV). The fit is done inclusively
 in \njets and \nbtags, and in the same \Ht bins as the main analysis. Fig.~\ref{fig:rphi}
 shows example fits for 2017 data in the medium and high \Ht regions.
 
@@ -64,7 +64,7 @@ shows example fits for 2017 data in the medium and high \Ht regions.
   \includegraphics[width=0.48\linewidth]{figs/qcd/fj_ht1200to1500.pdf}
   \includegraphics[width=0.48\linewidth]{figs/qcd/rb_j4to6.pdf}
   \caption{Transfer factors $f_j$ (left) and $r_b$ (right) measured in 2018 data. $f_j$
-    is shown for $1200\leq\Ht<1500$ \GeV, and $r_b$ is shown for $4\leq\njets\leq6$.
+    is shown for $1200\leq\Ht<1500$\GeV, and $r_b$ is shown for $4\leq\njets\leq6$.
     Data agrees with simulation within the uncertainties.
 }
   \label{fig:fjrb}
@@ -79,7 +79,7 @@ transfer factors $f_j$ and $r_b$. The first, $f_j$ is the fraction of events fal
 are invariant with respect to $\mttwo$, and $r_b$ is invariant with respect to \Ht.
 It is further found that the shapes are equivalent at $\dpmin < 0.3$ and $\dpmin >0.3$.
 These facts allow us to measure $f_j$ and $r_b$ in a QCD-enriched control region ($\dpmin<0.3$,
-$100 < \mttwo < 200$ \GeV), $f_j$ in bins of \Ht and $r_b$ in bins of \njets.
+$100 < \mttwo < 200$\GeV), $f_j$ in bins of \Ht and $r_b$ in bins of \njets.
 Example measurements of $f_j$ and $r_b$ in 2018 data are shown in Fig.~\ref{fig:fjrb}.
 
 Once all three of $r_\phi$, $f_j$, and $r_b$ are measured, we can get a final
@@ -94,8 +94,8 @@ where the sum is taken over all events in a given \Ht region, inclusively in \nj
 While the $\Delta\phi$-ratio method has been used as the primary multijet estimation technique
 in the past, there are a number of motivations to look for a better, more robust method.
 Most importantly, the $\Delta\phi$-ratio method relies on a fairly severe extrapolation 
-($r_\phi$ is measured in $60 < \mttwo < 100$ \GeV, and is used to predict signal region 
-yields at $\mttwo>200$ \GeV), with no way to explicitly check its validity in the 
+($r_\phi$ is measured in $60 < \mttwo < 100$\GeV, and is used to predict signal region 
+yields at $\mttwo>200$\GeV), with no way to explicitly check its validity in the 
 region of interest. Moreover, the power law fit function itself is emperically derived
 from simulation, with no underlying theoretical motivation that would give one confidence
 in its applicability.
@@ -119,12 +119,12 @@ of the ratio of reconstructed jet \pt to generator-level jet \pt. The templates 
 in bins of jet \pt and $\eta$, separately for b-tagged and non-b-tagged jets. Details on the deriviation
 of the templates are given in Sec.~\ref{sec:jrt}.
 
-For \rs in data, events from pure-\Ht triggers are used. Events with $\Ht<1200~\GeV$ come
+For \rs in data, events from pure-\Ht triggers are used. Events with $\Ht<1200\GeV$ come
 from prescaled triggers, and get weighted by the corresponding event-level prescale value in the final
 prediction.
 
 In addition to the trigger selections, events must contain at least one good vertex, two jets
-with $\pt>10~\GeV$, and pass the standard event cleaning filters in order to be used in the \rs.
+with $\pt>10\GeV$, and pass the standard event cleaning filters in order to be used in the \rs.
 No other selections are applied.
 
 \subsection{Rebalancing}
@@ -160,7 +160,7 @@ The two $G(x)$ terms in Eq.~\ref{eq:rebalance_likelihood} enforce an approximate
 The $\vSS{p}{\mrm{T,reb}}{\mrm{miss}}$ terms in Eq.~\ref{eq:rebalance_likelihood} represent the missing transverse momentum after rebalancing, and are obtained
 by simply propagating to \vMet the changes in jet \pt from rebalancing.
 For the balancing of the $x$ and $y$ components of the missing transverse momentum,
-we use $\sigma_\text{T}^{\text{soft}}=20$~\GeV, which is
+we use $\sigma_\text{T}^{\text{soft}}=20$\GeV, which is
 approximately the width of the distributions of the $x$ and $y$ components of \vMet
 in minimum bias events. This parameter represents the inherent missing energy due to low-\pt jets, unclustered energy, and jets from pileup that cannot be eliminated by rebalancing.
 A systematic uncertainty is assessed to cover for the effects of the variation of $\sigma_\text{T}^\text{soft}$.
@@ -178,7 +178,7 @@ Once a sample of rebalanced events has been obtained the next step is to smear t
 Each rebalanced event is smeared ($100 \times\mrm{prescale}$) times for data, or just 100 times for MC.
 The number of smears is capped at 5000, and a corresponding extra weight is applied to events where $100 \times\mrm{prescale}>5000$.
 For each smearing, the \pt of each jet in the rebalanced event is scaled by a random factor drawn from the corresponding jet response template. If an event
-contains jets that were not considered in the rebalancing procedure (i.e. they have $\pt<10$~\GeV, or have $\pt<100$~\GeV and fail the pileup jet ID) 
+contains jets that were not considered in the rebalancing procedure (i.e. they have $\pt<10$\GeV, or have $\pt<100$\GeV and fail the pileup jet ID) 
 then those jets remain in the event without any smearing. 
 
 After the smearing has been done, all jet-related quantities (\Ht, \ptmiss, \mttwo, \dpmin, etc.) 
@@ -191,8 +191,8 @@ times with a weight of 1/100.
 \section{Performance in Monte Carlo}
 
 Figures \ref{Fig:rs_mc_ht_met_highht} - \ref{Fig:rs_mc_deltaphi_highht} show kinematic disributions from QCD Monte Carlo
-and \rs based on the same QCD Monte Carlo after a loose selection of $\Ht > 1200$ \GeV, $\ptmiss > 30$ \GeV, and $\mttwo > 50$ \GeV.
-Figures \ref{Fig:rs_mc_ht_met_lowht} - \ref{Fig:rs_mc_deltaphi_lowht} show thesame distributions but with $450 < \Ht < 1200$ \GeV.
+and \rs based on the same QCD Monte Carlo after a loose selection of $\Ht > 1200$\GeV, $\ptmiss > 30$\GeV, and $\mttwo > 50$\GeV.
+Figures \ref{Fig:rs_mc_ht_met_lowht} - \ref{Fig:rs_mc_deltaphi_lowht} show thesame distributions but with $450 < \Ht < 1200$\GeV.
 The \rs method models the shapes of these distributions quite well. There is an overall normalization difference of O(few percent)
 introduced by the \ptmiss and \mttwo cuts due to differences in modeling of very low \ptmiss events.
 
@@ -204,7 +204,7 @@ Statistics are quite low in the straight MC, but yields agree reasonably well wh
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_mc/highht_ht.pdf}
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_mc/highht_met.pdf} \\
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_mc/highht_mt2.pdf}
-    \caption{\Ht, \ptmiss, and \mttwo distributions for Monte Carlo and \rs based on MC. The selection is $\Ht > 1200$ \GeV, $\ptmiss > 30$ \GeV and $\mttwo > 50$ \GeV.
+    \caption{\Ht, \ptmiss, and \mttwo distributions for Monte Carlo and \rs based on MC. The selection is $\Ht > 1200$\GeV, $\ptmiss > 30$\GeV and $\mttwo > 50$\GeV.
             }
     \label{Fig:rs_mc_ht_met_highht}
   \end{center}
@@ -216,7 +216,7 @@ Statistics are quite low in the straight MC, but yields agree reasonably well wh
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_mc/highht_nBJet20.pdf} \\
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_mc/highht_J0pt.pdf}
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_mc/highht_J1pt.pdf}
-    \caption{\njets, \nbtags and leading- and subleading-jet \pt distributions for Monte Carlo and \rs based on MC. The selection is $\Ht > 1200$ \GeV, $\ptmiss > 30$ \GeV and $\mttwo > 50$ \GeV.
+    \caption{\njets, \nbtags and leading- and subleading-jet \pt distributions for Monte Carlo and \rs based on MC. The selection is $\Ht > 1200$\GeV, $\ptmiss > 30$\GeV and $\mttwo > 50$\GeV.
             }
     \label{Fig:rs_mc_jets_highht}
   \end{center}
@@ -226,7 +226,7 @@ Statistics are quite low in the straight MC, but yields agree reasonably well wh
   \begin{center}
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_mc/highht_diffMetMhtOverMet.pdf}
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_mc/highht_deltaPhiMin.pdf}
-    \caption{$|\vMht-\vMet|/\ptmiss$ and \dphimet distributions for Monte Carlo and \rs based on MC. The selection is $\Ht > 1200$ \GeV, $\ptmiss > 30$ \GeV and $\mttwo > 50$ \GeV.
+    \caption{$|\vMht-\vMet|/\ptmiss$ and \dphimet distributions for Monte Carlo and \rs based on MC. The selection is $\Ht > 1200$\GeV, $\ptmiss > 30$\GeV and $\mttwo > 50$\GeV.
             }
     \label{Fig:rs_mc_deltaphi_highht}
   \end{center}
@@ -237,7 +237,7 @@ Statistics are quite low in the straight MC, but yields agree reasonably well wh
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_mc/lowht_ht.pdf}
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_mc/lowht_met.pdf} \\
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_mc/lowht_mt2.pdf}
-    \caption{\Ht, \ptmiss, and \mttwo distributions for Monte Carlo and \rs based on MC. The selection is $450 < \Ht < 1200$ \GeV, $\ptmiss > 30$ \GeV and $\mttwo > 50$ \GeV.
+    \caption{\Ht, \ptmiss, and \mttwo distributions for Monte Carlo and \rs based on MC. The selection is $450 < \Ht < 1200$\GeV, $\ptmiss > 30$\GeV and $\mttwo > 50$\GeV.
             }
     \label{Fig:rs_mc_ht_met_lowht}
   \end{center}
@@ -249,7 +249,7 @@ Statistics are quite low in the straight MC, but yields agree reasonably well wh
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_mc/lowht_nBJet20.pdf} \\
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_mc/lowht_J0pt.pdf}
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_mc/lowht_J1pt.pdf}
-    \caption{\njets, \nbtags and leading- and subleading-jet \pt distributions for Monte Carlo and \rs based on MC. The selection is $450 < \Ht < 1200$ \GeV, $\ptmiss > 30$ \GeV and $\mttwo > 50$ \GeV.
+    \caption{\njets, \nbtags and leading- and subleading-jet \pt distributions for Monte Carlo and \rs based on MC. The selection is $450 < \Ht < 1200$\GeV, $\ptmiss > 30$\GeV and $\mttwo > 50$\GeV.
             }
     \label{Fig:rs_mc_jets_lowht}
   \end{center}
@@ -259,7 +259,7 @@ Statistics are quite low in the straight MC, but yields agree reasonably well wh
   \begin{center}
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_mc/lowht_diffMetMhtOverMet.pdf}
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_mc/lowht_deltaPhiMin.pdf}
-    \caption{$|\vMht-\vMet|/\ptmiss$ and \dphimet distributions for Monte Carlo and \rs based on MC. The selection is $450 < \Ht < 1200$ \GeV, $\ptmiss > 30$ \GeV and $\mttwo > 50$ \GeV.
+    \caption{$|\vMht-\vMet|/\ptmiss$ and \dphimet distributions for Monte Carlo and \rs based on MC. The selection is $450 < \Ht < 1200$\GeV, $\ptmiss > 30$\GeV and $\mttwo > 50$\GeV.
             }
     \label{Fig:rs_mc_deltaphi_lowht}
   \end{center}
@@ -287,16 +287,16 @@ much more than if the smeared \ptmiss was actually a product of sampling the tai
   \begin{center}
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_mc/ewk/zinv_ht400to600_met500_njet6.png}
     \caption{Example of a \znunu event in Monte Carlo with a configuration that leads to large \ptmiss after rebalancing.
-             This event has 517 \GeV of \ptmiss before rebalancing and 311 \GeV of \ptmiss after rebalancing.
+             This event has 517\GeV of \ptmiss before rebalancing and 311\GeV of \ptmiss after rebalancing.
             }
     \label{Fig:rs_ewk_zinv_event}
   \end{center}
 \end{figure}
 
-In order to remove contamination to the \rs prediction from electroweak events that are difficult to rebalance, we require the \ptmiss after rebalancing to be less than 100 \GeV.
+In order to remove contamination to the \rs prediction from electroweak events that are difficult to rebalance, we require the \ptmiss after rebalancing to be less than 100\GeV.
 Figures ~\ref{Fig:rs_ewk_low_med} and ~\ref{Fig:rs_ewk_high_ext} show the rebalanced \ptmiss distribution for smeared QCD and electroweak MC events that enter the signal regions.
-The electroweak events are the sum of events from \znunu, \wjets, and \ttbar Monte Carlo. From these distributions we can determine the effect of requiring $\ptmiss < 100$ \GeV
-after rebalancing. We compare the QCD yield integrated over all rebalanced \ptmiss to the sum of the QCD and electroweak yields with rebalanced $\ptmiss < 100$ \GeV and take a scale factor to
+The electroweak events are the sum of events from \znunu, \wjets, and \ttbar Monte Carlo. From these distributions we can determine the effect of requiring $\ptmiss < 100$\GeV
+after rebalancing. We compare the QCD yield integrated over all rebalanced \ptmiss to the sum of the QCD and electroweak yields with rebalanced $\ptmiss < 100$\GeV and take a scale factor to
 correct for the difference. However, this scale factor is found to be 1.0 in all \Ht regions, so no correction is necessary.
 Table \ref{tab:rs_table_rebmet_sf} summarizes the computation of this scale factor for each \Ht region.
 
@@ -323,7 +323,7 @@ Table \ref{tab:rs_table_rebmet_sf} summarizes the computation of this scale fact
 
 \clearpage
 \begin{table}[h]
-\caption{Derivation of scale factors to correct for loss of QCD events due to the rebalanced $\ptmiss < 100$ GeV requirement.
+\caption{Derivation of scale factors to correct for loss of QCD events due to the rebalanced $\ptmiss < 100$\GeV requirement.
 The scale factor is found to be 1.00 in all \Ht regions.
 \label{tab:rs_table_rebmet_sf}}
 \centering
@@ -336,7 +336,7 @@ The scale factor is found to be 1.00 in all \Ht regions.
 QCD total yield & 6.02 & 1.74 & 4.33 & 2.86 & 4.52 \\
 %\hline
 QCD + EWK, & \multirow{2}{*}{6.03} & \multirow{2}{*}{1.74} & \multirow{2}{*}{4.34} & \multirow{2}{*}{2.86} & \multirow{2}{*}{4.54} \\
-reb $\ptmiss < 100$ \GeV & & & & & \\
+reb $\ptmiss < 100$\GeV & & & & & \\
 \hline
 Correction Factor & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 \\
 \hline
@@ -347,10 +347,10 @@ Correction Factor & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 \\
 
 In order to gauge the performance of the \rs method in data we define three control regions that are orthogonal to the search regions and enriched in QCD events.
 The first control region is obtained from the baseline selection by inverting the $\dpmin$ cut, requiring $\dpmin < 0.3$. The second control region is the $\mttwo$
-sideband $100< \mttwo <$ 200 \GeV. The third control region is defined by both inverting the $\dpmin$ selection and selecting the $\mttwo$ sideband. Figures
+sideband $100< \mttwo <$ 200\GeV. The third control region is defined by both inverting the $\dpmin$ selection and selecting the $\mttwo$ sideband. Figures
 ~\ref{Fig:rs_crRSInvertDPhiInclusiveHT1200toInf} - \ref{Fig:rs_crRSDPhiMT2InclusiveHT450to1200} show several kinematic distributions in the control regions for
-$450 <\Ht<$ 1200~\GeV and $\Ht > 1200$~\GeV separately. Non-QCD background contributions in these control regions are taken from Monte Carlo. Selecting just the $\mttwo$
-sideband or just inverting \dpmin for $450<\Ht<$ 1200 GeV is not enough to make QCD a significant fraction of the total background in this \Ht region,
+$450 <\Ht<$ 1200\GeV and $\Ht > 1200$\GeV separately. Non-QCD background contributions in these control regions are taken from Monte Carlo. Selecting just the $\mttwo$
+sideband or just inverting \dpmin for $450<\Ht<$ 1200\GeV is not enough to make QCD a significant fraction of the total background in this \Ht region,
  so these plots are not shown.
 
 \begin{figure}[!htbp]
@@ -360,7 +360,7 @@ sideband or just inverting \dpmin for $450<\Ht<$ 1200 GeV is not enough to make 
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_data/c_crRSInvertDPhiInclusiveHT1200toInf_h_nJet30.pdf}
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_data/c_crRSInvertDPhiInclusiveHT1200toInf_h_nBJet20.pdf}
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_data/c_crRSInvertDPhiInclusiveHT1200toInf_h_mt2.pdf}
-    \caption{Comparison of kinematic distributions for data and background in the inverted $\dpmin$ control region for $\Ht > 1200$~\GeV. The QCD background is from the
+    \caption{Comparison of kinematic distributions for data and background in the inverted $\dpmin$ control region for $\Ht > 1200$\GeV. The QCD background is from the
              rebalance and smear data-driven prediction. Non-QCD backgrounds are taken from Monte Carlo.
             }
     \label{Fig:rs_crRSInvertDPhiInclusiveHT1200toInf}
@@ -374,7 +374,7 @@ sideband or just inverting \dpmin for $450<\Ht<$ 1200 GeV is not enough to make 
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_data/c_crRSMT2SideBandInclusiveHT1200toInf_h_nJet30.pdf}
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_data/c_crRSMT2SideBandInclusiveHT1200toInf_h_nBJet20.pdf}
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_data/c_crRSMT2SideBandInclusiveHT1200toInf_h_mt2.pdf}
-    \caption{Comparison of kinematic distributions for data and background in the $\mttwo$ sideband control region ($100< \mttwo <$ 200 \GeV) for $\Ht > 1200$~\GeV. The QCD background is from the
+    \caption{Comparison of kinematic distributions for data and background in the $\mttwo$ sideband control region ($100< \mttwo <$ 200\GeV) for $\Ht > 1200$\GeV. The QCD background is from the
              rebalance and smear data-driven prediction. Non-QCD backgrounds are taken from Monte Carlo.
             }
     \label{Fig:rs_crRSMT2SideBandInclusiveHT1200toInf}
@@ -388,7 +388,7 @@ sideband or just inverting \dpmin for $450<\Ht<$ 1200 GeV is not enough to make 
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_data/c_crRSDPhiMT2InclusiveHT1200toInf_h_nJet30.pdf}
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_data/c_crRSDPhiMT2InclusiveHT1200toInf_h_nBJet20.pdf}
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_data/c_crRSDPhiMT2InclusiveHT1200toInf_h_mt2.pdf}
-    \caption{Comparison of kinematic distributions for data and background in the $\mttwo$ sideband + inverted $\dpmin$ control region for $\Ht > 1200$~\GeV. The QCD background is from the
+    \caption{Comparison of kinematic distributions for data and background in the $\mttwo$ sideband + inverted $\dpmin$ control region for $\Ht > 1200$\GeV. The QCD background is from the
              rebalance and smear data-driven prediction. Non-QCD backgrounds are taken from Monte Carlo.
             }
     \label{Fig:rs_crRSDPhiMT2InclusiveHT1200toInf}
@@ -402,7 +402,7 @@ sideband or just inverting \dpmin for $450<\Ht<$ 1200 GeV is not enough to make 
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_data/c_crRSDPhiMT2InclusiveHT450to1200_h_nJet30.pdf}
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_data/c_crRSDPhiMT2InclusiveHT450to1200_h_nBJet20.pdf}
     \includegraphics[width=0.46\textwidth]{figs/qcd/rs_data/c_crRSDPhiMT2InclusiveHT450to1200_h_mt2.pdf}
-    \caption{Comparison of kinematic distributions for data and background in the $\mttwo$ sideband + inverted $\dpmin$ control region for $450<\Ht<$ 1200 \GeV. The QCD background is from the
+    \caption{Comparison of kinematic distributions for data and background in the $\mttwo$ sideband + inverted $\dpmin$ control region for $450<\Ht<$ 1200\GeV. The QCD background is from the
              rebalance and smear data-driven prediction. Non-QCD backgrounds are taken from Monte Carlo.
             }
     \label{Fig:rs_crRSDPhiMT2InclusiveHT450to1200}
@@ -445,9 +445,9 @@ In all cases, data agrees with prediction within the assigned error.
 
 Rebalance and Smear is also used for estimating background from QCD events in the monojet signal regions.
 The methodology is exactly the same as for the multijet case. The procedure is validated in an inverted-\dpmin dijet
-control region, with exactly 2 jets, $\Ht>250$ \GeV and $\ptmiss>250$ \GeV. Fig.~\ref{Fig:rs_monojet_mc_validation} shows QCD MC
+control region, with exactly 2 jets, $\Ht>250$\GeV and $\ptmiss>250$\GeV. Fig.~\ref{Fig:rs_monojet_mc_validation} shows QCD MC
 compared against the prediction from Rebalance and Smear applied to MC in this control region,
-both inclusively and in the $30 < \pt(\mrm{jet 2}) < 60$ \GeV
+both inclusively and in the $30 < \pt(\mrm{jet 2}) < 60$\GeV
 sideband nearest the monojet signal region. Good agreement is seen in both cases.
 
 \begin{figure}[htp!]
@@ -455,7 +455,7 @@ sideband nearest the monojet signal region. Good agreement is seen in both cases
     \includegraphics[width=0.49\textwidth]{figs/qcd/rs_data/monojet/mc_crRSInvertDPhibaseJ_htbins.pdf}
     \includegraphics[width=0.49\textwidth]{figs/qcd/rs_data/monojet/mc_crRSInvertDPhibaseJ_htbins_jet2pt_30_60.pdf}
     \caption{Closure between QCD MC and the prediction from Rebalance and Smear, in an inverted-\dpmin dijet
-control region. The left plot is inclusive in jet \pt, while the right is in a $30 < \pt(\mrm{jet 2}) < 60$ \GeV
+control region. The left plot is inclusive in jet \pt, while the right is in a $30 < \pt(\mrm{jet 2}) < 60$\GeV
 sideband that is adjacent to the monojet signal region.
             }
     \label{Fig:rs_monojet_mc_validation}
@@ -601,17 +601,17 @@ extreme $\Ht$ & 1.11 \\
 
 Finally, we check how the \rs prediction changes based on the value chosen for the $\sigma_\mrm{T}^\mrm{soft}$ parameter used in rebalancing.
 The parameter controls how tightly the \vMet is constrained to be near 0 post-rebalancing.
-It is nominally chosen to be 20~\GeV based on the width of the \ptmiss distribution in minimum-bias data. 
-Figure~\ref{Fig:rs_modify_sigmasoft} shows the effect of changing $\sigma_\mrm{T}^\mrm{soft}$ by $\pm20$\% (i.e. to 15 or 25~\GeV)
+It is nominally chosen to be 20\GeV based on the width of the \ptmiss distribution in minimum-bias data. 
+Figure~\ref{Fig:rs_modify_sigmasoft} shows the effect of changing $\sigma_\mrm{T}^\mrm{soft}$ by $\pm20$\% (i.e. to 15 or 25\GeV)
 on the \rs prediction from MC in the analysis topological regions.
 Table~\ref{tab:rs_table_modify_sigmasoft} summarizes the change in yields for each $\Ht$ region.
 
 \begin{figure}[ht]
   \begin{center}
     \includegraphics[width=1.0\textwidth]{figs/qcd/rs_mc/mc_sigmasoft.pdf}
-    \caption{Comparison of yields in topological regions for QCD from MC (yellow points), standard \rs prediction from MC (black points), \rs with $\sigma_\mrm{T}^\mrm{soft}$ = 15 GeV (blue points), and
-             \rs with $\sigma_\mrm{T}^\mrm{soft}$ = 25 GeV (red points). The bottom histogram shows the ratios of yields in topological regions for $\sigma_\mrm{T}^\mrm{soft}$ = 15 GeV and
-             $\sigma_\mrm{T}^\mrm{soft}$ = 25 GeV with respect to the standard \rs prediction.
+    \caption{Comparison of yields in topological regions for QCD from MC (yellow points), standard \rs prediction from MC (black points), \rs with $\sigma_\mrm{T}^\mrm{soft}$ = 15\GeV (blue points), and
+             \rs with $\sigma_\mrm{T}^\mrm{soft}$ = 25\GeV (red points). The bottom histogram shows the ratios of yields in topological regions for $\sigma_\mrm{T}^\mrm{soft}$ = 15\GeV and
+             $\sigma_\mrm{T}^\mrm{soft}$ = 25\GeV with respect to the standard \rs prediction.
             }
     \label{Fig:rs_modify_sigmasoft}
   \end{center}
@@ -623,7 +623,7 @@ Table~\ref{tab:rs_table_modify_sigmasoft} summarizes the change in yields for ea
 \centering
 \begin{tabular}{l|cc}
 \hline
- & $\sigma_\mrm{T}^\mrm{soft}$ = 15 GeV / standard \rs & $\sigma_\mrm{T}^\mrm{soft}$ = 25 GeV / standard \rs \\
+ & $\sigma_\mrm{T}^\mrm{soft}$ = 15\GeV / standard \rs & $\sigma_\mrm{T}^\mrm{soft}$ = 25\GeV / standard \rs \\
 \hline
 very low $\Ht$ & 0.99 & 1.00 \\
 low $\Ht$ & 1.08 & 0.97 \\
@@ -642,7 +642,7 @@ As seen from Figures~\ref{Fig:rs_data_JER_var}, \ref{Fig:rs_modify_tail}, \ref{F
 \Nj/\Nb dependence and varies mainly by \Ht region. Therefore, we assign these systematics by \Ht region and take them as correlated across all bins. Due to low statistics,
 we combine the Very Low and Low \Ht regions when deriving systematics.
 For JER uncertainty, we take the maximum yield variation after varying JER up/down in data. For tail size uncertainty, we take the MC yield variation resulting from a 25\% increase
-in tail size. And for $\sigma_\mrm{T}^\mrm{soft}$ variation, we take the maximum yield variation after varying $\sigma_\mrm{T}^\mrm{soft}$ by $\pm5$ GeV (20\%). The results are given in
+in tail size. And for $\sigma_\mrm{T}^\mrm{soft}$ variation, we take the maximum yield variation after varying $\sigma_\mrm{T}^\mrm{soft}$ by $\pm5$\GeV (20\%). The results are given in
 Table~\ref{tab:rs_table_systematics}.
 
 \begin{table}[h]

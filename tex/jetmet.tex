@@ -121,7 +121,7 @@ in which both the generator-level and reconstructed particles have been clustere
 It is important to use gen jets that include neutrinos, as we are interested in modeling jet mismeasurement due
 to energy carried away by neutrinos such. Reco jet energies are fully corrected with the same jet energy corrections
 as used in the main analysis. Gen jet flavor is determined by identifying the flavor of 
-hadrons within the jet cone. Once this is all done, all reco and gen jets with $\pt>10$ GeV are selected and saved.
+hadrons within the jet cone. Once this is all done, all reco and gen jets with $\pt>10$\GeV are selected and saved.
 
 After selecting the jets, gen and reco jets are matched and JRTs are constructed by 
 filling histograms with $\pt^\text{reco}/\pt^\text{gen}$.
@@ -177,7 +177,7 @@ The reduction in the tails after applying this cut is seen to be quite large.
     \includegraphics[width=0.325\textwidth]{figs/jetmet/compare_noSplitGen.pdf}
     \includegraphics[width=0.325\textwidth]{figs/jetmet/compare_noDoubleSplit.pdf}
     \includegraphics[width=0.325\textwidth]{figs/jetmet/compare_metFilters.pdf}
-    \caption{The effect of various cuts applied during the matching on an example template (non-b jet, $170 \leq \pt < 230$ GeV, $0.3 \leq |\eta| < 0.5$).
+    \caption{The effect of various cuts applied during the matching on an example template (non-b jet, $170 \leq \pt < 230$\GeV, $0.3 \leq |\eta| < 0.5$).
     (left) Requiring \emph{exactly} 1 gen jet within $\text{dR}<0.3$ of a reco jet, instead of at least one. This removes ``split'' gen jets.
     (center) Requiring that there are no secondary nearby gen (reco) jets within $\text{dR}<0.5$ of the reco (gen) jet. This protects
     against splitting in both directions, so reduces both tails.
@@ -200,7 +200,7 @@ the effect on an example template on the right.
   \begin{center}
     \includegraphics[width=0.54\textwidth]{figs/jetmet/ecalDeadCells.pdf}
     \includegraphics[width=0.45\textwidth]{figs/jetmet/compare_ecalDeadCell.pdf}
-    \caption{(left) an $\eta-\phi$ map for jet pairs with $\pt^\text{gen}> 300$ GeV and
+    \caption{(left) an $\eta-\phi$ map for jet pairs with $\pt^\text{gen}> 300$\GeV and
     $\pt^\text{reco}/\pt^\text{gen} < 0.5$ from 2017 simulation. Identified hot-spots
     are outlined in red. Pairs with reco jets in these regions are not used.
     (right) The effect of this removal on an example template. Relatively large reductions
@@ -211,12 +211,12 @@ the effect on an example template on the right.
 \end{figure}
 
 Step 7 rejects pairs in which the reco jet fails tight jet ID.
-In the main analysis, we reject the entire event if any jet with $\pt>30$ GeV
+In the main analysis, we reject the entire event if any jet with $\pt>30$\GeV
 fails this ID. We apply the same ID here to avoid including these jets in 
 the templates. It is found to have minimal effect, except for very high eta ($|\eta|>4.0$).
 
 Step 8 rejects jets that fail loose pileup jet ID~\cite{JME_pileup_id}. In the rebalancing and smearing steps,
-jets with $\pt<100$ GeV that fail this pileup ID are left untouched (i.e., not included
+jets with $\pt<100$\GeV that fail this pileup ID are left untouched (i.e., not included
 in the rebalancing and not smeared), in order to avoid trying to balance an event
 against a pileup jet. Since we do not use them in the rebalancing and smearing, 
 we do not want to include them in the templates.
@@ -233,7 +233,7 @@ mis-matched to a low-\pt pileup jet. At lower \pt, we see a reduction in both ta
     \caption{(left) and (center) show the effect of applying tight jet ID and loose pileup jet ID, respectively,
     to the same template as in Fig.~\ref{fig:jrt_matching_effect}. Jet ID has negligible effect,
     while the pileup jet ID leads to a reduction in the left tail.
-    (right) The effect of pileup jet ID on a lower \pt template ($30\leq\pt<50$ GeV). Here we observe
+    (right) The effect of pileup jet ID on a lower \pt template ($30\leq\pt<50$\GeV). Here we observe
     a reduction in both tails.
     }
     \label{fig:jrt_jetid}
@@ -256,7 +256,7 @@ An example of the effect is shown in Fig.~\ref{fig:jrt_nb}.
   \begin{center}
     \includegraphics[width=0.49\textwidth]{figs/jetmet/nBJet20_DPhiMT2InclusiveHT450to1200_RecoBJet.pdf}
     \includegraphics[width=0.49\textwidth]{figs/jetmet/nBJet20_DPhiMT2InclusiveHT450to1200_BTagSFs.pdf}
-    \caption{The \nbtags distributions in the inverted-\dpmin + \mttwo sideband control region for $450 \leq \Ht < 1200$ GeV
+    \caption{The \nbtags distributions in the inverted-\dpmin + \mttwo sideband control region for $450 \leq \Ht < 1200$\GeV
     (described in Chapter~\ref{chap:qcd}),
     when (left) filling a single template based on reco jet medium b tagging, and (right) filling both histograms with
     weights given by the corrected probability of tagging a given jet as a medium b jet. Observed data are shown
