@@ -90,6 +90,9 @@ region (referred to here as $\Omega\equiv(\Ht,\Nj,\Nb)$), integrated over \mttwo
 of \mttwo in each topological region (see Sec.~\ref{sec:zinv_mt2}).
 \end{itemize}
 
+The values of $N_\mrm{2-lep}^\mrm{CRSF}$, $P_{\zll}$, and $R_\mrm{MC}^{\znunu/\zll}$ for each topological 
+region are given in Tables~\ref{tab:estimateZinv_lowHt} and \ref{tab:estimateZinv_highHt}.
+
 \subsection{\zll purity in the dilepton control region}
 \label{sec:dilep_bkgs}
 While \zll is the process of interest in the dilepton control region, other SM processes can
@@ -134,7 +137,7 @@ While this SF/OF ratio is in theory equal to 1 at the production level (since br
 and muons are the same), different reconstruction efficiencies for electrons and muons cause it to deviate 
 from 1 at the reconstructed level. We measure this ratio in data in a top-enriched dilepton control region,
 which is the same as the baseline dilepton control region but with $|m_{\ell\ell}-m_Z|>20\GeV$ and
-$\pt(\ell\ell)<200\GeV$ (the portion of Fig.~\ref{fig:zllpt} with $\pt(\ell\ell)$ below 200 GeV).
+$\pt(\ell\ell)<200\GeV$ (the portion of Fig.~\ref{fig:zllpt} with $\pt(\ell\ell)$ below 200\GeV).
 The measurement is done inclusively in all analysis variables, to get a single number that is applied 
 to every topological region. The measured ratio is plotted as a function of the analysis variables to
 ensure that it is actually constant, and a systematic uncertainty on $R^\mrm{SF/OF}$ is assessed to
@@ -166,8 +169,10 @@ Once $R^\mrm{SF/OF}$ is measured, we can compute the purity $P_{\zll}$ used in E
 P_{\zll} = 1 - R^\mrm{SF/OF} N_\mrm{2-lep}^\mrm{CROF} / N_\mrm{2-lep}^\mrm{CRSF},
 \ee
 where $N_\mrm{2-lep}^\mrm{CROF}$ is the number of observed events in data in the opposite-flavor
-dilepton control region.
+dilepton control region. The values of $N_\mrm{2-lep}^\mrm{CROF}$ and $P_{\zll}$ in each
+topological region are given in Tables~\ref{tab:estimateZinv_lowHt} and \ref{tab:estimateZinv_highHt}.
 
+\input{zinv_tables}
 
 
 \section{\texorpdfstring{\mttwo}{MT2} extrapolation}
@@ -177,13 +182,13 @@ To project the per-topological region estimate described in the previous section
 a ``hybrid'' \mttwo template derived using both data and MC ($k_\mrm{hybrid}(\mttwo|\Omega)$ in Eq.~\ref{eq:zinv_est}).
 
 In every \Ht region, the \mttwo shape for both \znunu and \zll MC events is observed to be independent of \Nb.
-An example of this is shown in Fig.~\ref{fig:zinv_nbshape}, for the medium \Ht region. Furthermore,
-in the extreme \Ht region ($[1500,\infty]\GeV$), the \mttwo shape is observed to also be independent of \Nj
+An example of this is shown in Fig.~\ref{fig:zinv_nbshape}, for the Medium \Ht region. Furthermore,
+in the Extreme \Ht region ($[1500,\infty]\GeV$), the \mttwo shape is observed to also be independent of \Nj
 up to \mttwo values of about 1\TeV.
 
 Thus, we build \mttwo shape templates from data and MC in each $(\Ht,\Nj)$ bin for regions
 with $\Ht<1500\GeV$, integrating over \Nb, while one single hybrid template is built for the
-extreme $\Ht>1500\GeV$ region, integrating also over \Nj. The one exception is for regions with
+Extreme $\Ht>1500\GeV$ region, integrating also over \Nj. The one exception is for regions with
 exactly 2 or 2--6 jets and $\geq$3 b tags. To avoid sculpting the \Nj distribution by requiring
 $\Nb\geq3$, we use regions with $\Nj\geq3$ to obtain \mttwo shape templates in these regoins.
 
@@ -220,13 +225,51 @@ uncertainty corresponding to the statistical uncertainty in data in each \mttwo 
 For the bins where \znunu MC is used, an additional systematic uncertainty, as large as 40\%
 in the last \mttwo bin, is assessed, as described in Sec.~\ref{sec:zinv_syst}.
 
-%% show validation znunu vs zll plots, tables of yield/purity/R?
+This \mttwo shape procedure is validated by comparing \mttwo shapes of
+\znunu MC and \zll data from the dilepton control region. Examples of this
+for the Low and High \Ht regions are shown in Fig.~\ref{fig:zinv_mt2shape}.
+\mttwo shape obtained from dilepton data is shown in red markers, and that
+from \znunu MC is shown in black. The grey band corresponds to the systematic
+uncertainty assigned to the \znunu shape, as described in Sec.~\ref{sec:zinv_syst}.
+It is seen than any discrepancies in shape are covered by the assigned systematic.
+
+
+\begin{figure}[ht]
+  \begin{center}
+    \includegraphics[width=0.45\textwidth]{figs/zinv/MT2L_W_GJ_log.pdf}
+    \includegraphics[width=0.45\textwidth]{figs/zinv/MT2H_W_GJ_log.pdf}
+    \caption{Comparisons of \mttwo shape from \znunu MC (black) and \zll
+      data from the dilepton control region (red), for the Low (left) and
+      High (right) \Ht regions. The grey band in the ratio plot corresponds
+      to the systematic assigned to the \znunu shape, as described in Sec.~\ref{sec:zinv_syst}.
+            }
+    \label{fig:zinv_mt2shape}
+  \end{center}
+\end{figure}
+
 
 \section{Systematic uncertainties}
 \label{sec:zinv_syst}
 
 The following systematics are assessed on the \znunu background prediction:
 \begin{itemize}\setlength\itemsep{0mm}
-\item control region statistical error: based on the \zll control region statistics in data,
+\item Control region statistical error: based on the \zll control region statistics in data,
 uncorrelated across signal region bins
+\item $R_\mrm{MC}^{\znunu/\zll}$ (stat): from MC statistical uncertainty
+\item $R_\mrm{MC}^{\znunu/\zll}$ (syst): O(5-10\%) uncertainty, mainly from lepton efficiency
+uncertainties in the dilepton control region. Jet energy scale uncertainties also contribute.
+\item Purity (stat): from the 3\% statistical uncertainty on $R^\mrm{SF/OF}$
+\item Purity (syst): from the assigned 15\% systematic uncertainty on $R^\mrm{SF/OF}$ to cover
+for any kinematic variation
+\item \mttwo shape uncertainty: For the data-driven component of the hybrid templates (low-\mttwo,
+  high stats bins), this is covered by the CR statistical error listed above. For the MC-driven
+  component (higher \mttwo), this is an extra assigned uncertainty based on MC variations in 
+  the \mttwo shape, accounting for theoretical (renormalization and factorization scales, parton
+  distribution functions) and experimental (jet energy scale, \ptmiss modeling) effects. These
+  effects give at most a 20\% variation in the last \mttwo bin in each topological region when
+  these parameters are varied in MC. The uncertainty in the last bin is increased to 40\% to
+  account for possible mis-modeling of \mttwo in MC. The uncertainty is implemented as a correlated
+  linear morphing of the \mttwo shape in the higher \mttwo bins, with a maximum amplitude of 40\% in the last bin, 
+  done in such a way as to preserve normalization and only affect the shape. These shape uncertainties
+  are not correlated between topological regions.
 \end{itemize}
