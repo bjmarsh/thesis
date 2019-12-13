@@ -33,7 +33,9 @@ for the purposes of computing the estimate (i.e. there is only a single transfer
 processes combined).
 
 Data vs. MC comparisons of the main analysis kinematic variables in the baseline single lepton
-control region are shown in Fig.~\ref{fig:llep_crplots}. As with the dilepton control region,
+control region are shown in Fig.~\ref{fig:llep_crplots}. In these plots and throughout this
+chapter, all processes with a top quark (\ttbar, single top, $\ttbar\mrm{V}$) are summed together
+and shown as a single histogram labeled ``Top''. As with the dilepton control region,
 there is some level of disagreement between data and MC, but this is to be expected. The 
 estimate is again primarily data driven, and these disagreements generally do not affect the
 final estimate. As described below, in high \Nj regions MC is used to extrapolate along the
@@ -86,7 +88,7 @@ Once the per-topological region estimate is done, a hybrid approach using both d
 used to extrapolate along the \mttwo dimension, as described in Sec.~\ref{sec:zinv_mt2}.
 
 The final estimate in each $(\Ht,\Nj,\Nb,\mttwo)$ signal region can then be summarized as
-\be\label{eq:zinv_est}
+\be\label{eq:llep_est}
 N_{\mrm{LL}}^\mrm{SR} = N_\mrm{1\ell}^\mrm{CR}(\Omega)\; R_\mrm{MC}^{0\ell/1\ell}(\Omega)\;
 k_\mrm{LL}(\mttwo|\Omega),
 \ee
@@ -104,8 +106,71 @@ of \mttwo in each topological region (see Sec.~\ref{sec:llep_mt2}), only necessa
 
 \subsection{$\ttbar+\text{heavy flavor}$ modeling}
 \label{sec:llep_ttbb}
+As described previously, regions with $\geq$7 jets and $\geq$1 b tag, are predicted
+using a single control region with $\geq$7 jets and 1--2 b tags. MC is then used to
+extrapolate both into the $\geq$10 jet region and into the high-\Nb regions.
+While the MC modeling of \Nj is sufficient out-of-the-box (Fig.~\ref{fig:llep_njextrap}),
+this is not the case for \Nb modeling. Fig.~\ref{fig:llep_nbextrap} (left) shows a comparison
+of \Nb in data and MC in the $\geq$7 jet portion of the single lepton control region.
+At high \Nb, MC underpredicts the number of events in data by a significant amount.
+
+This disagreement can be attributed to known MC mis-modeling of $\ttbar+\text{heavy flavor}$
+events (i.e. $\ttbar b\bar{b}+X$). A CMS measurement of the ratio 
+$\sigma(\ttbar b\bar{b})/\sigma(\ttbar jj)$ finds that this ratio is a factor of $1.7\pm0.5$ higher
+in data than in MC~\cite{TOP_ttbb}. Hence, to correct for this we identify \ttbar and $\ttbar\mrm{V}$ MC
+events with two additional generator-level b jets not from top decay, and weight them by an additional
+factor of $1.7\pm0.5$. The uncertainty is propagated to the final estimate as a systematic uncertainty.
+Fig.~\ref{fig:llep_nbextrap} (right) shows the \Nb distribution after this reweighting procedure, and
+one sees that agreement is significantly improved.
+
+\begin{figure}[ht]
+  \begin{center}
+    \includegraphics[width=0.47\textwidth]{figs/llep/crslbase_nBJet20_ge7j_ttbbNonWeighted.pdf}
+    \includegraphics[width=0.47\textwidth]{figs/llep/crslbase_nBJet20_ge7j_ttbbWeighted.pdf}
+    \caption{Data vs.\ MC \Nb comparisons in the baseline single lepton control region with $\Nj\geq7$,
+      with no extra weights (left) and with the $\ttbar b\bar{b}$ component (red) scaled by 1.7 (right), as described
+      in Sec.~\ref{sec:llep_ttbb}. The reweighting significantly improves agreement in the high-\Nb bins.
+            }
+    \label{fig:llep_nbextrap}
+  \end{center}
+\end{figure}
 
 \subsection{Signal contamination}
+Despite the selections intended to reduce contributions from signal to the single lepton control
+regions, signal contamination can be non-negligible in some regions of phase space where the
+signal is kinematically similar to the background. A contribution from signal to the control
+region would result in an overestimation of the lost lepton background.
+
+The only signals which show potential contamination issues are those with prompt lepton decays. 
+Namely, gluino pair production where the gluinos decay to top quarks, and direct top squark pair production where the squarks decay to top quarks. 
+The contributions from other signals are found to be negligible in the control
+regions. For points near the expected exclusion limits at high masses, the signal contamination
+is maximally 5\% of the expected background yields in the control regions, including the hybrid \mttwo binning described in the following section. 
+The main place where this effect becomes significant is for top squark pair production points
+in which the mass difference between the top squark and neutralino is near the top quark mass, such that the
+signal looks very simliar to SM \ttbar production.
+
+To account for this in our interpretations, we treat the amount by which the lost lepton background 
+would be overestimated as a reduction in signal efficiency. Specifically, in each analysis bin, we define
+\be
+N_\mrm{sig}^\mrm{SR'} = N_\mrm{sig}^\mrm{SR} - TF\cdot N_\mrm{sig}^\mrm{CR},
+\ee
+where $N_\mrm{sig}^\mrm{SR}$ and $N_\mrm{sig}^\mrm{CR}$ are the predicted signal in the signal region and control region bins,
+respectively, and $TF$ is the transfer factor from control to signal region used in the lost lepton estimate (in
+the notation of Eq.~\ref{eq:llep_est}, $TF=R_\mrm{MC}^{0\ell/1\ell}\cdot k_\mrm{LL}(\mttwo|\Omega)$).
+Then the quantity $N_\mrm{sig}^\mrm{SR'}\leq N_\mrm{sig}^\mrm{SR}$ is used in calculating the limit on the
+signal cross section.
+
+This treatment has been used in several other CMS SUSY analyses (e.g.~\cite{SUS_stop1l}),
+and has the useful property that $N_\mrm{sig}^\mrm{SR'}$ depends linearly on the signal cross section. 
+This can be seen by rewriting as
+\be
+N_\mrm{sig}^\mrm{SR'} = \sigma_\mrm{sig}\cdot\mathcal{L}\cdot
+(\varepsilon_\mrm{sig}^\mrm{SR} - TF\cdot\varepsilon_\mrm{sig}^\mrm{CR}),
+\ee
+where $\sigma_\mrm{sig}$ is the signal cross section, $\mathcal{L}$ is the integrated luminosity, and
+$\varepsilon_\mrm{sig}^\mrm{SR}$ and $\varepsilon_\mrm{sig}^\mrm{CR}$ are the efficiencies for the signal to
+populate the signal and control regions, respectively.
 
 \section{\texorpdfstring{\mttwo}{MT2} extrapolation}
 \label{sec:llep_mt2}
