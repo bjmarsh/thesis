@@ -181,7 +181,6 @@ there are at least 50 expected MC events in the merged bin.
 Lower \mttwo bins with large statistics are used directly
 to predict the backgrounds, so $N_\mrm{1\ell}^\mrm{CR}$ and $R_\mrm{MC}^{0\ell/1\ell}$ are measured in the specific
 \mttwo bin and $k_\mrm{LL}(\mttwo|\Omega)$ is equal to 1.
-
 For the higher \mttwo bins past the merging threshold, the control region is integrated over the merged bin
 for the purposes of computing $N_\mrm{1\ell}^\mrm{CR}$ and $R_\mrm{MC}^{0\ell/1\ell}$. Then $k_\mrm{LL}$ is the 
 ratio of the MC signal region yield in an individual \mttwo bin to that in the integrated bin (i.e., the \mttwo
@@ -192,6 +191,7 @@ shown in the left and right panels of Fig.~\ref{fig:llep_mt2dist}. The predicted
 are obtained by summing all the relevant topological regions, after normalizing MC event yields to data
 and distributing among the \mttwo bins using the procedure described above. The gray band in the ratio plot represents the
 systematic uncertainty assessed to the predicted \mttwo shape, as described in the following section.
+Fig.~\ref{fig:llep_mt2dist_ht} shows the same, but separately for each \Ht region.
 
 \begin{figure}[t]
   \begin{center}
@@ -207,6 +207,22 @@ systematic uncertainty assessed to the predicted \mttwo shape, as described in t
     \label{fig:llep_mt2dist}
   \end{center}
 \end{figure}
+
+\begin{figure}[t]
+  \begin{center}
+    \includegraphics[width=0.47\textwidth]{figs/llep/lostlepHybrid_incl_HT250to450_mt2bins.pdf}
+    \includegraphics[width=0.47\textwidth]{figs/llep/lostlepHybrid_incl_HT450to575_mt2bins.pdf} \\
+    \includegraphics[width=0.47\textwidth]{figs/llep/lostlepHybrid_incl_HT575to1200_mt2bins.pdf}
+    \includegraphics[width=0.47\textwidth]{figs/llep/lostlepHybrid_incl_HT1200to1500_mt2bins.pdf} \\
+    \includegraphics[width=0.47\textwidth]{figs/llep/lostlepHybrid_incl_HTge1500_mt2bins.pdf}
+    \caption{The same as Fig.~\ref{fig:llep_mt2dist}, but plotted separately for the Very Low,
+      Low, Medium, High, and Extreme \Ht regions.
+            }
+    \label{fig:llep_mt2dist_ht}
+  \end{center}
+\end{figure}
+
+% want to include HT-binned plots?
 
 \section{Systematic uncertainties}
 \label{sec:llep_syst}
