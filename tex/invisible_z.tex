@@ -254,8 +254,9 @@ It is seen than any discrepancies in shape are covered by the assigned systemati
 
 The following systematics are assessed on the \znunu background prediction:
 \begin{itemize}\setlength\itemsep{0mm}
-\item Control region statistical error: based on the \zll control region statistics in data,
-uncorrelated across signal region bins
+\item Control region statistical error: the poisson error on the observed data count in each \zll control region.
+This is correlated among all bins that share a common control region (including the \mttwo bins that utilize a merged control region),
+but is otherwise uncorrelated.
 \item $R_\mrm{MC}^{\znunu/\zll}$ (stat): from MC statistical uncertainty
 \item $R_\mrm{MC}^{\znunu/\zll}$ (syst): O(5-10\%) uncertainty, mainly from lepton efficiency
 uncertainties in the dilepton control region. Jet energy scale uncertainties also contribute.

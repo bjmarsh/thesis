@@ -39,7 +39,7 @@ and shown as a single histogram labeled ``Top''. As with the dilepton control re
 there is some level of disagreement between data and MC, but this is to be expected. The 
 estimate is again primarily data driven, and these disagreements generally do not affect the
 final estimate. As described below, in high \Nj regions MC is used to extrapolate along the
-\Nb dimension. To account for known $\ttbar+\mrm{heavy flavor}$ mismodeling in MC, we correct the MC 
+\Nb dimension. To account for known $\ttbar+\mrm{heavy flavor}$ mis-modeling in MC, we correct the MC 
 with a reweighting procedure described in Sec.~\ref{sec:llep_ttbb}.
 
 \begin{figure}[ht]
@@ -186,7 +186,7 @@ for the purposes of computing $N_\mrm{1\ell}^\mrm{CR}$ and $R_\mrm{MC}^{0\ell/1\
 ratio of the MC signal region yield in an individual \mttwo bin to that in the integrated bin (i.e., the \mttwo
 shape within the merged bin is taken directly from signal region MC).
 
-The MC modeling of \mttwo is checked in data, in single-lepton events with either $\Nb=0$ or $\Nb\geq1$, as
+The MC modeling of \mttwo is checked in data, in single lepton events with either $\Nb=0$ or $\Nb\geq1$, as
 shown in the left and right panels of Fig.~\ref{fig:llep_mt2dist}. The predicted distributions in the comparison
 are obtained by summing all the relevant topological regions, after normalizing MC event yields to data
 and distributing among the \mttwo bins using the procedure described above. The gray band in the ratio plot represents the
@@ -197,7 +197,7 @@ Fig.~\ref{fig:llep_mt2dist_ht} shows the same, but separately for each \Ht regio
   \begin{center}
     \includegraphics[width=0.47\textwidth]{figs/llep/lostlepHybrid_0b_mt2bins.pdf}
     \includegraphics[width=0.47\textwidth]{figs/llep/lostlepHybrid_ge1b_mt2bins.pdf}
-    \caption{Distributions of the \mttwo variable in data and MC for the single-lepton control region,
+    \caption{Distributions of the \mttwo variable in data and MC for the single lepton control region,
       after normalizing the simulation to data in each topological region and distributing events
       among the \mttwo bins using the procedure described in Sec.~\ref{sec:llep_mt2}. On the left is a selection
       with $\Nb=0$, which probes mostly \wjets events, and on the right is a selection with $\Nb\geq1$, which
@@ -226,3 +226,40 @@ Fig.~\ref{fig:llep_mt2dist_ht} shows the same, but separately for each \Ht regio
 
 \section{Systematic uncertainties}
 \label{sec:llep_syst}
+
+The following systematics are assessed on the lost lepton background prediction:
+\begin{itemize}\setlength\itemsep{0mm}
+\item Control region statistical error: the poisson error on the observed data count in each single lepton control region.
+This is correlated among all bins that share a common control region (including the \mttwo bins that utilize a merged control region),
+but is otherwise uncorrelated.
+\item MC statistical error: the statistical uncertainty due to the limited size of the MC samples on the $0\ell/1\ell$ transfer
+factor (and on $k_\mrm{LL}(\mttwo)$ for bins in which MC is used to predict the \mttwo shape)
+\item $e/\mu$ selection efficiency: to account for differences in lepton efficiency between data and MC, scale factors
+are derived in bins of \pt and $\eta$ for electrons and muons by the CMS SUSY group, along with corresponding uncertainties.
+These uncertainties are propagated on a per-event basis to the final predicted yield, and the variation is taken as a systematic
+uncertainty. This is as large as 7\% and correlated among all bins.
+\item $\tau$ selection efficiency: from MC studies, we take a 10\% relative uncertainty on the selection efficiency for 1-prong
+$\tau$'s, and a 100\% relative uncertainty on the selection efficiency for 3-prong $\tau$'s. This is propagated to the final predicted
+yield and the variation is taken as a systematic uncertainty. This is as large as 3\% and correlated among all bins.
+\item $M_\mrm{T}$ cut efficiency: the differences between MC and data of the $M_\mrm{T}$ cut used for the control region
+has been studied in a \zll control region in which one lepton is treated as missing (to mimic $W\to\ell\nu$ decay) has been
+studied. Based on this, we apply a 3\% systematic uncertainty, correlated everywhere.
+\item b tagging efficiency: the CMS b tagging group provides uncertainties on the scale factors used to correct MC b tagging
+efficiences. These are propagated to the final estimate, and the variation is taken as a systematic. This is as large as
+4\%, and correlated among all bins.
+\item $\ttbar b\bar{b}$ reweighting: as described in Sec.~\ref{sec:llep_ttbb}, MC events with both \ttbar and $b\bar{b}$ pairs
+are weighted by an additional factor of $1.7\pm0.5$. This uncertainty is propagated to the final estimate, and the variation is
+taken as a systematic uncertainty. The magnitude of this uncertainty is from 0--25\% (largest in bins with very high \Nj and \Nb),
+and correlated everywhere.
+\item jet energy scale: from MC studies using the jet energy correction uncertainties provided by the CMS JetMET group, 
+we apply a 5\% uncertainty, correlated among all bins.
+\item MC renormalization/factorization scales: derived by varying the generator weight of the MC. This is typically a few percent but
+up to 10\% in some bins, and correlated everywhere.
+\item \mttwo shape uncertainty: much like for the \znunu estimate, this is an extra uncertainty assigned to the \mttwo shape,
+accounting for both theoretical and experimental effects. It is based on MC variation studies and validated using the \mttwo
+shape comparisons shown in Figs.~\ref{fig:llep_mt2dist} and \ref{fig:llep_mt2dist_ht} (solid gray band in ratio plot). The
+uncertainty is implemented as a linear morphing of the \mttwo shape, starting from the first \mttwo bin in each topological region
+where the MC shape is used, and growing to a maximum of 40\% in the last \mttwo bin. This uncertainty is correlated within
+a given topological region, but not between different topological regions.
+
+\end{itemize}
