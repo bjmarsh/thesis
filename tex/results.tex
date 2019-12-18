@@ -108,17 +108,58 @@ with respect to the background-only (B-only) assumption (the \textit{null hypoth
 To do this, we make use of the CL$_\mrm{S}$ technique~\cite{Read:CLs}.
 First, a test statistic is defined as
 \be
-q_\mu = -2\log\frac{\mathcal{L}(\mu, \hat{\boldsymbol\theta}_\mu)}{\mathcal{L}(\hat{\mu}, \hat{\boldsymbol\theta})},
+q_\mu = -2\log\frac{\mathcal{L}(\mu, \hat{\boldsymbol\theta}_\mu)}{\mathcal{L}(0, \hat{\boldsymbol\theta}_0)},
 \ee
-where the likelihood $\mathcal{L}$ is as defined in Eq.~\ref{eq:likelihood}, $(\hat{\mu},\hat{\boldsymbol\theta})$
-are the values of the parameters that maximize $\mathcal{L}$ globally, and $\hat{\boldsymbol\theta}_\mu$ is
-the value of $\boldsymbol\theta$ that maximized $\mathcal{L}$ for a given $\mu$. This is known as a
+where the likelihood $\mathcal{L}$ is as defined in Eq.~\ref{eq:likelihood}, $\hat{\boldsymbol\theta}_0$
+is the value of $\boldsymbol\theta$ that maximizes $\mathcal{L}$ for $\mu=0$, and $\hat{\boldsymbol\theta}_\mu$ is
+the value of $\boldsymbol\theta$ that maximizes $\mathcal{L}$ for the given $\mu$. This is known as a
 \textit{profile likelihood}, as we have profiled away the dependence on the nuisance parameters $\boldsymbol\theta$
-by maximizing over them. Note that $q_\mu\geq0$, and it exactly equals 0 when $\mu=\hat{\mu}$.
+by maximizing over them. Note that the denominator is independent of $\mu$, and is only there as a normalization.
 
 We can construct distributions of $q_\mu$ for a given $\mu$ by generating random data, either under the B-only
 or $\mu$S+B hypotheses. The values of $q_\mu$ under the $\mu$S+B hypothesis tend to be lower on average than those 
-under the B-only hypothesis, since $\hat{\mu}$ tends to be close to the chosen $\mu$.
+under the B-only hypothesis, the numerator will be larger than the denominator. The distributions converge as
+$\mu\to0$.
+
+Using the actual observed data counts, we can then calculate the observed $q_\mu^\text{obs}$ for arbitrary $\mu$.
+We then define
+\be
+\text{CL}_\text{S}(\mu) \equiv \frac{\text{CL}_\text{S+B}}{\text{CL}_\text{B}} \equiv
+\frac{p(q_\mu\geq q_\mu^\text{obs}\;|\;\mu\text{S+B})}{p(q_\mu\geq q_\mu^\text{obs}\;|\;\text{B})}
+\ee
+
+Note that $\text{CL}_\text{S}(\mu)$ is exactly equal to 1 at $\mu=0$, and is a strictly decreasing function of $\mu$.
+One can think of $\text{CL}_\text{S}$ as the relative likelihood that the observed counts would look as ``background-like''
+as they do under the $\mu$S+B hypothesis versus the B-only hypothesis. When CL$_\text{S}$ is very small,
+we can be pretty confident that the $\mu$S+B assumption is \textit{not} supported by the data. Thus, we define
+an upper limit on $\mu$ at the $1-\alpha$ confidence level as the $\mu_{1-\alpha}$ that satisfies
+\be
+\text{CL}_\text{S}(\mu_{1-\alpha}) = \alpha
+\ee
+
+This process is illustrated in Fig.~\ref{fig:results_cls} for a toy experiment with 3 bins. We predict event counts of 
+10, 5, and 2, with an uncorrelated 20\% uncertainty on each. Nominal expected signal with $\mu=1$ is
+2 events in each bin. We observe event counts of 9, 5, and 1. The top left panel shows the expected and observed
+yields in each bin. The top right panel shows distributions of $q_{\mu=1}$ under the B and S+B hypotheses, the
+observed value of $q_{\mu=1}^\text{obs}=3.73$, and shaded areas representing CL$_\text{S+B}$ and CL$_\text{B}$
+The bottom panel shows CL$_\text{S}(\mu)$ as a function of $\mu$, and the 95\% confidence level upper limit
+on $\mu$ of 1.19, computed by finding the $\mu$ value at which CL$_\text{S}(\mu)$ crosses below 0.05.
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.48\textwidth]{figs/results/cls.pdf}
+    \includegraphics[width=0.48\textwidth]{figs/results/qmu_dist.pdf} \\
+    \includegraphics[width=0.48\textwidth]{figs/results/cls.pdf}
+    \caption{blah
+            }
+    \label{fig:results_cls}
+  \end{center}
+\end{figure}
+
+The $\text{CL}_\text{S}$ method outlined above is used to set limits on all of the signal models in the following
+sections. Due to the very large number of bins in the \mttwo analysis, it is computationally infeasible
+to do compute distributions of the test statistic explicitly. Hence, we use an \textit{asymptotic approximation} to
+derive the distributions necessary to calculate $\text{CL}_\text{S}$, as described in~\cite{Cowan:asymptotic}.
 
 
 \section{Supersymmetry interpretations}
