@@ -83,19 +83,43 @@ and uncertainties are straight from the estimation methods, without attempting t
 in any way. For the purposes of evaluating the results and setting constraints on models of new physics,
 we apply a fitting procedure to test the compatibility of the observed results with SM predictions.
 
-The expected background and signal yields are functions of \textit{nuisance parameters}, which represent
+The expected background and signal yields are functions of \textit{nuisance parameters}, which control
 the potential variations from all of the experimental and theoretical uncertainties. In practice these
 are modeled as log-normal constraints on the background and signal yields (except for statistical uncertainties
 on the observed control region event counts, which are modeled as gamma functions). Denoting the vector
-of all nuisance parameters as $\theta$, and their joint probability distribution as $p(\theta)$, we can write
+of all nuisance parameters as $\boldsymbol\theta$, and their joint probability distribution as $p(\boldsymbol\theta)$, we can write
 the complete likelihood function as
-\be
-\mathcal{L}(\mrm{data}|\mu,\theta) = \prod_{j\in\mrm{bins}} \frac{[\mu s_j(\theta)+b_j(\theta)]^{n_j}}{n_j!}
-e^{-[\mu s_j(\theta)+b_j(\theta)]} p(\theta),
+\be\label{eq:likelihood}
+\mathcal{L}(\mrm{data}|\mu,\boldsymbol\theta) = \prod_{j\in\mrm{bins}} \frac{[\mu s_j(\boldsymbol\theta)+b_j(\boldsymbol\theta)]^{n_j}}{n_j!}
+e^{-[\mu s_j(\boldsymbol\theta)+b_j(\boldsymbol\theta)]} p(\boldsymbol\theta),
 \ee
-where $s_j(\theta)$ and $b_j(\theta)$ are the predicted signal and background yields in bin $j$ (and which are functions
-of the nuisance parameters), $n_j$ is the observed event count in bin $j$, and $\mu$ is the signal strength parameter
-that we seek to set a constraint on.
+where $s_j(\boldsymbol\theta)$ and $b_j(\boldsymbol\theta)$ are the predicted signal and background yields 
+in bin $j$ (and which are functions of the nuisance parameters), $n_j$ is the observed event count in bin 
+$j$, and $\mu$ is the signal strength parameter that we seek to set a constraint on. The likelihood is 
+simply a product of Poisson probability terms with expectation $\mu s_j+b_j$ and observation $n_j$, and the 
+PDF of the nuisance parameters, which is itself a product of log-normal and gamma functions.
+
+To evaluate how well the estimated background fits the observed data, we could simply maximize this 
+likelihood under the background-only hypothesis (i.e., set $\mu=0$ in Eq.~\ref{eq:likelihood}.
+However, we would like to interpret this in the context of particular signal models, so we need a method
+to evaluate the significance of the signal+backgroud (S+B) assumption (the \textit{alternative hypothesis})
+with respect to the background-only (B-only) assumption (the \textit{null hypothesis}).
+
+To do this, we make use of the CL$_\mrm{S}$ technique~\cite{Read:CLs}.
+First, a test statistic is defined as
+\be
+q_\mu = -2\log\frac{\mathcal{L}(\mu, \hat{\boldsymbol\theta}_\mu)}{\mathcal{L}(\hat{\mu}, \hat{\boldsymbol\theta})},
+\ee
+where the likelihood $\mathcal{L}$ is as defined in Eq.~\ref{eq:likelihood}, $(\hat{\mu},\hat{\boldsymbol\theta})$
+are the values of the parameters that maximize $\mathcal{L}$ globally, and $\hat{\boldsymbol\theta}_\mu$ is
+the value of $\boldsymbol\theta$ that maximized $\mathcal{L}$ for a given $\mu$. This is known as a
+\textit{profile likelihood}, as we have profiled away the dependence on the nuisance parameters $\boldsymbol\theta$
+by maximizing over them. Note that $q_\mu\geq0$, and it exactly equals 0 when $\mu=\hat{\mu}$.
+
+We can construct distributions of $q_\mu$ for a given $\mu$ by generating random data, either under the B-only
+or $\mu$S+B hypotheses. The values of $q_\mu$ under the $\mu$S+B hypothesis tend to be lower on average than those 
+under the B-only hypothesis, since $\hat{\mu}$ tends to be close to the chosen $\mu$.
+
 
 \section{Supersymmetry interpretations}
 \label{sec:susy_interp}
