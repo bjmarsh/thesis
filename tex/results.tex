@@ -6,7 +6,7 @@ in each of the 282 signal regions bins. We then compare and fit to observed even
 maximum-likelihood fit that takes into account all statistical and systematic uncertainties.
 Finally, the results of this fit are used to constrain a variety of beyond-the-standard-model physics
 scenarios. Sec.~\ref{sec:prefit} presents the raw, pre-fit results, Sec.~\ref{sec:fits} briefly describes
-the fitting and limit-setting procedures, and Secs.~\ref{sec:susy_interp} and \ref{sec:lq_interp} show 
+the fitting and limit-setting procedures, and Sec.~\ref{sec:interp} shows
 the resulting limits placed on all considered signal models.
 
 \section{Pre-fit results}
@@ -167,10 +167,251 @@ The $\text{CL}_\text{S}$ method outlined above is used to set limits on all of t
 sections. Due to the very large number of bins in the \mttwo analysis, it is computationally infeasible
 to do compute distributions of the test statistic explicitly. Hence, we use an \textit{asymptotic approximation} to
 derive the distributions necessary to calculate $\text{CL}_\text{S}$, as described in~\cite{Cowan:asymptotic}.
+This has been verified at with a smaller number of signal points to give results consistent with the exact method.
+The calculations are performed with a CMS-produced wrapper around RooFit~\cite{roofit}.
+
+\section{Interpretations}
+\label{sec:interp}
+
+The statistical procedure described in the previous section is used to set 95\% confidence level upper limits
+on the cross sections of a variety of signal models. 
+For the interpretation of the results, simplified BSM physics models~\cite{Alwall:sms,Alwall:jetmet,Alves:sms} are used. 
+Simplified models are defined by sets of hypothetical particles and sequences of their production
+and decay. The theoretical parameters are thus reduced to a small number of masses and cross
+sections, providing an effective tool to characterize potential signals of BSM physics.
+
+The estimation of the three different background types
+and the corresponding uncertainties are described in Chapters~\ref{chap:zinv} through \ref{chap:qcd}.
+Estimated signal yields are taken from simulation, which has been produced using the CMS fast simulation
+framework~\cite{CMS:fastsim}. Due to known mis-modeling of ISR jets in simulation, signal samples
+have been re-weighted based on the number of generator-level ISR jets, with weights derived from a
+\ttbar-enriched sample in data. In addition, due to known \ptmiss tail mis-modeling in the fast simulation,
+estimated signal yields are computed using an average of the generator-level and reconstructed \ptmiss
+values. Systematic uncertainties to account for both of these procedures are applied to the estimated
+signal yields in each bin.
+
+A list of all sources of uncertainty on the signal yields is given in Table~\ref{tab:sig_systs}, along
+with the range of values for each uncertainty source over all analysis bins.
+
+\begin{table}[htb]
+\caption{
+Systematic uncertainties in the signal yields for the simplified models of BSM physics.
+The large statistical uncertainties in the simulated signal sample come from a small number of bins with low acceptance,
+which are typically not among the most sensitive bins contributing to a given model benchmark point.
+    \label{tab:sig_systs}}
+\centering
+\begin{tabular}{lc}
+\hline
+Source & Range [\%] \\
+\hline
+Integrated luminosity                     & 2.3--2.5     \\
+Limited size of MC samples                & 1--100  \\
+Renormalization and factorization scales  & 5       \\
+ISR modeling                              & 0--30   \\
+b tagging efficiency, heavy flavors       & 0--40   \\
+b tagging efficiency, light flavors       & 0--20   \\
+Lepton efficiency                         & 0--20   \\
+Jet energy scale                          & 5       \\
+Fast simulation \ptmiss\ modeling            & 0--5     \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection {Supersymmetry models}
 
 
-\section{Supersymmetry interpretations}
-\label{sec:susy_interp}
 
-\section{Leptoquark interpretations}
-\label{sec:lq_interp}
+A total of 11 supersymmetry simplified models are considered, illustrated
+in Fig.~\ref{fig:SMS_susy}.
+For each scenario of gluino (squark) pair production, the simplified models assume that
+all SUSY particles other than 
+those shown in the corresponding diagram
+are too heavy to be produced directly, and that the gluino (squark) decays promptly.
+The models assume that each gluino (squark) decays with a 100\% branching fraction 
+into the decay products depicted in Fig.~\ref{fig:SMS_susy}.
+For models where the decays of the two gluinos or squarks in the same diagram differ, a 1/3 (1/2)
+branching fraction for each of the three (two) decay modes is assumed.
+In particular, for the diagram of gluino pair production where the decays of the two gluinos 
+differ, each gluino can decay via a \chizz, \charginoplus, or \charginominus.
+For scenarios with top squarks decaying into top quarks, the polarization of the
+top quark can be model dependent and a function of the top squark and neutralino mixing matrices.
+To maintain independence of any particular model realization, 
+events are generated with unpolarized top quarks.
+Signal cross sections are calculated at approximately NNLO+NNLL (next-to-next-to-leading-logarithm) order in 
+$\alpha_{\mathrm{s}}$~\cite{Beenakker:nnll}.
+For direct light-flavor squark pair production we assume either one single squark, 
+or eight degenerate squarks ($\SQqL+\SQqR$, with $\SQq=\SQu,\;\SQd,\;\SQs,\;\text{or}\;\SQc$). 
+For direct bottom and top squark pair production, we assume one single squark.
+
+
+\begin{figure}[htbp]
+  \centering
+    \includegraphics[width=0.3\textwidth]{figs/results/T1qqqq.pdf}
+    \includegraphics[width=0.3\textwidth]{figs/results/T5qqqqWZ.pdf}
+    \includegraphics[width=0.3\textwidth]{figs/results/T5qqqqWW.pdf}\\
+    \includegraphics[width=0.3\textwidth]{figs/results/T1bbbb.pdf}
+    \includegraphics[width=0.3\textwidth]{figs/results/T1tttt.pdf} \\
+    \includegraphics[width=0.3\textwidth]{figs/results/T2qq.pdf}
+    \includegraphics[width=0.3\textwidth]{figs/results/T2bb.pdf}
+    \includegraphics[width=0.3\textwidth]{figs/results/T2tt.pdf} \\
+    \includegraphics[width=0.3\textwidth]{figs/results/T2bW.pdf}
+    \includegraphics[width=0.3\textwidth]{figs/results/T2bt.pdf}
+    \includegraphics[width=0.3\textwidth]{figs/results/T2cc.pdf} \\
+    \caption{(Upper) Diagrams for three scenarios of gluino-mediated light-flavor squark pair production with different decay modes.
+    For mixed decay scenarios, we assume equal branching fraction for each decay mode.
+    (Upper middle) Diagrams for the gluino-mediated bottom squark and top squark pair production.
+      (Lower middle) Diagrams for the direct pair production of light-flavor, bottom and top squark pairs.
+      (Lower) Diagrams for three alternate scenarios of direct top squark pair production with different decay modes.
+      For mixed decay scenarios, we assume equal branching fraction for each decay mode.}
+    \label{fig:SMS_susy}
+\end{figure}
+
+Figure~\ref{fig:t5x} shows the exclusion limits at 95\% CL for direct gluino pair production where the
+gluinos decay to light-flavor quarks under three different decay scenarios. Exclusion limits for
+direct gluino pair production where the gluinos decay to bottom and top quarks are shown in
+Fig.~\ref{fig:t1x}, and those for the direct production of squark pairs are shown in Fig.~\ref{fig:t2x}. Three alternate
+decay scenarios are also considered for the direct pair production of top squarks, and their
+exclusion limits are shown in Fig.~\ref{fig:stop_other}.
+
+Table~\ref{tab:lim_susy} summarizes the limits on the masses of SUSY particles excluded for the simplified
+model scenarios considered. These results extend the constraints on gluino and squark masses
+by about 100--350\GeV and on the \lsp mass by 100--250\GeV with respect to the limits
+in the previous iteration of this analysis \cite{CMS:mt22016}.
+
+\begin{table*}[htb]
+  \caption{Summary of the observed 95\% CL exclusion limits on the masses of SUSY particles for different simplified model scenarios.
+    The highest limits on the mass of the directly produced particles and on the mass of the \lsp are quoted.
+    \label{tab:lim_susy}}
+  \centering
+  \begin{tabular}{lrr}
+    \hline
+    Simplified & Highest limit on directly produced  & Highest limit on \\
+    model & SUSY particle mass [\GeV] & \lsp mass [\GeV] \\
+    \hline\hline
+    Direct gluino pair production: & & \\
+    $\gluino\to \qqbar\lsp$ & 1970 & 1200 \\
+    $\gluino \to \qqbar Z\lsp$ or $\gluino \to \qqbarpr W^\pm\lsp$ & 2020 & 1090 \\
+    $\gluino\to b\bar{b}\lsp$ & 2250 & 1525 \\
+    $\gluino\to \ttbar\lsp$ & 2250 & 1250 \\
+    \hline
+    Direct squark pair production: & & \\
+    Eight degenerate light squarks & 1710 & 870 \\
+    Single light squark & 1250 & 525 \\
+    Bottom squark & 1240 & 700 \\
+    Top squark & 1200 & 580 \\
+    \hline
+  \end{tabular}
+\end{table*}
+
+\begin{figure}[htbp]
+  \centering
+    \includegraphics[width=0.48\textwidth]{figs/results/T1qqqqXSEC.pdf}\\
+    \includegraphics[width=0.48\textwidth]{figs/results/T5qqqqVVXSEC.pdf}
+    \includegraphics[width=0.48\textwidth]{figs/results/T5qqqqWWXSEC.pdf}
+    \caption{
+    Exclusion limits at  95\% CL for direct gluino pair production,
+    where (upper) $\gluino \to \qqbar\lsp$, (lower left) $\gluino \to \qqbar\chizz~\mathrm{and}~\chizz \to Z\lsp$, or $\gluino \to \qqbarpr\chargino~\mathrm{and}~\chargino \to W^\pm\lsp$, and
+    (lower right) $\gluino \to \qqbarpr\chargino~\mathrm{and}~\chargino \to W^\pm\lsp$ (with $q=u,\;d,\;s,\;\text{or}\;c$).
+    For the scenarios where the gluinos decay via an intermediate \chizz or \chargino, \chizz and \chargino are assumed to be mass-degenerate, with
+     $m_{\chargino,~\chizz}=0.5(m_{\gluino}+m_{\lsp})$.
+      The area enclosed by the thick black curve represents the observed exclusion region,
+      while the dashed red lines indicate the expected limits and
+      their $\pm$1 and $\pm$2 standard deviation ranges.
+      The thin black lines show the effect of the theoretical
+      uncertainties in the signal cross section.
+      Signal cross sections are calculated at approximately NNLO+NNLL order in $\alpha_{\mathrm{s}}$~\cite{Beenakker:nnll},
+      assuming 1/3
+      branching fraction ($\mathcal{B}$) for each decay mode in the mixed-decay scenarios, or unity branching fraction for the indicated decay.}
+    \label{fig:t5x}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+    \includegraphics[width=0.48\textwidth]{figs/results/T1bbbbXSEC.pdf}
+    \includegraphics[width=0.48\textwidth]{figs/results/T1ttttXSEC.pdf}
+    \caption{
+    Exclusion limits at  95\% CL for
+     direct gluino pair production where the gluinos decay to (left) bottom quarks and (right) top quarks.
+      The area enclosed by the thick black curve represents the observed exclusion region,
+      while the dashed red lines indicate the expected limits and
+      their $\pm$1 and $\pm$2
+      standard deviation ranges.
+      The thin black lines show the effect of the theoretical
+      uncertainties in the signal cross section.
+      Signal cross sections are calculated at approximately NNLO+NNLL order in $\alpha_{\mathrm{s}}$~\cite{Beenakker:nnll},
+      assuming unity branching fraction for the indicated decay.}
+    \label{fig:t1x}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+    \includegraphics[width=0.48\textwidth]{figs/results/T2qq_XSEC_paperXSEC.pdf}
+    \includegraphics[width=0.48\textwidth]{figs/results/T2bb_XSEC_paperXSEC.pdf}
+    \includegraphics[width=0.48\textwidth]{figs/results/T2tt_XSEC_paperXSEC.pdf}
+    \caption{
+    Exclusion limit at 95\% CL for (upper left) light-flavor squark pair production, (upper right) bottom squark pair production,
+    and (lower) top squark pair production.
+      The area enclosed by the thick black curve represents the observed exclusion region,
+      while the dashed red lines indicate the expected limits and
+      their $\pm$1 and $\pm$2
+      standard deviation ranges.
+      The thin black lines show the effect of the theoretical
+      uncertainties in the signal cross section.
+      The white diagonal band in the top squark pair production exclusion limit corresponds to the region
+      $\left|m_{\SQt}-m_{t}-m_{\lsp}\right|< 25\GeV$ and small $m_{\lsp}$. Here the efficiency of the selection
+      is a strong function of $m_{\SQt}-m_{\lsp}$, and as a result the precise
+      determination of the cross section upper limit is uncertain
+      because of the finite granularity of the available
+      MC samples in this region of the ($m_{\SQt}, m_{\lsp}$)  plane. In the same exclusion limit, the gray diagonal line corresponds to $m_{\SQt}=m_{t}+m_{\lsp}$.
+      Signal cross sections are calculated at approximately NNLO+NNLL order in $\alpha_{\mathrm{s}}$~\cite{Beenakker:nnll},
+      assuming unity branching fraction for the indicated decay.}
+    \label{fig:t2x}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+   \includegraphics[width=0.49\textwidth]{figs/results/T2bW_XSEC_paperXSEC.pdf}
+   \includegraphics[width=0.49\textwidth]{figs/results/T2bt_XSEC_paperXSEC.pdf}
+   \includegraphics[width=0.49\textwidth]{figs/results/T2cc_XSEC_paperXSEC.pdf}
+   \caption{Exclusion limit at 95\% CL for top squark pair production for different decay modes of the top squark.
+     (Upper left) For the scenario where $pp\to\SQt\SQt\to b\bar{b}\chargino\chargino$, $\chargino\to W^{\pm}\lsp$,
+     the mass of the chargino is chosen to be half way in between the masses of the top squark and the neutralino.
+     (Upper right) A mixed-decay scenario, $pp\to\SQt\SQt$ with equal branching fractions for the top squark decays $\SQt\to t\lsp$
+     and $\SQt\to b\charginoplus$, $\charginoplus\to W^{+}\lsp$,
+     is also considered, with the chargino mass chosen such that
+     $\Delta m\left(\chargino,\lsp\right) = 5\GeV$.
+     (Lower) Finally, we also consider
+     a compressed spectrum scenario where
+     $pp\to\SQt\SQt\to c\bar{c}\lsp\lsp$. In this scenario, mass ranges are considered where $\SQt\to c\lsp$ branching fraction can be significant.
+     The area enclosed by the thick black curve represents the observed exclusion region,
+     while the dashed red lines indicate the expected limits and
+     their $\pm$1  and $\pm$2
+     standard deviation ranges.
+     The thin black lines show the effect of the theoretical
+     uncertainties in the signal cross section.
+   }
+   \label{fig:stop_other}
+\end{figure}
+
+\subsection {Mono-$\phi$ model}
+
+\begin{figure}[htbp]
+  \centering
+    \includegraphics[width=0.3\textwidth]{figs/results/monoPhi.pdf}
+    \caption{Diagram for the mono-$\phi$ model, where a colored scalar $\phi$ is resonantly produced, and then
+      decays to an invisible massive Dirac fermion $\psi$ and a SM quark.}
+    \label{fig:SMS_monophi}
+\end{figure}
+
+\subsection {Leptoquark models}
+
+\begin{figure}[htbp]
+  \centering
+    \includegraphics[width=0.24\textwidth]{figs/results/LQdiagram_a.pdf}
+    \includegraphics[width=0.24\textwidth]{figs/results/LQdiagram_b.pdf}
+    \includegraphics[width=0.24\textwidth]{figs/results/LQdiagram_c.pdf}
+    \includegraphics[width=0.24\textwidth]{figs/results/LQdiagram_d.pdf}
+    \vspace{3mm}
+    \caption{Diagrams for LQ pair production.}
+    \label{fig:SMS_LQ}
+\end{figure}
