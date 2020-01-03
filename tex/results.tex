@@ -440,7 +440,10 @@ limit on the product of cross section times branching ratio of about 0.6 (0.4 ex
 \subsection {Leptoquark models}
 
 Finally, the search is interpreted in using models of leptoquark (LQ) pair production,
-similarly to a previous reinterpretation~\cite{CMS:mt2LQ}.
+similarly to a previous reinterpretation~\cite{CMS:mt2LQ}. Leptoquarks, discussed in
+Sec.~\ref{sec:bsm}, are hypothetical particles that couple quarks and leptons. As they
+are necessarily colored, they also couple to gluons, giving the four main production
+modes shown in Fig.~\ref{fig:SMS_LQ}.
 
 \begin{figure}[htbp]
   \centering
@@ -452,6 +455,24 @@ similarly to a previous reinterpretation~\cite{CMS:mt2LQ}.
     \caption{Diagrams for LQ pair production.}
     \label{fig:SMS_LQ}
 \end{figure}
+
+In the case of scalar leptoquarks (\lqs), the kinematics are identical to the
+pair production of squarks, where each squark decays to a quark and \lsp with $m_\lsp=0$.
+Differeneces in kinematic distributions introduced by vector leptoquarks (\lqv) are negligible,
+at least for the variables relevant to this analysis. Hence, the same signal simulation is
+used as for the pair production of squarks with $m_\lsp$ set to 0, rescaled to the
+theoretical LQ pair production cross section.
+
+Figure~\ref{fig:lq} shows the 95\% CL exclusion limits on the cross section times branching ratio
+of $\mrm{LQ}\to q\nu$, as a function of LQ mass, where $q$ is either a light-flavor quark, bottom quark, or top
+quark. Theory curves are the cross sections assuming 100\% branching fraction to the relevant quark-neutrino pair,
+except for the pink curve in the bottom plot which assumes $\mathcal{B}(\lqv\to t\nu)=50\%$ and
+$\mathcal{B}(\lqv\to b\tau)=50\%$, corresponding to a proposed explanation~\cite{Buttazzo:bphys} of various flavor
+physics anomalies.
+
+Table~\ref{tab:lim_lq} summarizes the limits on the masses of the leptoquarks excluded for the considered scenarios.
+These results extend the constraints on LQ masses by up to 200\GeV with respect to the limits of Ref.~\cite{CMS:mt2LQ},
+providing the most stringent constraints to date on models of LQ pair production.
 
 \begin{figure}[htbp]
  \centering
@@ -472,3 +493,27 @@ for vector LQ pair production assuming $\kappa = 1$ and a 50\% branching fractio
 Signal cross sections are calculated at NLO (LO) in $\alpha_{\mathrm{s}}$ for scalar (vector) LQ pair production.}
    \label{fig:lq}
 \end{figure}
+
+
+\begin{table}[htb]
+  \caption{Summary of the observed 95\% CL exclusion limits on the masses of LQs for the considered scenarios. The columns show scalar or vector LQ with the choice of $\kappa$,
+while the rows show the LQ decay channel. For mixed-decay scenarios, the assumed branching fractions ($\mathcal{B}$) are indicated.
+    \label{tab:lim_lq}}
+\centering
+\begin{tabular}{l|c|c|c}
+\hline
+ & \lqs  & $\lqv,~\kappa=1$ & $\lqv,~\kappa=0$ \\
+ & mass [\GeV] & mass [\GeV] & mass [\GeV] \\
+\hline\hline
+$\mathrm{LQ}\to q\nu~\left(q=u,\;d,\;s,\;\text{or}\;c\right)$ & 1140 & 1980 & 1560\\
+$\mathrm{LQ}\to b\nu$ & 1185 & 1925 & 1560 \\
+$\mathrm{LQ}\to t\nu$ & 1140 & 1825 & 1475\\
+$\mathrm{LQ}\to\left\{
+\begin{tabular}{l}
+$t\nu~\left(\mathcal{B}=50\%\right)$\\                                                                                                                                                                                                                                       
+$b\tau~\left(\mathcal{B}=50\%\right)$                                                                                                                                                                                                                                         
+\end{tabular}\right.$
+& --- & 1550 & 1225 \\
+\hline
+\end{tabular}
+\end{table}
