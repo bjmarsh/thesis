@@ -12,11 +12,11 @@ variable that is used to discriminate signal from background.
 \label{sec:motivation}
 
 Many theories of BSM physics contain heavy particles (masses on the order of hundreds of GeV to TeV), whose
-decays produce a multitude of highly energetic particles. Hence, the events tend to have lots of visible
-energy (in the form of highly energetic jets, if the decays are to quarks, and leptons) as well as
+decays produce a multitude of highly energetic particles. Thus, the events tend to have lots of visible
+energy (in the form of highly energetic jets and/or leptons) as well as
 \emph{invisible} energy (in the form of \ptmiss), if the decay products are not detectable.
 
-Most SM processes the produce significant true \ptmiss from neutrinos also have leptons, since the
+Most SM processes that produce significant true \ptmiss from neutrinos also have leptons, since the
 neutrinos often come from $W\to\ell\nu$ decay. This is especially true for events with many jets
 and b-tagged jets, which often contain a \ttbar pair. So by vetoing events with prompt leptons, it is
 possible to significantly reduce a large class of SM backgrounds. The flip side of this is that a
@@ -25,10 +25,14 @@ fake \ptmiss from jet mis-measurement. However, this can be managed with the use
 discriminating kinematic variables, discussed in Sec.~\ref{sec:mt2_variable} and Chapter~\ref{chap:event_selection}.
 
 Based on general concerns, then, there is motivation for a search with lots of hadronic energy and
-missing transverse momentum, but no leptons. 
+missing transverse momentum, but no leptons. There are also many specific examples of models
+of BSM physics that produce such final states. Decay chains in simplified models of supersymmetry, discussed in
+Chapter~\ref{chap:theory}, are often completely hadronic. Two examples are shown in Fig.~\ref{fig:example_susy_feyn}.
+The left diagram shows the pair-production of two gluinos, each decaying to a \ttbar pair and an invisible \lsp.
+Each top quark then has a 68\% probability of decaying purely hadronically. The right diagram shows
+the pair-production of bottom squarks, each of which decay to a bottom quark and \lsp.
 
-
-\begin{figure}[h]
+\begin{figure}[t]
   \begin{center}
     \includegraphics[width=0.40\textwidth]{figs/susy_diagrams/T1tttt.pdf}
     \includegraphics[width=0.40\textwidth]{figs/susy_diagrams/T2bb.pdf}
@@ -36,9 +40,16 @@ missing transverse momentum, but no leptons.
       (left) Gluino pair production, where each gluino decays into a neutralino and two top quarks.
       (right) Bottom squark pair production, where each squark decays into a neutralino and bottom quark.
             }
-    \label{Fig:example_susy_feyn}
+    \label{fig:example_susy_feyn}
   \end{center}
 \end{figure}
+
+Additionally, the pair-production of leptoquarks, also discussed in Chapter~\ref{chap:theory}, may produce purely hadronic final
+states if each leptoquark decays into a quark and neutrino (e.g., $\mrm{LQ}\to t\bar{\nu}_\tau$). In the case that the
+leptoquarks are scalars (spin 0), this process is indistinguishable from the pair production of squarks that decay to a quark 
+and \lsp when $m_\lsp=0$, so any analysis optimized to search for hadronically-decaying squark pairs is naturally optimized
+to search for leptoquark pairs.
+
 
 \section{Sources of backgrounds}
 \label{sec:mt2_backgrounds}
