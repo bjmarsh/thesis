@@ -27,6 +27,8 @@ build:
 	pdflatex -shell-escape -jobname output thesis.tex -interaction=batchmode
 	bibtex output
 	makeindex thesis.tex
+	for FILE in `ls feynman_diagrams/*.mp`; do mpost $$FILE; done
+	mv *.{1,t1} feynman_diagrams/
 	pdflatex -shell-escape -jobname output -draftmode thesis.tex -interaction=batchmode
 	pdflatex -shell-escape -jobname output thesis.tex
 	mkdir -p tmp
