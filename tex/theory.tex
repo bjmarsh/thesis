@@ -124,7 +124,8 @@ but this vertex is best understood through electroweak unification discussed bel
   \input{feynman_diagrams/em_ferm}
   \input{feynman_diagrams/em_w}
   \caption{Fundemental vertices of the electromagnetic interaction. The photon couples to charged fermions (left)
-    and the $W$ boson (right).
+    and the $W$ boson (right), though the $\gamma WW$ vertex is best understood through electroweak
+    unification discussed later in this section.
   }
   \label{fig:em_diagrams}
 \end{figure}
@@ -181,7 +182,55 @@ gauge theories.
 \end{figure}
 
 The final interaction we must incorporate is the weak interaction. However, there are a number of difficulties
-that did not arise for the electromagnetic and strong interactions.
+that did not arise for the electromagnetic and strong interactions. First is the observation that charged weak
+currents (that is, $W$ boson interactions), only involve left-handed chiral fermions states, 
+or right-handed anti-fermion states (in the relativistic
+limit, or for massless particles, chirality is the same as helicity). The strong and electromagnetic
+interactions make no distinction between left- and right-handed states. 
+
+This is incorporated into the theory
+by introducing left-handed fermion doublets (e.g. $(\nu_e\;e)_L$, $(u\;d)_L$, etc.) and right-handed
+singlets, and then imposing a local $SU(2)$ symmetry on the doublet states. The charge corresponding
+to this symmetry is called \textit{weak isospin}.
+
+Running through the same procedure as above, we find that this $SU(2)_L$ symmetry generates
+two charged currents and one neutral current, which look deceivingly like the $W^\pm$ and $Z$
+bosons. However, there is a problem: the neutral $Z$ boson is observed to couple to both left-
+and right-handed particles, while so far we have only dealt with the left-handed case.
+
+The answer to this is tied to the solution for the other main problem of weak interactions: the fact that
+the weak bosons are massive. We have seen that local gauge invariance requires that the gauge bosons
+be massless, but in reality the weak gauge bosons are observed to be quite heavy. The solution
+to this in general was provided by the Higgs mechanism, mentioned above and discussed in the following.
+Then in the late 1960s, Glashow, Weinberg, and Salam~\cite{Glashow,Weinberg,Salam} incorporated this into
+the SM and in the process unified the electromagnetic and weak interactions into a single
+\textit{electroweak} interaction.
+
+Before getting into the Higgs mechanism, we can understand this unification by introducing a 
+\text{weak hypercharge}, defined as $Y=2T_3-2Q$, where $Q$ is the electric charge and
+$T_3$ is the third (neutral) component of weak isospin. This is an invariant quantity
+under weak isospin and the total symmetry group becomes $SU(2)_L\times U(1)$.
+Denoting $\mathbf{j_\mu}$ and $j^Y_\mu$ as the four currents associated with weak isospin
+and weak hypercharge, respectively, the electroweak interaction Lagrangian can be written
+\be\label{eq:ew_lagr}
+\mathcal{L} = -ig_w\mathbf{j_\mu}\cdot \mathbf{W}^\mu + \frac{ig'}{2}j^Y_\mu B^\mu,
+\ee
+where we have introduced coupling constants $g_w$ and $g'$. This is written in terms
+of the \textit{gauge fields} rather than the \textit{physical fields}, to make it more
+manifestly invariant under our symmetry group, but it can be re-written in terms of
+the physical fields. The two $W$ bosons are linear combinations of the first two 
+(charged) components of $\mathbf{W_\mu}$, and the $Z$ boson and photon are linear combinations
+of $W_\mu^3$ and $B_\mu$:
+\be
+W_\mu^\pm = \frac{1}{\sqrt{2}}(W^1_\mu \mp iW^2_\mu)
+\ee
+\be
+\begin{pmatrix} A_\mu \\ Z_\mu \end{pmatrix} = 
+\begin{pmatrix} \cos\theta_w & \sin\theta_w \\ -\sin\theta_w & \cos\theta_w \end{pmatrix}
+\begin{pmatrix} B_\mu \\ W^3_\mu \end{pmatrix},
+\ee
+where $\theta_w$ is a free parameter that controls the degree of mixing.
+
 
 \begin{figure}[ht]
   \addtolength{\abovecaptionskip}{5mm}
