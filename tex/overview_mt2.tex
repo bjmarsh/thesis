@@ -99,7 +99,7 @@ Assuming that the invisible particle is the dominant source of missing energy in
 transverse momentum vector of the invisible particle and can be plugged into Eq.~\ref{eq:mt} to compute the transverse mass of the
 system. As the transverse mass is just the invariant mass computed only with the transverse components of the particle momenta,
 it naturally has an upper bound equal to the parent particle mass. An example from a CMS measurement of the $W$ production
-cross section \cite{CMS:w_prod} is shown in Fig.~\ref{Fig:w_transverse_mass}. In this case, the two-particle system is
+cross section \cite{CMS:w_prod} is shown in Fig.~\ref{fig:w_transverse_mass}. In this case, the two-particle system is
 $W\to\mu\nu$ decay, and $M_\mrm{T}\lessapprox M_W=80\GeV$. The location of the $M_\mrm{T}$ ``cliff'' can be used to
 extract a measurement of the $W$ mass. The small number of events with transverse mass larger than the $W$ mass
 are due to experimental resolution on the muon momentum and \vMet vectors.
@@ -110,7 +110,7 @@ are due to experimental resolution on the muon momentum and \vMet vectors.
     \caption{Transverse mass of the muon-\vMet system from a CMS measurement of the $W$ production cross section \cite{CMS:w_prod}.
       The transverse mass has a rough upper bound at $M_W=80\GeV$, limited by experimental resolution.
             }
-    \label{Fig:w_transverse_mass}
+    \label{fig:w_transverse_mass}
   \end{center}
 \end{figure}
 
@@ -118,7 +118,7 @@ Computing the transverse mass of a decaying SUSY particle would be useful in dis
 SM particles that make up the background. However, the SUSY particles are \emph{pair-produced}, and computing the transverse mass 
 of each system is not possible because it is not possible to resolve the \vMet vector into components from
 each invisible particle. An example of this is the SUSY bottom squark pair production shown in 
-Fig.~\ref{Fig:example_susy_feyn} (right). Each bottom squark decays into a b quark, which appears
+Fig.~\ref{fig:example_susy_feyn} (right). Each bottom squark decays into a b quark, which appears
 as a jet in the detector (potentially b-tagged), and a neutralino, which is invisible.
 
 Absent this information, the best we can do is to try \emph{all possible partitions} of the \vMet vector
@@ -141,7 +141,7 @@ the correct momenta are chosen then \emph{both} should be bounded above by the p
 
 A couple of complications arise when trying to practically implement this. First, there are typically more than two visible objects
 in an event (either the event is accompanied by ISR or pileup jets, or the decay cascade natrually produces more than one visible
-object. For example, gluino decay into top quarks, illustrated in Fig.~\ref{Fig:example_susy_feyn} (left), produces multiple jets per
+object. For example, gluino decay into top quarks, illustrated in Fig.~\ref{fig:example_susy_feyn} (left), produces multiple jets per
 decaying gluino). If the original pair-produced particles are produced back-to back, the visible systems tend to be in opposite
 hemispheres. So before computing \mttwo, all jets in the event are clustered into two \emph{pseudojets} following the algorithm
 described in Ref.~\cite{CMS:tdr}, Section 13.4, and these pseudojets are used as the two visible systems. 
@@ -170,9 +170,9 @@ for QCD production of multijet events at the LHC. While requiring large \ptmiss 
 a large contribution from events with \ptmiss from mis-measured jets. The \mttwo variable allows further suppression
 of these events, by taking advantage of the different event topologies between signal and mis-measured multijet events.
 
-This is illustrated in Figs.~\ref{Fig:inclusive_mt2} and \ref{Fig:metmt2}.
-Fig.~\ref{Fig:inclusive_mt2} shows distributions of \mttwo for signal and background after an inclusive selection,
-while Fig.~\ref{Fig:metmt2} shows 2D distributions of \mttwo vs. \ptmiss separately for signal and QCD multijet events.
+This is illustrated in Figs.~\ref{fig:inclusive_mt2} and \ref{fig:metmt2}.
+Fig.~\ref{fig:inclusive_mt2} shows distributions of \mttwo for signal and background after an inclusive selection,
+while Fig.~\ref{fig:metmt2} shows 2D distributions of \mttwo vs. \ptmiss separately for signal and QCD multijet events.
 In SUSY events, the large mass scale of the produced sparticles and acoplanarity of the visible objects tends to concentrate
 the events in the high-\mttwo region (\mttwo follows \ptmiss quite closely). On the contrary, mis-measured multijet events
 populate the low-\mttwo region regardless of \ptmiss or jet \pt, since they tend to be ``back-to-back''.
@@ -189,7 +189,7 @@ Because of this, after requiring high \mttwo, QCD multijet events become a sub-d
       The QCD multijet background falls rapidly with \mttwo, while signal extends out to large values. The electroweak backgrounds
       have larger tails, since they containt true \ptmiss, but some discriminating power remains.
             }
-    \label{Fig:inclusive_mt2}
+    \label{fig:inclusive_mt2}
   \end{center}
 \end{figure}
 
@@ -199,6 +199,6 @@ Because of this, after requiring high \mttwo, QCD multijet events become a sub-d
     \caption{Distributions of \mttwo vs. \ptmiss, for QCD multijet events (left), and gluino pair production (right).
       For signal, $\mttwo\sim\ptmiss$, while for background, \mttwo tends to be much smaller than \ptmiss.
             }
-    \label{Fig:metmt2}
+    \label{fig:metmt2}
   \end{center}
 \end{figure}
