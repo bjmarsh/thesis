@@ -53,8 +53,7 @@ via the weak interaction. Each of the fermions also has a corresponding antipart
 mass but opposite charges.
 
 The fermions can be classified into three generations as indicated in the diagram, with masses
-increasing in each generation (with the possible exception of the very light neutrinos, whose
-masses are not precisely known). Due to various conservation laws arising from the allowed 
+increasing in each generation. Due to various conservation laws arising from the allowed 
 interactions, the first-generation particles are all stable, and hence form the building
 blocks of matter. The strong interaction allows up and down quarks to strongly bind to
 one another, forming protons (two ups and a down) and neutrons (two downs and an up).
@@ -91,7 +90,7 @@ summary of the main ideas here.
 
 The simplest example is the electromagnetic interaction. Starting with the Lagrangian of a free fermion
 \be\label{eq:ferm_lagr}
-\mathcal{L} = i\bar{\psi}\gamma^\mu\partial_\mu\psi - m\bar{\psi}\psi,
+\mathcal{L}_\mrm{fermion} = i\bar{\psi}\gamma^\mu\partial_\mu\psi - m\bar{\psi}\psi,
 \ee
 where $\psi$ is the spinor field of the fermion and $m$ is its mass,
 we require that $\mathcal{L}$ is invariant under the local $U(1)$ transformation $\psi\to e^{-iq\theta(x)}\psi$.
@@ -108,7 +107,7 @@ maintained.
 So by requiring that the Lagrangian for a free fermion is invariant under a local $U(1)$ transformation,
 we were forced to introduce a new massless, spin-1 boson that couples to the fermion via the term
 $q\bar{\psi}\gamma^\mu\psi A_\mu$. This new boson is the photon, and this fermion coupling
-is the fundamental interaction of quantum electrodynamics! The photon couples to any particle with
+is the fundamental interaction of quantum electrodynamics (QED)! The photon couples to any particle with
 electric charge, represented by $q$ in the coupling term.
 
 Feynman diagrams for the fundamental vertices of QED are shown in Fig.~\ref{fig:em_diagrams}.
@@ -117,7 +116,7 @@ quarks, with $|q|=2/3$ or 1/3). The $W$ boson is also charged, and so couples to
 but this vertex is best understood through electroweak unification discussed below.
 
 
-\begin{figure}[ht]
+\begin{figure}[t]
   \addtolength{\abovecaptionskip}{5mm}
   \centering
   \vskip5mm
@@ -135,7 +134,7 @@ which can be one of three values we refer to as red, green, and blue.
 Then the free quark Lagrangian can be written
 \be\label{eq:quark_lagr}
 \begin{split}
-\mathcal{L} &= \sum_{c=r,g,b} i\bar{q}_c\gamma^\mu\partial_\mu q_c - m\bar{q}_c q_c \\
+\mathcal{L}_\mrm{quarks} &= \sum_{c=r,g,b} i\bar{q}_c\gamma^\mu\partial_\mu q_c - m\bar{q}_c q_c \\
 &= i\bar{q}\gamma^\mu\partial_\mu q - m\bar{q}q
 \end{split}
 \ee
@@ -162,12 +161,11 @@ and we are forced to add a term to the Lagrangian $g_s\bar{q}\gamma^\mu\boldsymb
 This time, $\mathbf{A_\mu}$ is a vector of eight new spin-1 bosons (gluons), and this term represents the coupling of gluons
 to quarks. In adding the kinetic terms for the gluons, we are again forced to make them massless, but this time,
 due to the non-abelian nature of $SU(3)$, we are also forced to add additional terms that represent three- and four-gluon 
-self-interaction vertices. The fundamental interactions for quantum chromodynamics are shown in Fig.~\ref{fig:strong_diagrams}.
+self-interaction vertices. The fundamental interactions for quantum chromodynamics (QCD) are shown in Fig.~\ref{fig:strong_diagrams}.
 The two on the right are the boson self-interactions, which are not present in QED, and are a feature of non-abelian
 gauge theories.
 
-
-\begin{figure}[ht]
+\begin{figure}[t]
   \addtolength{\abovecaptionskip}{5mm}
   \centering
   \vskip5mm
@@ -213,7 +211,7 @@ under weak isospin and the total symmetry group becomes $SU(2)_L\times U(1)$.
 Denoting $\mathbf{j_\mu}$ and $j^Y_\mu$ as the four currents associated with weak isospin
 and weak hypercharge, respectively, the electroweak interaction Lagrangian can be written
 \be\label{eq:ew_lagr}
-\mathcal{L} = -ig_w\mathbf{j_\mu}\cdot \mathbf{W}^\mu + \frac{ig'}{2}j^Y_\mu B^\mu,
+\mathcal{L}_\mrm{EWK, int} = -ig_w\mathbf{j_\mu}\cdot \mathbf{W}^\mu + \frac{ig'}{2}j^Y_\mu B^\mu,
 \ee
 where we have introduced coupling constants $g_w$ and $g'$. This is written in terms
 of the \textit{gauge fields} rather than the \textit{physical fields}, to make it more
@@ -221,18 +219,31 @@ manifestly invariant under our symmetry group, but it can be re-written in terms
 the physical fields. The two $W$ bosons are linear combinations of the first two 
 (charged) components of $\mathbf{W_\mu}$, and the $Z$ boson and photon are linear combinations
 of $W_\mu^3$ and $B_\mu$:
-\be
+\be\label{eq:wpm}
 W_\mu^\pm = \frac{1}{\sqrt{2}}(W^1_\mu \mp iW^2_\mu)
 \ee
-\be
+\be\label{eq:za}
 \begin{pmatrix} A_\mu \\ Z_\mu \end{pmatrix} = 
 \begin{pmatrix} \cos\theta_w & \sin\theta_w \\ -\sin\theta_w & \cos\theta_w \end{pmatrix}
 \begin{pmatrix} B_\mu \\ W^3_\mu \end{pmatrix},
 \ee
-where $\theta_w$ is a free parameter that controls the degree of mixing.
+where $\theta_w$ is a free parameter that controls the degree of mixing, known as the 
+Weinberg angle or weak mixing angle
 
+From these and the known QED coupling, one can derive expressions for the weak coupling
+constants $g_w$ and $g'$ in terms of $e$ and $\theta_w$. Plugging Eqs.~\ref{eq:wpm}
+and \ref{eq:za} into the Lagrangian Eq.~\ref{eq:ew_lagr}, one can get an expression
+for the Lagrangian in terms of the physical fields and read off the allowed couplings.
+The fundamental vertices are shown in Fig.~\ref{fig:weak_diagrams}. The $W$ couples
+to $\ell\nu$ or $q\bar{q}'$ pairs (though only to left-handed fermions
+and right-handed antifermions). The $\ell\nu$ pair must be within a single generation,
+but cross-generational $q\bar{q}'$ couplings are possible as the \textit{weak eigenstates}
+of quark flavor are rotated slightly from the \textit{mass eigenstates} that we have been
+referring to. The matrix that performs this rotation and determines the coupling strengths
+is known as the CKM matrix.
+The $Z$ couples to any fermion-antifermion pair.
 
-\begin{figure}[ht]
+\begin{figure}[t]
   \addtolength{\abovecaptionskip}{5mm}
   \centering
   \vskip5mm
@@ -243,13 +254,55 @@ where $\theta_w$ is a free parameter that controls the degree of mixing.
       and a same-generation neutrino, or a quark and anti-quark (most strongly within the same
       generation, but cross-generational couplings are possible via the CKM matrix).
       The $Z$ boson can couple to any fermion and its antiparticle. There are also
-      boson self-interaction vertices ($WWZ$, $WWWW$, $WWZZ$) necessary for the self-consistency 
+      boson self-interaction vertices ($WWZ$, $WWWW$, $WWZZ$, $\gamma\gamma WW$) necessary for the self-consistency 
       of the theory, but they are less important practically.
             }
     \label{fig:weak_diagrams}
 \end{figure}
 
-\begin{figure}[ht]
+We have seen how the electromagnetic, strong, and weak interactions can arise by imposing
+a local $SU(3)\times SU(2)_L\times U(1)$ gauge symmetry on the SM Lagrangian.
+However, there remain the questions of how exactly the weak bosons acquire their masses without breaking
+local gauge invariance, and how the $SU(2)_L\times U(1)$ symmetry underlying the electroweak
+interaction is broken, such that the weak bosons are so heavy while the photon is massless.
+
+The answer lies in the Higgs mechanism and spontaneous symmetry breaking, mentioned earlier.
+Again the details can be found in any quantum field theory textbook, but the basic idea is this:
+imagine that there exists a scalar complex field $\phi\equiv\phi_1+i\phi_2$ governed by the Lagrangian
+\be
+\mathcal{L} = \frac{1}{2}\partial_\mu\phi^*\partial_\mu\phi + \frac{1}{2}\mu^2\phi^*\phi - \frac{1}{4}(\phi^*\phi)^2.
+\ee
+
+This  Lagrangian already has a global $U(1)$ symmetry, and requiring local symmetry again requires the addition
+of a massless gauge boson $A_\mu$.
+Further, the potential (given by the negative of the final two terms) normally has a minimum at 0, but in this case 0 is
+actually a local maximum and the minimum lies on a circle in the complex plane of radius $\mu/\lambda$.
+Since the Feynman calculus is really a perturbation theory in the fields, we must expand around a local minimum of the
+potential. Choosing $(\mu/\lambda,0)$ as the point to expand around (``spontaneously'' breaking the symmetry), we define
+\be
+\eta\equiv\phi_1-\mu/\lambda, \;\;\; \xi\equiv\phi_2.
+\ee
+
+Plugging these in to the Lagrangian, we find that $\eta$ represents a scalar boson of mass $m_\eta=\sqrt{2}\mu$,
+and $A_\mu$ picks up a mass term $m_A=2q\mu/\lambda$, where $q$ is the charge generated by the $U(1)$
+symmetry. So by introducing a complex scalar field and breaking the symmetry of its potential, we have given
+mass to the gauge boson at the cost of a new scalar boson $\eta$! There is a problematic term representing
+a direct $\xi A$ coupling, but this can be transformed away with the proper choice of gauge, thereby eliminating 
+the non-physical ``Goldstone boson'' $\xi$.
+
+It is a bit more complicated with the full $SU(2)_L\times U(1)$ symmetry of the elecroweak Lagrangian (the scalar
+field must become a doublet of complex fields, and we have three gauge bosons), but the basic ideas are the same.
+We find that the $W$ and $Z$ bosons acquire masses proportional to $\mu/\lambda$ (and related by $M_W/M_Z=\cos\theta_W$)
+while the photon remains massless, and a new scalar ``Higgs boson'' is introduced. Its mass is undetermined by the theory
+and must be measured.
+
+Masses of the fermions can also be added via the Higgs boson, by adding Yukawa coupling terms. We then get all of the fundamental
+interactions of the Higgs boson shown in Fig.~\ref{fig:higgs_diagrams}. It directly couples to all massive particles,
+with strength proportional to the mass. While it does not directly couple to photons or gluons as they are massless,
+the Higgs can still decay to these particles through loops involving massive particles (most prominently
+virtual top quarks).
+
+\begin{figure}[t]
   \addtolength{\abovecaptionskip}{5mm}
   \centering
   \vskip5mm
@@ -260,10 +313,20 @@ where $\theta_w$ is a free parameter that controls the degree of mixing.
       including fermions (left) and the $W$ and $Z$ bosons (middle). It cannot couple directly
       to massless particles such as the photon and gluon, but it may decay to these through loops
       of massive particles (right). The most likely particle in the loop is the top quark, since
-      it is the heaviest option (thought it needs to be virtual, since $2m_t > m_H$).
+      it is the heaviest option (thought it needs to be virtual, since $2m_t > m_H$). There
+      are also three- and four-Higgs self-interaction vertices.
             }
     \label{fig:higgs_diagrams}
 \end{figure}
+
+We have now seen the basic ideas of how the Standard Model is constructed: starting from the Lagrangians
+of free fermions, we impose invariance under local $SU(3)\times SU(2)_L\times U(1)$ gauge transformations
+and are forced to add massless gauge bosons. By introducing a scalar Higgs field, we can spontaneously 
+break the symmetry of the electroweak interaction and give masses to the weak bosons, as well as
+give mass terms to the fermions in the theory. The resulting theory has had remarkable success in
+predicting experimental findings to high degree of accuracy. However, there are a number of phenomena
+that the SM cannot explain, and it thus cannot be a complete ``theory of everything''. We examine some
+of the issues with the SM in the following section.
 
 
 \section{Problems with the Standard Model}
