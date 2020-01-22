@@ -47,10 +47,10 @@ generally one or more jets must be badly mismeasured
 The sources of the measured tails fall into two categories. The first, ``real sources'', 
 are due to real effects that are present in the data we are interested in modeling. 
 The second, ``fake sources'', are due to features of the simulation or template-derivation 
-methodology that aren't reflected in the actual data. 
+methodology that are not reflected in the actual data. 
 We seek to model the first category as accurately as possible, 
 and remove events from the second category so that
-they don't artificially enhance the tails of the templates.
+they do not artificially enhance the tails of the templates.
 \begin{itemize}
 \item{Real sources}
    \begin{itemize}
@@ -65,7 +65,7 @@ they don't artificially enhance the tails of the templates.
    \item Gen or reco jet ``splitting''. i.e. for a single gen (reco) jet, the corresponding reco (gen) jet is clustered as two different jets, and only one gets matched. 
    Depending on the direction, this enhances \emph{both} tails.
    \item Mis-matching a gen jet to a reconstructed pileup jet. This generally enhances the \emph{left} tails.
-   \item Holes in the simulated calorimeter that aren't present in the real data. This enhances the \emph{left} tails.
+   \item Holes in the simulated calorimeter that are not present in the real data. This enhances the \emph{left} tails.
    \end{itemize}
 \end{itemize}
 
@@ -101,10 +101,10 @@ differences in jet resolution between data and MC.
   \begin{center}
     \includegraphics[width=0.49\textwidth]{figs/jetmet/resolution_vs_pt.pdf}
     \includegraphics[width=0.49\textwidth]{figs/jetmet/tailfrac_vs_pt.pdf}
-    \caption{(left) Jet energy resolution (defined as the width of the fitted gaussian core) as a function of generator-level jet \pt, as measured in Autumn18 MC. 
+    \caption{(left) Jet energy resolution (defined as the width of the fitted gaussian core) as a function of generator-level jet \pt, as measured in 2018 MC. 
     Resolution improves as jet \pt increases, and generally degrades as $\eta$ increases.
     (right) The fraction of the jet response function that resides in the fitted tails (as opposed to the gaussian core) as a function of generator-level jet \pt, 
-    as measured in Autumn 18 MC. The main feature to notice is that at intermediate \pt,  b jets have a higher probability to be in the tail. This is due to the presence
+    as measured in 2018 MC. The main feature to notice is that at intermediate \pt,  b jets have a higher probability to be in the tail. This is due to the presence
     of neutrinos from heavy-flavor decay in the jet, which cause the jet energy to be undermeasured and hence enhance the left tail of the templates. At low \pt, the
     tails are driven by other effects so differences between b and non-b jets are not visible.
     }
@@ -119,7 +119,7 @@ differences in jet resolution between data and MC.
 The process for matching gen and reco jets in order to derive jet response templates begins with QCD Monte Carlo,
 in which both the generator-level and reconstructed particles have been clustered into jets.
 It is important to use gen jets that include neutrinos, as we are interested in modeling jet mismeasurement due
-to energy carried away by neutrinos such. Reco jet energies are fully corrected with the same jet energy corrections
+to energy carried away by such neutrinos. Reco jet energies are fully corrected with the same jet energy corrections
 as used in the main analysis. Gen jet flavor is determined by identifying the flavor of 
 hadrons within the jet cone. Once this is all done, all reco and gen jets with $\pt>10$\GeV are selected and saved.
 

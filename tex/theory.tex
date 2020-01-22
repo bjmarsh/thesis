@@ -374,11 +374,11 @@ of matter and antimatter should have been created at the beginning of the univer
 would have been annihilated). A necessary condition for explaining this asymmetry is a mechanism for violating
 charge-parity, or CP, symmetry (the symmetry that exchanges all particles for antiparticles and reverses chiralities).
 The weak interaction allows for small CP-violation via a complex phase in the CKM quark mixing matrix, but this
-is not big enough to explain the observed baryon asymmetry, and beyond the SM sources are necessary.
+is not big enough to explain the observed baryon asymmetry, so beyond the SM sources are necessary.
 
 Finally, most relevant for this dissertation is the existence of \textit{dark matter}. If one plots the velocity of
 matter as a function of radial distance from the center in a rotating spiral galaxy, Newton's laws
-applied to the distribution of visible matter say that the velocity should decrease with radius. However, the observed 
+applied to the distribution of visible matter say that the velocity should decrease with radius. However, observed 
 galactic rotation curves are actually flat over large distances (see Fig.~\ref{fig:dm_curve} for an example from the M33
 galaxy). This suggests the presence of invisible, or ``dark'', matter permeating the galaxies that interacts
 gravitationally but not electromagnetically. Other observations support this same hypothesis, such as gravitational
@@ -389,14 +389,14 @@ that can account for this dark matter, and explaining it is one of the central p
   \centering
   \includegraphics[width=0.5\textwidth]{figs/theory/dm.jpg}
   \caption{Observed and expected rotation curves of the M33 galaxy, suggesting
-    a significant mass contribution from dark matter. Taken from~\cite{Zasov:dm}.
+    a significant mass contribution from dark matter. (Taken from~\cite{Zasov:dm})
             }
     \label{fig:dm_curve}
 \end{figure}
 
 There are also a few problems with the SM that are more theoretical in nature and motivated by ``naturalness'' concerns.
 That is, that the parameters of the SM are ``fine-tuned'' to specific values for no apparent reason (e.g. an underlying symmetry
-that would cause the parameter to take on that value). E extensions to the SM are sought that would provide more 
+that would cause the parameter to take on that value). Extensions to the SM are sought that would provide more 
 natural explanations.
 
 One example is known as the ``strong CP problem''. As mentioned above, the weak sector admits slight CP symmetry violation
@@ -405,13 +405,92 @@ is not observed experimentally. This means that the parameter controlling this C
 must be very close to 0. There is no known reason for this, and theorists have provided a number of models that can explain
 it more natrually. However, no evidence for any of these theories has yet been found experimentally.
 
-Finally, in what will be relevant for the kinds of new physics sought in the present analysis, we have what is known as the
-``hierarchy problem.''
+Finally, with what will partially motivate the kinds of new physics sought in the present analysis, we have what is known as the
+``hierarchy problem.'' The observed Higgs mass of 125\GeV is the sum of the ``bare Higgs mass'', a free parameter in the theory,
+plus terms arrising from loop-level corrections to the free propagator. The most important of these corrections is shown in
+Fig.~\ref{fig:higgs_massloop}. As the Higgs couples to all massive fermions, the virtual particle loop can be anything. The most
+important contribution however is from the top quark, since the top quark is the heaviest particle and couples most strongly to
+the Higgs. Computing amplitudes, one finds (to leading order in $\Lambda$)
+\be
+m_{H,\mrm{obs}}^2 \approx m_{H,\mrm{bare}}^2 - \frac{|\lambda|^2}{8\pi^2}\Lambda^2,
+\ee
+where $\lambda$ is the top quark Yukawa coupling and $\Lambda$ is the scale up to which the 
+SM is valid, typically taken to be the Planck scale $\Lambda\approx 10^{19}\GeV$.
+
+\begin{figure}[t]
+  \addtolength{\abovecaptionskip}{2mm}
+  \centering
+  \input{feynman_diagrams/higgs_massloop}
+    \caption{Diagram representing the loop-level correction to the Higgs mass. The loop
+      can be any charged fermion, but the top quark is most important since it has the highest mass.
+            }
+    \label{fig:higgs_massloop}
+\end{figure}
+
+Now the observed Higgs mass is of order $m_{H,\mrm{obs}}^2\sim 10^4\GeV^2$, and the correction
+term is of order $10^{36}\GeV^2$. That means that the unobservable bare Higgs mass must be fine-tuned to
+one part in $\sim10^{32}$ in order to cancel the correction almost perfectly, and there is no
+reason why this must be so. In other words,
+\textit{why is the Higgs mass so much smaller than the Planck scale?}
+The fact that this must be a complete accident in the SM is highly unnatural, and leads to the question
+of whether there is some kind of physics beyond the SM that could provide a more satisfactory explanation.
 
 \subsection{Signs of experimental deviation}
 
+While the SM has been extensively tested and probed to astounding degrees of accuracy, there are have
+been a few signs of deviation between theory and experimental results. Many of these have come and gone
+over the years, shown to be merely statistical fluctuation, but a small number remain open questions today.
+
+First is the anomalous magnetic moment of the muon. Particles with intrinsic spin also have an intrinsic
+magnetic moment caused by that angular momentum. The dimensionless proportionality constant
+relating this moment to the particle's spin and the Bohr magneton is known as the ``$g$-factor''.
+In ordinary quantum mechanics, this is exactly equal to 2 for fermions such as the electron and muon.
+However, QED predicts small corrections to this from virtual particle loops. The $g$-factor
+of the electron has been measured as $g_e=2.002\;319\;304\;361\;46(56)$~\cite{Hanneke:eleg2}, agreeing with theory to around
+one part in $10^{10}$ and making it one of the most precisely verified predictions in all of physics.
+
+The muon $g$-factor has been measured to around 1 part in $10^6$, but is higher than the predicted theory value by 3--4
+standard deviations~\cite{Blum:muong2}. There are various models of beyond the SM physics that could in principle explain
+this, but it is still an open question whether the discrepancy is due to new physics, statistical
+fluctuation, or poorly modeled experimental or theoretical uncertainties. The Muon $g-2$ experiment at Fermilab
+is currently taking data and should reduce the experimental uncertainty by more than a factor of 3.
+
+Second is a collection of flavor physics anomalies in the decays of $B$ mesons~\cite{Graverini:flavour}. 
+The SM predicts the principle of
+\textit{lepton flavor universality} (LFU), which states that the three generations of leptons are identical in all but
+their  masses (i.e., their couplings to the electroweak bosons are the same). New particles could in principle
+couple differently to different generations, changing branching fractions for mesons that decay via
+the weak interaction into leptons. The BaBar, Belle, and LHCb collaborations have measured the ratios
+\be
+R_{D^{(*)}} = \frac{\mrm{Br}(B\to D^{(*)}\tau\bar{\nu}_\tau)}{\mrm{Br}(B\to D^{(*)}\ell\bar{\nu}_\ell)}, \;\;\;\;\;
+\text{with } \ell=\mu,e
+\ee
+and have found values consistently higher than the SM predictions, with the averages being 2--3 standard deviations
+larger. Fig.~\ref{fig:b_anomalies} shows the measured averages compared to SM expectations.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.6\textwidth]{figs/theory/b_anomalies.pdf}
+  \caption{Averages of $R_D$ and $R_{D^*}$ as measured by the BaBar, Belle, and LHCb Collaborations.
+    Both ratios are 2--3 standard deviations higher than the SM expectation. (Taken from~\cite{HFLAV})
+            }
+    \label{fig:b_anomalies}
+\end{figure}
+
+The experiments have also probed LFU via the rarer loop-level neutral current $b\to s\ell\ell$ processes,
+in the form of $R_{K^{(*)}} = \mrm{Br}(B\to K^{(*)}\mu^+\mu^-) / \mrm{Br}(B\to K^{(*)}e^+e^-)$. This shows similar
+$2\sigma$-level deviation from the SM prediction. Analysis of data from LHCb and the recently started Belle 2 run
+should improve the experimental precision and give a clearer picture of whether or not the anomalies are real.
+
 \section{Theories of physics beyond the Standard Model}
 \label{sec:bsm}
+There is a huge variety of models of physics beyond the SM, each with their own predictions of new particles
+and phenomena. The list is far too vast and diverse to summarize completely here, so we only discuss briefly the ones most
+relevant to the analysis presented in this dissertation.
+
+\subsection{Supersymmetry}
+Supersymmetry is a proposed extension to the SM dating to the 1970s that posits that every SM fermion has a bosonic 
+``superpartner'', and every SM boson hsa a fermionic superpartner.
 
 \section{Hadron collider dynamics}
 \label{sec:bsm}
