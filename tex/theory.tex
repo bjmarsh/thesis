@@ -411,7 +411,7 @@ plus terms arrising from loop-level corrections to the free propagator. The most
 Fig.~\ref{fig:higgs_massloop}. As the Higgs couples to all massive fermions, the virtual particle loop can be anything. The most
 important contribution however is from the top quark, since the top quark is the heaviest particle and couples most strongly to
 the Higgs. Computing amplitudes, one finds (to leading order in $\Lambda$)
-\be
+\be\label{eq:higgsmass}
 m_{H,\mrm{obs}}^2 \approx m_{H,\mrm{bare}}^2 - \frac{|\lambda|^2}{8\pi^2}\Lambda^2,
 \ee
 where $\lambda$ is the top quark Yukawa coupling and $\Lambda$ is the scale up to which the 
@@ -436,6 +436,7 @@ The fact that this must be a complete accident in the SM is highly unnatural, an
 of whether there is some kind of physics beyond the SM that could provide a more satisfactory explanation.
 
 \subsection{Signs of experimental deviation}
+\label{sec:exp_dev}
 
 While the SM has been extensively tested and probed to astounding degrees of accuracy, there are have
 been a few signs of deviation between theory and experimental results. Many of these have come and gone
@@ -466,7 +467,7 @@ R_{D^{(*)}} = \frac{\mrm{Br}(B\to D^{(*)}\tau\bar{\nu}_\tau)}{\mrm{Br}(B\to D^{(
 \text{with } \ell=\mu,e
 \ee
 and have found values consistently higher than the SM predictions, with the averages being 2--3 standard deviations
-larger. Fig.~\ref{fig:b_anomalies} shows the measured averages compared to SM expectations.
+larger than the SM values. Fig.~\ref{fig:b_anomalies} shows the measured averages compared to SM expectations.
 
 \begin{figure}[t]
   \centering
@@ -491,7 +492,7 @@ relevant to the analysis presented in this dissertation.
 \subsection{Supersymmetry}
 \label{sec:susy}
 
-Supersymmetry is a proposed extension to the SM dating to the 1970s that posits that every SM fermion has a bosonic 
+Supersymmetry (SUSY) is a proposed extension to the SM dating to the 1970s that posits that every SM fermion has a bosonic 
 ``superpartner'', and every SM boson has a fermionic superpartner. 
 While a theory that doubles the number of fundamental particles and adds over 100 parameters to the SM
 is not the most elegant of solutions, it has become popular
@@ -504,7 +505,14 @@ The superpartners to the SM fermions are referred to by prepending
 an `s' to the name of the fermion (e.g. slepton, squark, selectron, stau, stop, sbottom). The superpartners
 of the SM bosons are referred to by appending an ``ino'' to the name of the boson (e.g. wino, higgsino). 
 Symbolically, we add a tilde above the symbol of the SM particle to refer to its superpartner
-(e.g. $\tilde{t},\;\tilde{e}$).
+(e.g. $\SQt,\;\widetilde{e}$).
+
+In the minimal possible supersymmetric extension to the SM (MSSM)~\cite{MSSM}, there actually must be four higgsinos
+due to the way spontaneous symmetry breaking works with the added SUSY degrees of freedom. Two of these are
+charged and two are neutral. Then due to mixing between bosons with identical quantum numbers,
+the charged bosinos $\widetilde{H}^\pm$ and $\widetilde{W}^\pm$ can in general mix into 
+charginos $\widetilde{\chi}^\pm_{1,2}$, and the neutral zino, photino, and higgsinos can
+mix into neutralinos $\widetilde{\chi}^0_{1,2,3,4}$.
 
 In raw, unbroken supersymmetry, sparticles have the same mass and charge as their SM counterparts, but spin
 differing by  \nicefrac{1}{2}. However, if this were the case we would have already discovered supersymmetry, as
@@ -517,12 +525,89 @@ conserved multiplicative quantum number called $R$-parity that is equal to $+1$ 
 sparticles. This means that sparticles must be produced in pairs, and that the lightest supersymmetric particle
 (LSP) must be stable (as there is no lighter particle with $R=-1$ that it can decay into). A neutral LSP is then
 a natural candidate for dark matter, as it is massive, stable, and does not interact electromagnetically.
+The LSP is typically taken to be \lsp.
 $R$-parity conservation furthermore guarantees that baryon and lepton numbers are still conserved in 
 supersymmetric interactions, a desirable feature as these conservation laws have been tested 
 very precisely experimentally.
 
+In addition to providing a dark matter candidate, SUSY can also solve the hierarchy problem by
+adding additional terms that largely cancel the problematic term proportional to $\Lambda^2$ in 
+Eq.~\ref{eq:higgsmass}. Superpartners to the SM fermions (themselves bosons) couple
+to the Higgs with vertices like that shown in Fig.~\ref{fig:higgs_susycorr}. Computing the
+amplitudes, one finds the correction from one of these diagrams to be
+\be
+\Delta m_{H,\mrm{SUSY}}^2 \approx +\frac{\lambda_S}{8\pi^2}\Lambda^2,
+\ee
+where $\lambda_S$ is the coupling strength of the vertex. Note that this correction term
+is \textit{positive}, in contrast to the negative contribution from SM fermion loops.
+This is due to the spin-statistics theorem and the fact that the superpartners are bosons.
+
+\begin{figure}[t]
+  \addtolength{\abovecaptionskip}{-8mm}
+  \centering
+  \vskip8mm
+  \input{feynman_diagrams/higgs_susycorr}
+    \caption{Diagram representing the SUSY correction to the Higgs mass from the $\SQt\,\SQt HH$ 
+      coupling. The term has opposite sign to the typical fermion correction terms (due to the bosonic nature
+      of the stop squark), and depending on the stop mass can be of similar magnitude and largely cancel them, 
+      thus solving the hierarchy problem.
+            }
+    \label{fig:higgs_susycorr}
+\end{figure}
+
+So if $\lambda_S \approx \lambda^2$, then the terms largely cancel and the problem is solved.
+Since the most problematic term comes from a top quark loop, the SUSY correction from stop squarks
+is the most important for the cancellation. This means that the stop cannot be too heavy, or 
+the cancellation won't work. While this is fairly subjective, the commonly cited criterion is that the stop
+must have mass O(TeV) or smaller in order to provide an acceptable solution.
+
+The MSSM has 120 new parameters, making an interpretation of experimental data near impossible. It is possible 
+to reduce this to 19 parameters by adding some phenomenological constraints (e.g. no flavor changing neutral
+currents) \cite{MSSM}, but interpretations would still be highly complicated in a 19-dimensional parameter space.
+To faciliate interpretation, physicists have developed a set of 
+\textit{simplified models}~\cite{Alwall:sms,Alwall:jetmet,Alves:sms}. 
+These are models consistent with the MSSM but with a constrained phase space, so that they reresent
+one specific SUSY process and contain only 1--3 free parameters. Typically sparticles not involved in
+the process are assumed to be heavy enough that they are decoupled from the process and do not
+affect it in a significant way. An example are the so-called ``type~1'' models, in which gluinos
+are pair produced and decay with 100\% branching fraction a quark-antiquark pair and LSP 
+(e.g. $pp\to\gluino\gluino$, $\gluino\to\ttbar\lsp$). In this case the mass of the gluino
+and LSP are free parameters. A full description of all of the simplified
+models considered in this dissertation can be found in Sec.~\ref{sec:interp}.
+
+
 \subsection{Leptoquarks}
 \label{sec:leptoquarks}
+
+A variety of BSM theories, such as grand unified theories~\cite{Glashow:gut,Fritzsch:gut,Salam:gut},
+technicolor models~\cite{Dimopoulos:technicolor,Farhi:technicolor,Lane:technicolor},
+compositeness scenarios~\cite{Schrempp,Gripaios}, 
+and $R$-parity violating SUSY~\cite{Barbier} predict the existence of particles 
+called \textit{leptoquarks} (LQ) that carry quantum numbers of both quarks and leptons, allowing
+them to interact directly. Details vary among theories, allowing either quark-charged lepton
+or quark-neutrino vertices or both, and some allowing cross-generational couplings.
+The LQs can either be spin-0 (scalar, \lqs) or spin-1 (vector, \lqv). 
+Some example vertices involving leptoquarks are shown in Fig.~\ref{fig:lq_diagrams}
+
+\begin{figure}[t]
+  \addtolength{\abovecaptionskip}{5mm}
+  \centering
+  \vskip5mm
+  \input{feynman_diagrams/lq_lep}
+  \input{feynman_diagrams/lq_neut}
+  \input{feynman_diagrams/lq_glu}
+    \caption{Some example vertices involving leptoquarks. (left) A third-generation
+      LQ decaying into a bottom quark and tau lepton, (center) a
+      LQ decaying into a top quark and neutrino, and (right)
+      a gluon-LQ-LQ vertex illustrating the color charge that LQs carry.
+            }
+    \label{fig:lq_diagrams}
+\end{figure}
+
+Leptoquarks have become more discussed in recent years as a possible explanation of the various
+$B$-physics anomalies discussed in Sec.~\ref{sec:exp_dev}. In particular, Ref.~\cite{Buttazzo:bphys}
+predicts a best-fit model consising of a vector leptoquark with mass of O(TeV), decaying
+with 50\% branching fraction to each of $\lqv\to b\tau$ and $\lqv\to t\nu$.
 
 \section{Hadron collider dynamics}
 \label{sec:bsm}
