@@ -570,7 +570,7 @@ These are models consistent with the MSSM but with a constrained phase space, so
 one specific SUSY process and contain only 1--3 free parameters. Typically sparticles not involved in
 the process are assumed to be heavy enough that they are decoupled from the process and do not
 affect it in a significant way. An example are the so-called ``type~1'' models, in which gluinos
-are pair produced and decay with 100\% branching fraction a quark-antiquark pair and LSP 
+are pair produced and decay with 100\% branching fraction to a quark-antiquark pair and LSP 
 (e.g. $pp\to\gluino\gluino$, $\gluino\to\ttbar\lsp$). In this case the mass of the gluino
 and LSP are free parameters. A full description of all of the simplified
 models considered in this dissertation can be found in Sec.~\ref{sec:interp}.
@@ -607,7 +607,54 @@ Some example vertices involving leptoquarks are shown in Fig.~\ref{fig:lq_diagra
 Leptoquarks have become more discussed in recent years as a possible explanation of the various
 $B$-physics anomalies discussed in Sec.~\ref{sec:exp_dev}. In particular, Ref.~\cite{Buttazzo:bphys}
 predicts a best-fit model consising of a vector leptoquark with mass of O(TeV), decaying
-with 50\% branching fraction to each of $\lqv\to b\tau$ and $\lqv\to t\nu$.
+with 50\% branching fraction to each of $\lqv\to b\tau$ and $\lqv\to t\nu$. The analysis
+in this dissertation is interpreted in terms of various LQ models in Sec.~\ref{sec:interp}.
 
 \section{Hadron collider dynamics}
 \label{sec:bsm}
+
+\begin{figure}[ht]
+  \begin{center}
+    \includegraphics[width=0.40\textwidth]{figs/theory/pdf_10.png}
+    \includegraphics[width=0.40\textwidth]{figs/theory/pdf_10000.png}
+    \caption{MMHT2014 NNLO proton parton distribution functions,
+      for momentum transfer scales $Q^2=10\GeV^2$ (left) and
+      $Q^2=10^4\GeV^2$ (right). The quantity $x$ is the
+      fraction of proton momentum carried by the parton.
+      (Taken from~\cite{pdfs})
+            }
+    \label{fig:pdfs}
+  \end{center}
+\end{figure}
+
+\begin{figure}[ht]
+  \begin{center}
+    \includegraphics[width=1.00\textwidth]{figs/theory/cms_xsecs}
+    \caption{Summary of SM production cross sections measured at CMS, compared to
+      values predicted from theory. (Taken from~\cite{CMS:xsecs})
+            }
+    \label{fig:pdfs}
+  \end{center}
+\end{figure}
+
+
+\begin{figure}[ht]
+  \addtolength{\abovecaptionskip}{5mm}
+  \centering
+  \vskip5mm
+  \input{feynman_diagrams/znunu} \hskip1cm
+  \input{feynman_diagrams/wlnu} \\ \vskip2cm
+  \input{feynman_diagrams/multijet} \hskip1cm
+  \input{feynman_diagrams/tth} \\ \vskip1.5cm
+  \input{feynman_diagrams/ttbar} \vskip0.5cm
+    \caption{Diagrams of the production of a few important processes at $pp$ colliders.
+      From left-to-right, top-to-bottom: a SM monojet signature, caused by a $Z$ decaying
+      invisibly to $\nu\bar{\nu}$ and an initial quark radiating a gluon;
+      \wjets production, in this case $W\to\ell\nu$ plus two jets;
+      QCD multijet production, in this case with three quark jets and one gluon jet;
+      $\ttbar H$ production; and a full \ttbar decay chain, where one of the $W$'s from
+      a top decays leptonically and one decays hadronically, producing a final state
+      with a prompt lepton, missing energy, and four jets, two of which are b jets.
+            }
+    \label{fig:lhc_diagrams}
+\end{figure}

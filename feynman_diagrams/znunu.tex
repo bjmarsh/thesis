@@ -1,0 +1,21 @@
+\begin{fmffile}{feynman_diagrams/z_nunu}
+  \begin{fmfgraph*}(40,25)
+    \fmfleft{i2,i1}
+    \fmfright{o2,o1}
+    \fmftop{t}
+    \fmf{phantom}{i1,v1,i2}
+    \fmf{phantom}{o1,v2,o2}
+    \fmf{phantom}{v1,v2}
+    \fmffreeze
+    \fmf{fermion}{i1,g}
+    \fmf{plain,tension=2.8}{g,v1}
+    \fmf{fermion}{v1,i2}
+    \fmf{gluon,tension=0}{t,g}
+    \fmf{boson,label=$Z$,label.side=right}{v1,v2}
+    \fmf{fermion}{o2,v2,o1}
+    \fmflabel{$q$}{i1}
+    \fmflabel{$\bar{q}$}{i2}
+    \fmflabel{$\bar{\nu}$}{o2}
+    \fmflabel{$\nu$}{o1}
+  \end{fmfgraph*}
+\end{fmffile}

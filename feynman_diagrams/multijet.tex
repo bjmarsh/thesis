@@ -1,0 +1,28 @@
+\begin{fmffile}{feynman_diagrams/multijet}
+  \begin{fmfgraph*}(50,25)
+    \fmfleft{i2,i1}
+    \fmfright{o3,o2,o1}
+    \fmftop{t}
+    \fmf{phantom}{i1,v1,i2}
+    \fmf{phantom}{o1,v2,o3}
+    \fmf{phantom}{v1,v2}
+    \fmffreeze
+    %\fmfshift{5 left}{i1}
+    %\fmfshift{5 up}{i1,t}
+    \fmf{gluon,tension=0.8}{g,i1}
+    \fmf{fermion}{v1,g}
+    \fmf{fermion}{i2,v1}
+    \fmf{fermion,tension=0}{g,t}
+    \fmf{gluon}{v1,v2}
+    \fmf{fermion}{o3,v2}
+    \fmf{fermion}{v2,g2}
+    \fmf{plain,tension=2.0}{g2,o1}
+    \fmf{gluon,tension=0}{g2,o2}
+    \fmflabel{$g$}{i1}
+    \fmflabel{$q$}{i2}
+    \fmflabel{$q$}{t}
+    \fmflabel{$\overline{q'}$}{o3}
+    \fmflabel{$q'$}{o1}
+    \fmflabel{$g$}{o2}
+  \end{fmfgraph*}
+\end{fmffile}

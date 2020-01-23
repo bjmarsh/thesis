@@ -1,0 +1,25 @@
+\begin{fmffile}{feynman_diagrams/ttbar}
+  \begin{fmfgraph*}(77,47)
+    \fmfleft{d,i2,d,i1,d}
+    \fmfright{o1,d,o2,d,o3,d,o4,d,o5,d,o6}
+    \fmf{gluon,tension=1.5}{i1,v1}
+    \fmf{gluon,tension=1.5}{i2,v1}
+    \fmf{gluon,tension=3}{v1,v2}
+    \fmf{fermion,tension=2,label=$\bar{t}$,label.side=left,label.dist=7}{v4,v2}
+    \fmf{fermion,tension=2,label=$t$,label.side=left,label.dist=7}{v2,v3}
+    \fmf{fermion}{o3,v4}
+    \fmf{fermion}{v3,o4}
+    \fmf{boson,label=$W^-$,label.side=right,label.dist=3}{v4,v5}
+    \fmf{fermion}{o1,v5,o2}
+    
+    \fmf{boson,label=$W^+$,label.side=left,label.dist=3}{v3,v6}
+    \fmf{fermion}{o6,v6,o5}
+    
+    \fmflabel{$\mu^+$}{o1}
+    \fmflabel{$\nu_\mu$}{o2}
+    \fmflabel{$\bar{b}$}{o3}
+    \fmflabel{$b$}{o4}
+    \fmflabel{$u$}{o5}
+    \fmflabel{$\bar{d}$}{o6}
+  \end{fmfgraph*}
+\end{fmffile}

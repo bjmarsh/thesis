@@ -1,0 +1,19 @@
+\begin{fmffile}{feynman_diagrams/tth}
+  \begin{fmfgraph*}(40,25)
+    \fmfleft{d,i1,d,d,i3,d}
+    \fmfright{o1,d,o2,d,o3}
+    \fmf{gluon,tension=1.2}{i1,v1}
+    \fmf{gluon,tension=1.2}{v3,i3}
+    \fmf{fermion}{o1,v1}
+    \fmf{fermion}{v3,o3}
+    \fmf{phantom,tension=0.3}{v1,v3}
+    \fmffreeze
+    \fmf{fermion}{v1,v2,v3}
+    \fmf{dashes,tension=1.3}{v2,o2}
+    \fmflabel{$g$}{i3}
+    \fmflabel{$g$}{i1}
+    \fmflabel{$t$}{o3}
+    \fmflabel{$\bar{t}$}{o1}
+    \fmflabel{H}{o2}
+  \end{fmfgraph*}
+\end{fmffile}

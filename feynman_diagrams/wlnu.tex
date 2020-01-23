@@ -1,0 +1,27 @@
+\begin{fmffile}{feynman_diagrams/wlnu}
+  \begin{fmfgraph*}(50,25)
+    \fmfleftn{i}{2}
+    \fmfrightn{o}{4}
+    %particelle entranti
+    \fmf{fermion}{i1,v1}
+    \fmf{fermion}{v2,i2}
+    \fmflabel{$\bar{q}_i$}{i2}
+    \fmflabel{$q_j$}{i1}
+    %mediatore
+    \fmf{fermion}{v1,v2}
+    %%% produzione Z
+    \fmf{photon,label=$W$}{v2,v4}
+    % produzione l l
+    \fmf{fermion}{v4,o4}
+    \fmf{fermion}{o3,v4}
+    \fmflabel{$\ell$}{o3}
+    \fmflabel{$\nu_\ell$}{o4}
+    %%% produzione glume
+    \fmf{gluon}{v1,v3}
+    %produzione b b
+    \fmf{fermion}{v3,o2}
+    \fmf{fermion}{o1,v3}
+    \fmflabel{$\bar{q}_k$}{o2}
+    \fmflabel{$q_l$}{o1}
+  \end{fmfgraph*}
+\end{fmffile}
