@@ -83,6 +83,7 @@ The discovery of new boson of mass 125\GeV fitting these criteria (at least at t
 was announced by the CMS and ATLAS collaborations in July 2012~\cite{ATLAS:higgs,CMS:higgs}.
 
 \subsection{Fundamental interactions}
+\label{sec:fund_int}
 
 Empirically, there are four known fundamental interactions, or ``forces'', between particles in our universe: 
 the electromagnetic, weak, strong, and gravitational interactions. Gravity is understood
@@ -610,15 +611,43 @@ predicts a best-fit model consising of a vector leptoquark with mass of O(TeV), 
 with 50\% branching fraction to each of $\lqv\to b\tau$ and $\lqv\to t\nu$. The analysis
 in this dissertation is interpreted in terms of various LQ models in Sec.~\ref{sec:interp}.
 
-\section{Hadron collider dynamics}
-\label{sec:bsm}
+\section{Hadron collider physics}
+\label{sec:hadron_collider}
+
+We have seen in the previous sections how the SM is constructed, what interactions are allowed,
+and a few examples of possible theoretical extensions. What we are mainly interested in for this dissertation,
+however, is how exactly this all manifests itself at hadron colliders.
+
+Since interesting phenomena involve relatively heavy particles (e.g. the weak bosons,
+the Higgs, theorized SUSY particles, etc.), physicists produce them by colliding together
+particles at very high energies. This is generally done with either $e^+ e^-$ or proton-proton
+colliders, which can either be $pp$ or $p\bar{p}$. The Large Hadron Collider (LHC), discussed in the following
+chapter, is a $pp$ collider. 
+
+In contrast to electrons, protons are composite particles, which makes the
+collisions inherently messy. This is both a benefit and a complication: a complication because
+the underlying collision energies are ill-defined, with the constituents of the protons carrying
+an unknown fraction of their total energy, and a benefit because this allows physicists to probe
+a wide range of energy scales and processes simultaneously.
+
+We stated in the previous section that the proton consists of three quarks: two ups and one down.
+However, the real story is more complicated than this. The $uud$ quarks are only what are referred
+to as the \textit{valence quarks}, which determine the quantum numbers of the proton. The strong force,
+mediated by gluons, binds these quarks together, and the gluons can produce virtual quark-antiquark
+pairs that pop in and out of existence. So in reality, the proton consisists of a ``sea'' of quarks
+and gluons, excitations of the quantum field between the valence quarks (actually, the bare mass of the
+valence quarks only accounts for around 1\% of the proton's mass. The other 99\% comes from the energy
+of this quark-gluon ``sea''). Fig.~\ref{fig:pdfs} (left) shows an illustration of the inner dynamics
+of a proton.
 
 \begin{figure}[ht]
   \begin{center}
-    \includegraphics[width=0.40\textwidth]{figs/theory/pdf_10.png}
-    \includegraphics[width=0.40\textwidth]{figs/theory/pdf_10000.png}
-    \caption{MMHT2014 NNLO proton parton distribution functions,
-      for momentum transfer scales $Q^2=10\GeV^2$ (left) and
+    \includegraphics[width=0.30\textwidth]{figs/theory/proton_structure.jpg}
+    \includegraphics[width=0.66\textwidth]{figs/theory/pdfs.png}
+    \caption{On the left, an illustration of the internal structure of the proton (taken from~\cite{proton_image}).
+      Gluons and quark-antiquark pairs constantly pop in and out of existence.
+      The right two plots show MMHT2014 NNLO proton parton distribution functions,
+      for momentum transfer scales $Q^2=10\GeV^2$ (center) and
       $Q^2=10^4\GeV^2$ (right). The quantity $x$ is the
       fraction of proton momentum carried by the parton.
       (Taken from~\cite{pdfs})
@@ -627,18 +656,21 @@ in this dissertation is interpreted in terms of various LQ models in Sec.~\ref{s
   \end{center}
 \end{figure}
 
-\begin{figure}[ht]
-  \begin{center}
-    \includegraphics[width=1.00\textwidth]{figs/theory/cms_xsecs}
-    \caption{Summary of SM production cross sections measured at CMS, compared to
-      values predicted from theory. (Taken from~\cite{CMS:xsecs})
-            }
-    \label{fig:pdfs}
-  \end{center}
-\end{figure}
 
+When two protons collide, then, collisions can happen between any combination of valence
+quarks and sea quarks/gluons. The higher the collision energy, the smaller the distance
+scale probed and the more ``visible'' the sea quarks/gluons become.
+This is quantified in what are called ``parton distribution functions'' (PDFs),
+which are probability densities of finding a particular particle with longitudinal
+momentum fraction $x$, given an energy scale $Q^2$. Examples are shown in 
+Fig.~\ref{fig:pdfs} for $Q^2=10\GeV^2$ and $10^4\GeV^2$. One sees that the
+PDFs for valence $u$ and $d$ quarks peak near one, as these are disproportionately
+likely to carry a significant fraction of the proton's momentum.
+The sea quarks and gluons peak lower, and become more prominent at higher $Q^2$.
+These PDFs must be taken into account when computing cross sections for the various
+$pp$ production processes.
 
-\begin{figure}[ht]
+\begin{figure}[htp]
   \addtolength{\abovecaptionskip}{5mm}
   \centering
   \vskip5mm
@@ -657,4 +689,98 @@ in this dissertation is interpreted in terms of various LQ models in Sec.~\ref{s
       with a prompt lepton, missing energy, and four jets, two of which are b jets.
             }
     \label{fig:lhc_diagrams}
+\end{figure}
+
+Now knowing that collisions can happen between any valence quarks or sea quarks
+and gluons, we can put together the vertices presented in Sec.~\ref{sec:fund_int}
+to make diagrams of various interesting final states possible to achieve
+at pp colliders. A few examples are shown in
+Fig.~\ref{fig:lhc_diagrams}.
+
+First, in the top left, is the production of a $Z$ boson. From our PDFs,
+we know that the most likely quarks are a $u$ valence quark and a $\bar{u}$
+sea quark, followed by a $d$ valence quark and a $\bar{d}$ sea quark.
+Also note that since one is a valence quark and one is a sea quark, there
+is likely a momentum imbalance, so the entire event will
+be boosted in the longitudinal direction. The transverse momentum, however,
+will be very close to 0.
+
+In this case we have shown the $Z$ decaying into neutrinos, which will be
+invisible to the detector. The $Z$ can also decay into charged leptons,
+giving the Drell-Yan process, or quarks. We have also shown a gluon
+radiating off one of the initial state quarks, called ``initial state radiation'',
+or ISR.
+
+Now the strong force is a short range force, and energy actually increases without bound
+as a colored particle is separated from its bound state (in contrast to electromagnetism, 
+where the energy goes to 0 at infinite separation). This means that isolated quarks and gluons
+cannot exist (called \textit{color confinement}), 
+as eventually it becomes energetically favorable to produce new quark-antiquark
+pairs. In hadron colliders, a high-energy quark or gluon thus undergoes a process called
+\textit{hadronization}, in which it produces a narrow cone of hadrons called a jet as it
+is expelled from the collision point. The signature represented by the first diagram in
+Fig.~\ref{fig:lhc_diagrams} is thus a ``monojet'': a single high-energy jet, recoiling against
+invisible energy from the neutrinos from $Z$ decay.
+
+Continuing to the right in Fig.~\ref{fig:lhc_diagrams}, we have
+the production of a $W$ boson which decays to a $\ell\nu$ pair.
+We've also shown an ISR gluon splitting into two quarks, which
+show up as two jets. This diagram thus represents a leptonic \wjets
+event.
+
+Next in the middle left  is a generic diagram representing QCD multijet production,
+the most common type of event at hadron colliders. 
+In this case we have an interaction between a valence quark and sea
+gluon, which results in a final state of three quarks and a gluon,
+giving a four jet event. By tacking on more quark/gluon vertices to this
+or similar diagrams, we can create events with any number of jets. Dijets
+are the most common type of event, and the rate falls exponentially
+with the number of jets (each jet reduces the cross section roughly by
+a factor of 10).
+
+In the middle right we have a diagram representing $\ttbar H$ production
+from two gluons. This will not be very relevant for the analysis in this
+dissertation, but it is a important process under study at the LHC to
+better understand the nature of the Higgs boson and its coupling to top quarks.
+
+\begin{figure}[t]
+  \begin{center}
+    \includegraphics[width=1.00\textwidth]{figs/theory/cms_xsecs.pdf}
+    \caption{Summary of SM production cross sections measured at CMS, compared to
+      values predicted from theory. (Taken from~\cite{CMS:xsecs})
+            }
+    \label{fig:cms_xsecs}
+  \end{center}
+\end{figure}
+
+And finally, the bottom diagram shows the production of a $\ttbar$ pair through
+gluon-gluon fusion. Top quarks are the only quarks that don't undergo hadronization,
+since they decay too quickly due to their very high mass. Since the on-diagonal
+$V_{tb}$ element of the CKM matrix is very nearly one, top quarks decay nearly 100\% of the
+time to a $W$ boson and $b$ quark. The $b$ quarks hadronize into $b$ jets (identifiable
+due to the long lifetime of $B$ hadrons), and the $W$ bosons can decay either
+hadronically (70\% of the time) or leptonically (10\% each to $e$, $\mu$, $\tau$).
+
+Using the PDFs, theorists have computed cross sections for a huge variety of SM processes
+at the LHC. These have then been measured by the various experiments. A summary plot
+from CMS is shown in Fig.~\ref{fig:cms_xsecs}; one sees that the experimentally measured
+cross sections agree well with the theoretical predictions in all cases.
+
+Theorists can also calculate the cross sections of hypothetical BSM production modes,
+such as SUSY. Fig.~\ref{fig:susy_xsecs} shows the cross section for the pair production
+of gluinos and squarks at $\sqrt{S}=13\TeV$. One sees that the cross section exponentially
+falls with sparticle mass.
+
+
+\begin{figure}[ht]
+  \begin{center}
+    \includegraphics[width=0.60\textwidth]{figs/theory/susy_xsecs.pdf}
+    \caption{Cross sections for pair production of SUSY particles at the LHC at $\sqrt{s}=13\TeV$,
+      computed at NNLO(approx)+NNLL order~\cite{Beenakker:nnll} and assuming squarks and gluinos are decoupled. 
+      The $x$ axis is the mass of the relavant particle.
+      The light squark cross section assumes 8-fold degeneracy between left- and right-handed
+      $\SQu,\;\SQd,\;\SQs,\;\text{and}\;\SQc$ squarks.
+            }
+    \label{fig:susy_xsecs}
+  \end{center}
 \end{figure}
