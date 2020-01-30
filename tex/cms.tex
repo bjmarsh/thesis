@@ -203,7 +203,7 @@ Fig.~\ref{fig:cms_photos}.
       protruding. On the left is the barrel, with the muon detectors and iron yokes
       on the outside, and the magnet forming the inner ring.
       (right) A broader view of the opened CMS detector, during the installation
-      of the new Phase-1 Upgrade pixel detector in 2017. Note the technicians
+      of the new phase-1 upgrade pixel detector in 2017. Note the technicians
       inside the barrel for scale. (Image via Maximilien Brice, CERN)
             }
     \label{fig:cms_photos}
@@ -273,10 +273,10 @@ should give high spatial resolution and have fast response time, to allow accura
 reconstruction of particle tracks.
 
 From these considerations, a silicon detector was chosen, as silicon is relatively resilient
-to radiation and has a fast response time. The detector works by reverse biasing narrow
+to radiation and has a fast response time. The detector works by reverse-biasing narrow
 strips of silicon; throughgoing charged particles then ionize the atoms to create
 electron-hole pairs, which can be collected via an voltage gradient and detected
-as a small electrical pulse.
+as a small electrical pulse lasting a few nanoseconds.
 
 \begin{figure}[t]
   \begin{center}
@@ -289,7 +289,7 @@ as a small electrical pulse.
   \end{center}
 \end{figure}
 
-The tracker consists of two main sub-modules. The first called the pixel detector, 
+The tracker consists of two main sub-modules. The first, called the pixel detector, 
 is close to the beamline and consists of arrays of 100 $\mu$m $\times$ 150 $\mu$m
 silicon pixels, with 124 million pixels in total.
 There are four barrel layers at radii 2.9, 6.8, 10.9, and 16.0 cm,
@@ -298,13 +298,124 @@ The small size of the pixels allows for highly accurate identification of partic
 An illustration of the pixel detector layout (before the 2017 phase-1 upgrade, which added
 additional layers to the barrel and endcap) is shown in Fig.~\ref{fig:cms_tracker}.
 
-
+Outside of the pixel detector are 10 layers of silicon strips in the barrel, and 12 in the
+endcaps. The four inner barrel layers
+consist of 10 cm $\times$ 180 $\mu$m strips, and the next six consist of 
+25 cm $\times$ 180 $\mu$m strips. There are 10 millions strips in total,
+and the strip tracker reaches out to a radius of 130 cm.
 
 \subsection{Electromagnetic calorimeter}
+
+Between the tracker and the magnet lie two calorimeters. The first,
+called the electromagnetic calorimeter (ECAL), is designed to
+measure the energy of electrons and photons. It works by triggering
+an electromagnetic shower: in the presence of matter, 
+a high-energy electron will lose energy by emitting a photon
+in a process called bremsstrahlung, and a high-energy photon
+will ``convert'' into an $e^+e^-$ pair (see Fig.~\ref{fig:brem_conv}
+for diagrams of these processes). These processes then produce a
+cascade of electrons and photons, which cause the material of the calorimeter
+to emit scintillation light that can be detected and measured.
+
+The ECAL is a homogeneous calorimeter (i.e., the material that produces
+the shower is also used for measuring the energy). It is constructed
+from crystals of lead tungstate (PbWO$_4$). This material is very
+dense, good for producing showers and stopping particles in a short distance,
+and is also optically clear and scintillates when electrons and photons
+pass through it. The scintillation timescale is also short,
+making for fast, well-defined photon pulses.
+
+The crystals are individually 22 mm $\times$ 22 mm $\times$ 230 mm,
+giving the detector a depth of 26 radiation lengths
+($\chi_0=0.89~\mrm{cm}$ for PbWO$_4$). The barrel consists of 61,200
+crystals organized into 36 supermodules, and the flat endcaps consist
+of an additional 15,000 crystals.
+
+\begin{figure}[t]
+  \addtolength{\abovecaptionskip}{5mm}
+  \centering
+  \vskip5mm
+  \input{feynman_diagrams/brem} \hskip1cm
+  \input{feynman_diagrams/conv}
+  \caption{Diagrams for bremsstrahlung ($e^\pm\to e^\pm\gamma$, left) and photon conversion ($\gamma\to e^+e^-$, right),
+    the processes that cause electromagnetic showers. The presence of a nucleus $N$ to absorb/provide momentum
+    is necessary for the conservation of momentum.
+  }
+  \label{fig:brem_conv}
+\end{figure}
+
+The inner sides of the ECAL endcaps are coverered by a ``preshower detector'',
+consisting of two layers of lead interleaved with two layers of silicon strip
+detectors, that are used to distinguish between high-energy prompt photons
+and less interesting closely-spaced photon pairs from $\pi^0\to\gamma\gamma$ decay.
+The lead layers cause photons to shower, and the silicon strips provide a
+high-granularity snapshot of the shower. Two closely spaced photons from $pi^0$ decay,
+while often indistinguishable in the ECAL, can be distinguished in the higher resolution
+silicon detector.
+
+
 \subsection{Hadronic calorimeter}
+
+The final sub-detector inside of the magnet volume is the hadronic calorimeter,
+or HCAL. The purpose of this calorimeter is to measure the energy
+of charged and neutral hadrons (most often charged pions,
+charged and neutral kaons, protons, and neutrons). These hadrons, in contrast
+to electrons and photons, are not stopped by the ECAL, and must be measured
+by a separate detector.
+
+In contrast to electromagnetic showers, hadronic showers develop primarily via the
+strong interaction, and are less contained (i.e., the their characterisic longitudinal
+and lateral sizes are bigger). In order then to provide the maximal amount of absorption
+power within the confines of the magnet radius, a ``sampling calorimeter'' design
+was chosen. In this case, brass absorbtion layers, very efficient at stopping particles
+and causing showers, are interleaved with layers of plastic scintillator, which
+produce detectable light as particles pass through. The light from the scintillators
+is captured by wavelength-shifting optical fibers
+and converted into electrical signals by magnetic field-resistant hybrid photomultipliers.
+This design has a worse energy resolution than a homogeneous calorimeter design like the ECAL, as some 
+fraction of the energy is lost in the absorbtion material and must be estimated.
+
+The HCAL barrel and endcaps, each made up of 36 wedges, make up the bulk of the HCAL detector.
+However, there is an additional ``outer barrel'' detector that sits just outside of the magnet
+coil, used to record energy from any particles that manage to get through. Finally,
+there are separate forward hadronic calorimeters at either end of CMS that record energies
+of particles very close to the beamline ($3.0 < |\eta| < 5.0$). Due to the high radiation
+doses and higher particle density these detectors face, they have a slightly different
+design with steel absorbers and Cherenkov light-producing quartz readout fibers.
+
+
 \subsection{Muon detectors}
+
+The only SM particles produced at the LHC that can make it through CMS's calorimeters
+are neutrinos and muons. Neutrinos are only weakly interacting, so there is no feasible way to
+detect them and their presence can only be inferred through transverse momentum imbalance.
+Muons, on the other hand, are minimum-ionizing due to their heavier mass and hence easily
+pass through the calorimeters, but are still electrically charged so can be detected with
+dedicated detectors.
+
+CMS employs three different types of muon detectors, all located outside of the calorimeters
+and magnet where muons are likely to be the only detectable particles. Drift tubes (DTs) in 
+the barrel and cathode strip chambers (CSCs) in the endcaps are used for precise position
+measurements from which muon trajectories are inferred. Additionally, resistive plate
+chambers (RPCs) provide fast measurements in both the barrel and endcaps and are
+used for triggering.
+
+The DTs utilize 4 cm wide gas-filled tubes containing a 
+stretched wire with with a positive voltage.
+Throughgoing muons ionize atoms in the Ar/CO$_2$ gas, and the electrons
+travel to the central wire and register a detectable current.
+By utilizing information from perpendicular wires, 
+the DTs provide a 2D position measurement; resolution is on
+the order of 100 $\mu$m.
+There are four layers of DTs, at radii 4.0, 4.9, 5.9, and 7.0 m from
+the beam axis.
+
+DTs do not function as well with high occupancy rates or uneven magnetic fields,
+and are more susceptible to neutron backgrounds, so in the endcaps
+CSC detectors are used. CSC
+
 \subsection{Trigger system}
-\subsection{Computing and reconstruction pipeline}
+\subsection{Computing and reconstruction}
 
 
 \section{Phase-2 CMS MIP timing detector}

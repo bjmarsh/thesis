@@ -1,0 +1,17 @@
+\begin{fmffile}{feynman_diagrams/brem}
+  \begin{fmfgraph*}(40,25)
+    \fmfleft{i1}
+    \fmfbottom{b1,b2,b3,b4,b5,b6}
+    \fmfright{o1,o2}
+    \fmf{fermion, tension=1.0}{i1,v1}
+    \fmf{fermion, tension=1.2}{v1,v2}
+    \fmf{fermion, tension=1.0}{v2,o2}
+    \fmf{photon, tension=0}{v1,b3}
+    \fmf{photon}{v2,o1}
+    \fmfblob{.12w}{b3}
+    \fmflabel{$e^-$}{i1}
+    \fmflabel{$e^-$}{o2}
+    \fmflabel{$\gamma$}{o1}
+    \fmfv{label=$N$,label.dist=13.0,label.angle=180}{b3}
+  \end{fmfgraph*}
+\end{fmffile}

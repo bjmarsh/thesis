@@ -119,9 +119,13 @@ vetoes or the bad muon track filter.
 Also to reduce the effect of mis-measured muons, we veto events that contain a jet with $\pt>200\GeV$ and a muon fraction
 larger than 50\%, and that satisfies $|\Delta\phi(\mrm{jet},\ptmiss)| > \pi-0.4$.
 
-Finally, to remove certain known pathological events in fast simulation MC, we remove events in such MC containing
+To remove certain known pathological events in fast simulation MC, we remove events in such MC containing
 a jet satisfying $\pt>20\GeV$, $|\eta|<2.5$, charged hadron fraction $<0.1$, and no matching generator-level jet
 within $\Delta R<0.3$.
+
+Finally, an issue with two HCAL endcap modules during 2018 data taking required the addition
+of a special filter to reject events containing jets or electrons in the affected region. Details are given in
+Sec.~\ref{sec:hem}.
 
 \subsection{Electrons}
 \label{sec:electrons}
@@ -130,7 +134,7 @@ While the analysis signal regions are purely hadronic, it is still necessary to 
 both in order to define a lepton veto and to select events for the leptonic control regions.
 Electron candidates are required to satisfy $\pt>10\GeV$ and $|\eta|<2.4$. Good electrons are identified
 using cut-based ID working points developed by the EGamma group at CMS: the ``veto'' working point is used for
-the signal region veto and the single-lepton control region, and the ``loose'' working point is used for
+the signal region veto and the single lepton control region, and the ``loose'' working point is used for
 the dileptonic \zll control region. The cuts are summarized in Table~\ref{tab:electron_id}, and definitions
 for the various variables are listed here.
 \begin{itemize}\setlength\itemsep{-1mm}
@@ -347,11 +351,11 @@ trigger efficienes are shown in Fig.~\ref{fig:trigmeas_HTMET}.
 \label{sec:crtrigs}
 
 Control region definitions are given in Sec.~\ref{sec:crdefs}. Here we only summarize the triggers used,
-and it is sufficient to know that there are both single-lepton and dilepton control regions used for
+and it is sufficient to know that there are both single lepton and dilepton control regions used for
 predicting the electroweak backgrounds, and an inclusive low-\Ht data sample used in the estimate
 of the QCD multijet background.
 
-The single-lepton control region is triggered with the same triggers as the signal region, since
+The single lepton control region is triggered with the same triggers as the signal region, since
 the cuts on the relevant kinematic variables are the same (the only difference is the requirement of
 exactly one lepton, instead of zero).
 
@@ -613,3 +617,60 @@ exception of one of the following:
 \end{itemize}
 %
 The same triggers are used as in the signal regions.
+
+\section{2018 HEM 15/16 failure}
+\label{sec:hem}
+
+During 2018 data taking, two modules in the minus-side HCAL endcap (HEM), 
+representing about a 45$^\circ$ angle, were lost.
+This means that any energy deposited in these modules was not recorded.
+The effects of this are (1) under-measured jets in the region,
+as a fraction of the energy is lost, and (2) increased electron and
+photon fake rates, as jets in the region have inflated EM-to-hadronic
+energy ratios.
+
+Studies showed this has negligible impact on backgrounds with real \ptmiss
+(i.e. invisible $Z$ and lost lepton), but a significant effect
+on the fake-\ptmiss QCD multijet background.  Fig.~\ref{fig:hem} shows
+on the left the actual observed effect on an imbalanced dijet control region,
+and on the right the estimated effect on QCD yields in the signal regions,
+found by modifying the Rebalance \& Smear method with special HEM response
+functions measured in HEM-emulated data. Up to an 8-fold increase in QCD
+background is observed.
+Additionally, we observed an excess of events in the single lepton
+control region with the single lepton being a fake electron in the HEM region.
+
+To avoid contaminating our signal and control regions with these HEM-affected events,
+we apply a special veto to the affected portion of 2018 data,
+as well as a fraction of the 2018 MC events corresponding to the
+fraction of affected data (about 39 out of 58 fb$^{-1}$, or 66\%).
+The filter rejects events containing certain objects in the HEM region, defined
+as $\eta\in[-4.7,-1.4]$ and $\phi\in[-1.6,-0.8]$.
+The objects that trigger the veto are as follows:
+\begin{itemize}\setlength\itemsep{-1mm}
+\item For events with $\Nj=1$ or $\Ht<575\GeV$, any jet with $\pt>20\GeV$.
+\item Also for events with $\Nj=1$ or $\Ht<575\GeV$, any lost track with $d_z<0.2$ cm
+and $d_{xy}<0.1$ cm (a ``lost track'' is any track not reconstructed as a PF candidate).
+\item For events with $\Nj\geq2$ and $\Ht\geq575\GeV$, any jet with $\pt>30\GeV$.
+\item The electron for any events in the single lepton control region.
+\end{itemize}
+
+\begin{figure}[t]
+  \begin{center}
+    \includegraphics[width=0.42\textwidth]{figs/event_selection/hem_subleadjetphi.pdf}
+    \includegraphics[width=0.57\textwidth]{figs/event_selection/mc_closure_sr.pdf}
+    \caption{(left) Sub-leading jet $\phi$ before and after the HEM issue.
+      Black points are 2017, and are flat in $\phi$ and agree with MC. White
+      points are early pre-HEM issue 2018 data, flat in $\phi$ but with 
+      a uniform excess due to an unrelated filter issue that was since fixed.
+      Red points are post-HEM issue 2018 data, showing a clear excess in the HEM region
+      $\phi\in[-1.6,0.8]$. Dijet events that are otherwised balanced but have a jet in
+      the HEM region become imbalanced due to the lost energy.
+      (right) Estimated effect of HEM issue on QCD signal region yields, found by 
+      modifying Rebalance \& Smear templates with special response functions measured
+      in HEM-emulated data. The issue causes up to an 8-fold increase in estimated
+      background, and the effect is worst at low \Ht.
+            }
+    \label{fig:hem}
+  \end{center}
+\end{figure}
