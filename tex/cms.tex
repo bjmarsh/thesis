@@ -391,7 +391,7 @@ are neutrinos and muons. Neutrinos are only weakly interacting, so there is no f
 detect them and their presence can only be inferred through transverse momentum imbalance.
 Muons, on the other hand, are minimum-ionizing due to their heavier mass and hence easily
 pass through the calorimeters, but are still electrically charged so can be detected with
-dedicated detectors.
+dedicated components.
 
 CMS employs three different types of muon detectors, all located outside of the calorimeters
 and magnet where muons are likely to be the only detectable particles. Drift tubes (DTs) in 
@@ -401,8 +401,8 @@ chambers (RPCs) provide fast measurements in both the barrel and endcaps and are
 used for triggering.
 
 The DTs utilize 4 cm wide gas-filled tubes containing a 
-stretched wire with with a positive voltage.
-Throughgoing muons ionize atoms in the Ar/CO$_2$ gas, and the electrons
+stretched wire with a positive voltage.
+Throughgoing muons ionize atoms in the Ar/CO$_2$ gas mixture, and the electrons
 travel to the central wire and register a detectable current.
 By utilizing information from perpendicular wires, 
 the DTs provide a 2D position measurement; resolution is on
@@ -412,10 +412,65 @@ the beam axis.
 
 DTs do not function as well with high occupancy rates or uneven magnetic fields,
 and are more susceptible to neutron backgrounds, so in the endcaps
-CSC detectors are used. CSC
+CSC detectors are used. CSCs contain a gaseous volume, similar to the DTs, but
+with both positively-charged anode wires and perpendicular negatively-charged
+cathode strips. Muons ionize atoms in the gas, electrons travel to the anode,
+and the resultant positive ions travel to the cathode, inducing detectable currents.
+The perpendicular nature of the anode wires and cathode strips provide a 2D
+position measurement. Each chamber is composed of six layers that provide independent
+measurements, which are averaged together to give a more precise global fit.
+The resultant spatial resoltution is on the order of 200 $\mu$m, and
+the angular resolution in $\phi$ is of order 10 mrad.
+
+The DTs and CSCs are both fast enough to be used in the trigger system. However,
+a third even faster type of muon detector is additionally used in both the barrel and endcaps
+for redundancy and to allow unambiguous identification of the correct
+bunch crossing. These RPCs consist of two parallel plates made
+of a high-resistivity plastic, one positively 
+and one negatively charged. They are separated by a gaseous volume. When a muon passes
+through, it ionizes electrons from the gas, which pass through the plastic plates
+and are detected by external metallic strips. The pattern on the strips
+is able to give a quick muon measurement, with time resolution of only 1 ns.
+This is used by the triggering system to quickly decide whether or not 
+the event may have something ``interesting'' enough to keep.
 
 \subsection{Trigger system}
+
+With a bunch spacing time of 25 ns, the LHC delivers 40 million
+bunch crossings per second. This translates to over 1 billion individual
+$pp$ interactions per second, once accounting for the total $pp$ cross section
+and LHC luminosity.
+Recording full detector information recorded in a single bunch crossing
+takes on average 460 kB of disk space. At 40 MHz, this means that recording
+every event would require writing around 18 TB/s to disk! This is completely
+infeasible, so a drastic reduction in the number of recorded events is
+necessary.
+
+To do this, CMS (and other experiments) make use of a trigger system,
+which is able to quickly decide which events are potentially interesting
+and worth saving. In CMS's case, it is a two-tiered system,
+with the ``Level-1'' (L1) trigger making very fast decisions
+based on rough low-level event information, and the ``high-level'' trigger (HLT)
+examining the output of the L1 trigger at a finer level of detail to 
+achieve further reduction.
+
+The L1 trigger consists of fast custom electronics that look for the
+existence of various ``trigger primitive'' objects such as photons,
+electrons, jets, and muons from low-level information from the
+calorimeter and muon systems (tracking is too slow to be
+used in the L1 trigger). For example, the L1 trigger 
+might look for a sum of calorimeter deposits (\Ht)
+larger than 280\GeV, or a muon track with $\pt>18\GeV$.
+The L1 trigger lowers the event rate by a factor of around 1000,
+to about 100 kHz that is then passed to the HLT.
+
+% HLT
+% prescales
+
 \subsection{Computing and reconstruction}
 
+% data tiers
+% computing network
+% particle-flow?
 
 \section{Phase-2 CMS MIP timing detector}
