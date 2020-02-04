@@ -460,17 +460,58 @@ electrons, jets, and muons from low-level information from the
 calorimeter and muon systems (tracking is too slow to be
 used in the L1 trigger). For example, the L1 trigger 
 might look for a sum of calorimeter deposits (\Ht)
-larger than 280\GeV, or a muon track with $\pt>18\GeV$.
+larger than 300\GeV, or a muon track with $\pt>18\GeV$.
 The L1 trigger lowers the event rate by a factor of around 1000,
-to about 100 kHz that is then passed to the HLT.
+to about 100 kHz, and the resulting events are then passed to the HLT.
 
-% HLT
-% prescales
+The HLT is a software-based trigger that runs a fuller reconstruction
+of the events passing the L1 trigger, allowing for more detailed
+analysis of the events and tighter restrictions on what passes.
+For example, one trigger path might look for a muon with $\pt>12\GeV$
+that is isolated (i.e., no other high-\pt tracks near it), along
+with an electron with $\pt>23\GeV$ that is isolated and passes
+a loose identification requirement. The HLT reduces the event rate
+to around 1000 Hz, and the passing events are then saved to disk
+for offline analysis.
+
+Often physicists are interested in studying a particular kind of event
+that occurs much too often to be recorded 100\% of the time. To allow for
+these types of events, trigger paths can be ``prescaled'', which means that
+only one in every $N$ events is saved. As an example, in Chapter~\ref{chap:qcd}
+we make use of an inclusive selection of events with $\Ht>250\GeV$. At peak
+luminosity these events happen at around 3 kHz, which would completely overwhelm
+the HLT. So the trigger path for these events is prescaled by a factor of 4000,
+reducing their contribution to to overall rate to below 1 Hz.
 
 \subsection{Computing and reconstruction}
 
-% data tiers
-% computing network
-% particle-flow?
+Events that pass the triggers are then fed into the worldwide CMS computing grid
+for processing and analysis. First, the Tier-0 computing center on-site at CERN
+performs initial reconstruction, and distributes data between $\sim$10 Tier-1 computing
+centers across the world. These sites store the large, lower-level reconstructions
+of the data and can re-process the data when necessary. Finally, $\sim$150 Tier-2 centers
+around the world store smaller high-level reconstructions, and facilitate analysis
+of data by end-users.
+
+CMS utilizes a hierarchy of data formats, as follows:
+\vspace{-2mm}
+\begin{itemize}\setlength\itemsep{-1mm}
+\item {RAW}: full set of low-level ``raw'' detector information, such as hits on individual detector elements.
+A typical {RAW} event from the JetHT dataset is 770 kB.
+\item {RECO}: the output of the initial processing at the Tier-0, containing reconstructed but still very detailed physics objects.
+A typical JetHT event size is 2--3 MB, due to the additional information.
+\item {AOD}: a much slimmed-down version of the {RECO} event information, eliminating much of
+the space-consuming low-level information not necessary for a large majority of analysis. A typical JetHT event
+size is 330 kB.
+\item {MINIAOD}: a further reduction of the {AOD} tier, eliminating much rarely-used information
+and adding some relevant high-level information used by many analyses (e.g. b-tagging information, jet/lepton IDs, etc.)
+A typical JetHT event size is 40 kB. This is the data format used for the analysis in this dissertation.
+\item NANOAOD: a newly introduced format, consisting of a lightweight flat tree built from MINIAOD. Much low-level
+particle information is dropped, keeping only higher level variables used for a majority of analyses.
+A typical JetHT event size is 0.7 kB.
+\end{itemize}
 
 \section{Phase-2 CMS MIP timing detector}
+
+
+
