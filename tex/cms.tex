@@ -513,5 +513,94 @@ A typical JetHT event size is 0.7 kB.
 
 \section{Phase-2 CMS MIP timing detector}
 
+The LHC is currently in the midst of ``Long Shutdown 2'', which will be followed by Run 3 which lasts
+through 2024. This is then followed by Long Shutdown 3, during which the LHC and experiments will
+be upgraded and prepared for the high-luminosity LHC (HL-LHC) era starting in 2027.
 
+The HL-LHC will provide a leveled luminosity of $5.0\times10^{34}~\mrm{cm}^{-2}\mrm{s}^{-1}$, two and a half
+times larger than the present maximum, and corresponding to an average pileup (PU) of 140 $pp$ interactions
+per bunch crossing. Ultimately, the plan is to go all the way to $7.5\times10^{34}~\mrm{cm}^{-2}\mrm{s}^{-1}$,
+corresponding to an average of 200 $pp$ interactions per bunch crossing. The current CMS experiment is 
+ill-equipped to handle this many simultaneous operations, as the increased spatial overlap of
+tracks, interaction vertices, and calorimeter deposits will degrade particle identification and reconstruction
+capabilities below acceptable levels (not to mention the greatly increased radiation levels that
+current components cannot handle).
 
+In order to maintain performance during the HL-LHC era, CMS plans to under go a ``Phase-2 upgrade''~\cite{CMS:phaseii},
+in which components will be upgraded to withstand higher levels of radiation and allow more discrimination
+between overlapping PU tracks. A key component of this is the addition of a minimum-ionizing particle (MIP) timing
+detector between the tracker and calorimeters~\cite{CMS:mtd}.
+
+\begin{figure}[t]
+  \begin{center}
+    \includegraphics[width=0.325\textwidth]{figs/cms/mtd_line_density.pdf}
+    \includegraphics[width=0.325\textwidth]{figs/cms/mtd_npu_reduction.pdf}
+    \includegraphics[width=0.325\textwidth]{figs/cms/mtd_pudist.pdf}
+    \caption{(left) Distribution of line density of PU vertices for different $\langle N_\mrm{PU}\rangle$ scenarios.
+      The right edges of the distributions correspond to a vertex in the center of the gaussian spatial spread
+      of vertices. (middle) The mean number of PU tracks associated to the primary vertex as a function of line density,
+      with no timing information and with 30, 40, 50, and 70 ps timing resolutions, assuming $\langle N_\mrm{PU}\rangle=200$.
+      A resolution of $\sim$30 ps reduces the PU contamination to near present-LHC levels. (right) Distributions
+      of the number of PU tracks associated to the primary vertex, assuming no timing and $\langle N_\mrm{PU}\rangle$ of
+      40, 140, and 200, and under a realistic HL-LHC scenario of $\langle N_\mrm{PU}\rangle=140$ with a timing layer
+      with $\sigma_{t}=40$ ps and an efficiency of 85\%.
+            }
+    \label{fig:mtd_pured}
+  \end{center}
+\end{figure}
+
+The idea is to add a ``fourth dimension'' in the tracking of particles, which will allow discrimination between
+spatially overlapping vertices. Pileup interactions have not only a spatial spread with and RMS of around 4.3~cm,
+but also a spread in time with an RMS of 180--200~ps. An ability to measure the time of tracks with a resolution of
+around 40~ps would allow an effective reduction of HL-LHC pileup to current levels. This is illustrated in
+Fig.~\ref{fig:mtd_pured}, which shows the distribution of PU vertex line density under different 
+$\langle N_\mrm{PU}\rangle$ scenarios, and the number of PU tracks associated to the primary vertex
+as under different timing capability assumptions.
+
+\begin{figure}[t]
+  \begin{center}
+    \includegraphics[width=0.49\textwidth]{figs/cms/mtd_muiso.pdf}
+    \includegraphics[width=0.49\textwidth]{figs/cms/mtd_btag.pdf}
+    \caption{(left) Track isolation efficiency for prompt muons under different
+      timing scenarios, for various fixed fake rates. (right) b-tagging fake rate
+      for charm and light flavor quarks, as a function of the number of PU vertices
+      within 1 mm of the primary vertex. Adding timing information effectively
+      reduces this number.
+            }
+    \label{fig:mtd_isobtag}
+  \end{center}
+\end{figure}
+
+In addition to reducing the raw number of PU vertices near the primary vertex, adding
+timing information has visible effects on more tangible detector performance metrics
+such as prompt lepton identification and b-tagging, as shown in  Fig.~\ref{fig:mtd_isobtag}.
+These figures were made using generator-level tracks from \ttbar simulation, overlaying
+200 random minimum-bias interaction vertices, and emulating a timing layer by smearing
+each track's time by the desired resolution.
+
+The design of the timing layer is separated into barrel and endcap components, due to
+their different physics requirements. The barrel timing layer, situated between
+the tracker and the ECAL, will consist
+of arrays of scintillating Lutetium Yttrium Orthosilicate crystals, read out by silicon
+photomultipliers. Charged particles passing through generate optical photons, which are
+measured to give a timestamp of the passing particle.
+
+The endcap detectors are closer to the beamline and hence receive much larger radiation
+doses. This would degrade the performance of scintillating crystals too quickly, so silicon
+low-gain avalanche detectors (LGADs)~\cite{Moffat:lgad} are used instead, which add a thin p-type multiplication layer to
+traditional silicon sensors, and can achieve time resolutions of up to 20 ps.
+Rows of LGAD sensors will be mounted on either side of two support disks, as shown in Fig.~\ref{fig:mtd_etl}.
+Gaps are left between the rows to allow for power and cooling service channels, 
+but the rows on either side of the disks are offset to provide full coverage.
+The disks are mounted on the inside of the calorimeter endcap structure.
+
+\begin{figure}[t]
+  \begin{center}
+    \includegraphics[width=0.49\textwidth]{figs/cms/etl.png}
+    \caption{Layout of the proposed endcap timing layer. Rows of LGAD sensors
+      are mounted on either side of two support disks, with the rows on either side
+      offset such that full coverage is attained.
+            }
+    \label{fig:mtd_etl}
+  \end{center}
+\end{figure}
