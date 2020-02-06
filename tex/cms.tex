@@ -278,16 +278,16 @@ strips of silicon; throughgoing charged particles then ionize the atoms to creat
 electron-hole pairs, which can be collected via an voltage gradient and detected
 as a small electrical pulse lasting a few nanoseconds.
 
-\begin{figure}[t]
-  \begin{center}
-    \includegraphics[width=0.50\textwidth]{figs/cms/tracker.png}
-    \caption{Illustration of the pixel tracking layers. Note that this is the original layout;
-      after the phase-1 upgrade in 2017, there is an additional layer in both the barrel
-      and endcap systems. The pixel detector is 16 cm in radius and 100 cm long. (Image from~\cite{CMS:tdr_i})
-            }
-    \label{fig:cms_tracker}
-  \end{center}
-\end{figure}
+%% \begin{figure}[t]
+%%   \begin{center}
+%%     \includegraphics[width=0.50\textwidth]{figs/cms/tracker.png}
+%%     \caption{Illustration of the pixel tracking layers. Note that this is the original layout;
+%%       after the phase-1 upgrade in 2017, there is an additional layer in both the barrel
+%%       and endcap systems. The pixel detector is 16 cm in radius and 100 cm long. (Image from~\cite{CMS:tdr_i})
+%%             }
+%%     \label{fig:cms_tracker}
+%%   \end{center}
+%% \end{figure}
 
 The tracker consists of two main sub-modules. The first, called the pixel detector, 
 is close to the beamline and consists of arrays of 100 $\mu$m $\times$ 150 $\mu$m
@@ -295,8 +295,8 @@ silicon pixels, with 124 million pixels in total.
 There are four barrel layers at radii 2.9, 6.8, 10.9, and 16.0 cm,
 and three endcap layers. The detector provides coverage out to $|\eta|<2.4$.
 The small size of the pixels allows for highly accurate identification of particle location.
-An illustration of the pixel detector layout (before the 2017 phase-1 upgrade, which added
-additional layers to the barrel and endcap) is shown in Fig.~\ref{fig:cms_tracker}.
+%% An illustration of the pixel detector layout (before the 2017 phase-1 upgrade, which added
+%% additional layers to the barrel and endcap) is shown in Fig.~\ref{fig:cms_tracker}.
 
 Outside of the pixel detector are 10 layers of silicon strips in the barrel, and 12 in the
 endcaps. The four inner barrel layers
@@ -511,6 +511,14 @@ particle information is dropped, keeping only higher level variables used for a 
 A typical JetHT event size is 0.7 kB.
 \end{itemize}
 
+In addition to processing real data from the detector, the CMS computing network also manages the production
+of simulated data, or Monte Carlo (MC). For a given process (e.g. \zll), the initial events
+are generated with an event generator such as MadGraph; parton showering, fragmentation, and decays
+of semi-stable particles are done with a tool such as \textsc{Pythia}; and then all of the resulting
+particles are fed into a full \textsc{Geant4} simulation of the CMS detector. This produces
+realistic detector hits that can then be processed with the same code as is used for real data,
+producing the same data formats as above.
+
 \section{Phase-2 CMS MIP timing detector}
 
 The LHC is currently in the midst of ``Long Shutdown 2'', which will be followed by Run 3 which lasts
@@ -599,7 +607,7 @@ The disks are mounted on the inside of the calorimeter endcap structure.
     \includegraphics[width=0.49\textwidth]{figs/cms/etl.png}
     \caption{Layout of the proposed endcap timing layer. Rows of LGAD sensors
       are mounted on either side of two support disks, with the rows on either side
-      offset such that full coverage is attained.
+      offset such that full coverage is attained. (Image from~\cite{CMS:mtd})
             }
     \label{fig:mtd_etl}
   \end{center}

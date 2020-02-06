@@ -78,7 +78,7 @@ For the purposes of counting the number of b-tags (\Nb), we loosen the \pt thres
 This helps to add sensitivity to compressed-spectrum signals with jets from b quarks.
 
 \subsection{\ptmiss}
-We use type 1-corrected PFMET, defined in Sec.~\ref{sec:jetmet}, using the same jet energy corrections
+We use type 1-corrected PFMET, defined in Sec.~\ref{sec:cmsmet}, using the same jet energy corrections
 as applied to the jets. We additionally define \vMht as
 \be
 \vMht = -\sum_\mrm{jets} \vec{p}_{\mrm{T},i},
@@ -618,7 +618,7 @@ exception of one of the following:
 %
 The same triggers are used as in the signal regions.
 
-\section{2018 HEM 15/16 failure}
+\section{2018 HEM-15/16 failure}
 \label{sec:hem}
 
 During 2018 data taking, two modules in the minus-side HCAL endcap (HEM), 
@@ -657,14 +657,16 @@ and $d_{xy}<0.1$ cm (a ``lost track'' is any track not reconstructed as a PF can
 
 \begin{figure}[t]
   \begin{center}
-    \includegraphics[width=0.42\textwidth]{figs/event_selection/hem_subleadjetphi.pdf}
-    \includegraphics[width=0.57\textwidth]{figs/event_selection/mc_closure_sr.pdf}
-    \caption{(left) Sub-leading jet $\phi$ before and after the HEM issue.
+    \includegraphics[width=0.48\textwidth]{figs/event_selection/hem_subleadjeteta.pdf}
+    \includegraphics[width=0.48\textwidth]{figs/event_selection/hem_subleadjetphi.pdf} \\
+    \includegraphics[width=0.70\textwidth]{figs/event_selection/mc_closure_sr.pdf}
+    \caption{(top) Sub-leading jet $\eta$ and $\phi$ before and after the HEM issue.
       Black points are 2017, and are flat in $\phi$ and agree with MC. White
       points are early pre-HEM issue 2018 data, flat in $\phi$ but with 
-      a uniform excess due to an unrelated filter issue that was since fixed.
+      a uniform barrel-only excess due to an unrelated filter issue that was since fixed.
       Red points are post-HEM issue 2018 data, showing a clear excess in the HEM region
-      $\phi\in[-1.6,0.8]$. Dijet events that are otherwised balanced but have a jet in
+      $\eta\in[-4.7,-1.4]$, $\phi\in[-1.6,0.8]$. Dijet events that are otherwised 
+      balanced but thathave a jet in
       the HEM region become imbalanced due to the lost energy.
       (right) Estimated effect of HEM issue on QCD signal region yields, found by 
       modifying Rebalance \& Smear templates with special response functions measured
