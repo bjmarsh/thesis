@@ -1,4 +1,4 @@
-\chapter{Event Selection and Triggering}
+chapter{Event Selection and Triggering}
 \label{chap:event_selection}
 
 The general strategy of the \mttwo analysis is to apply a baseline selection
@@ -18,7 +18,7 @@ of the signal regions.
 \label{sec:objvardefs}
 
 In CMS, individual particles are identified by combining information from the tracker, calorimeters, and muon system
-using the ``particle flow'' algorithm, described in Sec.~\ref{sec:cms_det}. This particle-level information is
+using the ``particle-flow'' algorithm, described in Sec.~\ref{sec:jetcluster}. This particle-level information is
 then used to cluster jets, reconstruct vertices, and compute the missing transverse energy. Here we list the various
 physics objects used in this analysis and the selections applied on them.
 
@@ -27,9 +27,9 @@ physics objects used in this analysis and the selections applied on them.
 ``Vertex finding'' is a process of finding points in space from which groups of reconstructed particle tracks that, loosely,
 come from the same ``interaction'', emanate. There is generally a single ``primary vertex'', where the hard interaction
 took place, pileup vertices from pileup interactions, and, potentially, secondary vertices from longer-lived decaying particles
-such as b hadrons. Algorithms for reconstructing vertices are described in \cite{TRK_vertexing}. For this analysis,
+such as b hadrons. Algorithms for reconstructing vertices are described in~\cite{TRK_vertexing}. For this analysis,
 we consider a reconstructed vertex as good if it satisfies:
-\begin{itemize}
+\begin{itemize}\setlength\itemsep{-1mm}
 \item not ``fake'' - if no vertices are reconstructed from tracks, a default vertex based on the beam-spot 
 (luminous region produced by proton beam collision) is used, and is labeled as ``fake''.
 \item $N_\mrm{dof}>4$ - $N_\mrm{dof}$ is the number of degrees of freedom in the fit of the position
@@ -46,7 +46,7 @@ vertex.
 
 Jets are clustered using the anti-$k_\mrm{T}$ algorithm with distance parameter $R=0.4$.
 Charged hadrons from pileup interactions are identified and removed based on the ``charged hadron
-subtraction'' algorithm \cite{JME_pileup_removal_algo}.
+subtraction'' algorithm~\cite{JME_pileup_removal_algo}.
 Jet energies are corrected for pileup contamination and detector response with CMS-derived
 era-dependent jet energy corrections.
 We select jets that satisfy $\pt>30\GeV$ and $|\eta|<2.4$, and pass PF jet loose ID (2016)
@@ -668,7 +668,7 @@ and $d_{xy}<0.1$ cm (a ``lost track'' is any track not reconstructed as a PF can
       $\eta\in[-4.7,-1.4]$, $\phi\in[-1.6,0.8]$. Dijet events that are otherwised 
       balanced but thathave a jet in
       the HEM region become imbalanced due to the lost energy.
-      (right) Estimated effect of HEM issue on QCD signal region yields, found by 
+      (bottom) Estimated effect of HEM issue on QCD signal region yields, found by 
       modifying Rebalance \& Smear templates with special response functions measured
       in HEM-emulated data. The issue causes up to an 8-fold increase in estimated
       background, and the effect is worst at low \Ht.
