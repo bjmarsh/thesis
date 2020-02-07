@@ -209,14 +209,15 @@ We can re-write thaw raw \ptmiss as
 \ee
 where the first sum is over all jets and the second is over any
 particle-flow candidates not clustered into jets.
-Then the JEC-corrected, or Type 1-corrected, \ptmiss can be computed by
+Then the JEC-corrected, or type 1-corrected, \ptmiss can be computed by
 simply replacing the jet momenta
 \be\begin{split}
 \vec{\slashed{E}}_\mrm{T}^\text{type-1} &= -\sum_{i\in\mrm{jets}} \vSS{p}{\mrm{T},i}{\mrm{corr}}
 - \sum_{i\in\mrm{uncl}} \vec{p}_{\mrm{T},i} \\
-&= \vec{\slashed{E}}_\mrm{T}^\mrm{raw} - \sum_{i\in\mrm{jets}}\left(\vSS{p}{\mrm{T},i}{\mrm{corr}}-\vSS{p}{\mrm{T},i}{\mrm{raw}}\right)
+&= \vec{\slashed{E}}_\mrm{T}^\mrm{raw} - \sum_{i\in\mrm{jets}}\left(\vSS{p}{\mrm{T},i}{\mrm{corr}}-\vSS{p}{\mrm{T},i}{\mrm{raw}}\right).
 \end{split}\ee
 
+This type 1-corrected \ptmiss is the version used in this analysis.
 
 % missing energy
 % contribution from mis-measured jets
