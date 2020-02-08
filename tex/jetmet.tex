@@ -1,10 +1,10 @@
-\chapter{Jets, Missing Energy, and Jet Resonse Templates}
+\chapter{Jets, Missing Energy, and Jet Response Templates}
 
 Understanding the production and measurement of hadronic jets is 
 of central importance to any hadron collider experiment.
 Not only is pure multijet production the most common type of event,
 but \textit{any} process can be accompanied by one or more jets
-arising from intitial- or final-state radiation of quarks and gluons.
+arising from initial- or final-state radiation of quarks and gluons.
 Moreover, any mis-measurement of jet energies harms the experiment's 
 ability to measure the imbalance in transverse energy, a key component
 of many analyses. Understanding jet mis-measurement is thus highly important
@@ -33,7 +33,7 @@ Jets consist predominantly of a mixture of charged an neutral
 hadrons, though they may also contain photons or leptons from
 the decay of heavy-flavor hadrons. The charged hadrons
 leave tracks in the tracker, and both the charged and neutral
-hadrons deposite the majority of their energy in the HCAL.
+hadrons deposit the majority of their energy in the HCAL.
 
 \subsection{Jet clustering}
 \label{sec:jetcluster}
@@ -46,7 +46,7 @@ into separate jets.
 As almost everything in a jet leaves
 most of its energy in the calorimeters, 
 one option is to just try to cluster the
-calorimeter depostits into jets. However, calorimeters
+calorimeter deposits into jets. However, calorimeters
 have relatively low energy resolution, so CMS has developed
 a ``particle-flow'' (PF) algorithm~\cite{CMS:pf} that combines calorimeter
 information with that from the tracker and muon systems
@@ -139,7 +139,7 @@ the decays of top quarks, Higgs bosons, and SUSY particles. Identifying
 the jets that originate from b quarks is a key method for reducing background.
 
 Hadrons involving b quarks tend to be heavier and have longer lifetimes
-than hadrons made from ligher quarks (for example, $B$ mesons haves masses
+than hadrons made from lighter quarks (for example, $B$ mesons haves masses
 of $\sim$5\GeV and $c\tau$ values of O(1 mm) when Lorentz-boosted). 
 These properties can be used to
 discriminate b jets from jets produced by light-flavor quarks or gluons.
@@ -181,7 +181,7 @@ partons carrying an undetermined fraction of the total momentum. Hence, the lab 
 in general not the center-of-mass frame, and the total momentum of the colliding system
 is boosted along the beam direction. The \textit{transverse} momentum, orthogonal
 to the beamline, on the contrary should be zero (technically, the partons can have a
-transverse momenum on the scale of the proton mass of a few hundred\MeV, but this
+transverse momentum on the scale of the proton mass of a few hundred\MeV, but this
 is negligible at the LHC energy scales).
 
 If all produced particles were perfectly measured, then, the vector sum of their \vpt
@@ -234,15 +234,15 @@ $p_\mrm{T}^\mrm{reco}/p_\mrm{T}^\mrm{true}$.
 
 Looking ahead, Fig.~\ref{fig:jrt_examples} shows a 
 few examples of these functions measured in simulation (called jet response templates, or JRTs).
-It is found that the templates are described well by a central gaussian core (red),
-with larger, non-gaussian tails (green).
+It is found that the templates are described well by a central Gaussian core (red),
+with larger, non-Gaussian tails (green).
 Details on the exact derivation of these functions, and the procedure for fitting
 the core and tails, are given in Sec.~\ref{sec:jrt}. For now, it is sufficient
 to know that they are measured in simulation by matching reconstructed jets
 (``reco jets'') to generator-level jets (``gen jets'') and comparing their \pt values.
 
 The size and shape of the core are due to standard stochastic smearing in the calorimeters. 
-The width of this gaussian core, referred to
+The width of this Gaussian core, referred to
 as the ``jet resolution'', generally falls as $1/\sqrt{E}$. This is illustrated in 
 Fig.~\ref{fig:jrt_res_pt} (left), which shows the measured
 resolution improving as jet \pt increases.
@@ -300,7 +300,7 @@ differences in jet resolution between data and MC.
     \includegraphics[width=0.45\textwidth]{figs/jetmet/pt10_eta06_nonbjets_lin.pdf}
     \includegraphics[width=0.45\textwidth]{figs/jetmet/pt10_eta06_nonbjets_log.pdf} \\
     \caption{A selection of three example jet response templates for various \pt/$\eta$/b-jet bins, shown in linear (left) and log (right) scales.
-    The dark blue points are the raw templates. The red curves are the fitted gaussian ``cores'' of the templates, and the green
+    The dark blue points are the raw templates. The red curves are the fitted Gaussian ``cores'' of the templates, and the green
     curves are the ``tails'', as described in Section~\ref{sec:jrt_fits}.
            }
     \label{fig:jrt_examples}
@@ -311,11 +311,11 @@ differences in jet resolution between data and MC.
   \begin{center}
     \includegraphics[width=0.49\textwidth]{figs/jetmet/resolution_vs_pt.pdf}
     \includegraphics[width=0.49\textwidth]{figs/jetmet/tailfrac_vs_pt.pdf}
-    \caption{(left) Jet energy resolution (defined as the width of the fitted gaussian core) as a function of generator-level jet \pt, as measured in 2018 MC. 
+    \caption{(left) Jet energy resolution (defined as the width of the fitted Gaussian core) as a function of generator-level jet \pt, as measured in 2018 MC. 
     Resolution improves as jet \pt increases, and generally degrades as $\eta$ increases.
-    (right) The fraction of the jet response function that resides in the fitted tails (as opposed to the gaussian core) as a function of generator-level jet \pt, 
+    (right) The fraction of the jet response function that resides in the fitted tails (as opposed to the Gaussian core) as a function of generator-level jet \pt, 
     as measured in 2018 MC. The main feature to notice is that at intermediate \pt,  b jets have a higher probability to be in the tail. This is due to the presence
-    of neutrinos from heavy-flavor decay in the jet, which cause the jet energy to be undermeasured and hence enhance the left tail of the templates. At low \pt, the
+    of neutrinos from heavy-flavor decay in the jet, which cause the jet energy to be under-measured and hence enhance the left tail of the templates. At low \pt, the
     tails are driven by other effects so differences between b and non-b jets are not visible.
     }
     \label{fig:jrt_res_pt}
@@ -366,7 +366,7 @@ the right tails). Since we reject these events in the main analysis, we also rej
 jets from such events here to avoid false tails in the templates 
 (see Fig.~\ref{fig:jrt_matching_effect} (right) for an example of the effect on a template)
 
-Steps 2 through 5 identify pairs of gen and reco jets with $\Delta R<0.3$, but with the crucial caviat that 
+Steps 2 through 5 identify pairs of gen and reco jets with $\Delta R<0.3$, but with the crucial caveat that 
 \emph{there are no additional matches within} $\Delta R<0.5$. This protects against one of the largest fake sources
 of tails in the measured templates: the ``splitting'' of gen and/or reco jets. This can happen in three distinct ways:
 \begin{itemize}
@@ -482,22 +482,22 @@ An example of the effect is shown in Fig.~\ref{fig:jrt_nb}.
 \subsection{Fits and jet energy resolution corrections}
 \label{sec:jrt_fits}
 
-Once the templates are derived, it is useful to split each template into a gaussian ``core'' and
-non-gaussian ``tails'' The reason for this is twofold. First, it is known that jet resolution
-is slightly different in data than in MC. This only applies to the standard gaussian smearing of the jets,
-so in order to correct for the differences the gaussian core must be isolated.
+Once the templates are derived, it is useful to split each template into a Gaussian ``core'' and
+non-Gaussian ``tails'' The reason for this is twofold. First, it is known that jet resolution
+is slightly different in data than in MC. This only applies to the standard Gaussian smearing of the jets,
+so in order to correct for the differences the Gaussian core must be isolated.
 Second, is is useful for studies on systematics to be able to alter the core/tails of the
 templates individually. For example, to study the effect of mis-modeling in the tails,
 one should be able to modify the size of the tails without affecting the size/shape
-of the gaussian core.
+of the Gaussian core.
 
-To fit the core of a template, a gaussian is fitted in the range (mean $\pm$ RMS), where mean and RMS
+To fit the core of a template, a Gaussian is fitted in the range (mean $\pm$ RMS), where mean and RMS
 are the mean and standard deviation of the template.
 When measuring jet energy resolution and deriving scale factors, CMS only defines the core
-of the jet response function as extending out to $\pm2\sigma$ of the fitted gaussian~\cite{JME_jes_jer}.
+of the jet response function as extending out to $\pm2\sigma$ of the fitted Gaussian~\cite{JME_jes_jer}.
 To be consistent, we use the same definition here, and in order to avoid discontinuities,
-we linearly scale the gaussian to 0 between $\pm1$ and 2 $\sigma$. More precisely, if $g(x)$ is the
-full fitted gaussian, and $\mu$ and $\sigma$ are its mean and standard deviation, our defined core function is
+we linearly scale the Gaussian to 0 between $\pm1$ and 2 $\sigma$. More precisely, if $g(x)$ is the
+full fitted Gaussian, and $\mu$ and $\sigma$ are its mean and standard deviation, our defined core function is
 \[
 \text{Core}(x) = 
 \begin{cases}
@@ -508,7 +508,7 @@ g(x)\left(2-\frac{|x-\mu|}{\sigma}\right) & \text{if } 1\sigma < |x-\mu| \leq 2\
 \]
 
 The tails are then simply defined as the full template function minus $\text{Core}(x)$.
-Examples of this fitting procedure are shown in Fig.~\ref{fig:jrt_examples}. The truncated-gaussian
+Examples of this fitting procedure are shown in Fig.~\ref{fig:jrt_examples}. The truncated-Gaussian
 cores are shown in red, and the tails in green.
 
 The first way that these fits are used is in the correction of the templates for jet energy resolution

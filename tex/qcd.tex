@@ -23,7 +23,7 @@ The method utilizes the variable $\dpmin \equiv \dphimet$ defined in
 Sec.~\ref{sec:objvardefs}. Events with a badly measured jet tend to have
 small \dpmin, as a single mis-measured jet drives the \vMet. Consequently,
 inverting the $\dpmin>0.3$ requirement in the signal regions gives a 
-conrol region enriched in QCD multijet events.
+control region enriched in QCD multijet events.
 
 The $\Delta\phi$-ratio method estimates multijet contribution to the 
 signal region by scaling events in this low-\dpmin control region
@@ -35,8 +35,8 @@ is found to be well-described by a power law,
 \be
 r_\phi(\mttwo) = \frac{N(\dpmin > 0.3)}{N(\dpmin < 0.3)} = a\cdot\mttwo^b,
 \ee
-for sufficientyly high \mttwo. Below $\mttwo\approx60$\GeV, the power law
-form breaks down as the dominant source of \vMet is not from jet mismeasurement
+for sufficiently high \mttwo. Below $\mttwo\approx60$\GeV, the power law
+form breaks down as the dominant source of \vMet is not from jet mis-measurement
 (e.g. energy from pileup may contribute more significantly).
 
 This ratio is measured in data in a low-\mttwo sideband, 
@@ -96,7 +96,7 @@ in the past, there are a number of motivations to look for a better, more robust
 Most importantly, the $\Delta\phi$-ratio method relies on a fairly severe extrapolation 
 ($r_\phi$ is measured in $60 < \mttwo < 100$\GeV, and is used to predict signal region 
 yields at $\mttwo>200$\GeV), with no way to explicitly check its validity in the 
-region of interest. Moreover, the power law fit function itself is emperically derived
+region of interest. Moreover, the power law fit function itself is empirically derived
 from simulation, with no underlying theoretical motivation that would give one confidence
 in its applicability.
 
@@ -116,7 +116,7 @@ of the multijet background in the signal regions.
 
 Both the rebalancing and smearing steps make use of ``jet response templates'', which are distributions
 of the ratio of reconstructed jet \pt to generator-level jet \pt. The templates are derived from simulation
-in bins of jet \pt and $\eta$, separately for b-tagged and non-b-tagged jets. Details on the deriviation
+in bins of jet \pt and $\eta$, separately for b-tagged and non-b-tagged jets. Details on the derivation
 of the templates are given in Sec.~\ref{sec:jrt}.
 
 For \rs in data, events from pure-\Ht triggers are used. Events with $\Ht<1200\GeV$ come
@@ -190,9 +190,9 @@ times with a weight of 1/100.
 
 \section{Performance in Monte Carlo}
 
-Figures \ref{Fig:rs_mc_ht_met_highht} - \ref{Fig:rs_mc_deltaphi_highht} show kinematic disributions from QCD Monte Carlo
+Figures \ref{Fig:rs_mc_ht_met_highht} - \ref{Fig:rs_mc_deltaphi_highht} show kinematic distributions from QCD Monte Carlo
 and \rs based on the same QCD Monte Carlo after a loose selection of $\Ht > 1200$\GeV, $\ptmiss > 30$\GeV, and $\mttwo > 50$\GeV.
-Figures \ref{Fig:rs_mc_ht_met_lowht} - \ref{Fig:rs_mc_deltaphi_lowht} show thesame distributions but with $450 < \Ht < 1200$\GeV.
+Figures \ref{Fig:rs_mc_ht_met_lowht} - \ref{Fig:rs_mc_deltaphi_lowht} show the same distributions but with $450 < \Ht < 1200$\GeV.
 The \rs method models the shapes of these distributions quite well. There is an overall normalization difference of O(few percent)
 introduced by the \ptmiss and \mttwo cuts due to differences in modeling of very low \ptmiss events.
 
@@ -480,18 +480,18 @@ in the same dijet control region. Electroweak backgrounds are from MC. Again, go
 \label{sec:rs_systematics}
 
 Sections \ref{sec:rs_jrt_core} through \ref{sec:rs_sigmasoft} study the effects of varying
-parameters in the jet reponse templates or the rebalancing procedure on the final estimate.
+parameters in the jet response templates or the rebalancing procedure on the final estimate.
 In Sec. \ref{sec:rs_finalsyst}, we use these to assess systematic uncertainties on the final estimate.
 
 \subsection{Effect of modifying width of jet response core}
 \label{sec:rs_jrt_core}
 
-Here we study in both MC and data how the rebalance and smear prediction is affected by increasing the width of the gaussian core component of the jet response templates. 
-The core of the response is identified by fitting a gaussian to a narrow window around the peak response, as described in Sec.~\ref{sec:jrt_fits}.
+Here we study in both MC and data how the rebalance and smear prediction is affected by increasing the width of the Gaussian core component of the jet response templates. 
+The core of the response is identified by fitting a Gaussian to a narrow window around the peak response, as described in Sec.~\ref{sec:jrt_fits}.
 
-In MC, we test the effect by increasing the width of the gaussian core by a uniform factor for all jet response templates. 
+In MC, we test the effect by increasing the width of the Gaussian core by a uniform factor for all jet response templates. 
 The procedure for performing this widening is again described in Sec.~\ref{sec:jrt_fits}. 
-Figure~\ref{Fig:rs_modify_core} shows the effect of increasing the width of the gaussian core by 10\% and 25\% on the rebalance and smear predictions from MC in the 
+Figure~\ref{Fig:rs_modify_core} shows the effect of increasing the width of the Gaussian core by 10\% and 25\% on the rebalance and smear predictions from MC in the 
 analysis topological regions.
 
 \begin{figure}[ht]
@@ -523,8 +523,8 @@ the top of the plot. These are used to derive a systematic in Sec. \ref{sec:rs_f
 \subsection{Effect of modifying size of jet response tail}
 \label{sec:rs_jrt_tail}
 
-Next, we study in Monte Carlo how the \rs method is affected by increasing the size of the non-gaussian tail component of the jet response templates.
-As described in Sec.~\ref{sec:jrt_fits}, the tail is defined as simply the subtraction of the fitted gaussian core from the raw template.
+Next, we study in Monte Carlo how the \rs method is affected by increasing the size of the non-Gaussian tail component of the jet response templates.
+As described in Sec.~\ref{sec:jrt_fits}, the tail is defined as simply the subtraction of the fitted Gaussian core from the raw template.
 For this study, we increase the size of the tails by 25\% and 50\% for all templates, simply by scaling the tail components by a constant factor
 (while also scaling down the core normalization by an appropriate amount to preserve normalization).
 Figure~\ref{Fig:rs_modify_tail} shows the result of this scaling in each of the analysis topological regions, and Table~\ref{tab:rs_table_modify_tail}
@@ -670,9 +670,9 @@ derived from the \Nj and \Nb plots in the inverted-\dpmin control region (Figure
 grow with \Nj and \Nb and are correlated within each \Ht region. Table~\ref{tab:rs_njnb_systematics} lists the assigned systematics.
 
 \begin{table}[h]
-\caption{Assingned systematics to each \Nj/\Nb bin, based on observed discrepancies in \Nj/\Nb shapes in the inverted-\dpmin control regions.
+\caption{Assigned systematics to each \Nj/\Nb bin, based on observed discrepancies in \Nj/\Nb shapes in the inverted-\dpmin control regions.
 The uncertainties are taken as completely correlated within each \Ht region, and uncorrelated between \Ht regions.
-The signs indicate the directon of correlation.
+The signs indicate the direction of correlation.
 \label{tab:rs_njnb_systematics}}
 \centering
 \begin{tabular}{c|cc}

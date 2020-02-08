@@ -24,7 +24,7 @@ accelerated protons to 1\TeV.
 
 What was the motivation for such a machine? The LEP collider, which accelerated electrons
 and positrons to up to 209\GeV, had allowed for precise measurements of many SM quantities
-inclusing the $W$ and $Z$ masses, but was not able to find definitive proof of a Higgs boson
+including the $W$ and $Z$ masses, but was not able to find definitive proof of a Higgs boson
 or any evidence for BSM physics. Similarly, the Tevatron had discovered the top quark
 and made many measurements but failed to find evidence of the Higgs or new physics. Physicists
 thus sought a next-generation machine that could find these things.
@@ -81,7 +81,7 @@ increasingly large accelerators. The steps in the chain are as follows;
 the CERN accelerator complex is
 illustrated in Fig.~\ref{fig:cern_accelerator_complex}. 
 \begin{itemize}\setlength\itemsep{-1mm}
-\item The protons begin as nuclei in hydrogren gas, and electric fields are used to strip the electrons away.
+\item The protons begin as nuclei in hydrogen gas, and electric fields are used to strip the electrons away.
 \item The bare protons are fed into the linear LINAC 2 accelerator, where
 they are boosted to 50\MeV kinetic energy and injected into the 160 meter
 Proton Synchrotron Booster (PSB).
@@ -113,7 +113,7 @@ the acceleration from 450\GeV to 6.5\TeV, the LHC makes use of 8 radio-frequency
 400 MHz. This naturally produces a beam of ``bunches'', spaced 25 ns apart:
 the electric fields boost the protons, and the gradient of the field is
 constructed in such a way that any protons that arrive early or late
-recieve a slightly different kick, pushing them back towards the bunch
+receive a slightly different kick, pushing them back towards the bunch
 center.
 
 Together, the magnetic and electric fields produce two counter-rotating
@@ -136,7 +136,7 @@ The total proton-proton inelastic cross section is measured to be around 78 mb~\
 Multiplying by the LHC instantaneous luminosity, that means we expect
 1.5 billion inelastic collisions per second, or around 40 per bunch crossing.
 Most of these will be relatively uninteresting, and a major challenge in analyzing experimental
-data is disentagling the interesting event from the $\sim40$ other interactions
+data is disentangling the interesting event from the $\sim40$ other interactions
 (referred to as \textit{pileup} interactions).
 
 The LHC began beam operations in September 2008. Just nine days after the
@@ -212,7 +212,7 @@ Fig.~\ref{fig:cms_photos}.
 
 We now go through each of the components and briefly describe their design and operation.
 More detailed accounts and the full technical details can be found in the CMS Technical
-Design Reports (volume I contains detector performace and software~\cite{CMS:tdr_i}, and
+Design Reports (volume I contains detector performance and software~\cite{CMS:tdr_i}, and
 volume II describes physics performance~\cite{CMS:tdr_ii}. There are also more recent reports
 describing various detector upgrades).
 
@@ -223,9 +223,9 @@ $y$ axis pointing vertically upward, and the $z$ axis pointing along the beamlin
 counter-clockwise if looking at the LHC from above. The coordinate $r$ refers to the 
 cylindrical radius $r=\sqrt{x^2+y^2}$, and $\phi$ the azimuthal angle $\tan(\phi)=y/x$.
 Instead of the polar angle $\theta=\tan^{-1}(r/z)$, particle physicists generally use
-psudorapidity $\eta=-\log(\tan(\theta/2))$. The reason is that for relativistic
+pseudorapidity $\eta=-\log(\tan(\theta/2))$. The reason is that for relativistic
 particles, $\eta$ is a very good approximation of rapidity, and differences in
-rapidity are invariant under Lorentz boosts along the $z$ axis. A pseudorapity
+rapidity are invariant under Lorentz boosts along the $z$ axis. A pseudorapidity
 of 0 is central (i.e. orthogonal to the beamline), and a pseudorapidity high
 in absolute value indicates something nearly parallel to the beamline.
 A subscript T on a quantity (e.g. \pt)
@@ -234,7 +234,7 @@ indicates the transverse (i.e. $xy$) component.
 \subsection{Magnet and return yoke}
 
 The core of CMS is a large solenoid designed to produce a strong magnetic field. Charged
-particle trajectories are curved by this field, allowing reconsruction of their momenta
+particle trajectories are curved by this field, allowing reconstruction of their momenta
 (the radius of curvature is given by $R=\pt/qB$).
 The solenoid is 13 meters long and has an inner radius of around 3 meters, making
 it the largest solenoidal magnet ever built. The coils are made of superconducting
@@ -268,14 +268,14 @@ trajectories of charged particles in order to reconstruct their momenta.
 A central challenge in the design of this detector is the radiation level so close to the beam: 
 at 10 cm from the beampipe, the incident particle flux is around 10 million per cm$^2$ per second.
 Hence, the detector must be radiation-hard. Additionally, material budget should remain
-low so as to minimally affect the trajectories of through-going particles, and the detector
+low so as to minimally affect the trajectories of throughgoing particles, and the detector
 should give high spatial resolution and have fast response time, to allow accurate and timely
 reconstruction of particle tracks.
 
 From these considerations, a silicon detector was chosen, as silicon is relatively resilient
 to radiation and has a fast response time. The detector works by reverse-biasing narrow
 strips of silicon; throughgoing charged particles then ionize the atoms to create
-electron-hole pairs, which can be collected via an voltage gradient and detected
+electron-hole pairs, which can be collected via a voltage gradient and detected
 as a small electrical pulse lasting a few nanoseconds.
 
 %% \begin{figure}[t]
@@ -344,7 +344,7 @@ of an additional 15,000 crystals.
   \label{fig:brem_conv}
 \end{figure}
 
-The inner sides of the ECAL endcaps are coverered by a ``preshower detector'',
+The inner sides of the ECAL endcaps are covered by a ``preshower detector'',
 consisting of two layers of lead interleaved with two layers of silicon strip
 detectors, that are used to distinguish between high-energy prompt photons
 and less interesting closely-spaced photon pairs from $\pi^0\to\gamma\gamma$ decay.
@@ -364,16 +364,16 @@ to electrons and photons, are not stopped by the ECAL, and must be measured
 by a separate detector.
 
 In contrast to electromagnetic showers, hadronic showers develop primarily via the
-strong interaction, and are less contained (i.e., the their characterisic longitudinal
+strong interaction, and are less contained (i.e., the their characteristic longitudinal
 and lateral sizes are bigger). In order then to provide the maximal amount of absorption
 power within the confines of the magnet radius, a ``sampling calorimeter'' design
-was chosen. In this case, brass absorbtion layers, very efficient at stopping particles
+was chosen. In this case, brass absorption layers, very efficient at stopping particles
 and causing showers, are interleaved with layers of plastic scintillator, which
 produce detectable light as particles pass through. The light from the scintillators
 is captured by wavelength-shifting optical fibers
 and converted into electrical signals by magnetic field-resistant hybrid photomultipliers.
 This design has a worse energy resolution than a homogeneous calorimeter design like the ECAL, as some 
-fraction of the energy is lost in the absorbtion material and must be estimated.
+fraction of the energy is lost in the absorption material and must be estimated.
 
 The HCAL barrel and endcaps, each made up of 36 wedges, make up the bulk of the HCAL detector.
 However, there is an additional ``outer barrel'' detector that sits just outside of the magnet
@@ -381,7 +381,7 @@ coil, used to record energy from any particles that manage to get through. Final
 there are separate forward hadronic calorimeters at either end of CMS that record energies
 of particles very close to the beamline ($3.0 < |\eta| < 5.0$). Due to the high radiation
 doses and higher particle density these detectors face, they have a slightly different
-design with steel absorbers and Cherenkov light-producing quartz readout fibers.
+design with steel absorbers and Cerenkov light-producing quartz readout fibers.
 
 
 \subsection{Muon detectors}
@@ -419,7 +419,7 @@ and the resultant positive ions travel to the cathode, inducing detectable curre
 The perpendicular nature of the anode wires and cathode strips provide a 2D
 position measurement. Each chamber is composed of six layers that provide independent
 measurements, which are averaged together to give a more precise global fit.
-The resultant spatial resoltution is on the order of 200 $\mu$m, and
+The resultant spatial resolution is on the order of 200 $\mu$m, and
 the angular resolution in $\phi$ is of order 10 mrad.
 
 The DTs and CSCs are both fast enough to be used in the trigger system. However,
@@ -481,7 +481,7 @@ only one in every $N$ events is saved. As an example, in Chapter~\ref{chap:qcd}
 we make use of an inclusive selection of events with $\Ht>250\GeV$. At peak
 luminosity these events happen at around 3 kHz, which would completely overwhelm
 the HLT. So the trigger path for these events is prescaled by a factor of 4000,
-reducing their contribution to to overall rate to below 1 Hz.
+reducing their contribution to the overall rate to below 1 Hz.
 
 \subsection{Computing and reconstruction}
 
@@ -545,7 +545,7 @@ detector between the tracker and calorimeters~\cite{CMS:mtd}.
     \includegraphics[width=0.325\textwidth]{figs/cms/mtd_npu_reduction.pdf}
     \includegraphics[width=0.325\textwidth]{figs/cms/mtd_pudist.pdf}
     \caption{(left) Distribution of line density of PU vertices for different $\langle N_\mrm{PU}\rangle$ scenarios.
-      The right edges of the distributions correspond to a vertex in the center of the gaussian spatial spread
+      The right edges of the distributions correspond to a vertex in the center of the Gaussian spatial spread
       of vertices. (middle) The mean number of PU tracks associated to the primary vertex as a function of line density,
       with no timing information and with 30, 40, 50, and 70 ps timing resolutions, assuming $\langle N_\mrm{PU}\rangle=200$.
       A resolution of $\sim$30 ps reduces the PU contamination to near present-LHC levels. (right) Distributions
@@ -581,7 +581,7 @@ as under different timing capability assumptions.
 
 In addition to reducing the raw number of PU vertices near the primary vertex, adding
 timing information has visible effects on more tangible detector performance metrics
-such as prompt lepton identification and b-tagging, as shown in  Fig.~\ref{fig:mtd_isobtag}.
+such as prompt lepton identification and b tagging, as shown in  Fig.~\ref{fig:mtd_isobtag}.
 These figures were made using generator-level tracks from \ttbar simulation, overlaying
 200 random minimum-bias interaction vertices, and emulating a timing layer by smearing
 each track's time by the desired resolution.

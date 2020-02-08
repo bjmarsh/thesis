@@ -4,7 +4,7 @@
 The general strategy of the \mttwo analysis is to apply a baseline selection
 motivated by the available triggers and by the desire to reduce QCD multijet
 background to manageable levels, and then to categorize the selected events
-into bins of differing levels of hadronic activty, number of b-tagged jets, 
+into bins of differing levels of hadronic activity, number of b-tagged jets, 
 and missing transverse energy. The ``namesake'' variable \mttwo, used to reduce
 QCD background, was described in Sec.~\ref{sec:mt2_variable}, but a number of other
 variables are also used to constrain backgrounds and categorize events.
@@ -90,7 +90,7 @@ this excludes forward or low-\pt jets and unclustered energy.
 \label{sec:metfilters}
 In addition to real missing energy due to invisible particles, events may have some amount of ``fake \ptmiss'' due to either
 detector effects or external sources (e.g. cosmic rays or beam-halo particles). We have discussed fake \ptmiss from 
-standard jet mis-measurement due to stochaistic smearing in the calorimeters, but more pathological effects are also possible,
+standard jet mis-measurement due to stochastic smearing in the calorimeters, but more pathological effects are also possible,
 such as noisy calorimeter cells or bad track reconstructions. To eliminate as best as possible events containing such sources
 of fake \ptmiss, the JetMET group at CMS recommends a set of ``\ptmiss filters'' that use features of the reconstructed
 event to identify certain classes of bad events. We apply all standard recommended filters, listed here:
@@ -279,7 +279,7 @@ is computed either with or without muons. Observed plateau around $\ptmiss=250\G
 
 An illustration of the trigger coverage in the baseline signal region (defined in Sec.~\ref{sec:baselinesel})
 is shown in Fig.~\ref{fig:trig_diagram}. At low \Ht, the only available trigger is the pure-\ptmiss trigger,
-which necessetates the \ptmiss cut of 250\GeV. At higher \Ht ($>$1200\GeV), the pure-\Ht trigger can be used
+which necessitates the \ptmiss cut of 250\GeV. At higher \Ht ($>$1200\GeV), the pure-\Ht trigger can be used
 and allows for the relaxing of the \ptmiss cut to 30\GeV. The \Ht+\ptmiss triggers (and jet \pt trigger)
 provide redundancy in the intermediate to high \Ht regions.
 
@@ -296,7 +296,7 @@ provide redundancy in the intermediate to high \Ht regions.
   \end{center}
 \end{figure}
 
-Measuring the efficiency of the triggers is imporant to ensure the signal regions are fully covered and trigger
+Measuring the efficiency of the triggers is important to ensure the signal regions are fully covered and trigger
 at near 100\%. To make this measurement, a selection in the plateau of an orthogonal ``reference trigger''
 is made, and then the efficiency of the desired trigger is plotted as a function of the relevant kinematic
 variable. 
@@ -308,7 +308,7 @@ potential reference electron). The electron method further requires
 that the event passes a single electron trigger, and contains an electron with $\pt>35\GeV$ that is 
 isolated and passes a tight cut-based ID. The \ptmiss method requires that the event passes the
 pure-\ptmiss trigger and has $\ptmiss>300\GeV$. Both methods give consistent results, with 
-pleateau efficiencies of $>$98\%. After combining with the \texttt{HLT\_PFJetXXX} trigger,
+plateau efficiencies of $>$98\%. After combining with the \texttt{HLT\_PFJetXXX} trigger,
 the efficiency is $>$99\% in all years. Example measurements are shown in Fig.~\ref{fig:trigmeas_HT}.
 
 \begin{figure}[ht]
@@ -326,11 +326,11 @@ the efficiency is $>$99\% in all years. Example measurements are shown in Fig.~\
 \end{figure}
 
 The pure-\ptmiss trigger efficiencies are measured using the electron-based method described above.
-The \Ht and \ptmiss leggs of the \Ht+\ptmiss triggers must be measured separately. The \Ht leg is measured
+The \Ht and \ptmiss legs of the \Ht+\ptmiss triggers must be measured separately. The \Ht leg is measured
 using a \ptmiss trigger reference, and the \ptmiss leg is measured using an electron trigger reference
 (with the additional requirement of $\Ht>700\GeV$ to ensure that we are in the plateau of the \Ht leg).
 Efficiencies of close to 100\% are observed in all cases. Example measurements of the \ptmiss and \Ht+\ptmiss
-trigger efficienes are shown in Fig.~\ref{fig:trigmeas_HTMET}.
+trigger efficiencies are shown in Fig.~\ref{fig:trigmeas_HTMET}.
 
 \begin{figure}[ht]
   \begin{center}
@@ -370,7 +370,7 @@ paths are to recover inefficiencies at high muon \pt).
 Similarly, the dielectron selection is triggered with a combination of isolated and non-isolated
 dielectron triggers as well as a single-photon trigger.
 
-Finally, there is an different-flavor (i.e. $e\mu$) control regoin used for estimating \ttbar contamination
+Finally, there is an different-flavor (i.e. $e\mu$) control region used for estimating \ttbar contamination
 in the same-flavor region, that is triggered with a combination of isolated and non-isolated
 $e\mu$ triggers, non-isolated single-muon triggers, and a single-photon trigger.
 
@@ -386,7 +386,7 @@ applying them as weights to MC on a year-by-year basis as a function of leading 
     \includegraphics[width=0.49\textwidth]{figs/event_selection/trigeff_dilep_mm_2d_ht_2017fullYear.pdf}
     \includegraphics[width=0.49\textwidth]{figs/event_selection/trigeff_dilep_ee_2d_ht_2017fullYear.pdf} \\
     \includegraphics[width=0.49\textwidth]{figs/event_selection/trigeff_dilep_em_2d_ht_2017fullYear.pdf}
-    \caption{Measured dilepton trigger efficiences as a function of leading and subleading lepton \pt
+    \caption{Measured dilepton trigger efficiencies as a function of leading and subleading lepton \pt
       in 2017 data, for (top left) dimuon, (top right) dielectron,
       and (bottom) $e\mu$ selections. Triggers used are a logical OR of the various triggers described
       in Sec.~\ref{sec:crtrigs}. Measurements in 2016 and 2018 are similar.
@@ -400,7 +400,7 @@ Smear method for computing QCD multijet background, described in Chapter~\ref{ch
 makes use of low-threshold pure-\Ht triggers, that are necessarily prescaled due to their very
 high rates. Though event-by-event prescale values are stored in the data (the exact prescale rate
 depends on the instantaneous luminosity and the exact trigger menu being used, so vary with time),
-yearly ``effective prescales'' are measured as a constistency check. This is done by measuring the
+yearly ``effective prescales'' are measured as a consistency check. This is done by measuring the
 ratio of rates of different triggers as a function of \Ht, and fitting the ratio
 in the plateau. Comparing to the high threshold unprescaled trigger, the effective prescales of
 all others can be determined.
@@ -437,7 +437,7 @@ based on the available trigger thresholds, and illustrated in Fig.~\ref{fig:trig
 \item $\dphimet>0.3$. This protects against large \ptmiss from jet mis-measurement in multijet events,
 and rejects a large fraction of QCD background.
 \item $|\vMht-\vMet|/\ptmiss<0.5$. This requires that \vMht be similar to \vMet, and in doing so
-protects agains bias in the shape of \mttwo. \ptmiss is sensitive to reconstructed objects with
+protects against bias in the shape of \mttwo. \ptmiss is sensitive to reconstructed objects with
 $\pt<30\GeV$ or $|\eta|>2.4$, where as these are not used in \vMht or in the construction of
 pseudojets for \mttwo, so a large contribution from these objects to the missing transverse energy
 can bias the \mttwo distribution.
@@ -452,7 +452,7 @@ signal events, which contain \ptmiss not from the leptonic $W$ decay and hence h
 \item $\mttwo>200\GeV$ (only for events with at least 2 jets). This provides a large rejection of QCD
 multijet events that have large \ptmiss from mis-measured jets, as discussed in Sec.~\ref{sec:mt2_variable}.
 The threshold is raised to $\mttwo>400\GeV$ for events with $\Ht>1500\GeV$, in order to ensure that
-QCD multijet events remain a subdominant background.
+QCD multijet events remain a sub-dominant background.
 \end{itemize}
 
 \section{Signal region definitions}
@@ -496,7 +496,7 @@ increasing \Nj, and top background becomes more dominant with increasing \Nb.
     \includegraphics[width=0.8\textwidth]{figs/event_selection/piecharts_H.pdf}
     \caption{Topological region binning (defined by the solid gray lines)
       for the High \Ht region ($1200\leq\Ht<1500\GeV$). The proportion
-      of each background type is shown as a pie chart in each topological region. QCD multijet becomes more imporant
+      of each background type is shown as a pie chart in each topological region. QCD multijet becomes more important
       with increasing \Nj, and top backgrounds become more dominant at high \Nb. Background composition is estimated
       using the data-driven techniques described in the following chapters.
             }
@@ -540,7 +540,7 @@ and a selection enriched in QCD multijet events.
 
 \subsection{Single lepton control region}
 \label{sec:crsl}
-A single lepton selection is used to esimate backgrounds from \ttbar and \wjets (``lost lepton'' background).
+A single lepton selection is used to estimate backgrounds from \ttbar and \wjets (``lost lepton'' background).
 The selection is the same as the baseline selection described in Sec.~\ref{sec:baselinesel}, with
 the exception of the lepton veto. Instead, we require exactly one candidate passing the reconstructed lepton
 or particle-flow lepton selections ($e$ or $\mu$ only). We further require this lepton candidate to satisfy
@@ -579,20 +579,20 @@ in the same-flavor region.
 In either case, we require two opposite-charge leptons passing the reconstructed lepton selections
 given in Secs.~\ref{sec:electrons} and \ref{sec:muons}. Dileptonic triggers are used, 
 and to improve trigger efficiency we further
-require that electrons pass a slightly tigher cut-based ID requirement (``loose'' instead of ``veto'').
+require that electrons pass a slightly tighter cut-based ID requirement (``loose'' instead of ``veto'').
 The leptons must satisfy $\pt(\ell\ell)>200\GeV$ (to ensure similar kinematics to high-\pt \znunu
-events that populate the signal regions), and leading/subpleading lepton $\pt>100/35\GeV$. The invariant
+events that populate the signal regions), and leading/subleading lepton $\pt>100/35\GeV$. The invariant
 mass $m_{\ell\ell}$ must satisfy $|m_{\ell\ell}-m_Z|<20\GeV$ in order to ensure we select mainly $Z$ events.
 
 Since the leptons take the place of the neutrinos in \znunu events, to emulate the kinematics the
 lepton \vSS{p}{T}{} vectors are added to the \vMet vector for use in the computation of all
-kinematic variables. Further, since leptons are usually reconstucted as (at least components of) jets,
+kinematic variables. Further, since leptons are usually reconstructed as (at least components of) jets,
 the closest jet within $\Delta R<0.4$ of each lepton is removed from the event before computing kinematic
 quantities. The variables \Nj, \Nb, \Ht, \Mht, \dphimet, $|\vMht-\vMet|/\ptmiss$, and \mttwo are all
 potentially modified by these changes.
 
 In addition to the main same-flavor and different-flavor control regions described above, there is
-additionally an auxilliary different-flavor region enriched in \ttbar, used to measure the ratio
+additionally an auxiliary different-flavor region enriched in \ttbar, used to measure the ratio
 of same-flavor to different-flavor events from flavor-symmetric processes. This is defined by
 inverting the $\pt(\ell\ell)$ and $m_{\ell\ell}$ selections, so that $\pt(\ell\ell)<200\GeV$
 and $|m_{\ell\ell}-m_Z|>20\GeV$.
@@ -665,8 +665,8 @@ and $d_{xy}<0.1$ cm (a ``lost track'' is any track not reconstructed as a PF can
       points are early pre-HEM issue 2018 data, flat in $\phi$ but with 
       a uniform barrel-only excess due to an unrelated filter issue that was since fixed.
       Red points are post-HEM issue 2018 data, showing a clear excess in the HEM region
-      $\eta\in[-4.7,-1.4]$, $\phi\in[-1.6,0.8]$. Dijet events that are otherwised 
-      balanced but thathave a jet in
+      $\eta\in[-4.7,-1.4]$, $\phi\in[-1.6,0.8]$. Dijet events that are otherwise 
+      balanced but that have a jet in
       the HEM region become imbalanced due to the lost energy.
       (bottom) Estimated effect of HEM issue on QCD signal region yields, found by 
       modifying Rebalance \& Smear templates with special response functions measured
