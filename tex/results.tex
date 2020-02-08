@@ -4,7 +4,7 @@
 The background estimation techniques described in the previous chapters are used to make predictions
 in each of the 282 signal regions bins. We then compare and fit to observed event counts, using a
 maximum-likelihood fit that takes into account all statistical and systematic uncertainties.
-Finally, the results of this fit are used to constrain a variety of beyond-the-standard-model physics
+Finally, the results of this fit are used to constrain a variety of BSM physics
 scenarios. Sec.~\ref{sec:prefit} presents the raw, pre-fit results, Sec.~\ref{sec:fits} briefly describes
 the fitting and limit-setting procedures, and Sec.~\ref{sec:interp} shows
 the resulting limits placed on all considered signal models.
@@ -118,7 +118,7 @@ by maximizing over them. Note that the denominator is independent of $\mu$, and 
 
 We can construct distributions of $q_\mu$ for a given $\mu$ by generating random data, either under the B-only
 or $\mu$S+B hypotheses. The values of $q_\mu$ under the $\mu$S+B hypothesis tend to be lower on average than those 
-under the B-only hypothesis, the numerator will be larger than the denominator (see top right plot in 
+under the B-only hypothesis, as the numerator will be larger than the denominator (see top right plot in 
 Fig.~\ref{fig:results_cls} for an example). The distributions converge as $\mu\to0$.
 
 Using the actual observed data counts, we can then calculate the observed $q_\mu^\text{obs}$ for arbitrary $\mu$.
@@ -165,9 +165,9 @@ on $\mu$ of 1.14, computed by finding the $\mu$ value at which CL$_\text{S}(\mu)
 
 The $\text{CL}_\text{S}$ method outlined above is used to set limits on all of the signal models in the following
 sections. Due to the very large number of bins in the \mttwo analysis, it is computationally infeasible
-to do compute distributions of the test statistic explicitly. Hence, we use an \textit{asymptotic approximation} to
+to compute distributions of the test statistic explicitly. Hence, we use an \textit{asymptotic approximation} to
 derive the distributions necessary to calculate $\text{CL}_\text{S}$, as described in~\cite{Cowan:asymptotic}.
-This has been verified at with a smaller number of signal points to give results consistent with the exact method.
+This has been verified at a smaller number of signal points to give results consistent with the exact method.
 The calculations are performed with a CMS-produced wrapper around RooFit~\cite{roofit}.
 
 \section{Interpretations}
@@ -439,7 +439,7 @@ limit on the product of cross section times branching ratio of about 0.6 (0.4 ex
 
 Finally, the search is interpreted in using models of leptoquark (LQ) pair production,
 similarly to a previous reinterpretation~\cite{CMS:mt2LQ}. Leptoquarks, discussed in
-Sec.~\ref{sec:bsm}, are hypothetical particles that couple quarks and leptons. As they
+Sec.~\ref{sec:leptoquarks}, are hypothetical particles that couple quarks and leptons. As they
 are necessarily colored, they also couple to gluons, giving the four main production
 modes shown in Fig.~\ref{fig:SMS_LQ}.
 
@@ -458,7 +458,7 @@ In the case of scalar leptoquarks (\lqs), the kinematics are identical to the
 pair production of squarks, where each squark decays to a quark and \lsp with $m_\lsp=0$.
 Differeneces in kinematic distributions introduced by vector leptoquarks (\lqv) are negligible,
 at least for the variables relevant to this analysis. Hence, the same signal simulation is
-used as for the pair production of squarks with $m_\lsp$ set to 0, rescaled to the
+used as for the pair production of squarks, with $m_\lsp$ set to 0, and rescaled to the
 theoretical LQ pair production cross section.
 
 Figure~\ref{fig:lq} shows the 95\% CL exclusion limits on the cross section times branching ratio
