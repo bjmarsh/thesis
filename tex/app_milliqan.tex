@@ -1,4 +1,5 @@
 \chapter{Bonus: A Search for Milli-Charged Particles at the LHC}
+{\small
 
 \section{Motivation of a search for milli-charged particles}
 
@@ -16,7 +17,7 @@ we can add a ``dark photon'' $A'_\mu$ and a ``dark fermion'' $\psi'$ charged
 under the new gauge field with charge $e'$. Allowing for kinetic
 mixing between $A'_\mu$ and the SM weak hypercharge field $B_\mu$, the Lagrangian
 for this new dark sector can be written
-\be
+\be\label{eq:mcp_lagr}
 \begin{split}
 \mathcal{L}_\text{dark-sector} = &-\frac{1}{4}A'_{\mu\nu}A'^{\mu\nu} \\
 &+i\bar{\psi}'(\gamma^\mu\partial_\mu + ie'\gamma^\mu A'_\mu + iM_\text{mCP})\psi' \\
@@ -35,16 +36,10 @@ and $B_\mu$. Rewriting $B_\mu$ in terms of the physical photon and $Z$ boson fie
 as $B_\mu=\cos\theta_w A_\mu - \sin\theta_w Z_\mu$, we find that the new dark fermion
 couples to the SM photon with electric charge $\kappa e'\cos\theta_w$, and couples to the 
 SM $Z$ with charge $\kappa e'\sin\theta_w$. The mixing strength $\kappa$ must be small
-(or else the new dark sector would have been observed already). so we must have
+(otherwise the new dark sector would have been observed already), so we must have
 $\varepsilon\equiv \kappa e'\cos\theta_w \ll 1$, and we call $\psi'$ a
 ``milli-charged particle'' (mCP; note that the name is a bit of a misnomer because $\varepsilon$
-does not have to be exactly O($10^{-3}$))
-
-Such milli-charged particles have been searched for via a variety of methods,
-either directly through collider experiments or indirectly through
-solar effects, astronomical observations, or cosmological bounds.
-A summary of the present exclusion space in the mCP mass--charge plane
-is shown in Fig.~\ref{fig:mcp_search_status}, taken from~\cite{Vinyoles:mcp}.
+does not have to be exactly $\mathcal{O}10^{-3}$))
 
 \begin{figure}[t]
   \begin{center}
@@ -59,27 +54,155 @@ is shown in Fig.~\ref{fig:mcp_search_status}, taken from~\cite{Vinyoles:mcp}.
   \end{center}
 \end{figure}
 
+Such milli-charged particles have been searched for via a variety of methods,
+either directly through collider experiments or indirectly through
+solar effects, astronomical observations, or cosmological bounds.
+A summary of the present exclusion space in the mCP mass--charge plane
+is shown in Fig.~\ref{fig:mcp_search_status}, taken from~\cite{Vinyoles:mcp}.
+
 There is a gap in the excluded phase space for $\varepsilon>10^{-3}$ at
 the mass scales relevant at the LHC, roughly $10^{-1} < m_\text{mCP} < 10^2\GeV$.
 mCPs at such masses and charges would be produced frequently at the LHC, but
 present experiments would not be able to detect them; direct sensitvity is lost
-for $\varepsilon$ below a few times $10^{-1}$, and a low cross sections
-preclude missing energy searches. Therefore, a dedicated experiment is necessary
+for $\varepsilon$ below a few times $10^{-1}$, and a low cross section
+precludes missing energy searches. Therefore, a dedicated experiment is necessary
 to search for mCPs at the LHC.
 
 
-\section{Overview of the milliQan experiment}
+\section{Overview of the milliQan detector}
 The milliQan experiment, designed to search for mCPs using collisions at LHC P5, was proposed in 
-2016~\cite{mq:loi}. It is located in a drainage gallery, elevated 45$^\circ$ above and 33
-m from the CMS experiment. The proposed design consists of three stacked layers of plastic 
+2015~\cite{Haas:mcp,mq:loi}. It is located in a drainage gallery, elevated 45$^\circ$ above and 33
+m from the CMS experiment, with 17 m of rock in between that naturally
+suppresses beam-based backgrounds. The proposed design consists of three stacked layers of plastic 
 scintillator arrays, with each scintillating bar coupled to a photomultiplier tube (PMT).
+The arrays are pointed at the interaction point (IP), such that a particle originating
+from a $pp$ collision would pass through all three layers in a straight line.
 The bars are sensitive enough to detect individual photoelectrons produced by
-throughgoing mCPs, and requiring a hit in all three layers simultaneously drastically
+throughgoing mCPs, and requiring a simultaneous hit in all three layers drastically
 reduces background, which mostly consists of random overlap of pulses from
 PMT dark rate, environmental radiation, cosmic rays, and afterpulsing.
 
+The full milliQan design is anticipated to consist of three ``layers'' of $20\times20$ scintillator arrays,
+each around 1 m$^2$ in total. In 2017--18, a smaller scale \textit{demonstrator} was installed
+to study backgrounds and provide a proof-of-concept for the full-scale detector.
+This demonstrator consists of three $2\times3$ scintillator bar arrays, roughly 1--2\%
+of the planned full detector.
+
+The 18 scintillator bars each measure 5 cm $\times$ 5 cm $\times$ 80 cm, and are
+wrapped in layers of reflective and light-blocking materials to ensure optimal
+efficiency. 3D-printed plastic casings couple the bars to individual PMTs
+(two Hamamatsu R7725s, four Electron Tube 9814Bs, and 12 Hamamatsu R878s).
+
+\begin{figure}[t]
+  \begin{center}
+    \includegraphics[width=0.440\textwidth]{figs/milliq/cavern_loc.png}
+    \includegraphics[width=0.352\textwidth]{figs/milliq/demonstrator_illustration.png}
+    \caption{(left) Illustration of the location of the drainage gallery with 
+      respect to the CMS cavern. CMS is located in the large dome on the left; 
+      milliQan is elevated 43.1$^\circ$ above this, and 33 m away, with 17 m of
+      rock in between. (right) 3D illustration of the demonstrator detector.
+      The slabs are in yellow, the panels in translucent green, and the bars can be seen through
+      the panels. The gray blocks in the layer gaps are lead bricks to block radiation.
+            }
+    \label{fig:demonstrator}
+  \end{center}
+\end{figure}
+
+In addition to the scintillator bars, there are four 20 cm $\times$ 30 cm $\times$ 2.5 cm
+scintillator ``slabs'' placed at the front and rear of the detector
+as well as in between the layers, in order to tag/veto beam-based and cosmic
+particles. Additionally, each layer has three 18 cm $\times$ 102 cm $\times$ 0.7 cm scintillator
+``panels'' covering the top and sides, in order to tag/veto cosmic particles and environmental radiation.
+Each of the slabs and panels is read out by a Hamamatsu R878 PMT.
+
+There are 5 cm-thick lead bricks placed between each layer to reduce correlated pulses from radiation.
+All of the scintillators and lead bricks are mounted on a custom-designed aluminum support structure
+that can rotate the entire stack in multiple directions to facilitate alignment with the IP.
+A CERN engineering team performed such an alignment, so that the detector points
+to the IP to within a tolerance of just 1 cm over the 33 m distance. The location of the drainage gallery
+and an illustration of the demonstrator are shown in Fig.~\ref{fig:demonstrator}.
+
+The 31 scintillator channels are read out by a pair of CAEN V1743 digitizers, which sample at 1.6 GHz
+and record a 640 ns waveform for each channel upon triggering. The trigger can be configured
+to fire on single, double, or triple coincidence of peaks at an arbitrary threshold.
+For nominal data taking, the trigger is set to fire on a triple coincidence of pulses.
 
 \section{Bench tests for PMT calibration}
 
 \section{Generation of signal Monte Carlo}
+Any process at the LHC that produces an $e^+e^-$ pair via a virtual
+photon can also produce a $\zeta^+\zeta^-$ pair (we use $\zeta$ as the symbol for an mCP).
+This includes the direct vector meson decays $V\to e^+e^-$, where 
+$V=\rho,\;\omega,\;\phi,\;\psi,\;\text{or}\;\Upsilon$,
+the Dalitz decays $A\to e^+e^-\gamma$, where
+$A=\pi^0,\;\eta,\;\text{or}\;\eta'$, and the Dalitz decays 
+$\omega\to e^+e^-\pi^0$ and $\eta'\to e^+e^-\omega$.
+Additionally, $\zeta^+\zeta^-$ pairs can be produced via
+the Drell-Yan process, as with couplings to the photon and
+$Z$ of $\varepsilon e$ and $\varepsilon e\tan\theta_w$, respectively.
 
+We generate Drell-Yan decays with \textsc{Madgraph}~\cite{madgraph}, using the
+Lagrangian~\ref{eq:mcp_lagr}, with a cut on the invariant mass of the $\zeta^+\zeta^-$
+pair of 2\GeV. The Drell-Yan production mode is subdominant when the mass of the mCP
+is below half the $\Upsilon$ mass, around 5\GeV.
+
+For mCP pairs produced through meson decay, we perform the two-body/Dalitz decays
+manually and store the resulting mCP four-vectors. This requires two pieces of
+information for each process: (1) the branching ratio of the meson
+to a $\zeta^+\zeta^-$ pair (for Dalitz decays, we need the \textit{differential}
+width as a function of the $\zeta^+\zeta^-$ invariant mass), and (2)
+the differential cross sections to produce the parent meson as a function of \pt and $\eta$..
+
+Branching ratios for direct vector meson decays can be computed by simply
+scaling the $e^+e^-$ BR by a phase space factor:
+\be
+\frac{\Gamma(V\to\zeta^+\zeta^-)}{\Gamma(V\to e^+e^-)} = 
+(Q/e)^2\frac{(1-4x_\zeta^2)^{1/2}(1+2x_\zeta^2)}{(1-4x_e^2)^{1/2}(1+2x_e^2)},
+\ee
+where $x_*=m_*/m_V$ (this comes from the Van Royen-Wesskpf formula~\cite{vanroyen}).
+
+For Dalitz decays $A\to\zeta^+\zeta^-X$, we can write the differential width as a function of the $\zeta^+\zeta^-$
+invariant mass as~\cite{landsberg}
+\be
+\begin{split}
+\frac{d\Gamma}{dq^2} = &\frac{C\alpha}{3\pi q^2} \left(1+\frac{2m_\zeta^2}{q^2}\right)
+\sqrt{1-\frac{4m_\zeta^2}{q^2}} \\
+&\left[\left(1+\frac{q^2}{m_A^2-m_X^2}\right)-\frac{4m_A^2q^2}{(m_A^2-m_X^2)^2}\right]^{3/2}
+\;|F(q^2)|^2 \;\;\Gamma(A\to X\gamma),
+\end{split}
+\ee
+where $q^2$ is the invariant mass of the $\zeta^+\zeta^-$ pair, $C$ is 2 if
+$X$ is a $\gamma$ otherwise 1, and $F(q^2)$ is a form factor that can be approximated
+in the Vector Dominance Model as
+\be
+|F(q^2)|^2 = \frac{m_\rho^4+m_\rho^2\Gamma_\rho^2}{(m_\rho^2-q^2)^2+m_\rho^2\Gamma_\rho^2},
+\ee
+where $m_\rho$ and $\Gamma_\rho$ are the mass and total width of the $\rho$ meson.
+
+Cross sections for the production of parent mesons are acquired in a variety of ways.
+For direct~\cite{yqma:jpsi} and 
+$B$ meson-mediated~\cite{fonll} production of J/$\psi$
+and $\psi'$ mesons, cross sections and \pt distributions (including uncertainties)
+are taken directly from theory calculations. Theoretical calculations of $\Upsilon$
+production are not reliable at low \pt, so we use differential cross sections
+measured by experiment. For $\pt>20\GeV$, we use cross sections measured
+at $\sqrt{s}=13\TeV$~\cite{Sirunyan:2017qdw}, and at lower \pt we use measurements
+from 7\TeV~\cite{Aad:2012dlq}, rescaled using the measured ration of 13 to 7\TeV cross sections
+at slightly higher rapidity.
+
+Differential cross sections for all light-flavor mesons except $\phi$ mesons
+are computed by generating minimum bias events in \textsc{pythia8}~\cite{pythia},
+with the Monash 2013 tune~\cite{Skands:2014pea}. This is the tune that gives
+best agreement with several measurements of light meson rates and \pt spectra
+at the LHC~\cite{ALICE-PUBLIC-2018-004,Acharya:2018qnp,Acharya:2017tlv,Sirunyan:2017zmn}, 
+albeit in most cases at a center of mass energies lower than 13\TeV.
+The MC spectra for $\eta\;(\rho,\omega)$ with $\pt<3\;(1)\GeV$ are scaled
+down by factors as large as two, based on these experimental comparisons.
+$\phi$ production is modeled with the \textsc{pythia6} generator~\cite{pythia6}
+using the DW tune~\cite{Albrow:2006rt}.
+
+\section{Simulation validation and data comparisons}
+
+\section{Background estimation and results}
+
+}

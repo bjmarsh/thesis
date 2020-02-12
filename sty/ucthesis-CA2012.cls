@@ -46,6 +46,7 @@
 \def\dsp{\def\baselinestretch{1.655}\large\normalsize}
 \def\smallssp{\def\baselinestretch{1.0}\large\small}
 \def\scriptsizessp{\def\baselinestretch{1.0}\large\scriptsize}
+\def\footnotesizessp{\def\baselinestretch{1.0}\large\footnotesize}
 
 % PREPARING A FOREIGN LANGUAGE VERSION:
 %
