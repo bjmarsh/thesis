@@ -199,7 +199,48 @@ albeit in most cases at a center of mass energies lower than 13\TeV.
 The MC spectra for $\eta\;(\rho,\omega)$ with $\pt<3\;(1)\GeV$ are scaled
 down by factors as large as two, based on these experimental comparisons.
 $\phi$ production is modeled with the \textsc{pythia6} generator~\cite{pythia6}
-using the DW tune~\cite{Albrow:2006rt}.
+using the DW tune~\cite{Albrow:2006rt}, since this MC setup best reproduces
+$\phi$ meson data~\cite{Aad:2014rca}. All \textsc{pythia} minimum bias MC is normalized
+to a total inelastic $pp$ cross section of $80\pm10$ mb based on a measurement
+by ATLAS~\cite{ATLAS:ppxsec} (with additional uncertainty to account for slight disagreement
+between experimental measurements). An additional 30\% uncertainty, uncorrelated
+between production modes, is assessed on the total cross sections to 
+account for the modeling of meson rates per minimum bias event.
+
+
+\begin{figure}[t]
+  \begin{center}
+    \includegraphics[width=0.80\textwidth]{figs/milliq/mcp-xsec.pdf}
+    \caption{Cross section times branching ratio values for all considered
+      production modes of $\zeta^+\zeta^-$ pairs, normalized to a charge
+      of $Q/e=1$. For non-DY modes, the mother particle must be
+      within $|\eta|<2$ (though the $\zeta^\pm$ may have $|\eta|>2$).
+      For DY, the plotted cross section requires at least one mCP
+      to have $|\eta|<1$. The plateau in DY cross section below 
+      $m_\zeta=1\GeV$ is due to a 2\GeV $\zeta^+\zeta^-$ invariant
+      mass cut in \textsc{Madgraph}.
+            }
+    \label{fig:mcp_xsec}
+  \end{center}
+\end{figure}
+
+A plot summarizing the cross sectoin times branching ratio values
+for all $\zeta^+\zeta^-$ production modes is shown in Fig.~\ref{fig:mcp_xsec}.
+At low masses, production is dominated by Dalitz decays of light mesons
+$\pi^0$, $\eta$. At around a few hundred \MeV, direct decays
+of $\omega$'s and $\rho$'s dominate. Near 1\GeV, J/$\psi$'s provide
+almost all of the cross section, before the rate falls off substantially
+past half the J/$\psi$ mass near 1.5\GeV. $\Upsilon$'s become the dominant
+production mode until they fall off at 5\GeV, after which
+only Drell-Yan contributes. Note that if this plot were continued,
+the rate would drop substantially again near half the $Z$ mass at
+roughly 45\GeV.
+
+Once all mCP four vectors are generated, they are propagated
+through a model of the CMS and its environment, including
+the magnetic field (see Fig.~\ref{fig:cms_bfield} for a colored map
+of the magnetic field that is used), detector material, and 17 m of
+rock between the IP and the drainage gallery.
 
 \section{Simulation validation and data comparisons}
 
