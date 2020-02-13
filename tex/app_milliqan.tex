@@ -242,6 +242,43 @@ the magnetic field (see Fig.~\ref{fig:cms_bfield} for a colored map
 of the magnetic field that is used), detector material, and 17 m of
 rock between the IP and the drainage gallery.
 
+The material geometry of CMS was extracted from a \textsc{Root} model,
+and simplified into a series of concentric
+iron cylinders, such that the total material budget is the same as that of the
+real detector. Iron is placed at radii
+\begin{itemize}\setlength\itemsep{-1mm}
+\item $1.80 \leq r < 2.80$ m (tracker + HCAL)
+\item $3.15 \leq r < 3.50$ m (magnet)
+\item $3.85 \leq r < 4.05$ m (return yoke 1)
+\item $4.60 \leq r < 4.95$ m (return yoke 2)
+\item $5.35 \leq r < 5.95$ m (return yoke 3)
+\item $6.35 \leq r < 7.15$ m (return yoke 4)
+\end{itemize}
+
+In addition to the iron, solid rock is placed at
+$16 \leq r < 33$ m, until just before the face of the milliQan
+detector.
+
+Particles are propagated with a fourth-order Runge-Kutta
+integrator, according to the relativistic kinematic equations
+\be\label{eq:dxdt}
+\frac{d\vec{x}}{dt} = \vec{v} = \frac{\vec{p}c^2}{E} = \frac{\vec{p}c^2}{\sqrt{(\vec{p}c)^2+(mc^2)^2}}
+\ee
+\vspace{-6mm}
+\be\label{eq:dpdt_mod}
+\frac{d(\vec{p}c)}{dt} = 89.8755\;q\;\vec{v}\times\vec{B},
+\ee
+where the form of the second equation is valid if $B$ is in Tesla,
+$t$ in ns, $\vec{v}$ in m/ns, $q$ in units of $e$, and $\vec{p}c$ in \MeV.
+
+Multiple scattering is impolemented using a small-angle Gaussian angle approximation,
+as described in the PDG~\cite{PDGreview33}. At each time step, a $\theta_\mrm{RMS}$ is 
+computed based on the particle momentum and charge, the radiation length of the material,
+and the distance traversed. Then two random deflection angles are drawn from a Gaussian of width
+$\theta_\mrm{RMS}$, one for each transverse direction. The particle is also displaced
+a small amount in the transverse plane, in a way that is partially correlated with the
+angular deflection.
+
 \section{Simulation validation and data comparisons}
 
 \section{Background estimation and results}
