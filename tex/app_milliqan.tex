@@ -163,7 +163,7 @@ can be inserted between the LED and PMT, to collect a pure sample of 0 PE events
 
 \begin{figure}[t]
   \begin{center}
-    \includegraphics[width=0.750\textwidth]{figs/milliq/pmt_setup.pdf}
+    \includegraphics[width=0.650\textwidth]{figs/milliq/pmt_setup.pdf}
     \caption{Diagram of the laboratory setup for LED bench tests of the PMTs.
       An LED and the PMT are mounted in a light-tight 3D-printed casing,
       with a 2000x optical filter in between. The LED is flashed in
@@ -179,7 +179,9 @@ can be inserted between the LED and PMT, to collect a pure sample of 0 PE events
 
 Upon each LED pulse, the PMT waveform is recorded. The pulse (when there is $\geq1$ PE)
 occurs at the same time in each event, so there is no peak-finding necessary and the 
-area can be computed by integrating over a fixed time window. Doing this for many
+area can be computed by integrating over a fixed time window. The offset voltage level
+and noise levels are estimated from the sideband before the pulse time window; this offset
+is subtracted off before integrating to get the area. Doing this for many
 events, one can build up a histogram of pulse areas, and if the LED intensity is
 set correctly one can observed distinct peaks in the distribution corresponding
 to 0, 1, 2,$\dots$ PE events. Fig.~\ref{fig:led_events} shows an example
@@ -190,21 +192,116 @@ high-voltages (HVs).
   \begin{center}
     \includegraphics[width=0.450\textwidth]{figs/milliq/example_led_event_878.png}
     \includegraphics[width=0.500\textwidth]{figs/milliq/pmt_areas_hv_scan.pdf}
-    \caption{(left) An example SPE waveform and (right) the pulse area distributions
+    \caption{(left) An example SPE waveform from and R878 PMT. The light red
+      band shows the measured offset ($\sim$1.4 mV) and noise level ($\pm$0.6 mV).
+      The vertical dashed lines indicate the fixed time window in which the 
+      waveform is integrated to compute the pulse area.
+      and (right) the pulse area distributions
       for a variety of HVs, for an R878 PMT. The LED intensity is set so that
-      the 
+      the average number of PE is near 1, so one can resolve distinct peaks for
+      0, 1, and 2 PE events in the area distributions. As the HV is increased, the peaks
+      move to the right.
             }
     \label{fig:led_events}
   \end{center}
 \end{figure}
 
-The calibration method makes use of the fact that the number of observed photoelectrons
+The actual calibration method makes use of the fact that the number of observed photoelectrons
 after the LED light is heavily filtered is a Poisson process. Two datasets are recorded:
 one with no cardboard light-blocker, and the LED intensity set so that there
 is $\mathcal{O}(1)$ PE on average per event, and one with the light-blocker inserted
 (but with the LED running at the same intensity, so that any electronic effects
 are still captured).
 
+The LED-blocked dataset is a pure sample of 0 PE events, and the resulting pulse area distribution
+(which is just a Gaussian near 0) can be scaled to fit the left edge of the area distribution
+of the non-blocked dataset. It is important to fit only the left edge, and not the full 0-PE peak,
+as the right side can have contributions from sub-optimal 1 PE events. By taking the ratio
+of the areas of the scaled LED-blocked histogram and the non-blocked histogram, one can get
+the fraction $f_0$ of 0 PE events. Since $N_\mrm{PE}$ is Poisson, we can then compute the
+mean and variance as
+\be
+\text{Var}(N_\mrm{PE}) = \langle N_\mrm{PE}\rangle = -\log(f_0).
+\ee
+
+Once we have this, it is straightfoward to compute the mean and variance
+of the area distribution of an SPE pulse. Denoting $A_\mrm{SPE}$ as the area distribution of an SPE
+pulse, $A_\mrm{nb}$ as the area distribution of the non-blocked dataset, and $A_\mrm{b}$ as
+the area distribution of the LED-blocked dataset, the mean and variance are given by
+\be\label{eq:mean_spe}
+\langle A_\mrm{SPE}\rangle = \frac{\langle A_\mrm{nb}\rangle - \langle A_\mrm{b}\rangle}{\langle N_\mrm{PE} \rangle}
+\ee
+\vspace{-4mm}
+\be\label{eq:var_spe}
+\mrm{Var}(A_\mrm{SPE}) = \frac{\mrm{Var}(A_\mrm{nb}) - \mrm{Var}(A_\mrm{b})}{\langle N_\mrm{PE} \rangle} - \langle A_\mrm{SPE}\rangle^2
+\ee
+(the variance equation is not trivial, see \cite{Saldanha:pmt} for details).
+
+\begin{figure}[t]
+  \begin{center}
+    \includegraphics[width=0.480\textwidth]{figs/milliq/calib_example_878.png}
+    \includegraphics[width=0.480\textwidth]{figs/milliq/calib_example_7725.png}
+    \caption{Example calibrations for an R878 (left) and R7725 (right). The dark
+      blue histograms are pulse area distributions from the nominal LED setup,
+      and the red histograms are area distributions with the LED blocked by cardboard.
+      This red histogram is scaled to fit the left edge of the navy histogram in order to estimate
+      the 0 PE component. Since the distribution of $N_\mrm{PE}$ is Poisson, the fraction
+      of 0 PE events can be used to compute $\langle N_\mrm{PE}\rangle$, from which one
+      can get the mean and standard deviation of the SPE area distribution. The vertical
+      dotted line indicates the computed mean, notably lower than the 1-PE peak
+      due to the large non-Gaussian low-area tails.
+            }
+    \label{fig:pmt_calib}
+  \end{center}
+\end{figure}
+
+Fig.~\ref{fig:pmt_calib} shows an example of this process for an R878 and R7725. The dark
+blue histograms are the non-blocked area distributions, and the red histograms are the
+LED-blocked area distributions. The red histograms are scaled to fit the left edge of the
+blue histograms, and then used to find $\langle N_\mrm{PE}\rangle$. The Eqs.~\ref{eq:mean_spe}
+and \ref{eq:var_spe} are used to compute the mean and variance of the SPE area distribtion.
+Note in particular that the means are noticeably lower than the peaks from 1-PE events.
+This is due to the large non-Gaussian low-area tails in the SPE response, visible
+as the dotted histogram (just the subtraction of red from blue).
+
+\begin{figure}[t]
+  \begin{center}
+    \includegraphics[width=0.325\textwidth]{figs/milliq/area_dist_878.pdf}
+    \includegraphics[width=0.325\textwidth]{figs/milliq/area_dist_7725.pdf}
+    \includegraphics[width=0.325\textwidth]{figs/milliq/area_dist_ET.pdf}
+    \caption{Measured area distributions for the R878, R7725, and ET,
+      after subtracting off the 0-PE component..
+      Black points are the raw 0 PE-subtracted area distributions.
+      The red curve is the fitted SPE response (modeled as Guassian plus
+      exponential left tail), and the light blue curve is the fitted
+      multi-PE response (one Gaussian each for 2- and 3-PE components).
+      The red curve is used to draw random areas during pulse injection,
+      described in Sec.~\ref{sec:mq_mcgen}.
+            }
+    \label{fig:area_dists}
+  \end{center}
+\end{figure}
+
+In addition to the mean SPE response that is used to calibrate each
+individual PMT, we are also interested in the full \textit{distribution}
+of areas for an SPE, in order to use them for pulse injection, described
+in Sec.~\ref{sec:mq_mcgen}. To do this, we subtract the scaled LED-blocked
+area distribution from the nominal non-blocked distribution,
+to get the area distribution of events with $\geq$1 PE. We then simultaneously
+fit the 1 PE and $>$1 PE distributions to this histogram. The SPE response
+is modeled as a Gaussian plus exponential left tail, with PDF given by
+\be
+\psi_\mrm{SPE}(x) = G(\mu,\sigma)(1-e^{-x/a})e^{-x/b},
+\ee
+where $G(\mu,\sigma)$ is a standard Gaussian, and $\mu$, $\sigma$, $a$, and $b$
+are free parameters to be fit. The multi-PE response is modeled as a sum
+of Gaussians, with means $n\mu$ and standard deviations $\sqrt{n}\,\sigma$,
+where $n$ is the number of PE (we only consider up to $n=3$). We then fit
+all four parameters simultaneously, and take $\psi_\mrm{SPE}$ as the pulse
+area distribution for SPEs to be used for pulse injection. 
+The fitted functions for all three types of PMTs are shown in Fig.~\ref{fig:area_dists}.
+
+% pulse shape templates
 
 \section{In-situ calibrations}
 \label{sec:insitu_calib}
