@@ -128,8 +128,89 @@ to fire on single, double, or triple coincidence of peaks at an arbitrary thresh
 For nominal data taking, the trigger is set to fire on a triple coincidence of pulses.
 
 \section{Bench tests for PMT calibration}
+\label{sec:pmt_bench_tests}
 
-\section{Generation of signal Monte Carlo}
+The demonstrator detector makes use of three different ``species'' of PMTs, each of which
+has very different characteristics. Even PMTs within the same species differ somewhat
+in their behavior. It is therefore necessary to calibrate each PMT individually, so
+that data can be interpreted correctly and simulation can be adjusted to accurately
+model the behavior of the real detector.
+
+Two separate calibrations are necessary. The first is the efficiency of the PMT
+to convert an optical photon into a photoelectron (PE). Once installed in the detector, 
+this is intertwined with the efficiency of the scintillators themselves to generate
+and propagate the photons, so it is measured ``in-situ'', and described in the following
+section. The other calibration involves the response of the PMT to a single photoelectron (SPE),
+which includes the pulse shape and pulse area distribution. The mean pulse area
+is also measured in-situ, as it can be affected by small magnetic fields and other effects,
+but we perform measurements of the pulse shapes and full area distributions in the lab
+using flashing LEDs, in order to (1) cross-check the in-situ measurements
+and (2) generate the necessary inputs for the pulse-injection step of the simulation,
+described in Sec.~\ref{sec:mq_mcgen}.
+
+For the LED bench tests, we largely follow the method outlined in~\cite{Saldanha:pmt},
+which allows for the measurement of the non-Gaussian low-area
+tails of the SPE area distributions, arising from non-optimal trajectories
+within the PMT (e.g. the photon skipping the cathode and directly hitting
+the first dynode, or a photoelectron skipping a dynode stage).
+The laboratory setup is sketched in Fig.~\ref{fig:pmt_setup}.
+A blue LED and a PMT are placed in a light-tight enclosure,
+and the LED is flashed in short $\sim$10 ns bursts so that the PMT
+generates $\mathcal{O}(1)$ PE on average. The PMT is read out with
+a DRS board~\cite{drs}, which is triggered on the LED pulse
+so that even 0 PE events are recorded. An optional cardboard light-blocker
+can be inserted between the LED and PMT, to collect a pure sample of 0 PE events.
+
+\begin{figure}[t]
+  \begin{center}
+    \includegraphics[width=0.750\textwidth]{figs/milliq/pmt_setup.pdf}
+    \caption{Diagram of the laboratory setup for LED bench tests of the PMTs.
+      An LED and the PMT are mounted in a light-tight 3D-printed casing,
+      with a 2000x optical filter in between. The LED is flashed in
+      short $\sim$10 ns pulses, and the PMT signal is read out by
+      a DRS evaluation board~\cite{drs}. The board is triggered not by the 
+      PMT but by the LED pulse generator, so that even ``blank'' (0 PE) events
+      are recorded. An optional cardboard light-blocker can be inserted between
+      the LED and PMT, in order to collect a pure sample of 0 PE events.
+            }
+    \label{fig:pmt_setup}
+  \end{center}
+\end{figure}
+
+Upon each LED pulse, the PMT waveform is recorded. The pulse (when there is $\geq1$ PE)
+occurs at the same time in each event, so there is no peak-finding necessary and the 
+area can be computed by integrating over a fixed time window. Doing this for many
+events, one can build up a histogram of pulse areas, and if the LED intensity is
+set correctly one can observed distinct peaks in the distribution corresponding
+to 0, 1, 2,$\dots$ PE events. Fig.~\ref{fig:led_events} shows an example
+R878 waveform and the pulse area distributions for a few different 
+high-voltages (HVs).
+
+\begin{figure}[t]
+  \begin{center}
+    \includegraphics[width=0.450\textwidth]{figs/milliq/example_led_event_878.png}
+    \includegraphics[width=0.500\textwidth]{figs/milliq/pmt_areas_hv_scan.pdf}
+    \caption{(left) An example SPE waveform and (right) the pulse area distributions
+      for a variety of HVs, for an R878 PMT. The LED intensity is set so that
+      the 
+            }
+    \label{fig:led_events}
+  \end{center}
+\end{figure}
+
+The calibration method makes use of the fact that the number of observed photoelectrons
+after the LED light is heavily filtered is a Poisson process. Two datasets are recorded:
+one with no cardboard light-blocker, and the LED intensity set so that there
+is $\mathcal{O}(1)$ PE on average per event, and one with the light-blocker inserted
+(but with the LED running at the same intensity, so that any electronic effects
+are still captured).
+
+
+\section{In-situ calibrations}
+\label{sec:insitu_calib}
+
+\section{Monte Carlo generation}
+\label{sec:mq_mcgen}
 Any process at the LHC that produces an $e^+e^-$ pair via a virtual
 photon can also produce a $\zeta^+\zeta^-$ pair (we use $\zeta$ as the symbol for an mCP).
 This includes the direct vector meson decays $V\to e^+e^-$, where 
@@ -218,7 +299,12 @@ account for the modeling of meson rates per minimum bias event.
       For DY, the plotted cross section requires at least one mCP
       to have $|\eta|<1$. The plateau in DY cross section below 
       $m_\zeta=1\GeV$ is due to a 2\GeV $\zeta^+\zeta^-$ invariant
-      mass cut in \textsc{Madgraph}.
+      mass cut in \textsc{Madgraph}. The gray band on the total
+      cross section represents the total theoretical uncertainty
+      in the cross section, adding in quadrature the uncertainties
+      on each individual mode (with the exception of the 12.5\%
+      $pp$ inelastic cross section uncertainty, which is correlated
+      across all relevant modes).
             }
     \label{fig:mcp_xsec}
   \end{center}
@@ -261,11 +347,11 @@ detector.
 
 Particles are propagated with a fourth-order Runge-Kutta
 integrator, according to the relativistic kinematic equations
-\be\label{eq:dxdt}
+\be
 \frac{d\vec{x}}{dt} = \vec{v} = \frac{\vec{p}c^2}{E} = \frac{\vec{p}c^2}{\sqrt{(\vec{p}c)^2+(mc^2)^2}}
 \ee
 \vspace{-6mm}
-\be\label{eq:dpdt_mod}
+\be
 \frac{d(\vec{p}c)}{dt} = 89.8755\;q\;\vec{v}\times\vec{B},
 \ee
 where the form of the second equation is valid if $B$ is in Tesla,
@@ -279,8 +365,56 @@ $\theta_\mrm{RMS}$, one for each transverse direction. The particle is also disp
 a small amount in the transverse plane, in a way that is partially correlated with the
 angular deflection.
 
+Finally, at each timestep the particle loses energy according to the Bethe equation
+\be
+\left\langle-\frac{dE}{dx}\right\rangle = Kz^2\frac{Z}{A}\frac{1}{\beta^2}\left[\frac{1}{2}\log\frac{2m_ec^2\beta^2\gamma^2W_\text{max}}{I^2} - \beta^2 - \frac{\delta(\beta\gamma)}{2} \right],
+\ee{equation}
+where all terms and parameters are defined in the PDG~\cite{PDGreview33}.
+Note that energy loss is a stochastic process, and at each timestep the actual energy loss follows a highly skewed Landau distribution.
+However, the amount of material traversed in this application is quite large, so it should be sufficient to use the mean value
+at each timestep. At any rate, a systematic is assessed on the interaction with matter that should cover for any inaccuracies
+in the modeling of energy loss.
+
+Particles (either muons or mCPs) are propagated until 2 m before the face of the milliQan detector
+after which they are fed into a full \textsc{Geant4}~\cite{geant4} simulation of the detector.
+This includes a full model of the drainage gallery, aluminum support structure,
+scintillator bars/slabs/panels with wrapping, lead bricks, and PMTs.
+Quantum efficiencies of the simulated PMTs are set individually on a per-channel
+basis so that the average number of PEs generated by a cosmic and/or beam 
+muon match that measured data, from the calibrations described in 
+Sec.~\ref{sec:insitu_calib}. An illustration of a beam-based muon
+traveling through the \textsc{Geant} model of the detector is 
+shown in Fig.~\ref{fig:mq_geant}.
+
+\begin{figure}[t]
+  \begin{center}
+    \includegraphics[width=0.750\textwidth]{figs/milliq/geant.png}
+    \caption{Rendering of a beam-based muon traveling through
+      a \textsc{Geant4} model of the demonstrator, hitting all
+      four slabs and three bars in a straight line. Light blue
+      lines are generated optical photons.
+            }
+    \label{fig:mq_geant}
+  \end{center}
+\end{figure}
+
+The exact time of each detected photoelectron is saved, so that the \textsc{Geant} output
+events can be used for \textit{pulse injection}, in which simulated PMT waveforms
+are overlaid on zero-bias (i.e. random trigger) data, in order to generate realistic
+detector signals that can be processed and analyzed with the same software as real data.
+For each simulated PE, a random SPE area is drawn from PMT-specific
+distributions dervied via PMT bench tests, described in Sec.~\ref{sec:pmt_bench_tests}
+(these distributions are corrected for slight differences between channels).
+Then a template SPE waveform, also derived from the PMT bench tests, is scaled to this
+area and overlaid on a random zero-bias event. These pulse-injected simulated events
+then look just like real data, with the exception that they do not model
+PMT saturation effects (however, this does not matter in practice).
+
 \section{Simulation validation and data comparisons}
+
 
 \section{Background estimation and results}
 
+
 }
+
