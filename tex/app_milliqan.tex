@@ -1,3 +1,5 @@
+\newcommand{\Npe}{\ensuremath{N_\mrm{PE}}\xspace}
+
 \chapter{Bonus: A Search for Milli-Charged Particles at the LHC}
 {\small
 
@@ -218,10 +220,10 @@ The LED-blocked dataset is a pure sample of 0 PE events, and the resulting pulse
 of the non-blocked dataset. It is important to fit only the left edge, and not the full 0-PE peak,
 as the right side can have contributions from sub-optimal 1 PE events. By taking the ratio
 of the areas of the scaled LED-blocked histogram and the non-blocked histogram, one can get
-the fraction $f_0$ of 0 PE events. Since $N_\mrm{PE}$ is Poisson, we can then compute the
+the fraction $f_0$ of 0 PE events. Since \Npe is Poisson, we can then compute the
 mean and variance as
 \be
-\text{Var}(N_\mrm{PE}) = \langle N_\mrm{PE}\rangle = -\log(f_0).
+\text{Var}(\Npe) = \langle \Npe\rangle = -\log(f_0).
 \ee
 
 Once we have this, it is straightfoward to compute the mean and variance
@@ -229,11 +231,11 @@ of the area distribution of an SPE pulse. Denoting $A_\mrm{SPE}$ as the area dis
 pulse, $A_\mrm{nb}$ as the area distribution of the non-blocked dataset, and $A_\mrm{b}$ as
 the area distribution of the LED-blocked dataset, the mean and variance are given by
 \be\label{eq:mean_spe}
-\langle A_\mrm{SPE}\rangle = \frac{\langle A_\mrm{nb}\rangle - \langle A_\mrm{b}\rangle}{\langle N_\mrm{PE} \rangle}
+\langle A_\mrm{SPE}\rangle = \frac{\langle A_\mrm{nb}\rangle - \langle A_\mrm{b}\rangle}{\langle \Npe \rangle}
 \ee
 \vspace{-4mm}
 \be\label{eq:var_spe}
-\mrm{Var}(A_\mrm{SPE}) = \frac{\mrm{Var}(A_\mrm{nb}) - \mrm{Var}(A_\mrm{b})}{\langle N_\mrm{PE} \rangle} - \langle A_\mrm{SPE}\rangle^2
+\mrm{Var}(A_\mrm{SPE}) = \frac{\mrm{Var}(A_\mrm{nb}) - \mrm{Var}(A_\mrm{b})}{\langle \Npe \rangle} - \langle A_\mrm{SPE}\rangle^2
 \ee
 (the variance equation is not trivial, see \cite{Saldanha:pmt} for details).
 
@@ -245,8 +247,8 @@ the area distribution of the LED-blocked dataset, the mean and variance are give
       blue histograms are pulse area distributions from the nominal LED setup,
       and the red histograms are area distributions with the LED blocked by cardboard.
       This red histogram is scaled to fit the left edge of the navy histogram in order to estimate
-      the 0 PE component. Since the distribution of $N_\mrm{PE}$ is Poisson, the fraction
-      of 0 PE events can be used to compute $\langle N_\mrm{PE}\rangle$, from which one
+      the 0 PE component. Since the distribution of \Npe is Poisson, the fraction
+      of 0 PE events can be used to compute $\langle \Npe\rangle$, from which one
       can get the mean and standard deviation of the SPE area distribution. The vertical
       dotted line indicates the computed mean, notably lower than the 1-PE peak
       due to the large non-Gaussian low-area tails.
@@ -258,7 +260,7 @@ the area distribution of the LED-blocked dataset, the mean and variance are give
 Fig.~\ref{fig:pmt_calib} shows an example of this process for an R878 and R7725. The dark
 blue histograms are the non-blocked area distributions, and the red histograms are the
 LED-blocked area distributions. The red histograms are scaled to fit the left edge of the
-blue histograms, and then used to find $\langle N_\mrm{PE}\rangle$. The Eqs.~\ref{eq:mean_spe}
+blue histograms, and then used to find $\langle \Npe\rangle$. The Eqs.~\ref{eq:mean_spe}
 and \ref{eq:var_spe} are used to compute the mean and variance of the SPE area distribtion.
 Note in particular that the means are noticeably lower than the peaks from 1-PE events.
 This is due to the large non-Gaussian low-area tails in the SPE response, visible
@@ -269,11 +271,12 @@ as the dotted histogram (just the subtraction of red from blue).
     \includegraphics[width=0.325\textwidth]{figs/milliq/area_dist_878.pdf}
     \includegraphics[width=0.325\textwidth]{figs/milliq/area_dist_7725.pdf}
     \includegraphics[width=0.325\textwidth]{figs/milliq/area_dist_ET.pdf}
-    \caption{Measured area distributions for the R878, R7725, and ET,
-      after subtracting off the 0-PE component..
+    \caption{Measured area distributions for the R878, R7725, and ET
+      (at 1450, 1400, and 1700 V),
+      after subtracting off the 0-PE component.
       Black points are the raw 0 PE-subtracted area distributions.
       The red curve is the fitted SPE response (modeled as Guassian plus
-      exponential left tail), and the light blue curve is the fitted
+      exponential left tail, given in Eq.~\ref{eq:spe_func}), and the light blue curve is the fitted
       multi-PE response (one Gaussian each for 2- and 3-PE components).
       The red curve is used to draw random areas during pulse injection,
       described in Sec.~\ref{sec:mq_mcgen}.
@@ -290,7 +293,7 @@ area distribution from the nominal non-blocked distribution,
 to get the area distribution of events with $\geq$1 PE. We then simultaneously
 fit the 1 PE and $>$1 PE distributions to this histogram. The SPE response
 is modeled as a Gaussian plus exponential left tail, with PDF given by
-\be
+\be\label{eq:spe_func}
 \psi_\mrm{SPE}(x) = G(\mu,\sigma)(1-e^{-x/a})e^{-x/b},
 \ee
 where $G(\mu,\sigma)$ is a standard Gaussian, and $\mu$, $\sigma$, $a$, and $b$
@@ -301,10 +304,101 @@ all four parameters simultaneously, and take $\psi_\mrm{SPE}$ as the pulse
 area distribution for SPEs to be used for pulse injection. 
 The fitted functions for all three types of PMTs are shown in Fig.~\ref{fig:area_dists}.
 
-% pulse shape templates
+One final piece of information that we need to extract from the LED tests are SPE pulse shape
+templates for all PMT types. Like the above, these are used during pulse injection, described
+in Sec.~\ref{sec:mq_mcgen}. The procedure is as follows:
+
+\begin{figure}[t!]
+  \begin{center}
+    \includegraphics[width=0.375\textwidth]{figs/milliq/pulse_area.pdf}
+    \includegraphics[width=0.375\textwidth]{figs/milliq/avg_spe_control.pdf} \\
+    \includegraphics[width=0.375\textwidth]{figs/milliq/avg_spe_fixed.pdf}
+    \includegraphics[width=0.375\textwidth]{figs/milliq/samp_smoothed.pdf}
+    \caption{Illustration of the procedure for constructing pulse-shape templates,
+      in this case for the R878.
+      (top left) Area distribution of PMT pulses. Events between the red lines
+      are selected for the 0-PE control sample, used to removed fixed electronic noise.
+      Events between the blue lines are used as the SPE waveforms.
+      (top right) The averaged SPE waveforms (blue) and 0-PE control sample (red).
+      (bottom left) The control-subtracted waveform (blue minus red from the top right).
+      (bottom right) Illustration of the timing procedure. The red curve is the convolution
+      of the raw waveform (gray) with the template (green). The maximum is taken as the pulse time,
+      and the SPE waveforms are shifted so that this is aligned before doing the final averaging.
+            }
+    \label{fig:pulse_shape_proc}
+  \end{center}
+\end{figure}
+
+\begin{enumerate}\setlength\itemsep{-1mm}
+\item Collect a set of waveforms at low enough LED voltage so that $\langle \Npe\rangle\sim 1$.
+\item We want to average together many pulses to remove random noise, but there is fixed electronic noise
+that is the same in every waveform and does not get averaged away. To remove this, first average together a control
+sample of 0-PE events (chosen by selecting events whose pulse area is in the bulk of the 0-PE area distribution).
+These events have the same fixed noise but no actual signal.
+\item Now, subtract this averaged control waveform from each raw SPE waveform (chosen by selecting events whose pulse
+area is near the peak of the SPE area distribution), and average the resulting waveforms together.
+This produces a smooth, noise-free template waveform. However, due to small $\mathcal{O}$(5--10 ns) time shifts of individual
+pulses, the template is ``smeared'', making it too short and wide.
+\item To correct this, modify the above procedure by shifting each control-subtracted SPE waveform in time
+so that their peaks line up before averaging.
+The time of each pulse is computed by convolving the raw waveform with the non-time-corrected
+template from step \#3, and finding the maximum point of this convolution.
+\end{enumerate}
+
+This procedure is illustrated in Fig.~\ref{fig:pulse_shape_proc} for the R878, and the resulting templates
+for all PMT types are shown in Fig.~\ref{fig:pulse_templates}.
+
+\begin{figure}[t]
+  \begin{center}
+    \includegraphics[width=0.325\textwidth]{figs/milliq/avg_spe_fixed_tcorr_878.pdf}
+    \includegraphics[width=0.325\textwidth]{figs/milliq/avg_spe_fixed_tcorr_7725.pdf}
+    \includegraphics[width=0.325\textwidth]{figs/milliq/avg_spe_fixed_tcorr_ET.pdf}
+    \caption{Pulse shape templates derived for the R878 (left), R7725 (center), and ET (right) PMTs. The green curves
+      are the time-corrected templates, used for the pulse injection. The red curves are the templates
+      before time correction, which are not correct and only shown here for illustration of the effect
+      of time shifts.
+            }
+    \label{fig:pulse_templates}
+  \end{center}
+\end{figure}
 
 \section{In-situ calibrations}
 \label{sec:insitu_calib}
+
+In addition to the LED-based bench calibrations described in the previous section, we also
+perform calibrations ``in-situ'' on the installed detector. First, we measure the mean
+pulse area of SPEs. These are expected to differ slightly from the areas measured with the LED
+tests, as small magnetic fields and other environmental effects can affect the response of the
+PMTs. Second, we perform a ``charge calibration'', or \Npe calibration, 
+which measures the number of photoelectrons
+generated by a particle of a given charge traveling a given distance through the scintillator.
+This measurement is only possible in-situ as it involves properties of the scintillators and
+their couplings to the PMTs, in addition to the PMT-specific effects.
+
+The SPE area is measured by selecting PMT afterpulses coming after a pulse from a vertical
+cosmic muon. Events are selected in which a top panel and three bars in a vertical line have
+hits consistent with a vertically traveling muon. The areas of all secondary pulses are plotted,
+and a Gaussian is fit to the peak. The mean of this Gaussian is taken as the peak SPE area for that
+channel.
+
+The \Npe calibration is done differently for the slabs, panels, and bars. For the slabs,
+events with a through-going beam muon are identified, and the peak of the resulting pulse area
+distribution in each slab, scaled by the measured mean SPE area, is taken as the \Npe calibration.
+For the panels, a similar procedure is used, but with cosmic muons.
+
+Performing the \Npe calibration for the bars is more challenging, as the PMTs saturate for
+both beam and cosmic muons so a direct measurement is not possible. Instead, an indirect
+method, in which pulse areas are extrapolated from lower voltages at which the PMTs do
+not saturate, is used. The procedure is as follows:
+\begin{enumerate}\setlength\itemsep{-1mm}
+\item Measure the mean pulse area for cosmic pulses, at a variety of HVs low enough
+that the PMT does not saturate
+\item Measure the mean SPE area at 2--3 points near the operating voltage of the PMTs
+\item Empirically, the pulse areas scale with HV as a power law function. Jointly fit
+power law functions separately to the cosmic and SPE points, with the restriction that
+the exponent is the same. Then the ratio between these two functions is the
+mean \Npe of a cosmic pulse.
+\end{enumerate}
 
 \section{Monte Carlo generation}
 \label{sec:mq_mcgen}
