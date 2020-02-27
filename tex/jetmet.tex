@@ -172,6 +172,24 @@ to light-flavor fake rates of roughly 0.1\%, 1\%, and 10\%. We use the medium wo
 which achieves an efficiency of 68\% and fake rates of 12\% and 1.1\% for c and light-flavor
 jets, respectively, for jets with $\pt>20\GeV$.
 
+The efficiency and fake rates are not identical between data and simulation. To correct for the known
+differences, CMS derives b-tagging scale factors that are applied to MC.
+The procedure is as follows: for each MC event, compute the probabilities of the observed
+b-tagging configuration as
+\be
+P(\mrm{MC}) = \prod_{i\text{ tagged}} \varepsilon_i \prod_{j\text{ not tagged}} (1-\varepsilon_j)
+\ee
+\vskip-6mm
+\be
+P(\mrm{data}) = \prod_{i\text{ tagged}} SF_i\varepsilon_i \prod_{j\text{ not tagged}} (1-SF_j\varepsilon_j),
+\ee
+where $\varepsilon_i$ is the measured efficiency to tag a particular jet as a b jet (a function
+of \pt, $\eta$, and generator-level jet flavor, which is one of b, c, or light-flavor), and
+$SF_i$ is the derived data/MC scale factor, also a function of jet \pt, $\eta$, and generator-level
+flavor. The entire event is then weighted by a factor
+\be
+w = \frac{P(\mrm{data})}{P(\mrm{MC})}.
+\ee
 
 \section{Missing transverse energy at CMS}
 \label{sec:cmsmet}
@@ -202,7 +220,7 @@ of all reconstructed particle-flow candidates. The raw \ptmiss can thus be defin
 However, we know that detector response is imperfect, and we have already calibrated for
 this when deriving jet energy corrections. So the \ptmiss measurement is easily improved
 by simply applying the same jet energy corrections to the jets before computing \ptmiss.
-We can re-write thaw raw \ptmiss as
+We can re-write the raw \ptmiss as
 \be
 \vec{\slashed{E}}_\mrm{T}^\mrm{raw} = -\sum_{i\in\mrm{jets}} \vSS{p}{\mrm{T},i}{\mrm{raw}}
 - \sum_{i\in\mrm{uncl}} \vec{p}_{\mrm{T},i},
@@ -274,7 +292,8 @@ they do not artificially enhance the tails of the templates.
    \begin{itemize}
    \item Gen or reco jet ``splitting''. i.e. for a single gen (reco) jet, the corresponding reco (gen) jet is clustered as two different jets, and only one gets matched. 
    Depending on the direction, this enhances \emph{both} tails.
-   \item Mis-matching a gen jet to a reconstructed pileup jet. This generally enhances the \emph{left} tails.
+   \item Mis-matching a gen jet to a reconstructed pileup jet. This generally enhances the \emph{left} tails,
+     but can also enhance the right tail for low-\pt jets.
    \item Holes in the simulated calorimeter that are not present in the real data. This enhances the \emph{left} tails.
    \end{itemize}
 \end{itemize}
@@ -307,7 +326,7 @@ differences in jet resolution between data and MC.
   \end{center}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[t!]
   \begin{center}
     \includegraphics[width=0.49\textwidth]{figs/jetmet/resolution_vs_pt.pdf}
     \includegraphics[width=0.49\textwidth]{figs/jetmet/tailfrac_vs_pt.pdf}
@@ -334,9 +353,15 @@ as used in the main analysis. Gen jet flavor is determined by identifying the fl
 hadrons within the jet cone. Once this is all done, all reco and gen jets with $\pt>10$\GeV are selected and saved.
 
 After selecting the jets, gen and reco jets are matched and JRTs are constructed by 
-filling histograms with $\pt^\text{reco}/\pt^\text{gen}$.
+filling histograms with $\pt^\text{reco}/\pt^\text{gen}$. The templates are constructed in
+bins of gen-level \pt and $|\eta|$, and separately for b and non-b jets. The \pt and $\eta$ binning is as follows:
+\begin{itemize}\setlength\itemsep{-1mm}
+\item \pt bin edges: [0, 20, 30, 50, 80, 120, 170, 230, 300, 380, 470, 570, 680, 800, 1000, 1300, 1700, 2200, 2800, 3500, 4300, 5200, 6500]\GeV.
+\item $|\eta|$ bin edges: [0, 0.3, 0.5, 0.8, 1.1, 1.4, 1.7, 2.3, 2.8, 3.2, 4.1, 5.0].
+\end{itemize}
+
 The algorithm for matching is outlined here; the reasoning for and effect of various steps are described following.
-\begin{enumerate}
+\begin{enumerate}\setlength\itemsep{-0.5mm}
 \item Skip events that fail any of the MET filters used in the main analysis
 \item Find all ``tight pairs'' of reco/gen jets that have $\Delta R$(reco, gen) $<0.3$
 \item Find all ``loose pairs'' of reco/gen jets that have $\Delta R$(reco, gen) $<0.5$
@@ -382,7 +407,7 @@ Requiring that there are no secondary nearby gen (reco) jets within $\Delta R<0.
 The effect on a sample template is shown in Fig.~\ref{fig:jrt_matching_effect}. 
 The reduction in the tails after applying this cut is seen to be quite large.
 
-\begin{figure}[ht]
+\begin{figure}[t!]
   \begin{center}
     \includegraphics[width=0.325\textwidth]{figs/jetmet/compare_noSplitGen.pdf}
     \includegraphics[width=0.325\textwidth]{figs/jetmet/compare_noDoubleSplit.pdf}
@@ -406,7 +431,7 @@ We identify these regions (separately for each year) and remove any jet pairs th
 Fig.~\ref{fig:jrt_ecalDeadCell} shows these cells highlighted for 2017 simulation on the left, and
 the effect on an example template on the right.
 
-\begin{figure}[ht]
+\begin{figure}[t!]
   \begin{center}
     \includegraphics[width=0.54\textwidth]{figs/jetmet/ecalDeadCells.pdf}
     \includegraphics[width=0.45\textwidth]{figs/jetmet/compare_ecalDeadCell.pdf}
@@ -435,7 +460,7 @@ At higher \pt, we see a reduction in the left tail from gen jets that were
 mis-matched to a low-\pt pileup jet. At lower \pt, we see a reduction in both tails
 (see Fig.~\ref{fig:jrt_jetid}).
 
-\begin{figure}[ht]
+\begin{figure}[t!]
   \begin{center}
     \includegraphics[width=0.325\textwidth]{figs/jetmet/compare_jetID.pdf}
     \includegraphics[width=0.325\textwidth]{figs/jetmet/compare_puJetID_highPt.pdf}
@@ -462,7 +487,7 @@ We evaluate each method empirically by observing the agreement in \nbtags in QCD
 the full Rebalance and Smear method described in Chapter~\ref{chap:qcd}. It is found that (2) slightly improves on (1), and (3) is quite a bit better than both.
 An example of the effect is shown in Fig.~\ref{fig:jrt_nb}.
 
-\begin{figure}[t]
+\begin{figure}[t!]
   \begin{center}
     \includegraphics[width=0.49\textwidth]{figs/jetmet/nBJet20_DPhiMT2InclusiveHT450to1200_RecoBJet.pdf}
     \includegraphics[width=0.49\textwidth]{figs/jetmet/nBJet20_DPhiMT2InclusiveHT450to1200_BTagSFs.pdf}

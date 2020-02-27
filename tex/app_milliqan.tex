@@ -386,6 +386,19 @@ events with a through-going beam muon are identified, and the peak of the result
 distribution in each slab, scaled by the measured mean SPE area, is taken as the \Npe calibration.
 For the panels, a similar procedure is used, but with cosmic muons.
 
+\begin{figure}[t]
+  \begin{center}
+    \includegraphics[width=0.475\textwidth]{figs/milliq/spe_area_hist.pdf}
+    \includegraphics[width=0.475\textwidth]{figs/milliq/cosmic_area_hist.pdf}
+    \caption{(left) Example measurement of the mean SPE area of Channel 0 (R878) at 1440 V.
+      A selection of cleaned afterpulses is identified (green) and a Gaussian is fit to the peak.
+      This measurement is used directly as the SPE calibration, and also as a component of the \Npe calibration.
+      (right) An example emasurement of the mean cosmic pulse area for Channel 4, at a low HV of 850 V.
+            }
+    \label{fig:spe_cosmic_area}
+  \end{center}
+\end{figure}
+
 Performing the \Npe calibration for the bars is more challenging, as the PMTs saturate for
 both beam and cosmic muons so a direct measurement is not possible. Instead, an indirect
 method, in which pulse areas are extrapolated from lower voltages at which the PMTs do
@@ -399,6 +412,33 @@ power law functions separately to the cosmic and SPE points, with the restrictio
 the exponent is the same. Then the ratio between these two functions is the
 mean \Npe of a cosmic pulse.
 \end{enumerate}
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.675\textwidth]{figs/milliq/npe_calibration_ET.pdf} \\
+    \includegraphics[width=0.775\textwidth]{figs/milliq/npe_calib_slope_comp.pdf}
+    \caption{(top) Example \Npe calibration of the four ET channels. The points in the 
+      upper right are the measured low-voltage cosmic areas, and the points on the
+      right are the mean SPE areas near the operating voltage. Power law functions
+      are jointly fit to the cosmic and SPE points, with the restriction that the exponent
+      is the same; these fits are shown as dashed lines through the SPE points. The ratio
+      of the two fits is taken as the \Npe calibration.
+      (bottom) A validation of the procedure for Channel 1. A key assumption of the method is
+      that the power law exponents are the same for the cosmic and SPE points. Here, we fit each set
+      separately and find that the exponent ratio is $1.01\pm0.09$.
+            }
+    \label{fig:npe_calibration}
+  \end{center}
+\end{figure}
+
+Example measurements of the mean SPE and cosmic pulse areas are shown in Fig.~\ref{fig:spe_cosmic_area}.
+The \Npe calibration procedure is illustrated in Fig.~\ref{fig:npe_calibration}. The top plot
+shows the measured cosmic (upper left) and SPE (middle right) areas, and the dashed lines
+show the fitted power law function throught the SPE points. The bottom plots show an example validation
+of the procedure; on the left is a fit to the cosmic points, and on the right is an independent fit
+to a number of SPE points at higher voltages. The ratio of the fitted exponents
+is $1.01\pm0.09$, showing that the fit is consistent between the two sets of points as assumed.
+This is done independently for each channel; good agreement is seen in all cases.
 
 \section{Monte Carlo generation}
 \label{sec:mq_mcgen}
