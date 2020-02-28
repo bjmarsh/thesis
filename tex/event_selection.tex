@@ -144,8 +144,8 @@ reconstructed hits in a 5x5 seed cluster
 \item $|\Delta\phi_{In}|$ - difference in $\phi$ between a ECAL cluster position and track direction at vertex extrapolated to ECAL
 \item $H/E$ - ratio of energy in HCAL behind ECAL cluster to the energy in the ECAL cluster
 \item $|1/E-1/p|$ - tests consistency of ECAL cluster energy and track momentum
-\item $|d0|$ - transverse impact parameter of the track with respect to the primary vertex
-\item $|dz|$ - longitudinal impact parameter of the track with respect to the primary vertex
+\item $|d_\mrm{xy}|$ - transverse impact parameter of the track with respect to the primary vertex
+\item $|d_\mrm{z}|$ - longitudinal impact parameter of the track with respect to the primary vertex
 \item conversion veto - reject electron candidates that look like photon conversions to $e^+e^-$ pairs
 \end{itemize}
 
@@ -172,9 +172,9 @@ $|\Delta\phi_{In}|$ &$ < 0.148$ ($0.19$) & $ < 0.0884$ ($0.169$) \\
 \hline
 $|\frac{1}{E} - \frac{1}{p}|$  &$ < 0.209$ ($0.132$) &$ < 0.193$ ($0.169$)\\ 
 \hline
-$|d0|$ (w.r.t. primary vertex) &$ < 0.2$ ($0.2$)~cm & $ < 0.2$ ($0.2$)~cm\\ 
+$|d_\mrm{xy}|$ (w.r.t. primary vertex) &$ < 0.2$ ($0.2$)~cm & $ < 0.2$ ($0.2$)~cm\\ 
 \hline
-$|dz| $(w.r.t. primary vertex)  &$ < 0.5$ ($0.5$)~cm  &$ < 0.5$ ($0.5$)~cm \\ 
+$|d_\mrm{z}| $(w.r.t. primary vertex)  &$ < 0.5$ ($0.5$)~cm  &$ < 0.5$ ($0.5$)~cm \\ 
 \hline
 \# of expected missing inner hits &$ \leq 2$ (3)&$ \leq 1$ (1)\\ 
 \hline
@@ -208,8 +208,8 @@ Muon candidates are required to pass $\pt>10\GeV$ and $|\eta|<2.4$, and a loose 
 \begin{itemize}\setlength\itemsep{-1mm}
 \item matched to a particle-flow muon
 \item either a global muon (tracker+muon system) or a tracker-only muon
-\item $|d0|<0.2$~cm (transverse impact parameter with respect to the primary vertex)
-\item $|dz|<0.5$~cm (longitudinal impact parameter with respect to the primary vertex)
+\item $|d_\mrm{xy}|<0.2$~cm (transverse impact parameter with respect to the primary vertex)
+\item $|d_\mrm{z}|<0.5$~cm (longitudinal impact parameter with respect to the primary vertex)
 \end{itemize}
 
 We require the muons to be isolated using the same relative mini PF isolation as used for the electrons,
@@ -219,21 +219,21 @@ this time requiring miniPFIso$/\pt<0.2$.
 \label{sec:isotracks}
 
 In addition to vetoing events with the reconstructed leptons described above, we further add a veto
-for events with ``isolated tracks'' that weren't reconstructed as leptons, either because
+for events with ``isolated tracks'' that were not reconstructed as leptons, either because
 they are charged hadrons or they failed some criteria to be promoted to a full reconstructed lepton.
 This allows better rejection of backgrounds with hadronically decaying $\tau$ leptons (these frequently
-produce isolated pions) or with isolated leptons that weren't caught be the lepton veto, without
+produce isolated pions) or with isolated leptons that were not caught be the lepton veto, without
 appreciably affecting signal efficiency.
 We select charged particle-flow candidates with different requirements depending on the type of candidate.
 
-For particle-flow electrons and muons, we require them to pass $\pt>5\GeV$, $|\eta|<2.4$, $|dz|<0.1$~cm,
-$|dxy|<0.2$~cm, and a track isolation cut of iso$/\pt<0.2$. The track isolation is computed as the sum
+For particle-flow electrons and muons, we require them to pass $\pt>5\GeV$, $|\eta|<2.4$, $|d_\mrm{z}|<0.1$~cm,
+$|d_\mrm{xy}|<0.2$~cm, and a track isolation cut of iso$/\pt<0.2$. The track isolation is computed as the sum
 of all charged hadron particle-flow candidates with in a cone of $\Delta R<0.3$, and that satisfy 
-$|dz|<0.1$~cm with respect to the primary vertex. For lepton counting, particle-flow leptons
+$|d_\mrm{z}|<0.1$~cm with respect to the primary vertex. For lepton counting, particle-flow leptons
 within $\Delta R<0.01$ of selected reconstructed leptons are removed.
 
-Charged particle-flow hadrons are required to pass $\pt>10\GeV$, $|\eta|<2.4$, $|dz|<0.1$~cm,
-$|dxy|<0.2$~cm, and a track isolation cut of iso$/\pt<0.1$, computed in the same way as above.
+Charged particle-flow hadrons are required to pass $\pt>10\GeV$, $|\eta|<2.4$, $|d_\mrm{z}|<0.1$~cm,
+$|d_\mrm{xy}|<0.2$~cm, and a track isolation cut of iso$/\pt<0.1$, computed in the same way as above.
 
 \subsection{\dphimet}
 The variable \dphimet (referred to as \dpmin in the following) is defined as the minimum $\Delta\phi$ between
@@ -303,7 +303,7 @@ variable.
 
 The efficiency of the pure-\Ht triggers is measured in two ways: one using an electron trigger
 reference, and one using a \ptmiss trigger reference. Both methods start by selecting events that pass
-all \ptmiss filter, and that have at least 2 jets with $\pt>30\GeV$ and no leptons (other than the 
+all \ptmiss filters, and that have at least 2 jets with $\pt>30\GeV$ and no leptons (other than the 
 potential reference electron). The electron method further requires
 that the event passes a single electron trigger, and contains an electron with $\pt>35\GeV$ that is 
 isolated and passes a tight cut-based ID. The \ptmiss method requires that the event passes the
@@ -371,15 +371,8 @@ Similarly, the dielectron selection is triggered with a combination of isolated 
 dielectron triggers as well as a single-photon trigger.
 
 Finally, there is an different-flavor (i.e. $e\mu$) control region used for estimating \ttbar contamination
-in the same-flavor region, that is triggered with a combination of isolated and non-isolated
+in the same-flavor region, which is triggered with a combination of isolated and non-isolated
 $e\mu$ triggers, non-isolated single-muon triggers, and a single-photon trigger.
-
-Efficiencies of these dilepton can be measured using pure-\Ht triggers as a reference (both non-prescaled
-and lower threshold prescaled triggers).
-Plots of measured trigger efficiency as a function of leading and subleading lepton \pt in the relevant
-section of phase space are shown in Fig.~\ref{fig:trigmeas_dilep}, for 2017 data. Measurements for 2016 
-and 2018 are similar. Inefficiencies up to $\sim10$\% are present; these are accounted for by
-applying them as weights to MC on a year-by-year basis as a function of leading and subleading \pt.
 
 \begin{figure}[t]
   \begin{center}
@@ -395,11 +388,18 @@ applying them as weights to MC on a year-by-year basis as a function of leading 
   \end{center}
 \end{figure}
 
+Efficiencies of these dilepton can be measured using pure-\Ht triggers as a reference (both non-prescaled
+and lower threshold prescaled triggers).
+Plots of measured trigger efficiency as a function of leading and subleading lepton \pt in the relevant
+section of phase space are shown in Fig.~\ref{fig:trigmeas_dilep}, for 2017 data. Measurements for 2016 
+and 2018 are similar. Inefficiencies up to $\sim10$\% are present; these are accounted for by
+applying them as weights to MC on a year-by-year basis as a function of leading and subleading \pt.
+
 Though not technically a control region, an inclusive selection of low-\Ht events is used in the Rebalance and
 Smear method for computing QCD multijet background, described in Chapter~\ref{chap:qcd}. This selection
 makes use of low-threshold pure-\Ht triggers, that are necessarily prescaled due to their very
 high rates. Though event-by-event prescale values are stored in the data (the exact prescale rate
-depends on the instantaneous luminosity and the exact trigger menu being used, so vary with time),
+depends on the instantaneous luminosity and the specific trigger menu being used, so vary with time),
 yearly ``effective prescales'' are measured as a consistency check. This is done by measuring the
 ratio of rates of different triggers as a function of \Ht, and fitting the ratio
 in the plateau. Comparing to the high threshold unprescaled trigger, the effective prescales of
@@ -434,11 +434,12 @@ baseline selection used for all analysis signal regions is as follows:
 \item pass the logical OR of all signal region triggers listed in Sec.~\ref{sec:srtrigs}
 \item $\Ht>1200\GeV$ and $\ptmiss>30\GeV$, or $\Ht>250\GeV$ and $\ptmiss>250\GeV$. These cuts are
 based on the available trigger thresholds, and illustrated in Fig.~\ref{fig:trig_diagram}.
+For $\Nj=1$ regions, $\ptmiss>250\GeV$ is always required.
 \item $\dphimet>0.3$. This protects against large \ptmiss from jet mis-measurement in multijet events,
 and rejects a large fraction of QCD background.
 \item $|\vMht-\vMet|/\ptmiss<0.5$. This requires that \vMht be similar to \vMet, and in doing so
 protects against bias in the shape of \mttwo. \ptmiss is sensitive to reconstructed objects with
-$\pt<30\GeV$ or $|\eta|>2.4$, where as these are not used in \vMht or in the construction of
+$\pt<30\GeV$ or $|\eta|>2.4$, whereas these are not used in \vMht or in the construction of
 pseudojets for \mttwo, so a large contribution from these objects to the missing transverse energy
 can bias the \mttwo distribution.
 \item lepton veto: to reduce the background from events with a $W$ boson decay, we reject events if they contain
@@ -529,12 +530,12 @@ is possible that $\Nb>1$ even when $\Nj=1$)
 \item For $\Nb\geq1$, \Ht bin edges of $[250,350,450,575,700,\infty]$\GeV
 \end{itemize}
 
-In total, there are 270 multijet and 12 monojet regions for a total of 282 signal region search bins.
+In total, there are 270 multijet and 12 monojet regions, for a grand total of 282 signal region search bins.
 
 \section{Control regions}
 \label{sec:crdefs}
 
-To estimate the various backgrounds for this analysis, we make use of a number of control regions orthogonal 
+To estimate the various backgrounds, we make use of a number of control regions orthogonal 
 to the signal region. These include a single lepton selection, a dileptonic selection (mostly \zll events), 
 and a selection enriched in QCD multijet events.
 
@@ -585,7 +586,7 @@ events that populate the signal regions), and leading/subleading lepton $\pt>100
 mass $m_{\ell\ell}$ must satisfy $|m_{\ell\ell}-m_Z|<20\GeV$ in order to ensure we select mainly $Z$ events.
 
 Since the leptons take the place of the neutrinos in \znunu events, to emulate the kinematics the
-lepton \vSS{p}{T}{} vectors are added to the \vMet vector for use in the computation of all
+lepton \vSS{p}{T}{} vectors are added to the \vMet vector for the computation of all
 kinematic variables. Further, since leptons are usually reconstructed as (at least components of) jets,
 the closest jet within $\Delta R<0.4$ of each lepton is removed from the event before computing kinematic
 quantities. The variables \Nj, \Nb, \Ht, \Mht, \dphimet, $|\vMht-\vMet|/\ptmiss$, and \mttwo are all
@@ -610,6 +611,7 @@ QCD multijet events, in order to validate the estimate of the QCD multijet backg
 This is done by inverting cuts on the two kinematic variables mainly responsible for
 rejecting QCD background. The baseline signal region selection is applied, with the
 exception of one of the following:
+\vspace{-2mm}
 \begin{itemize}\setlength\itemsep{-1mm}
 \item the \dphimet requirement is inverted to $\dphimet<0.3$.
 \item the \mttwo requirement is shifted to $100<\mttwo<200\GeV$
@@ -647,15 +649,16 @@ fraction of affected data (about 39 out of 58 fb$^{-1}$, or 66\%).
 The filter rejects events containing certain objects in the HEM region, defined
 as $\eta\in[-4.7,-1.4]$ and $\phi\in[-1.6,-0.8]$.
 The objects that trigger the veto are as follows:
+\vspace{-2mm}
 \begin{itemize}\setlength\itemsep{-1mm}
 \item For events with $\Nj=1$ or $\Ht<575\GeV$, any jet with $\pt>20\GeV$.
-\item Also for events with $\Nj=1$ or $\Ht<575\GeV$, any lost track with $d_z<0.2$ cm
-and $d_{xy}<0.1$ cm (a ``lost track'' is any track not reconstructed as a PF candidate).
+\item Also for events with $\Nj=1$ or $\Ht<575\GeV$, any lost track with $d_\mrm{z}<0.2$ cm
+and $d_\mrm{xy}<0.1$ cm (a ``lost track'' is any track not reconstructed as a PF candidate).
 \item For events with $\Nj\geq2$ and $\Ht\geq575\GeV$, any jet with $\pt>30\GeV$.
 \item The electron for any events in the single lepton control region.
 \end{itemize}
 
-\begin{figure}[t]
+\begin{figure}[htbp]
   \begin{center}
     \includegraphics[width=0.48\textwidth]{figs/event_selection/hem_subleadjeteta.pdf}
     \includegraphics[width=0.48\textwidth]{figs/event_selection/hem_subleadjetphi.pdf} \\

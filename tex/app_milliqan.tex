@@ -46,7 +46,7 @@ does not have to be exactly $\mathcal{O}10^{-3}$))
 \begin{figure}[t]
   \begin{center}
     \includegraphics[width=0.50\textwidth]{figs/milliq/search_status.png}
-    \caption{Existing exclusion limits for milli-charged partcles, coming
+    \caption{Existing exclusion limits for milli-charged particles, coming
       from searches via colliders, solar effects, astronomical observations,
       and cosmological bounds. milliQan targets the unexcluded phase space
       with $\varepsilon\geq10^{-3}$ and $10^{-1} < m_\text{mCP} < 10^2\GeV$.
@@ -65,7 +65,7 @@ is shown in Fig.~\ref{fig:mcp_search_status}, taken from~\cite{Vinyoles:mcp}.
 There is a gap in the excluded phase space for $\varepsilon>10^{-3}$ at
 the mass scales relevant at the LHC, roughly $10^{-1} < m_\text{mCP} < 10^2\GeV$.
 mCPs at such masses and charges would be produced frequently at the LHC, but
-present experiments would not be able to detect them; direct sensitvity is lost
+present experiments would not be able to detect them; direct sensitivity is lost
 for $\varepsilon$ below a few times $10^{-1}$, and a low cross section
 precludes missing energy searches. Therefore, a dedicated experiment is necessary
 to search for mCPs at the LHC.
@@ -226,7 +226,7 @@ mean and variance as
 \text{Var}(\Npe) = \langle \Npe\rangle = -\log(f_0).
 \ee
 
-Once we have this, it is straightfoward to compute the mean and variance
+Once we have this, it is straightforward to compute the mean and variance
 of the area distribution of an SPE pulse. Denoting $A_\mrm{SPE}$ as the area distribution of an SPE
 pulse, $A_\mrm{nb}$ as the area distribution of the non-blocked dataset, and $A_\mrm{b}$ as
 the area distribution of the LED-blocked dataset, the mean and variance are given by
@@ -261,7 +261,7 @@ Fig.~\ref{fig:pmt_calib} shows an example of this process for an R878 and R7725.
 blue histograms are the non-blocked area distributions, and the red histograms are the
 LED-blocked area distributions. The red histograms are scaled to fit the left edge of the
 blue histograms, and then used to find $\langle \Npe\rangle$. The Eqs.~\ref{eq:mean_spe}
-and \ref{eq:var_spe} are used to compute the mean and variance of the SPE area distribtion.
+and \ref{eq:var_spe} are used to compute the mean and variance of the SPE area distribution.
 Note in particular that the means are noticeably lower than the peaks from 1-PE events.
 This is due to the large non-Gaussian low-area tails in the SPE response, visible
 as the dotted histogram (just the subtraction of red from blue).
@@ -382,7 +382,7 @@ and a Gaussian is fit to the peak. The mean of this Gaussian is taken as the pea
 channel.
 
 The \Npe calibration is done differently for the slabs, panels, and bars. For the slabs,
-events with a through-going beam muon are identified, and the peak of the resulting pulse area
+events with a throughgoing beam muon are identified, and the peak of the resulting pulse area
 distribution in each slab, scaled by the measured mean SPE area, is taken as the \Npe calibration.
 For the panels, a similar procedure is used, but with cosmic muons.
 
@@ -393,7 +393,7 @@ For the panels, a similar procedure is used, but with cosmic muons.
     \caption{(left) Example measurement of the mean SPE area of Channel 0 (R878) at 1440 V.
       A selection of cleaned afterpulses is identified (green) and a Gaussian is fit to the peak.
       This measurement is used directly as the SPE calibration, and also as a component of the \Npe calibration.
-      (right) An example emasurement of the mean cosmic pulse area for Channel 4, at a low HV of 850 V.
+      (right) An example measurement of the mean cosmic pulse area for Channel 4, at a low HV of 850 V.
             }
     \label{fig:spe_cosmic_area}
   \end{center}
@@ -434,7 +434,7 @@ mean \Npe of a cosmic pulse.
 Example measurements of the mean SPE and cosmic pulse areas are shown in Fig.~\ref{fig:spe_cosmic_area}.
 The \Npe calibration procedure is illustrated in Fig.~\ref{fig:npe_calibration}. The top plot
 shows the measured cosmic (upper left) and SPE (middle right) areas, and the dashed lines
-show the fitted power law function throught the SPE points. The bottom plots show an example validation
+show the fitted power law function through the SPE points. The bottom plots show an example validation
 of the procedure; on the left is a fit to the cosmic points, and on the right is an independent fit
 to a number of SPE points at higher voltages. The ratio of the fitted exponents
 is $1.01\pm0.09$, showing that the fit is consistent between the two sets of points as assumed.
@@ -471,7 +471,7 @@ scaling the $e^+e^-$ BR by a phase space factor:
 \frac{\Gamma(V\to\zeta^+\zeta^-)}{\Gamma(V\to e^+e^-)} = 
 (Q/e)^2\frac{(1-4x_\zeta^2)^{1/2}(1+2x_\zeta^2)}{(1-4x_e^2)^{1/2}(1+2x_e^2)},
 \ee
-where $x_*=m_*/m_V$ (this comes from the Van Royen-Wesskpf formula~\cite{vanroyen}).
+where $x_*=m_*/m_V$ (this comes from the Van Royen-Weisskopf formula~\cite{vanroyen}).
 
 For Dalitz decays $A\to\zeta^+\zeta^-X$, we can write the differential width as a function of the $\zeta^+\zeta^-$
 invariant mass as~\cite{landsberg}
@@ -621,7 +621,7 @@ integrator, according to the relativistic kinematic equations
 where the form of the second equation is valid if $B$ is in Tesla,
 $t$ in ns, $\vec{v}$ in m/ns, $q$ in units of $e$, and $\vec{p}c$ in \MeV.
 
-Multiple scattering is impolemented using a small-angle Gaussian angle approximation,
+Multiple scattering is implemented using a small-angle Gaussian angle approximation,
 as described in the PDG~\cite{PDGreview33}. At each time step, a $\theta_\mrm{RMS}$ is 
 computed based on the particle momentum and charge, the radiation length of the material,
 and the distance traversed. Then two random deflection angles are drawn from a Gaussian of width
@@ -667,7 +667,7 @@ events can be used for \textit{pulse injection}, in which simulated PMT waveform
 are overlaid on zero-bias (i.e. random trigger) data, in order to generate realistic
 detector signals that can be processed and analyzed with the same software as real data.
 For each simulated PE, a random SPE area is drawn from PMT-specific
-distributions dervied via PMT bench tests, described in Sec.~\ref{sec:pmt_bench_tests}
+distributions derived via PMT bench tests, described in Sec.~\ref{sec:pmt_bench_tests}
 (these distributions are corrected for slight differences between channels).
 Then a template SPE waveform, also derived from the PMT bench tests, is scaled to this
 area and overlaid on a random zero-bias event. These pulse-injected simulated events
@@ -702,7 +702,7 @@ which probes the accuracy of the multiple scattering and magnetic field modeling
 of the propagation. We do this by looking at various ``patterns'' of bars
 that record muon-like hits in each of the four-slab events. These patterns are shown
 in diagrams on the $x$ axes of the plots in Fig.~\ref{fig:mq_muangles}. The left plot shows
-milliqan from a top view, and the right plot from a side view. Black boxes mean we require
+milliQan from a top view, and the right plot from a side view. Black boxes mean we require
 a muon hit in the given position, white boxes mean we require \textit{no} muon hit
 in the given position, and a hashed boxes means it can be either. Muon hits are OR'd
 over the orthogonal direction (so black actually means at least one hit over the relevant
@@ -726,6 +726,41 @@ from simulation quite well.
       lines are generated optical photons.
             }
     \label{fig:mq_muangles}
+  \end{center}
+\end{figure}
+
+We validate the \textsc{Geant4} simulation by looking at \Npe distributions
+under various selections and comparing to data. Fig.~\ref{fig:npe_comps} shows
+\Npe distributions in the bars for both data and simulation for four-slab beam muon
+events, either in the case that the muon passes through all slabs and no bars, or
+that the muon passes through a neighboring bar. The stacked histograms
+are colored by computing the fraction of PEs in each event that come from various
+production modes (generally, the muon knocks off an electron in some material, which
+then either directly leaves energy deposits or bremsstrahlungs into a gamma ray
+that leaves deposits). Good agreement is seen everywhere, except at very low \Npe
+($\lesssim30$). Hits in this regime are predominantly come from a muon knocking off
+a very low-energy delta ray, which the bremsstrahlungs into a low-energy gamma ray.
+The modeling of this in \textsc{Geant4} is likely not reliable, leading
+to the discrepancy. However, this is of minimal concern, as such kinds of processes
+are irrelevant for the simulation of mCP events.
+
+\begin{figure}[t]
+  \begin{center}
+    \includegraphics[width=0.495\textwidth]{figs/milliq/npe_comp_slabNoBar.pdf}
+    \includegraphics[width=0.495\textwidth]{figs/milliq/npe_comp_neighbBars.pdf}
+    \caption{Comparison of \Npe distributions in the bars for events where
+      (left) the muon hits all four slabs but no bars, and (right) the muon
+      passes through a neighboring bar. Simulation is normalized by per-event weights
+      computed from the cross sections of the various muon production modes described earlier.
+      Good agreement is seen everywhere
+      except at very low \Npe ($\lesssim30$). Such small hits are generally produced
+      by low-energy delta rays knocked off by the muon, which bremsstrahlung into
+      low-energy gamma rays which then leave small deposits. \textsc{Geant4} modeling
+      of these low-energy delta rays is not perfect, and in any case this is not
+      relevant for the simulation of mCPs. The colors indicate the original source
+      of each PE.
+            }
+    \label{fig:npe_comps}
   \end{center}
 \end{figure}
 
