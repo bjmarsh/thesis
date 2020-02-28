@@ -418,7 +418,7 @@ mean \Npe of a cosmic pulse.
     \includegraphics[width=0.675\textwidth]{figs/milliq/npe_calibration_ET.pdf} \\
     \includegraphics[width=0.775\textwidth]{figs/milliq/npe_calib_slope_comp.pdf}
     \caption{(top) Example \Npe calibration of the four ET channels. The points in the 
-      upper right are the measured low-voltage cosmic areas, and the points on the
+      upper left are the measured low-voltage cosmic areas, and the points on the
       right are the mean SPE areas near the operating voltage. Power law functions
       are jointly fit to the cosmic and SPE points, with the restriction that the exponent
       is the same; these fits are shown as dashed lines through the SPE points. The ratio
@@ -519,7 +519,6 @@ between experimental measurements). An additional 30\% uncertainty, uncorrelated
 between production modes, is assessed on the total cross sections to 
 account for the modeling of meson rates per minimum bias event.
 
-
 \begin{figure}[t]
   \begin{center}
     \includegraphics[width=0.80\textwidth]{figs/milliq/mcp-xsec.pdf}
@@ -541,7 +540,7 @@ account for the modeling of meson rates per minimum bias event.
   \end{center}
 \end{figure}
 
-A plot summarizing the cross sectoin times branching ratio values
+A plot summarizing the cross section times branching ratio values
 for all $\zeta^+\zeta^-$ production modes is shown in Fig.~\ref{fig:mcp_xsec}.
 At low masses, production is dominated by Dalitz decays of light mesons
 $\pi^0$, $\eta$. At around a few hundred \MeV, direct decays
@@ -553,7 +552,41 @@ only Drell-Yan contributes. Note that if this plot were continued,
 the rate would drop substantially again near half the $Z$ mass at
 roughly 45\GeV.
 
-Once all mCP four vectors are generated, they are propagated
+In addition to mCPs, we are also interested in simulating both beam-based and
+cosmic muons in order to compare to data and calibrate/validate the simulation.
+Four beam-based muon production modes are considered: heavy-flavor (b or c) meson
+decays, light-flavor meson (usually $\pi^\pm$ or $K^\pm$) and tau decays, $W$ boson decays, and $Z$ boson decays.
+Differential cross sections for muons from heavy-flavor meson decay are taken from
+the FONLL tool~\cite{fonll} (the same that is used for $B\to\psi X$ decays for mCP
+generation). The overall $b\bar{b}$ cross section produced by this tool is
+known to be low based on a measurement from CMS~\cite{CMS:bhadron}, so the total
+rate is scaled up by a factor of $1.25\pm0.25$.
+Differential cross sections for light-flavor meson and tau decay are taken from
+\textsc{pythia8} MinBias generation with the CUETP8M1 tune. Rates from $W$ and $Z$ decay
+are taken from \textsc{Madgraph}.
+
+The composition and \pt distribution of muons that make it to the milliQan detector
+face (after the propagation described shortly) are shown in Fig.~\ref{fig:mq_muon_ptdist}.
+Only muons with $\pt\gtrsim15\GeV$ make it to the detector, as lower-energy muons
+are stopped short, either in CMS or the rock. Of the muons that do make it to milliQan,
+53\% are from b hadrons, 29\% are from c hadrons, 14\% are from light-flavor mesons
+or taus, 3\% are from $W$ bosons, and 1\% are from $Z$ bosons.
+
+\begin{figure}[t]
+  \begin{center}
+    \includegraphics[width=0.60\textwidth]{figs/milliq/muon_pt.pdf}
+    \caption{Rate of muons reaching the milliQan detector face as a function of production \pt,
+      and broken down by production mode.
+      There is a hard bound near 15\GeV due to energy loss in the material between
+      the IP and milliQan. Above this threshold, the rate falls exponentially.
+      The red curve shows the momentum upon intersection with milliQan, and is essentially
+      the initial momentum distribution shifted left by $\sim$15\GeV.
+            }
+    \label{fig:mq_muon_ptdist}
+  \end{center}
+\end{figure}
+
+Once mCP or muon four vectors are generated, they are propagated
 through a model of the CMS and its environment, including
 the magnetic field (see Fig.~\ref{fig:cms_bfield} for a colored map
 of the magnetic field that is used), detector material, and 17 m of
@@ -643,6 +676,58 @@ PMT saturation effects (however, this does not matter in practice).
 
 \section{Simulation validation and data comparisons}
 
+Simulation is validated by comparing various predicted quantities and distributions
+to those measured in real data. The simplest comparison is the rate of muons coming
+from the beam and passing through all four slabs of the detector. This probes the accuracy
+of the muon cross sections and \pt distributions used for generation,
+as well as the propagation routine and material model between the IP and milliQan.
+The signal appears as four large pulses in the four slabs, with timing consistent
+with a particle coming from the beam (roughly, $t_4-t_1=10\pm10$~ns); no requirement is
+placed on hits in the bars or panels.
+
+In data, the rate is measured at 0.18 muons/pb$^{-1}$, with negligible statistical
+uncertainty. For the rate from simulation, we must account for various systematic
+uncertainties. For the rate from heavy-flavor mesons, we scaled the cross section
+by $1.25\pm0.25$ based on a comparison of FONLL with measured CMS data, so we take
+a 20\% uncertainty. The rate from light-flavor mesons is sub-dominant but we take a
+50\% uncertainty. Finally, we assess a systematic on the material modeling
+of CMS and the rock by varying the density of all materials up and down by 7\%.
+This translates to a 25\% uncertainty in muon rate due to the rapidly falling
+momentum spectrum. All together, the predicted rate from simulation is
+$0.25\pm0.08$ muons/pb$^{-1}$, agreeing with the rate measured in data
+to within one standard deviation.
+
+We can also roughly measure the angle of muons as they pass through milliQan,
+which probes the accuracy of the multiple scattering and magnetic field modeling
+of the propagation. We do this by looking at various ``patterns'' of bars
+that record muon-like hits in each of the four-slab events. These patterns are shown
+in diagrams on the $x$ axes of the plots in Fig.~\ref{fig:mq_muangles}. The left plot shows
+milliqan from a top view, and the right plot from a side view. Black boxes mean we require
+a muon hit in the given position, white boxes mean we require \textit{no} muon hit
+in the given position, and a hashed boxes means it can be either. Muon hits are OR'd
+over the orthogonal direction (so black actually means at least one hit over the relevant
+bars, and white means no muon hits in any of the relevant bars).
+We also make an adjustment to correct for imperfect modeling of muon ``fake rates''
+(due to large muon-like hits from showering in a nearby bar) in simulation, which 
+arises from the non-modeling of PMT saturation. The \Npe threshold in simulation
+to count a hit as muon-like is adjusted until the ratio of the middle bin in the right
+plot to the two neighboring bins is the same as in data (these all correspond to 
+an angle of 0$^\circ$, but the middle bin has a lower rate due to the higher probability of a fake).
+After making this correction, one sees that the observed angular distribution in data matches that
+from simulation quite well. 
+
+\begin{figure}[t]
+  \begin{center}
+    \includegraphics[width=0.495\textwidth]{figs/milliq/muangles_top.pdf}
+    \includegraphics[width=0.495\textwidth]{figs/milliq/muangles_side.pdf}
+    \caption{Rendering of a beam-based muon traveling through
+      a \textsc{Geant4} model of the demonstrator, hitting all
+      four slabs and three bars in a straight line. Light blue
+      lines are generated optical photons.
+            }
+    \label{fig:mq_muangles}
+  \end{center}
+\end{figure}
 
 \section{Background estimation and results}
 

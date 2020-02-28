@@ -176,6 +176,7 @@ The efficiency and fake rates are not identical between data and simulation. To 
 differences, CMS derives b-tagging scale factors that are applied to MC.
 The procedure is as follows: for each MC event, compute the probabilities of the observed
 b-tagging configuration as
+\vskip-4mm
 \be
 P(\mrm{MC}) = \prod_{i\text{ tagged}} \varepsilon_i \prod_{j\text{ not tagged}} (1-\varepsilon_j)
 \ee
@@ -187,6 +188,7 @@ where $\varepsilon_i$ is the measured efficiency to tag a particular jet as a b 
 of \pt, $\eta$, and generator-level jet flavor, which is one of b, c, or light-flavor), and
 $SF_i$ is the derived data/MC scale factor, also a function of jet \pt, $\eta$, and generator-level
 flavor. The entire event is then weighted by a factor
+\vskip-4mm
 \be
 w = \frac{P(\mrm{data})}{P(\mrm{MC})}.
 \ee
@@ -213,6 +215,7 @@ to estimate contribution from events with fake \ptmiss from mis-measured jets.
 
 At CMS, the primary way of computing \ptmiss, called PF-MET, is to simply sum the momenta
 of all reconstructed particle-flow candidates. The raw \ptmiss can thus be defined
+\vskip-2mm
 \be
 \vec{\slashed{E}}_\mrm{T}^\mrm{raw} = -\sum_{i\in\mrm{PFcands}} \vec{p}_{\mrm{T},i}.
 \ee
@@ -250,7 +253,7 @@ measured $p_\mrm{T}^\mrm{reco}$? Jet measurement is an inherently random process
 will be given in the form of a probability density function in the variable
 $p_\mrm{T}^\mrm{reco}/p_\mrm{T}^\mrm{true}$. 
 
-Looking ahead, Fig.~\ref{fig:jrt_examples} shows a 
+Fig.~\ref{fig:jrt_examples} shows a 
 few examples of these functions measured in simulation (called jet response templates, or JRTs).
 It is found that the templates are described well by a central Gaussian core (red),
 with larger, non-Gaussian tails (green).
@@ -258,6 +261,22 @@ Details on the exact derivation of these functions, and the procedure for fittin
 the core and tails, are given in Sec.~\ref{sec:jrt}. For now, it is sufficient
 to know that they are measured in simulation by matching reconstructed jets
 (``reco jets'') to generator-level jets (``gen jets'') and comparing their \pt values.
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.45\textwidth]{figs/jetmet/pt01_eta01_nonbjets_lin.pdf}
+    \includegraphics[width=0.45\textwidth]{figs/jetmet/pt01_eta01_nonbjets_log.pdf} \\
+    \includegraphics[width=0.45\textwidth]{figs/jetmet/pt05_eta03_bjets_lin.pdf}
+    \includegraphics[width=0.45\textwidth]{figs/jetmet/pt05_eta03_bjets_log.pdf} \\
+    \includegraphics[width=0.45\textwidth]{figs/jetmet/pt10_eta06_nonbjets_lin.pdf}
+    \includegraphics[width=0.45\textwidth]{figs/jetmet/pt10_eta06_nonbjets_log.pdf} \\
+    \caption{A selection of three example jet response templates for various \pt/$\eta$/b-jet bins, shown in linear (left) and log (right) scales.
+    The dark blue points are the raw templates. The red curves are the fitted Gaussian ``cores'' of the templates, and the green
+    curves are the ``tails'', as described in Section~\ref{sec:jrt_fits}.
+           }
+    \label{fig:jrt_examples}
+  \end{center}
+\end{figure}
 
 The size and shape of the core are due to standard stochastic smearing in the calorimeters. 
 The width of this Gaussian core, referred to
@@ -310,22 +329,6 @@ Section~\ref{sec:jrt_fits} describes the methodology for fitting the core/tails 
 derived templates, and the procedure to correct the template resolutions for known
 differences in jet resolution between data and MC.
 
-\begin{figure}[htbp]
-  \begin{center}
-    \includegraphics[width=0.45\textwidth]{figs/jetmet/pt01_eta01_nonbjets_lin.pdf}
-    \includegraphics[width=0.45\textwidth]{figs/jetmet/pt01_eta01_nonbjets_log.pdf} \\
-    \includegraphics[width=0.45\textwidth]{figs/jetmet/pt05_eta03_bjets_lin.pdf}
-    \includegraphics[width=0.45\textwidth]{figs/jetmet/pt05_eta03_bjets_log.pdf} \\
-    \includegraphics[width=0.45\textwidth]{figs/jetmet/pt10_eta06_nonbjets_lin.pdf}
-    \includegraphics[width=0.45\textwidth]{figs/jetmet/pt10_eta06_nonbjets_log.pdf} \\
-    \caption{A selection of three example jet response templates for various \pt/$\eta$/b-jet bins, shown in linear (left) and log (right) scales.
-    The dark blue points are the raw templates. The red curves are the fitted Gaussian ``cores'' of the templates, and the green
-    curves are the ``tails'', as described in Section~\ref{sec:jrt_fits}.
-           }
-    \label{fig:jrt_examples}
-  \end{center}
-\end{figure}
-
 \begin{figure}[t!]
   \begin{center}
     \includegraphics[width=0.49\textwidth]{figs/jetmet/resolution_vs_pt.pdf}
@@ -356,12 +359,12 @@ After selecting the jets, gen and reco jets are matched and JRTs are constructed
 filling histograms with $\pt^\text{reco}/\pt^\text{gen}$. The templates are constructed in
 bins of gen-level \pt and $|\eta|$, and separately for b and non-b jets. The \pt and $\eta$ binning is as follows:
 \begin{itemize}\setlength\itemsep{-1mm}
-\item \pt bin edges: [0, 20, 30, 50, 80, 120, 170, 230, 300, 380, 470, 570, 680, 800, 1000, 1300, 1700, 2200, 2800, 3500, 4300, 5200, 6500]\GeV.
-\item $|\eta|$ bin edges: [0, 0.3, 0.5, 0.8, 1.1, 1.4, 1.7, 2.3, 2.8, 3.2, 4.1, 5.0].
+\item \pt bin edges: [0, 20, 30, 50, 80, 120, 170, 230, 300, 380, 470, 570, 680, 800, 1000, 1300, 1700, 2200, 2800, 3500, 4300, 5200, 6500]\GeV
+\item $|\eta|$ bin edges: [0, 0.3, 0.5, 0.8, 1.1, 1.4, 1.7, 2.3, 2.8, 3.2, 4.1, 5.0]
 \end{itemize}
 
 The algorithm for matching is outlined here; the reasoning for and effect of various steps are described following.
-\begin{enumerate}\setlength\itemsep{-0.5mm}
+\begin{enumerate}\setlength\itemsep{-0.3mm}
 \item Skip events that fail any of the MET filters used in the main analysis
 \item Find all ``tight pairs'' of reco/gen jets that have $\Delta R$(reco, gen) $<0.3$
 \item Find all ``loose pairs'' of reco/gen jets that have $\Delta R$(reco, gen) $<0.5$
@@ -381,7 +384,7 @@ The algorithm for matching is outlined here; the reasoning for and effect of var
   the CMS-derived scale factor to correct this efficiency for known differences between data and MC.
 \end{enumerate}
 
-Step 1 rejects entire events that fail one of the MET filters applied in the main analysis.
+Step 1 rejects entire events that fail one of the MET filters (see Sec.~\ref{sec:metfilters}) applied in the main analysis.
 These guard against certain kinds of mis-reconstruction that can enhance the tails of the
 jet response functions. Most notably, the EcalDeadCellTriggerPrimitive and HBHENoise filters
 reject events where there is energy in calorimeter regions known to be down/noisy (leading to 

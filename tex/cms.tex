@@ -517,7 +517,9 @@ are generated with an event generator such as MadGraph~\cite{madgraph}; parton s
 of semi-stable particles are done with a tool such as \textsc{pythia}~\cite{pythia}; and then all of the resulting
 particles are fed into a full \textsc{Geant4} simulation~\cite{geant4} of the CMS detector. This produces
 realistic detector hits that can then be processed with the same code as is used for real data,
-producing the same data formats as above.
+producing the same data formats as above. For certain samples where computation time is prohibitive
+(usually for BSM models), CMS has developed a fast simulation (``FastSim'') framework~\cite{CMS:fastsim} that forgoes
+the full \textsc{Geant4} propagation in favor of a much faster parametric approach.
 
 \section{Phase-2 CMS MIP timing detector}
 

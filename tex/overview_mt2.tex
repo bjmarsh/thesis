@@ -1,8 +1,9 @@
 \chapter{Overview of the \texorpdfstring{$\text{M}_\text{T2}$}{MT2} Analysis}
 
 Physics beyond the standard model at the LHC may manifest itself in a wide variety of potential final state 
-topologies. Events with differing amounts of hadronic energy, missing transverse momentum, and numbers of leptons
-should all be searched for signs of new physics. In this dissertation, we focus on the ``all-hadronic'' final state,
+topologies. Phase space covering a wide range of the relevant kinematic variables, such as hadronic energy,
+missing transverse momentum, and number of leptons, should be carefully searched for signs of new physics.
+In this dissertation, we focus on the ``all-hadronic'' final state,
 which encompasses events with no prompt leptons and large amounts of hadronic energy and missing transverse momentum.
 Section~\ref{sec:motivation} discusses the theoretical motivation for an all-hadronic search, Sec.~\ref{sec:mt2_backgrounds}
 describes the various backgrounds for such a search, and Sec.~\ref{sec:mt2_variable} introduces \mttwo, a \ptmiss-based kinematic
@@ -100,9 +101,9 @@ transverse momentum vector of the invisible particle and can be plugged into Eq.
 system. As the transverse mass is just the invariant mass computed only with the transverse components of the particle momenta,
 it naturally has an upper bound equal to the parent particle mass. An example from a CMS measurement of the $W$ production
 cross section \cite{CMS:w_prod} is shown in Fig.~\ref{fig:w_transverse_mass}. In this case, the two-particle system is
-$W\to\mu\nu$ decay, and $M_\mrm{T}\lessapprox M_W=80\GeV$. The location of the $M_\mrm{T}$ ``cliff'' can be used to
+$W\to\mu\nu$ decay, and $M_\mrm{T}\lesssim M_W=80\GeV$. The location of the $M_\mrm{T}$ ``cliff'' can be used to
 extract a measurement of the $W$ mass. The small number of events with transverse mass larger than the $W$ mass
-are due to experimental resolution on the muon momentum and \vMet vectors.
+are due to experimental resolution on the muon momentum and \vMet vectors, as well as non-neutrino contributions to \vMet.
 
 \begin{figure}[t]
   \begin{center}
@@ -124,7 +125,7 @@ as a jet in the detector (potentially b-tagged), and a neutralino, which is invi
 Absent this information, the best we can do is to try \emph{all possible partitions} of the \vMet vector
 and choose the one that gives the weakest $M_\mrm{T}$ bound. This minimized quantity should be bounded above
 by the mass of the pair-produced parent particles.
-So, following \cite{mt2_def} we define
+So, following \cite{mt2_def}, we define
 \be
 \mttwo = \min_{\vSS{p}{\mrm{T}}{X(1)} + \vSS{p}{\mrm{T}}{X(2)} = \vMet}
 \left[\max\left(M_\mrm{T}^{(1)},M_\mrm{T}^{(2)}\right)\right],
@@ -167,7 +168,7 @@ Hence, in this analysis both mass terms in Eq.~\ref{eq:mti} are set to 0 when co
 
 As discussed in Sec.~\ref{sec:mt2_backgrounds}, a big challenge in hadronic searches is the huge cross section
 for QCD production of multijet events at the LHC. While requiring large \ptmiss suppresses much of this, there is still
-a large contribution from events with \ptmiss from mis-measured jets. The \mttwo variable allows further suppression
+a significant contribution from events with \ptmiss from mis-measured jets. The \mttwo variable allows further suppression
 of these events, by taking advantage of the different event topologies between signal and mis-measured multijet events.
 
 This is illustrated in Figs.~\ref{fig:inclusive_mt2} and \ref{fig:metmt2}.
