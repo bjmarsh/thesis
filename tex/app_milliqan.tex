@@ -39,9 +39,9 @@ as $B_\mu=\cos\theta_w A_\mu - \sin\theta_w Z_\mu$, we find that the new dark fe
 couples to the SM photon with electric charge $\kappa e'\cos\theta_w$, and couples to the 
 SM $Z$ with charge $\kappa e'\sin\theta_w$. The mixing strength $\kappa$ must be small
 (otherwise the new dark sector would have been observed already), so we must have
-$\varepsilon\equiv \kappa e'\cos\theta_w \ll 1$, and we call $\psi'$ a
+$\varepsilon\equiv \kappa e'\cos\theta_w/e \ll 1$, and we call $\psi'$ a
 ``milli-charged particle'' (mCP; note that the name is a bit of a misnomer because $\varepsilon$
-does not have to be exactly $\mathcal{O}10^{-3}$))
+does not have to be exactly $\mathcal{O}(10^{-3}$))
 
 \begin{figure}[t]
   \begin{center}
@@ -736,10 +736,10 @@ events, either in the case that the muon passes through all slabs and no bars, o
 that the muon passes through a neighboring bar. The stacked histograms
 are colored by computing the fraction of PEs in each event that come from various
 production modes (generally, the muon knocks off an electron in some material, which
-then either directly leaves energy deposits or bremsstrahlungs into a gamma ray
+then either directly leaves energy deposits or bremsstrahlungs a gamma ray
 that leaves deposits). Good agreement is seen everywhere, except at very low \Npe
 ($\lesssim30$). Hits in this regime are predominantly come from a muon knocking off
-a very low-energy delta ray, which the bremsstrahlungs into a low-energy gamma ray.
+a very low-energy delta ray, which then bremsstrahlungs a low-energy gamma ray.
 The modeling of this in \textsc{Geant4} is likely not reliable, leading
 to the discrepancy. However, this is of minimal concern, as such kinds of processes
 are irrelevant for the simulation of mCP events.
@@ -754,7 +754,7 @@ are irrelevant for the simulation of mCP events.
       computed from the cross sections of the various muon production modes described earlier.
       Good agreement is seen everywhere
       except at very low \Npe ($\lesssim30$). Such small hits are generally produced
-      by low-energy delta rays knocked off by the muon, which bremsstrahlung into
+      by low-energy delta rays knocked off by the muon, which bremsstrahlung
       low-energy gamma rays which then leave small deposits. \textsc{Geant4} modeling
       of these low-energy delta rays is not perfect, and in any case this is not
       relevant for the simulation of mCPs. The colors indicate the original source
