@@ -364,9 +364,21 @@ for all PMT types are shown in Fig.~\ref{fig:pulse_templates}.
 
 \section{In-situ calibrations}
 \label{sec:insitu_calib}
-
 In addition to the LED-based bench calibrations described in the previous section, we also
-perform calibrations ``in-situ'' on the installed detector. First, we measure the mean
+perform calibrations ``in-situ'' on the installed detector. These can be divided into four
+categories, the first two relating to ``pulse size'' and the second two relating to
+``pulse timing'':
+\begin{itemize}\setlength\itemsep{-1mm}
+\item SPE calibration: PMT-dependent characteristic size of a pulse from a single photoelectron
+\item \Npe calibration: how many photoelectrons does a particle of a given charge produce in each channel?
+\item Channel-dependent timing calibration: per-channel time offsets due to cable lengths, scintillator shape differences, etc.
+\item Pulse size-dependent timing calibration: timing differences due to the pulse-finding algorithm responding differently 
+to differently sized pulses
+\end{itemize}
+
+\subsection{SPE and \Npe calibrations}
+
+First, we measure the mean
 pulse area of SPEs. These are expected to differ slightly from the areas measured with the LED
 tests, as small magnetic fields and other environmental effects can affect the response of the
 PMTs. Second, we perform a ``charge calibration'', or \Npe calibration, 
@@ -439,6 +451,79 @@ of the procedure; on the left is a fit to the cosmic points, and on the right is
 to a number of SPE points at higher voltages. The ratio of the fitted exponents
 is $1.01\pm0.09$, showing that the fit is consistent between the two sets of points as assumed.
 This is done independently for each channel; good agreement is seen in all cases.
+
+
+\subsection{Timing calibrations}
+A throughgoing particle will leave pulses at different times in different channels,
+due to time-of-flight, scintillator shape differences, varying cable lengths,
+and other effects. We calibrate these differences away such that a beam-based
+throughgoing particle traveling at the speed of light is expected to generate
+a pulse at the same time in each channel. This is done as follows:
+\begin{enumerate}\setlength\itemsep{-1mm}
+\item Calibrate bars within each ``slice'' (left/right side of each layer),
+by tagging vertical cosmics that hit the top pannel and each bar in the slice.
+The mean cosmic pulse time is taken as the calibration.
+\item Calibrate the two slices in each layer, by tagging cosmics that
+hit the top panel and at least one bar in each slice.
+\item Calibrate the slabs by tagging beam-based muons passing through
+all four slabs.
+\item Calibrate each layer by tagging beam-based muons and comparing
+to the time in the nearest slab.
+\item Calibrate the panels by tagging cosmics that hit a panel
+and at least one bar in the same layer as the panel.
+\end{enumerate}
+
+A validation of this procedure is shown in Fig.~\ref{fig:mq_time_calib}, in which
+the calibrated time difference between bar pulses in layer 3 and layer 1 for muon events
+is plotted. There is a single Gaussian distribution centered at 0 ns for beam 
+muons, as expected if the calibration is done correctly.
+
+\begin{figure}[t]
+  \begin{center}
+    \includegraphics[width=0.60\textwidth]{figs/milliq/time_calib.png}
+    \caption{Calibrated time difference between the bar pulses in layer 3 and layer 1,
+      for events in which a muon is tagged in all four slabs and bars in all
+      three layers. Cosmic and beam muons are distinguished based on the time difference
+      in the first and fourth slabs. The beam muon distribution is centered at 0 ns as expected,
+      and has a resolution of $\sim$5 ns. The cosmic distribution is centered at 15 ns,
+      exactly as expected from time-of-flight considerations ($\Delta t=2\times 2.2\text{ m}/c = 15$ ns).
+            }
+    \label{fig:mq_time_calib}
+  \end{center}
+\end{figure}
+
+In addition to the overall channel-dependent time calibrations, we also correct for the known effect
+of ``time walk'', in which small pulses are reconstructed at later times than large pulses. This is
+due to the algorithm for computing pulse time, which finds the time at which a signal rises above
+some fixed voltage threshold. Large pulses rise quicker than small pulses, and are hence assigned earlier
+times. This phenomenon is illustrated in Fig.~\ref{fig:mq_time_walk}, in which we plot the pulse
+size vs. time delay for pulses in bars neighboring a tagged throughgoing muon (likely caused by
+showering from the muon). One observes a distinct trend in time as the pulse size is varied.
+
+\begin{figure}[t]
+  \begin{center}
+    \includegraphics[width=0.48\textwidth]{figs/milliq/npe_vs_dt_878.pdf}
+    \includegraphics[width=0.48\textwidth]{figs/milliq/npe_vs_dt_ET.pdf}
+    \caption{Pulse size in terms of \Npe ($y$ axis) vs. time delay in ns ($x$ axis),
+      for R878s (left) and ETs (right). We tag events in which a beam muon 
+      passes through all four slabs and three bars in a straight line, and use pulses
+      in neighboring bars caused by e.g. showering from the muon. Time delay is relative
+      to the time in the preceding slab. One observes a delay of up to $\sim$20 ns
+      between pulses of different sizes. The effect is more pronounced in the R878.
+            }
+    \label{fig:mq_time_walk}
+  \end{center}
+\end{figure}
+
+The mean delay as a function of pulse size is extracted in bins of pulse area, and this is used
+to correct individual pulse times. This is done separately for each PMT species, as the effect
+highly depends on the specific pulse shape. Further, there are slight differences in the size
+of the effect between data and simulation, so separate calibrations are derived.
+
+Finally, we also observe that the resolution (i.e. the spread in time for a given pulse size
+in Fig.~\ref{fig:mq_time_walk}) is slightly worse in data than in simulation. To account for 
+this, we smear the reconstructed pulse times in simulation by an area-dependent factor such
+that the time resolutions match those measured in data.
 
 \section{Monte Carlo generation}
 \label{sec:mq_mcgen}
