@@ -500,7 +500,7 @@ times. This phenomenon is illustrated in Fig.~\ref{fig:mq_time_walk}, in which w
 size vs. time delay for pulses in bars neighboring a tagged throughgoing muon (likely caused by
 showering from the muon). One observes a distinct trend in time as the pulse size is varied.
 
-\begin{figure}[t]
+\begin{figure}[t] 
   \begin{center}
     \includegraphics[width=0.48\textwidth]{figs/milliq/npe_vs_dt_878.pdf}
     \includegraphics[width=0.48\textwidth]{figs/milliq/npe_vs_dt_ET.pdf}
@@ -851,6 +851,84 @@ are irrelevant for the simulation of mCP events.
 
 \section{Background estimation and results}
 
+A number of sources may be expected to produce a pulse in each layer of the demonstrator and therefore provide a background:
+\begin{itemize}\setlength\itemsep{-1mm}
+\item Dark rate overlap: each PMT has a dark current due to effects such as the thermal emission of electrons from the cathode. 
+The simplest background source comes from random overlap of three such dark rate pulses. 
+In addition, dark rate counts may overlap with a correlated double coincidence background from another source.
+\item Cosmic/beam muon showers: a large number of gammas, neutrons and electrons may be caused by an interaction of a cosmic
+ray muon with the rock in the demonstrator cavern. This may cause a pulse in each layer of the milliQan demonstrator. 
+Such a background could also be expected from a beam muon which travels close to the demonstrator.
+\item Radiation: radiation in the cavern, scintillator bars or surrounding material can cause correlated deposits in several bars. 
+The lead blocks placed between layers should reduce the probability of a three layer deposit arising from photons or electrons, 
+however, neutrons will not be shielded.
+\item Afterpulses: afterpulses arising from correlated deposits may overlap and produce a triple coincidence signature 
+in the demonstrator. The original correlated signature must not be triggered as in this case the afterpulses will fall 
+in the readout deadtime and not be recorded.
+\end{itemize}
+
+This background is largely reduced through the following baseline signal region selections:
+
+\begin{itemize}\setlength\itemsep{-1mm}
+\item Activity in exactly 1 bar per layer, and these bars must be in a straight line path
+\item First pulse in each bar is the largest (i.e. no pre-pulses, but afterpulses are allowed)
+\item No activity in any panel
+\item No slab hit with $\Npe>250$
+\item Max/min bar \Npe $<10$
+\item max $\Delta t$(bars) $<15$ ns
+\end{itemize}
+
+The first requirement reduces combinatoric background, as almost all background is uncorrelated between layers.
+The panel veto reduces contributions from cosmic and beam-based showers, and the slab veto removes
+large pulses from throughgoing muons. The max/min bar \Npe and timing cuts again drastically reduce random
+background, which is largely uncorrelated in both pulse size and time.
+
+This baseline signal region is divided into 5 separate signal regions used for the final interpretation,
+based on the number of slab hits and minimum bar \Npe. These are listed in Table~\ref{tab:mq_srdefs}.
+The first two regions target small charges, roughly less than $\sim$0.01$e$, as these generally produce
+no pulses in the slabs and small bar pulses. The second two regions target intermediate charges, 
+roughly in the range 0.01 to 0.03$e$, which produce $\mathcal{O}(1)$ slab hit and slightly larger
+bar pulses. The final region targets larger charges, which leave hits in 2 or more slabs.
+
+\begin{table}[t]
+\caption{The five orthogonal signal regions used in the analysis. They are
+categorized based on number of slab hits (which must have $0.5<\Npe<250$) and the minimum \Npe over the three bars.
+\label{tab:mq_srdefs}}
+\centering
+\begin{tabular}{c|cl}
+%\hline
+\hline
+ SR & \# slab hits & min bar \Npe \\
+\hline
+1 & 0 & $[1.5,\;20)$ \\
+2 & 0 & $[20,\;\infty)$ \\
+3 & 1 & $[5,\;30)$ \\
+4 & 1 & $[30,\;\infty)$ \\
+5 & $\geq$2 & $[0.5,\;\infty)$ \\
+\hline
+\end{tabular}
+\end{table}
+
+The expected background counts in each region are estimated by an ``ABCD'' method, in which the
+observed counts in orthogonal non-pointing regions are scaled by transfer factors measured
+in inverted-$\Delta t$ regions. Specifically, we define regions
+\begin{itemize}\setlength\itemsep{-1mm}
+\item A: pointing, max $\Delta t$(bars) $<15$ ns
+\item B: non-pointing, max $\Delta t$(bars) $<15$ ns
+\item C: pointing, max $\Delta t$(bars) $>15$ ns
+\item D: non-pointing, max $\Delta t$(bars) $>15$ ns
+\end{itemize}
+where ``pointing'' refers to the requirement that the single bars in each layer form a straight line path,
+and max $\Delta t$(bars) is the maximum time difference between any two bars. Additional requirements
+on the number of slabs and minimum bar \Npe are added to each region for estimating the individual signal
+regions listed in Table~\ref{tab:mq_srdefs}.
+
+Region A is the region whose background count we want to estimate, and B, C, and D are orthogonal control regions. 
+Assuming that the timing distribution is not correlated with whether or not the pointing requirement is satisfied, 
+we can estimate
+\be
+N_\mrm{A} = \frac{N_\mrm{C}}{N_\mrm{D}} N_\mrm{B}.
+\ee
 
 }
 
