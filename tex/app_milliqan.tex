@@ -867,7 +867,9 @@ in the demonstrator. The original correlated signature must not be triggered as 
 in the readout deadtime and not be recorded.
 \end{itemize}
 
-This background is largely reduced through the following baseline signal region selections:
+\subsection{Signal region selections}
+
+The backgrounds described above are largely reduced through the following baseline signal region selections:
 
 \begin{itemize}\setlength\itemsep{-1mm}
 \item Activity in exactly 1 bar per layer, and these bars must be in a straight line path
@@ -888,7 +890,7 @@ based on the number of slab hits and minimum bar \Npe. These are listed in Table
 The first two regions target small charges, roughly less than $\sim$0.01$e$, as these generally produce
 no pulses in the slabs and small bar pulses. The second two regions target intermediate charges, 
 roughly in the range 0.01 to 0.03$e$, which produce $\mathcal{O}(1)$ slab hit and slightly larger
-bar pulses. The final region targets larger charges, which leave hits in 2 or more slabs.
+bar pulses. The final region targets larger charges, which leave hits in two or more slabs.
 
 \begin{table}[t]
 \caption{The five orthogonal signal regions used in the analysis. They are
@@ -908,6 +910,8 @@ categorized based on number of slab hits (which must have $0.5<\Npe<250$) and th
 \hline
 \end{tabular}
 \end{table}
+
+\subsection{Background estimation method}
 
 The expected background counts in each region are estimated by an ``ABCD'' method, in which the
 observed counts in orthogonal non-pointing regions are scaled by transfer factors measured
@@ -929,6 +933,129 @@ we can estimate
 \be
 N_\mrm{A} = \frac{N_\mrm{C}}{N_\mrm{D}} N_\mrm{B}.
 \ee
+
+We check that the method works in a beam-off control region; results are shown in
+Table~\ref{tab:mq_abcd_valid}. Good agreement between predicted and observed counts
+is seen in all regions. We must also verify that there are no significant beam-based
+backgrounds that would break the method. To do this, we compare predictions between
+beam-off and beam-on data, adjusted for total data collection time. Again we see
+good agreement, indicating that any beam-based backgrounds are negligible.
+In any case, we verify from simulation that adding beam-based backgrounds
+to the non-beam backgrounds preserves the validity of the ABCD method.
+
+\begin{table}[t]
+\caption{Two validations of the ABCD background estimation method:
+comparisons of predicted vs. observed in a beam-off control region
+(shows that the method works with non-beam backgrounds), and comparisons
+of predictions from beam-off and beam-on data (shows that beam-based
+backgrounds are negligible). Uncertainties shown are statistical.
+\label{tab:mq_abcd_valid}}
+\centering
+\begin{tabular}{c|cc|c}
+\multirow{2}{*}{SR} & \multicolumn{2}{c}{Beam off} & Beam on \\
+%% \hline
+\cline{2-4}
+ & Pred. & Obs. & Pred. \\
+\hline
+1 & $145\pm6$ & 144 & $141\pm6$ \\
+2 & $36\pm5$ & 40 & $39\pm5$ \\
+3 & $8.4\pm6.0$ & 11 & $13\pm3$ \\
+4 & $2.7\pm1.8$ & 2 & $0.4\pm0.4$ \\
+5 & $0.9\pm0.9$ & 1 & $0.0^{+0.6}_{-0.0}$ \\
+\hline
+\end{tabular}
+\end{table}
+
+We additionally perform the validations as a function of minimum bar \Npe. Comparisons of
+minimum bar \Npe distributions, between predictions/observations in beam-off data
+as well as predictions between beam-off and beam-on data, are shown in 
+Fig~\ref{fig:mq_abcd_valid}. This is done for the 0- and 1-slab regions,
+but not the $\geq$2 slab region as there are not enough events.
+
+\begin{figure}[t]
+  \begin{center}
+    \includegraphics[width=0.95\textwidth]{figs/milliq/abcd_valid_0slab.png} \vskip2mm
+    \includegraphics[width=0.95\textwidth]{figs/milliq/abcd_valid_1slab.png}
+    \caption{ABCD method validations as a function of minimum bar \Npe.
+      The left plots show beam-off predictions/observations, and the right
+      plots compare predictions from beam-on and beam-off data.
+      On the top are the 0 slab regions, and the bottom the 1 slab regions.
+      The $\geq$2 slab region does not have enough statistics to allow
+      a full \Npe distribution. Vertical dashed lines indicate
+      the boundaries of the signal regions (regions 1 and 2 for the top plots,
+      and 3 and 4 for the bottom plots).
+            }
+    \label{fig:mq_abcd_valid}
+  \end{center}
+\end{figure}
+
+
+\subsection{Systematic uncertainties}
+
+We assess a number of systematic uncertainties both on the background estimate and the
+signal yield prediction. On the background estimate, the primary uncertainty arises
+from the statistical uncertainty on the ABCD prediction, especially for the $\geq$1
+slab regions where statistics are lower. These uncertainties are given
+in the final column of Table~\ref{tab:mq_abcd_valid}. Additionally, we assess a systematic
+based on the small prediction/observation disagreements in the beam-off data.
+
+For the signal yield prediction, we assess a systematic uncertainty on the differential cross
+sections of each production mode individually, as well as an overall proton-proton inelastic
+cross section uncertainty used for the light meson production modes. Details are given in
+Sec~\ref{sec:mq_mcgen}. 
+
+A material modeling systematic is assigned by varying the density
+of material between the CMS IP and milliQan up and down by 7\%, re-running the signal simulation
+and observing the change in signal region yields (7\% is chosen based on comparisons of
+predicted and observed muon rates). This is negligible for all but the highest charges
+($>$0.1$e$), and even for these it remains a sub-leading source of uncertainty.
+
+We also account for uncertainties in the per-channel \Npe calibrations, but this is non-trivial
+to propagate to final signal region yields. The uncertainty on each channel's calibration
+comes from a number of sources, some correlated and some not:
+\begin{itemize}\setlength\itemsep{-1mm}
+\item Statistical uncertainty from fit: 10--20\%, uncorrelated everywhere
+\item Correction of SPE mean: 1--5\%; arises from the fact that the mode of the 
+SPE area distribution (measured in-situ) differs from the mean (measured in the lab)
+by up to 10\%, due to a large left tail. We correct for this, and take half the difference
+as an uncertainty. This is correlated between bars with the same PMT species.
+\item B/no-B differences: typically $<$10\%, but up to 20\%. Arises from differences in measured
+SPE values between magnetic field on/off runs. Uncorrelated everywhere.
+\item Low-pass filter: 5--20\%, only on R878s (and fully correlated between them). A low-pass filter
+is applied to the waveforms for calibration, but not in the main analysis. We take the difference
+in measured SPE values with/without the filter as a systematic. R7725s and ETs are unaffected
+as their SPE pulses are much larger and cleaner.
+\item Globally correlated 5\% uncertainty, from observed differences in the power law
+fits between cosmic and SPE points.
+\end{itemize}
+
+To translate these per-channel uncertainties into signal region yield uncertainties, we generate
+1000 ``calibration toys'' in which the PMT efficiencies are varied according to the model above,
+taking into account all correlations. Signal region yields are recorded for each toy, and the
+covariance matrix of the yields is diagonalized to generate $N_\mrm{SR}$ independent uncertainties,
+fully accounting for correlations between the various signal region yields.
+Scatterplots of signal region yields from such toys for an example (mass,charge) point
+are shown in Fig.~\ref{fig:mq_calib_toys}.
+
+\begin{figure}[t]
+  \begin{center}
+    \includegraphics[width=0.95\textwidth]{figs/milliq/calib_toys.png}
+    \caption{Scatterplots of signal region yields in 1000 calibration toys,
+      for an example signal point $m=1.0\GeV$, $q=0.014e$. Diagonalizing the covariance
+      matrix gives five independent uncertainties, accounting for all correlations
+      between the various regions (e.g. the dominant uncertainty in this example shifts events
+      from regions 1 and 3 to 2 and 4, i.e. between the low bar \Npe and high bar \Npe
+      regions, arising from correlated calibration uncertainties between the bars).
+            }
+    \label{fig:mq_calib_toys}
+  \end{center}
+\end{figure}
+
+Finally, we assess a systematic on the time smearing correction applied to signal simulation.
+As the time resolution discrepancies between simulation and data have an unknown origin,
+the full size of the correction is used as a systematic.
+
+\subsection{Results and limits}
 
 }
 
