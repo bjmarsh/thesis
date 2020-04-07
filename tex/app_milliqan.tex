@@ -902,7 +902,7 @@ categorized based on number of slab hits (which must have $0.5<\Npe<250$) and th
 \hline
  SR & \# slab hits & min bar \Npe \\
 \hline
-1 & 0 & $[1.5,\;20)$ \\
+1 & 0 & $[2,\;20)$ \\
 2 & 0 & $[20,\;\infty)$ \\
 3 & 1 & $[5,\;30)$ \\
 4 & 1 & $[30,\;\infty)$ \\
@@ -957,10 +957,10 @@ backgrounds are negligible). Uncertainties shown are statistical.
 \cline{2-4}
  & Pred. & Obs. & Pred. \\
 \hline
-1 & $145\pm6$ & 144 & $141\pm6$ \\
-2 & $36\pm5$ & 40 & $39\pm5$ \\
-3 & $8.4\pm6.0$ & 11 & $13\pm3$ \\
-4 & $2.7\pm1.8$ & 2 & $0.4\pm0.4$ \\
+1 & $129\pm6$ & 139 & $124\pm6$ \\
+2 & $50\pm5$ & 48 & $49\pm5$ \\
+3 & $8.4\pm2.0$ & 10 & $10.7\pm2.7$ \\
+4 & $2.8\pm1.8$ & 4 & $2.4\pm1.1$ \\
 5 & $0.9\pm0.9$ & 1 & $0.0^{+0.6}_{-0.0}$ \\
 \hline
 \end{tabular}
@@ -983,7 +983,8 @@ but not the $\geq$2 slab region as there are not enough events.
       The $\geq$2 slab region does not have enough statistics to allow
       a full \Npe distribution. Vertical dashed lines indicate
       the boundaries of the signal regions (regions 1 and 2 for the top plots,
-      and 3 and 4 for the bottom plots).
+      and 3 and 4 for the bottom plots). Integrated predictions and
+      observations for these regions are listed in Table~\ref{tab:mq_abcd_valid}.
             }
     \label{fig:mq_abcd_valid}
   \end{center}
@@ -1000,9 +1001,9 @@ in the final column of Table~\ref{tab:mq_abcd_valid}. Additionally, we assess a 
 based on the small prediction/observation disagreements in the beam-off data.
 
 For the signal yield prediction, we assess a systematic uncertainty on the differential cross
-sections of each production mode individually, as well as an overall proton-proton inelastic
+section of each production mode individually, as well as an overall proton-proton inelastic
 cross section uncertainty used for the light meson production modes. Details are given in
-Sec~\ref{sec:mq_mcgen}. 
+Sec.~\ref{sec:mq_mcgen}. 
 
 A material modeling systematic is assigned by varying the density
 of material between the CMS IP and milliQan up and down by 7\%, re-running the signal simulation
@@ -1017,7 +1018,7 @@ comes from a number of sources, some correlated and some not:
 \item Statistical uncertainty from fit: 10--20\%, uncorrelated everywhere
 \item Correction of SPE mean: 1--5\%; arises from the fact that the mode of the 
 SPE area distribution (measured in-situ) differs from the mean (measured in the lab)
-by up to 10\%, due to a large left tail. We correct for this, and take half the difference
+by up to 10\%, due to a large left tail in the area distributions. We correct for this, and take half the difference
 as an uncertainty. This is correlated between bars with the same PMT species.
 \item B/no-B differences: typically $<$10\%, but up to 20\%. Arises from differences in measured
 SPE values between magnetic field on/off runs. Uncorrelated everywhere.
@@ -1025,7 +1026,7 @@ SPE values between magnetic field on/off runs. Uncorrelated everywhere.
 is applied to the waveforms for calibration, but not in the main analysis. We take the difference
 in measured SPE values with/without the filter as a systematic. R7725s and ETs are unaffected
 as their SPE pulses are much larger and cleaner.
-\item Globally correlated 5\% uncertainty, from observed differences in the power law
+\item Global fully-correlated 5\% uncertainty, from observed differences in the power law
 fits between cosmic and SPE points.
 \end{itemize}
 
@@ -1034,13 +1035,13 @@ To translate these per-channel uncertainties into signal region yield uncertaint
 taking into account all correlations. Signal region yields are recorded for each toy, and the
 covariance matrix of the yields is diagonalized to generate $N_\mrm{SR}$ independent uncertainties,
 fully accounting for correlations between the various signal region yields.
-Scatterplots of signal region yields from such toys for an example (mass,charge) point
+Scatterplots of signal region yields from such toys for an example (mass, charge) point
 are shown in Fig.~\ref{fig:mq_calib_toys}.
 
 \begin{figure}[t]
   \begin{center}
     \includegraphics[width=0.95\textwidth]{figs/milliq/calib_toys.png}
-    \caption{Scatterplots of signal region yields in 1000 calibration toys,
+    \caption{Scatterplots of signal region yields in 1000 \Npe calibration toys,
       for an example signal point $m=1.0\GeV$, $q=0.014e$. Diagonalizing the covariance
       matrix gives five independent uncertainties, accounting for all correlations
       between the various regions (e.g. the dominant uncertainty in this example shifts events
@@ -1051,9 +1052,9 @@ are shown in Fig.~\ref{fig:mq_calib_toys}.
   \end{center}
 \end{figure}
 
-Finally, we assess a systematic on the time smearing correction applied to signal simulation.
+Finally, we assess a systematic uncertainty on the time smearing correction applied to signal simulation.
 As the time resolution discrepancies between simulation and data have an unknown origin,
-the full size of the correction is used as a systematic.
+the full size of the correction is used as a systematic uncertainty.
 
 \subsection{Results and limits}
 
