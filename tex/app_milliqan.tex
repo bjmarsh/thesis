@@ -897,16 +897,16 @@ bar pulses. The final region targets larger charges, which leave hits in two or 
 categorized based on number of slab hits (which must have $0.5<\Npe<250$) and the minimum \Npe over the three bars.
 \label{tab:mq_srdefs}}
 \centering
-\begin{tabular}{c|cl}
+\begin{tabular}{c|cc}
 %\hline
 \hline
  SR & \# slab hits & min bar \Npe \\
 \hline
-1 & 0 & $[2,\;20)$ \\
-2 & 0 & $[20,\;\infty)$ \\
-3 & 1 & $[5,\;30)$ \\
-4 & 1 & $[30,\;\infty)$ \\
-5 & $\geq$2 & $[0.5,\;\infty)$ \\
+1 & 0 & $[2,\;20]$ \\
+2 & 0 & $>20$ \\
+3 & 1 & $[5,\;30]$ \\
+4 & 1 & $>30$ \\
+5 & $\geq$2 & $>0.5$ \\
 \hline
 \end{tabular}
 \end{table}
@@ -958,10 +958,10 @@ backgrounds are negligible). Uncertainties shown are statistical.
  & Pred. & Obs. & Pred. \\
 \hline
 1 & $129\pm6$ & 139 & $124\pm6$ \\
-2 & $50\pm5$ & 48 & $49\pm5$ \\
+2 & $50\pm5$ & 48 & $49.8\pm5.0$ \\
 3 & $8.4\pm2.0$ & 10 & $10.7\pm2.7$ \\
 4 & $2.8\pm1.8$ & 4 & $2.4\pm1.1$ \\
-5 & $0.9\pm0.9$ & 1 & $0.0^{+0.6}_{-0.0}$ \\
+5 & $0.9\pm0.9$ & 1 & $0.0^{+1.0}_{-0.0}$ \\
 \hline
 \end{tabular}
 \end{table}
@@ -1057,6 +1057,26 @@ As the time resolution discrepancies between simulation and data have an unknown
 the full size of the correction is used as a systematic uncertainty.
 
 \subsection{Results and limits}
+
+\begin{table}[t]
+\caption{Predictions and observations in the 5 orthogonal signal regions.
+The observed event counts are consistent with the predicted counts in all cases.
+\label{tab:mq_results}}
+\centering
+\begin{tabular}{c|c|c||c|c}
+%\hline
+\hline
+ SR & \# slab hits & min bar \Npe & Pred. & Obs. \\
+\hline
+1 & 0 & $[2,\;20]$ & $124\pm6$ & 129\\
+2 & 0 & $>20$ & $49.8\pm5.0$ & 52\\
+3 & 1 & $[5,\;30]$ & $10.7\pm2.7$ & 8\\
+4 & 1 & $>30$ & $2.4\pm1.1$ & 4\\
+5 & $\geq$2 & $>0.5$ & $0.0^{+1.0}_{-0.0}$ & 1 \\
+\hline
+\end{tabular}
+\end{table}
+
 
 }
 
