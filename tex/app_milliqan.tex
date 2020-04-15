@@ -895,18 +895,19 @@ bar pulses. The final region targets larger charges, which leave hits in two or 
 \begin{table}[t]
 \caption{The five orthogonal signal regions used in the analysis. They are
 categorized based on number of slab hits (which must have $0.5<\Npe<250$) and the minimum \Npe over the three bars.
+The final column lists the approximate mCP charge range probed by each signal region.
 \label{tab:mq_srdefs}}
 \centering
-\begin{tabular}{c|cc}
+\begin{tabular}{c|cc|c}
 %\hline
 \hline
- SR & \# slab hits & min bar \Npe \\
+ SR & \# slab hits & min bar \Npe & Approx. targeted charge range\\
 \hline
-1 & 0 & $[2,\;20]$ \\
-2 & 0 & $>20$ \\
-3 & 1 & $[5,\;30]$ \\
-4 & 1 & $>30$ \\
-5 & $\geq$2 & $>0.5$ \\
+1 & 0 & $[2,\;20]$ & $\leq0.014$\\
+2 & 0 & $>20$ & 0.014--0.03\\
+3 & 1 & $[5,\;30]$ & 0.01--0.02\\
+4 & 1 & $>30$ & 0.02--0.05\\
+5 & $\geq$2 & $>0.5$ & $\geq0.03$\\
 \hline
 \end{tabular}
 \end{table}
@@ -951,17 +952,18 @@ of predictions from beam-off and beam-on data (shows that beam-based
 backgrounds are negligible). Uncertainties shown are statistical.
 \label{tab:mq_abcd_valid}}
 \centering
+\renewcommand{\arraystretch}{1.3}
 \begin{tabular}{c|cc|c}
 \multirow{2}{*}{SR} & \multicolumn{2}{c}{Beam off} & Beam on \\
 %% \hline
 \cline{2-4}
  & Pred. & Obs. & Pred. \\
 \hline
-1 & $129\pm6$ & 139 & $124\pm6$ \\
-2 & $50\pm5$ & 48 & $49.8\pm5.0$ \\
-3 & $8.4\pm2.0$ & 10 & $10.7\pm2.7$ \\
-4 & $2.8\pm1.8$ & 4 & $2.4\pm1.1$ \\
-5 & $0.9\pm0.9$ & 1 & $0.0^{+1.0}_{-0.0}$ \\
+1 & $121.2^{+5.5}_{-5.8}$ & 131 & $124.2^{+11.6}_{-9.9}$ \\
+2 & $47.4^{+5.7}_{-4.9}$ & 45 & $49.9^{+5.5}_{-5.1}$ \\
+3 & $7.8^{+2.6}_{-2.0}$ & 9 & $10.7^{+3.7}_{-2.4}$ \\
+4 & $2.7^{+2.1}_{-1.1}$ & 4 & $2.4^{+1.9}_{-1.2}$ \\
+5 & $0.8^{+1.5}_{-0.4}$ & 1 & $0.0^{+0.9}_{-0.0}$ \\
 \hline
 \end{tabular}
 \end{table}
