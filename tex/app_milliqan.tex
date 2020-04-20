@@ -75,7 +75,7 @@ to search for mCPs at the LHC.
 The milliQan experiment, designed to search for mCPs using collisions at LHC P5, was proposed in 
 2015~\cite{Haas:mcp,mq:loi}. It is located in a drainage gallery, elevated 45$^\circ$ above and 33
 m from the CMS experiment, with 17 m of rock in between that naturally
-suppresses beam-based backgrounds. The proposed design consists of three stacked layers of plastic 
+suppresses beam-based backgrounds. The proposed design consists of four stacked ``layers'' of plastic 
 scintillator arrays, with each scintillating bar coupled to a photomultiplier tube (PMT).
 The arrays are pointed at the interaction point (IP), such that a particle originating
 from a $pp$ collision would pass through all three layers in a straight line.
@@ -84,10 +84,10 @@ throughgoing mCPs, and requiring a simultaneous hit in all three layers drastica
 reduces background, which mostly consists of random overlap of pulses from
 PMT dark rate, environmental radiation, cosmic rays, and afterpulsing.
 
-The full milliQan design is anticipated to consist of three ``layers'' of $20\times20$ scintillator arrays,
+The full milliQan design is anticipated to consist of four layers of $20\times20$ scintillator arrays,
 each around 1 m$^2$ in total. In 2017--18, a smaller scale \textit{demonstrator} was installed
 to study backgrounds and provide a proof-of-concept for the full-scale detector.
-This demonstrator consists of three $2\times3$ scintillator bar arrays, roughly 1--2\%
+This demonstrator consists of three $2\times3$ scintillator bar arrays, roughly 1\%
 of the planned full detector.
 
 The 18 scintillator bars each measure 5 cm $\times$ 5 cm $\times$ 80 cm, and are
@@ -913,6 +913,7 @@ The final column lists the approximate mCP charge range probed by each signal re
 \end{table}
 
 \subsection{Background estimation method}
+\label{sec:mq_bkg_est}
 
 The expected background counts in each region are estimated by an ``ABCD'' method, in which the
 observed counts in orthogonal non-pointing regions are scaled by transfer factors measured
@@ -959,11 +960,11 @@ backgrounds are negligible). Uncertainties shown are statistical.
 \cline{2-4}
  & Pred. & Obs. & Pred. \\
 \hline
-1 & $121.2^{+5.5}_{-5.8}$ & 131 & $124.2^{+6.0}_{-5.1}$ \\
-2 & $47.4^{+5.7}_{-4.9}$ & 45 & $49.9^{+4.9}_{-4.4}$ \\
-3 & $7.8^{+2.6}_{-2.0}$ & 9 & $10.7^{+3.3}_{-1.8}$ \\
-4 & $2.7^{+2.1}_{-1.1}$ & 4 & $2.4^{+1.5}_{-0.8}$ \\
-5 & $0.8^{+1.5}_{-0.4}$ & 1 & $0.0^{+0.9}_{-0.0}$ \\
+1 & $121.2^{+6.0}_{-5.9}$ & 131 & $124.2^{+5.6}_{-4.0}$ \\
+2 & $47.4^{+5.2}_{-4.8}$ & 45 & $49.9^{+5.5}_{-4.8}$ \\
+3 & $7.8^{+2.5}_{-1.8}$ & 9 & $10.7^{+3.2}_{-2.0}$ \\
+4 & $2.7^{+2.1}_{-1.1}$ & 4 & $2.4^{+1.8}_{-0.8}$ \\
+5 & $0.8^{+1.4}_{-0.4}$ & 1 & $0.0^{+0.9}_{-0.0}$ \\
 \hline
 \end{tabular}
 \end{table}
@@ -994,6 +995,7 @@ but not the $\geq$2 slab region as there are not enough events.
 
 
 \subsection{Systematic uncertainties}
+\label{sec:mq_systs}
 
 We assess a number of systematic uncertainties both on the background estimate and the
 signal yield prediction. On the background estimate, the primary uncertainty arises
@@ -1060,10 +1062,20 @@ the full size of the correction is used as a systematic uncertainty.
 
 \subsection{Results and limits}
 
+Predictions are made from the beam-on dataset, representing 37 fb$^{-1}$ of proton-proton collision data
+taken in 2018, using the ABCD method described in
+Sec.~\ref{sec:mq_bkg_est}. In addition to the statistical uncertainty from
+the limited size of the control regions, an additional systematic uncertainty is
+assigned based on small disagreements between prediction and observation
+in the beam-off validation (Table~\ref{tab:mq_abcd_valid}). Predictions and their total
+uncertainties are listed in Table~\ref{tab:mq_results}, along with the observed event counts.
+The observed counts agree with predictions within the uncertainty in all cases.
+
 \begin{table}[t]
 \caption{Predictions and observations in the 5 orthogonal signal regions.
-Uncertainties shown in the predictions include both systematic uncertainties and statistical uncertainty
-from the limited size of the control regions.
+Uncertainties shown in the predictions include both statistical uncertainty
+from the limited size of the control regions, and systematic uncertainty from small disagreements
+in the beam-off validation.
 The observed event counts are consistent with the predicted counts in all cases.
 \label{tab:mq_results}}
 \centering
@@ -1073,10 +1085,10 @@ The observed event counts are consistent with the predicted counts in all cases.
 \hline
  SR & \# slab hits & min bar \Npe & Pred. & Obs. \\
 \hline
-1 & 0 & $[2,\;20]$ & $124^{+12}_{-10}$ & 129\\
-2 & 0 & $>20$ & $49.9^{+5.5}_{-5.1}$ & 52\\
-3 & 1 & $[5,\;30]$ & $10.7^{+3.7}_{-2.4}$ & 8\\
-4 & 1 & $>30$ & $2.4^{+1.9}_{-1.2}$ & 4\\
+1 & 0 & $[2,\;20]$ & $124\pm11$ & 129\\
+2 & 0 & $>20$ & $49.9^{+6.0}_{-5.4}$ & 52\\
+3 & 1 & $[5,\;30]$ & $10.7^{+3.6}_{-2.6}$ & 8\\
+4 & 1 & $>30$ & $2.4^{+2.1}_{-1.1}$ & 4\\
 5 & $\geq$2 & $>0.5$ & $0.0^{+0.9}_{-0.0}$ & 1 \\
 \hline
 \end{tabular}
@@ -1085,3 +1097,26 @@ The observed event counts are consistent with the predicted counts in all cases.
 
 }
 
+The results are interpreted using the millicharged signal production model discussed in Sec.~\ref{sec:mq_mcgen}, with the systematic uncertainties on signal yields listed in
+Sec.~\ref{sec:mq_systs}.
+Under the signal plus background hypothesis, a modified frequentist approach is used
+to determine observed upper limits at 95\% confidence level
+on the cross section to produce a pair of mCPs, as a function of mass and charge. 
+The approach uses the the CLs
+technique, described in Sec. \ref{sec:fits}. The observed upper limits are evaluated
+through the use of asymptotic formulae. Figure~\ref{fig:mq_limit} shows the exclusion at 95\% 
+confidence level in mass and charge of the mCP. 
+The existence of new particles with mass between 20 and 3000~MeV is excluded for minimum charge varying
+ between $0.006e$ and $0.3e$, depending on mass.
+Compared to existing constraints, 
+the milliQan demonstrator provides unique sensitivity for mCP masses above 0.7 GeV.
+
+\begin{figure}[t]
+  \begin{center}
+    \includegraphics[width=0.70\textwidth]{figs/milliq/finalLimit.pdf}
+    \caption{Exclusion in the mCP $(m,Q)$ plane at the 95\% confidence level compared
+      to existing constraints.
+            }
+    \label{fig:mq_limit}
+  \end{center}
+\end{figure}
