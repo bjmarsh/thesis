@@ -480,7 +480,7 @@ muons, as expected if the calibration is done correctly.
 
 \begin{figure}[t]
   \begin{center}
-    \includegraphics[width=0.60\textwidth]{figs/milliq/time_calib.png}
+    \includegraphics[width=0.60\textwidth]{figs/milliq/time_calib.pdf}
     \caption{Calibrated time difference between the bar pulses in layer 3 and layer 1,
       for events in which a muon is tagged in all four slabs and bars in all
       three layers. Cosmic and beam muons are distinguished based on the time difference
@@ -1077,27 +1077,31 @@ Uncertainties shown in the predictions include both statistical uncertainty
 from the limited size of the control regions, and systematic uncertainty from small disagreements
 in the beam-off validation.
 The observed event counts are consistent with the predicted counts in all cases.
+The final three columns give estimated signal yields for three $(m_\mrm{mCP},Q)$ points
+near the exclusion boundary.
 \label{tab:mq_results}}
 \centering
 \renewcommand{\arraystretch}{1.3}
-\begin{tabular}{c|c|c||c|c}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{c|cc|cc|ccc}
 %\hline
+\multicolumn{5}{c}{} & \multicolumn{3}{c}{Signal yields ($m_\mrm{mCP}$ [GeV], $Q/e$)} \\
 \hline
- SR & \# slab hits & min bar \Npe & Pred. & Obs. \\
+ SR & \# slab hits & min bar \Npe & Pred. & Obs. & (0.05, 0.007) & (1.0, 0.02) & (3.0, 0.1)\\
 \hline
-1 & 0 & $[2,\;20]$ & $124\pm11$ & 129\\
-2 & 0 & $>20$ & $49.9^{+6.0}_{-5.4}$ & 52\\
-3 & 1 & $[5,\;30]$ & $10.7^{+3.6}_{-2.6}$ & 8\\
-4 & 1 & $>30$ & $2.4^{+2.1}_{-1.1}$ & 4\\
-5 & $\geq$2 & $>0.5$ & $0.0^{+0.9}_{-0.0}$ & 1 \\
+1 & 0 & $[2,\;20]$ & $124\pm11$ & 129 & 60.0 & 0.4 & 0 \\
+2 & 0 & $>20$ & $49.9^{+6.0}_{-5.4}$ & 52 & 0 & 16.3 & 0 \\
+3 & 1 & $[5,\;30]$ & $10.7^{+3.6}_{-2.6}$ & 8 & 0.5 & 0.5 & 0 \\
+4 & 1 & $>30$ & $2.4^{+2.1}_{-1.1}$ & 4 & 0 & 8.5 & 0 \\
+5 & $\geq$2 & $>0.5$ & $0.0^{+0.9}_{-0.0}$ & 1 & 0.6 & 1.9 & 4.2 \\
 \hline
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 
 }
 
-The results are interpreted using the millicharged signal production model discussed in Sec.~\ref{sec:mq_mcgen}, with the systematic uncertainties on signal yields listed in
+The results are interpreted using the signal production model discussed in Sec.~\ref{sec:mq_mcgen}, with the systematic uncertainties on signal yields listed in
 Sec.~\ref{sec:mq_systs}.
 Under the signal plus background hypothesis, a modified frequentist approach is used
 to determine observed upper limits at 95\% confidence level
@@ -1115,7 +1119,8 @@ the milliQan demonstrator provides unique sensitivity for mCP masses above 0.7 G
   \begin{center}
     \includegraphics[width=0.70\textwidth]{figs/milliq/finalLimit.pdf}
     \caption{Exclusion in the mCP $(m,Q)$ plane at the 95\% confidence level compared
-      to existing constraints.
+      to existing constraints from colliders, CMS~\cite{Chatrchyan_2013,Chatrchyan_2013_2}, ArgoNeuT~\cite{ArgoNeuT}, and SLAC MilliQ~\cite{MilliQ},
+      as well as the indirect constraint from the CMB relativistic degrees of freedom~\cite{Brust:2013ova}.
             }
     \label{fig:mq_limit}
   \end{center}
