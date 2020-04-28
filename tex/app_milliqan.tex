@@ -1,9 +1,9 @@
 \newcommand{\Npe}{\ensuremath{N_\mrm{PE}}\xspace}
 
-\chapter{Bonus: A Search for Milli-Charged Particles at the LHC}
+\chapter{Bonus: A Search for Millicharged Particles at the LHC}
 {\small
 
-\section{Motivation of a search for milli-charged particles}
+\section{Motivation of a search for millicharged particles}
 
 One of the central mysteries of modern particle physics is the question of what
 makes up dark matter. It must consist of massive particles that interact
@@ -40,13 +40,13 @@ couples to the SM photon with electric charge $\kappa e'\cos\theta_w$, and coupl
 SM $Z$ with charge $\kappa e'\sin\theta_w$. The mixing strength $\kappa$ must be small
 (otherwise the new dark sector would have been observed already), so we must have
 $\varepsilon\equiv \kappa e'\cos\theta_w/e \ll 1$, and we call $\psi'$ a
-``milli-charged particle'' (mCP; note that the name is a bit of a misnomer because $\varepsilon$
+``millicharged particle'' (mCP; note that the name is a bit of a misnomer because $\varepsilon$
 does not have to be exactly $\mathcal{O}(10^{-3}$))
 
 \begin{figure}[t]
   \begin{center}
     \includegraphics[width=0.50\textwidth]{figs/milliq/search_status.png}
-    \caption{Existing exclusion limits for milli-charged particles, coming
+    \caption{Existing exclusion limits for millicharged particles, coming
       from searches via colliders, solar effects, astronomical observations,
       and cosmological bounds. milliQan targets the unexcluded phase space
       with $\varepsilon\geq10^{-3}$ and $10^{-1} < m_\text{mCP} < 10^2\GeV$.
@@ -56,7 +56,7 @@ does not have to be exactly $\mathcal{O}(10^{-3}$))
   \end{center}
 \end{figure}
 
-Such milli-charged particles have been searched for via a variety of methods,
+Such millicharged particles have been searched for via a variety of methods,
 either directly through collider experiments or indirectly through
 solar effects, astronomical observations, or cosmological bounds.
 A summary of the present exclusion space in the mCP mass--charge plane
@@ -759,7 +759,7 @@ area and overlaid on a random zero-bias event. These pulse-injected simulated ev
 then look just like real data, with the exception that they do not model
 PMT saturation effects (however, this does not matter in practice).
 
-\section{Simulation validation and data comparisons}
+\section{Simulation validation and comparisons with data}
 
 Simulation is validated by comparing various predicted quantities and distributions
 to those measured in real data. The simplest comparison is the rate of muons coming
@@ -770,7 +770,7 @@ The signal appears as four large pulses in the four slabs, with timing consisten
 with a particle coming from the beam (roughly, $t_4-t_1=10\pm10$~ns); no requirement is
 placed on hits in the bars or panels.
 
-In data, the rate is measured at 0.18 muons/pb$^{-1}$, with negligible statistical
+In data, the rate is measured at 0.21 muons/pb$^{-1}$, with negligible statistical
 uncertainty. For the rate from simulation, we must account for various systematic
 uncertainties. For the rate from heavy-flavor mesons, we scaled the cross section
 by $1.25\pm0.25$ based on a comparison of FONLL with measured CMS data, so we take
@@ -955,9 +955,9 @@ backgrounds are negligible). Uncertainties shown are statistical.
 \centering
 \renewcommand{\arraystretch}{1.3}
 \begin{tabular}{c|cc|c}
-\multirow{2}{*}{SR} & \multicolumn{2}{c}{Beam off} & Beam on \\
+\multirow{2}{*}{SR} & \multicolumn{2}{c|}{Beam off} & Beam on \\
 %% \hline
-\cline{2-4}
+%% \cline{2-4}
  & Pred. & Obs. & Pred. \\
 \hline
 1 & $121.2^{+6.0}_{-5.9}$ & 131 & $124.2^{+5.6}_{-4.0}$ \\
@@ -1084,9 +1084,8 @@ near the exclusion boundary.
 \renewcommand{\arraystretch}{1.3}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{c|cc|cc|ccc}
-%\hline
-\multicolumn{5}{c}{} & \multicolumn{3}{c}{Signal yields ($m_\mrm{mCP}$ [GeV], $Q/e$)} \\
 \hline
+ & & & & & \multicolumn{3}{|c}{Signal yields ($m_\mrm{mCP}$ [GeV], $Q/e$)} \\
  SR & \# slab hits & min bar \Npe & Pred. & Obs. & (0.05, 0.007) & (1.0, 0.02) & (3.0, 0.1)\\
 \hline
 1 & 0 & $[2,\;20]$ & $124\pm11$ & 129 & 60.0 & 0.4 & 0 \\
