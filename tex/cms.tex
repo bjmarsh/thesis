@@ -126,7 +126,7 @@ to a Boeing 737 traveling at 200 mph!
 
 The ``collision rate'' at colliders is measured with a quantity known as instantaneous
 luminosity, defined by the rate $N$ of a given type of interaction with cross section (roughly, likelihood
-of interaction) $\sigma$ as $\mathcal{L}=N\sigma$. This luminosity is a function of
+of interaction) $\sigma$ as $\mathcal{L}=N/\sigma$. This luminosity is a function of
 the bunch crossing rate (at the LHC, once every 25 ns), the number of protons
 per bunch, and the effective area of the beam (i.e., how tightly packed
 the protons in the beam are). The LHC can reach an instantaneous luminosity of
@@ -136,7 +136,7 @@ The total proton-proton inelastic cross section is measured to be around 78 mb~\
 Multiplying by the LHC instantaneous luminosity, that means we expect
 1.5 billion inelastic collisions per second, or around 40 per bunch crossing.
 Most of these will be relatively uninteresting, and a major challenge in analyzing experimental
-data is disentangling the interesting event from the $\sim40$ other interactions
+data is disentangling the interesting event from the ${\sim}40$ other interactions
 (referred to as \textit{pileup} interactions).
 
 The LHC began beam operations in September 2008. Just nine days after the
@@ -157,7 +157,7 @@ ALICE is optimized to study collisions of Pb nuclei
 produce quark--gluon plasma. LHCb is an asymmetric forward
 detector meant to study processes involving $B$ hadrons.
 CMS and ATLAS are both general-purpose hermetic detectors,
-meant to study a wide range of physics. 
+designed to study a wide range of physics. 
 We now turn our attention to the CMS experiment, which was used
 to collect the data utilized in the present analysis.
 
@@ -204,7 +204,7 @@ Fig.~\ref{fig:cms_photos}.
       on the outside, and the magnet forming the inner ring.
       (right) A broader view of the opened CMS detector, during the installation
       of the new phase-1 upgrade pixel detector in 2017. Note the technicians
-      inside the barrel for scale. (Image via Maximilien Brice, CERN)
+      inside the barrel for scale. (Image via CERN)
             }
     \label{fig:cms_photos}
   \end{center}
@@ -480,7 +480,7 @@ these types of events, trigger paths can be ``prescaled'', which means that
 only one in every $N$ events is saved. As an example, in Chapter~\ref{chap:qcd}
 we make use of an inclusive selection of events with $\Ht>250\GeV$. At peak
 luminosity these events happen at around 3 kHz, which would completely overwhelm
-the HLT. So the trigger path for these events is prescaled by a factor of 4000,
+the HLT. So the trigger path for these events is prescaled by a factor of $\sim$4000,
 reducing their contribution to the overall rate to below 1 Hz.
 
 \subsection{Computing and reconstruction}
@@ -506,14 +506,14 @@ size is 330 kB.
 \item {MINIAOD}: a further reduction of the {AOD} tier, eliminating much rarely-used information
 and adding some relevant high-level information used by many analyses (e.g. b-tagging information, jet/lepton IDs, etc.)
 A typical JetHT event size is 40 kB. This is the data format used for the analysis in this dissertation.
-\item NANOAOD: a newly introduced format, consisting of a lightweight flat tree built from MINIAOD. Much low-level
+\item NANOAOD: a newly introduced format, consisting of a lightweight flat ntuple built from MINIAOD. Much low-level
 particle information is dropped, keeping only higher level variables used for a majority of analyses.
 A typical JetHT event size is 0.7 kB.
 \end{itemize}
 
 In addition to processing real data from the detector, the CMS computing network also manages the production
 of simulated data, or Monte Carlo (MC). For a given process (e.g. \zll), the initial events
-are generated with an event generator such as \textsc{Madgraph}~\cite{madgraph}; parton showering, fragmentation, and decays
+are generated with an event generator such as \textsc{MadGraph}~\cite{madgraph}; parton showering, fragmentation, and decays
 of semi-stable particles are done with a tool such as \textsc{pythia}~\cite{pythia}; and then all of the resulting
 particles are fed into a full \textsc{Geant4} simulation~\cite{geant4} of the CMS detector. This produces
 realistic detector hits that can then be processed with the same code as is used for real data,
@@ -531,7 +531,7 @@ The HL-LHC will provide a leveled luminosity of $5.0\times10^{34}~\mrm{cm}^{-2}\
 times larger than the present maximum, and corresponding to an average pileup (PU) of 140 $pp$ interactions
 per bunch crossing. Ultimately, the plan is to go all the way to $7.5\times10^{34}~\mrm{cm}^{-2}\mrm{s}^{-1}$,
 corresponding to an average of 200 $pp$ interactions per bunch crossing. The current CMS experiment is 
-ill-equipped to handle this many simultaneous operations, as the increased spatial overlap of
+ill-equipped to handle this many simultaneous collisions, as the increased spatial overlap of
 tracks, interaction vertices, and calorimeter deposits will degrade particle identification and reconstruction
 capabilities below acceptable levels (not to mention the greatly increased radiation levels that
 current components cannot handle).
