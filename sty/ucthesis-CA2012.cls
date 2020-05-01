@@ -71,7 +71,7 @@
 \def\appendixname{Appendix}
 \def\partname{Part}
 \def\abstractname{Abstract}
-\def\acknowledgename{Acknowledgements}
+\def\acknowledgename{Acknowledgments}
 \def\disclaimername{Disclaimer}
 \def\vitaename{Curriculum Vit\ae}
 \def\@chapapp{\chaptername} % For use in the old 'book' style commands

@@ -538,7 +538,7 @@ Additionally, $\zeta^+\zeta^-$ pairs can be produced via
 the Drell-Yan process, as with couplings to the photon and
 $Z$ of $\varepsilon e$ and $\varepsilon e\tan\theta_w$, respectively.
 
-We generate Drell-Yan decays with \textsc{MadGraph}~\cite{madgraph}, using the
+We generate Drell-Yan decays with the \textsc{MadGraph5}\_a\textsc{mc@nlo} event generator~\cite{madgraph}, using the
 Lagrangian~\ref{eq:mcp_lagr}, with a cut on the invariant mass of the $\zeta^+\zeta^-$
 pair of 2\GeV. The Drell-Yan production mode is subdominant when the mass of the mCP
 is below half the $\Upsilon$ mass, around 5\GeV.
@@ -584,7 +584,7 @@ are taken directly from theory calculations. Theoretical calculations of $\Upsil
 production are not reliable at low \pt, so we use differential cross sections
 measured by experiment. For $\pt>20\GeV$, we use cross sections measured
 at $\sqrt{s}=13\TeV$~\cite{Sirunyan:2017qdw}, and at lower \pt we use measurements
-from 7\TeV~\cite{Aad:2012dlq}, rescaled using the measured ration of 13 to 7\TeV cross sections
+from 7\TeV~\cite{Aad:2012dlq}, rescaled using the measured ratio of 13 to 7\TeV cross sections
 at slightly higher rapidity.
 
 Differential cross sections for all light-flavor mesons except $\phi$ mesons
@@ -628,7 +628,7 @@ account for the modeling of meson rates per minimum bias event.
 A plot summarizing the cross section times branching ratio values
 for all $\zeta^+\zeta^-$ production modes is shown in Fig.~\ref{fig:mcp_xsec}.
 At low masses, production is dominated by Dalitz decays of light mesons
-$\pi^0$, $\eta$. At around a few hundred \MeV, direct decays
+$\pi^0$, $\eta$. At around a few hundred\MeV, direct decays
 of $\omega$'s and $\rho$'s dominate. Near 1\GeV, J/$\psi$'s provide
 almost all of the cross section, before the rate falls off substantially
 past half the J/$\psi$ mass near 1.5\GeV. $\Upsilon$'s become the dominant
@@ -704,7 +704,7 @@ integrator, according to the relativistic kinematic equations
 \frac{d(\vec{p}c)}{dt} = 89.8755\;q\;\vec{v}\times\vec{B},
 \ee
 where the form of the second equation is valid if $B$ is in Tesla,
-$t$ in ns, $\vec{v}$ in m/ns, $q$ in units of $e$, and $\vec{p}c$ in \MeV.
+$t$ in ns, $\vec{v}$ in m/ns, $q$ in units of $e$, and $\vec{p}c$ in\MeV.
 
 Multiple scattering is implemented using a small-angle Gaussian angle approximation,
 as described in the PDG~\cite{PDGreview33}. At each time step, a $\theta_\mrm{RMS}$ is 
@@ -955,8 +955,8 @@ backgrounds are negligible). Uncertainties shown are statistical.
 \centering
 \renewcommand{\arraystretch}{1.3}
 \begin{tabular}{c|cc|c}
+\hline
 \multirow{2}{*}{SR} & \multicolumn{2}{c|}{Beam off} & Beam on \\
-%% \hline
 %% \cline{2-4}
  & Pred. & Obs. & Pred. \\
 \hline
@@ -1062,7 +1062,7 @@ the full size of the correction is used as a systematic uncertainty.
 
 \subsection{Results and limits}
 
-Predictions are made from the beam-on dataset, representing 37 fb$^{-1}$ of proton-proton collision data
+Predictions are made from the beam-on dataset, representing 37.5 fb$^{-1}$ of proton-proton collision data
 taken in 2018, using the ABCD method described in
 Sec.~\ref{sec:mq_bkg_est}. In addition to the statistical uncertainty from
 the limited size of the control regions, an additional systematic uncertainty is
@@ -1077,7 +1077,7 @@ Uncertainties shown in the predictions include both statistical uncertainty
 from the limited size of the control regions, and systematic uncertainty from small disagreements
 in the beam-off validation.
 The observed event counts are consistent with the predicted counts in all cases.
-The final three columns give estimated signal yields for three $(m_\mrm{mCP},Q)$ points
+The final three columns give estimated signal yields for three benchmark $(m_\mrm{mCP},Q)$ points
 near the exclusion boundary.
 \label{tab:mq_results}}
 \centering
@@ -1088,11 +1088,11 @@ near the exclusion boundary.
  & & & & & \multicolumn{3}{|c}{Signal yields ($m_\mrm{mCP}$ [GeV], $Q/e$)} \\
  SR & \# slab hits & min bar \Npe & Pred. & Obs. & (0.05, 0.007) & (1.0, 0.02) & (3.0, 0.1)\\
 \hline
-1 & 0 & $[2,\;20]$ & $124\pm11$ & 129 & 60.0 & 0.4 & 0 \\
-2 & 0 & $>20$ & $49.9^{+6.0}_{-5.4}$ & 52 & 0 & 16.3 & 0 \\
-3 & 1 & $[5,\;30]$ & $10.7^{+3.6}_{-2.6}$ & 8 & 0.5 & 0.5 & 0 \\
-4 & 1 & $>30$ & $2.4^{+2.1}_{-1.1}$ & 4 & 0 & 8.5 & 0 \\
-5 & $\geq$2 & $>0.5$ & $0.0^{+0.9}_{-0.0}$ & 1 & 0.6 & 1.9 & 4.2 \\
+1 & 0 & $[2,\;20]$ & $124\pm11$ & 129 & 47.4 & 0.4 & 0 \\
+2 & 0 & $>20$ & $49.9^{+6.0}_{-5.4}$ & 52 & 0 & 16.5 & 0 \\
+3 & 1 & $[5,\;30]$ & $10.7^{+3.6}_{-2.6}$ & 8 & 1.1 & 0.5 & 0 \\
+4 & 1 & $>30$ & $2.4^{+2.1}_{-1.1}$ & 4 & 0 & 8.7 & 0 \\
+5 & $\geq$2 & $>0.5$ & $0.0^{+0.9}_{-0.0}$ & 1 & 0 & 2.0 & 4.2 \\
 \hline
 \end{tabular}}
 \end{table}

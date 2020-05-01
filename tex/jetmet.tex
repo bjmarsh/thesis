@@ -148,7 +148,7 @@ Some variables/properties that provide discriminating power are:
 \item Track impact parameters $d_\mrm{z}$ and $d_\mrm{xy}$. Charged hadrons from
 b hadron decay tend to be slightly displaced from the primary vertex,
 as the b hadron propagates a measurable amount before decaying.
-Related to this is the impact parameter significance $\mrm{SIP}_{z,xy}$, found
+Related to this is the impact parameter significance $\mrm{SIP}_{z,xy}$, computed
 by dividing the impact parameter by the uncertainty in its measurement.
 \item Reconstructed secondary vertices. If there are enough high-quality
 tracks from the decay of a displaced b hadron, a \textit{secondary vertex}
@@ -357,7 +357,7 @@ hadrons within the jet cone. Once this is all done, all reco and gen jets with $
 
 After selecting the jets, gen and reco jets are matched and JRTs are constructed by 
 filling histograms with $\pt^\text{reco}/\pt^\text{gen}$. The templates are constructed in
-bins of gen-level \pt and $|\eta|$, and separately for b and non-b jets. The \pt and $\eta$ binning is as follows:
+bins of gen-level \pt and $|\eta|$, and separately for b and non-b jets. The \pt and $\eta$ binning are as follows:
 \begin{itemize}\setlength\itemsep{-1mm}
 \item \pt bin edges: [0, 20, 30, 50, 80, 120, 170, 230, 300, 380, 470, 570, 680, 800, 1000, 1300, 1700, 2200, 2800, 3500, 4300, 5200, 6500]\GeV
 \item $|\eta|$ bin edges: [0, 0.3, 0.5, 0.8, 1.1, 1.4, 1.7, 2.3, 2.8, 3.2, 4.1, 5.0]
@@ -365,7 +365,7 @@ bins of gen-level \pt and $|\eta|$, and separately for b and non-b jets. The \pt
 
 The algorithm for matching is outlined here; the reasoning for and effect of various steps are described following.
 \begin{enumerate}\setlength\itemsep{-0.3mm}
-\item Skip events that fail any of the MET filters used in the main analysis
+\item Skip events that fail any of the \ptmiss filters used in the main analysis
 \item Find all ``tight pairs'' of reco/gen jets that have $\Delta R$(reco, gen) $<0.3$
 \item Find all ``loose pairs'' of reco/gen jets that have $\Delta R$(reco, gen) $<0.5$
 \item Identify the reco jets and gen jets that are in more than one loose pair
