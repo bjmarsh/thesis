@@ -412,7 +412,7 @@ FUNCTION {format.date.paren}
 FUNCTION {format.collaboration}
 { collaboration empty$
     { "" }
-    { "{\bf " collaboration * "} " * "Collaboration" * }
+    { "(" collaboration * ")" * }
   if$
 }
 
@@ -685,8 +685,12 @@ FUNCTION {format.incoll.inproc.crossref}
 
 FUNCTION {article}
 { output.bibitem
-  format.collaboration output
-  format.authors "author" output.check
+  collaboration missing$
+    { format.authors "author" output.check }
+    { format.authors "author" output.check
+      blank.sep
+      format.collaboration output
+    } if$
   format.title.p "title" output.check
   blank.sep
   crossref missing$
