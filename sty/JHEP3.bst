@@ -986,7 +986,7 @@ FUNCTION {techreport}
 { output.bibitem
   format.collaboration output
   format.authors "author" output.check
-  format.title "title" output.check
+  format.title.p "title" output.check
   blank.sep
   format.tr.number output.nonnull
   institution "institution" output.check

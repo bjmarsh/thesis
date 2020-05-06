@@ -186,7 +186,7 @@ and noise levels are estimated from the sideband before the pulse time window; t
 is subtracted off before integrating to get the area. Doing this for many
 events, one can build up a histogram of pulse areas, and if the LED intensity is
 set correctly one can observed distinct peaks in the distribution corresponding
-to 0, 1, 2,$\dots$ PE events. Fig.~\ref{fig:led_events} shows an example
+to 0, 1, 2, $\dots$ PE events. Fig.~\ref{fig:led_events} shows an example
 R878 waveform and the pulse area distributions for a few different 
 high-voltages (HVs).
 
@@ -198,7 +198,7 @@ high-voltages (HVs).
       band shows the measured offset ($\sim$1.4 mV) and noise level ($\pm$0.6 mV).
       The vertical dashed lines indicate the fixed time window in which the 
       waveform is integrated to compute the pulse area.
-      and (right) the pulse area distributions
+      (right) The pulse area distributions
       for a variety of HVs, for an R878 PMT. The LED intensity is set so that
       the average number of PE is near 1, so one can resolve distinct peaks for
       0, 1, and 2 PE events in the area distributions. As the HV is increased, the peaks
@@ -528,47 +528,47 @@ that the time resolutions match those measured in data.
 \section{Monte Carlo generation}
 \label{sec:mq_mcgen}
 Any process at the LHC that produces an $e^+e^-$ pair via a virtual
-photon can also produce a $\zeta^+\zeta^-$ pair (we use $\zeta$ as the symbol for an mCP).
+photon can also produce a $\chi^+\chi^-$ pair (we use $\chi$ as the symbol for an mCP).
 This includes the direct vector meson decays $V\to e^+e^-$, where 
 $V=\rho,\;\omega,\;\phi,\;\psi,\;\text{or}\;\Upsilon$,
 the Dalitz decays $A\to e^+e^-\gamma$, where
 $A=\pi^0,\;\eta,\;\text{or}\;\eta'$, and the Dalitz decays 
 $\omega\to e^+e^-\pi^0$ and $\eta'\to e^+e^-\omega$.
-Additionally, $\zeta^+\zeta^-$ pairs can be produced via
+Additionally, $\chi^+\chi^-$ pairs can be produced via
 the Drell-Yan process, as with couplings to the photon and
 $Z$ of $\varepsilon e$ and $\varepsilon e\tan\theta_w$, respectively.
 
 We generate Drell-Yan decays with the \textsc{MadGraph5}\_a\textsc{mc@nlo} event generator~\cite{madgraph}, using the
-Lagrangian~\ref{eq:mcp_lagr}, with a cut on the invariant mass of the $\zeta^+\zeta^-$
+Lagrangian~\ref{eq:mcp_lagr}, with a cut on the invariant mass of the $\chi^+\chi^-$
 pair of 2\GeV. The Drell-Yan production mode is subdominant when the mass of the mCP
 is below half the $\Upsilon$ mass, around 5\GeV.
 
 For mCP pairs produced through meson decay, we perform the two-body/Dalitz decays
 manually and store the resulting mCP four-vectors. This requires two pieces of
 information for each process: (1) the branching ratio of the meson
-to a $\zeta^+\zeta^-$ pair (for Dalitz decays, we need the \textit{differential}
-width as a function of the $\zeta^+\zeta^-$ invariant mass), and (2)
+to a $\chi^+\chi^-$ pair (for Dalitz decays, we need the \textit{differential}
+width as a function of the $\chi^+\chi^-$ invariant mass), and (2)
 the differential cross sections to produce the parent meson as a function of \pt and $\eta$..
 
 Branching ratios for direct vector meson decays can be computed by simply
 scaling the $e^+e^-$ BR by a phase space factor:
 \be
-\frac{\Gamma(V\to\zeta^+\zeta^-)}{\Gamma(V\to e^+e^-)} = 
-(Q/e)^2\frac{(1-4x_\zeta^2)^{1/2}(1+2x_\zeta^2)}{(1-4x_e^2)^{1/2}(1+2x_e^2)},
+\frac{\Gamma(V\to\chi^+\chi^-)}{\Gamma(V\to e^+e^-)} = 
+(Q/e)^2\frac{(1-4x_\chi^2)^{1/2}(1+2x_\chi^2)}{(1-4x_e^2)^{1/2}(1+2x_e^2)},
 \ee
 where $x_*=m_*/m_V$ (this comes from the Van Royen-Weisskopf formula~\cite{vanroyen}).
 
-For Dalitz decays $A\to\zeta^+\zeta^-X$, we can write the differential width as a function of the $\zeta^+\zeta^-$
+For Dalitz decays $A\to\chi^+\chi^-X$, we can write the differential width as a function of the $\chi^+\chi^-$
 invariant mass as~\cite{landsberg}
 \be
 \begin{split}
-\frac{d\Gamma}{dq^2} = &\frac{C\alpha}{3\pi q^2} \left(1+\frac{2m_\zeta^2}{q^2}\right)
-\sqrt{1-\frac{4m_\zeta^2}{q^2}} \\
+\frac{d\Gamma}{dq^2} = &\frac{C\alpha}{3\pi q^2} \left(1+\frac{2m_\chi^2}{q^2}\right)
+\sqrt{1-\frac{4m_\chi^2}{q^2}} \\
 &\left[\left(1+\frac{q^2}{m_A^2-m_X^2}\right)-\frac{4m_A^2q^2}{(m_A^2-m_X^2)^2}\right]^{3/2}
 \;|F(q^2)|^2 \;\;\Gamma(A\to X\gamma),
 \end{split}
 \ee
-where $q^2$ is the invariant mass of the $\zeta^+\zeta^-$ pair, $C$ is 2 if
+where $q^2$ is the invariant mass of the $\chi^+\chi^-$ pair, $C$ is 2 if
 $X$ is a $\gamma$ otherwise 1, and $F(q^2)$ is a form factor that can be approximated
 in the Vector Dominance Model as
 \be
@@ -608,12 +608,12 @@ account for the modeling of meson rates per minimum bias event.
   \begin{center}
     \includegraphics[width=0.80\textwidth]{figs/milliq/mcp-xsec.pdf}
     \caption{Cross section times branching ratio values for all considered
-      production modes of $\zeta^+\zeta^-$ pairs, normalized to a charge
+      production modes of $\chi^+\chi^-$ pairs, normalized to a charge
       of $Q/e=1$. For non-DY modes, the mother particle must be
-      within $|\eta|<2$ (though the $\zeta^\pm$ may have $|\eta|>2$).
+      within $|\eta|<2$ (though the $\chi^\pm$ may have $|\eta|>2$).
       For DY, the plotted cross section requires at least one mCP
       to have $|\eta|<1$. The plateau in DY cross section below 
-      $m_\zeta=1\GeV$ is due to a 2\GeV $\zeta^+\zeta^-$ invariant
+      $m_\chi=1\GeV$ is due to a 2\GeV $\chi^+\chi^-$ invariant
       mass cut in \textsc{MadGraph}. The gray band on the total
       cross section represents the total theoretical uncertainty
       in the cross section, adding in quadrature the uncertainties
@@ -626,7 +626,7 @@ account for the modeling of meson rates per minimum bias event.
 \end{figure}
 
 A plot summarizing the cross section times branching ratio values
-for all $\zeta^+\zeta^-$ production modes is shown in Fig.~\ref{fig:mcp_xsec}.
+for all $\chi^+\chi^-$ production modes is shown in Fig.~\ref{fig:mcp_xsec}.
 At low masses, production is dominated by Dalitz decays of light mesons
 $\pi^0$, $\eta$. At around a few hundred\MeV, direct decays
 of $\omega$'s and $\rho$'s dominate. Near 1\GeV, J/$\psi$'s provide
@@ -1105,22 +1105,29 @@ Sec.~\ref{sec:mq_systs}.
 Under the signal plus background hypothesis, a modified frequentist approach is used
 to determine observed upper limits at 95\% confidence level
 on the cross section to produce a pair of mCPs, as a function of mass and charge. 
-The approach uses the the CLs
+The approach uses the the CL$_\mrm{S}$
 technique, described in Sec. \ref{sec:fits}. The observed upper limits are evaluated
-through the use of asymptotic formulae. Figure~\ref{fig:mq_limit} shows the exclusion at 95\% 
+through the use of asymptotic formulae. 
+
+Figure~\ref{fig:mq_limit} shows the exclusion at 95\% 
 confidence level in mass and charge of the mCP. 
-The existence of new particles with mass between 20 and 3000~MeV is excluded for minimum charge varying
+The existence of new particles with masses between 20 and 4700\MeV is excluded for charges varying
  between $0.006e$ and $0.3e$, depending on mass.
 Compared to existing constraints, 
-the milliQan demonstrator provides unique sensitivity for mCP masses above 0.7 GeV.
+the milliQan demonstrator provides unique sensitivity for mCP masses above 700\MeV.
+%% The successful operation of the milliQan demonstrator and the search carried out have shown the feasibility of a 
+%% dedicated detector for millicharged particles at the LHC,
+%%  and provided important lessons for the design of the full detector. 
 
+\clearpage
 \begin{figure}[t]
   \begin{center}
     \includegraphics[width=0.70\textwidth]{figs/milliq/finalLimit.pdf}
-    \caption{Exclusion in the mCP $(m,Q)$ plane at the 95\% confidence level compared
+    \caption{Exclusion in the mCP $(m,Q)$ plane at 95\% confidence level compared
       to existing constraints from colliders, CMS~\cite{Chatrchyan_2013,Chatrchyan_2013_2}, ArgoNeuT~\cite{ArgoNeuT}, and SLAC MilliQ~\cite{MilliQ},
       as well as the indirect constraint from the CMB relativistic degrees of freedom~\cite{Brust:2013ova}.
             }
     \label{fig:mq_limit}
   \end{center}
 \end{figure}
+\vphantom{100mm}
