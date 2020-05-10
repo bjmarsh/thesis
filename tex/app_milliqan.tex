@@ -75,12 +75,12 @@ to search for mCPs at the LHC.
 The milliQan experiment, designed to search for mCPs using collisions at LHC P5, was proposed in 
 2015~\cite{Haas:mcp,mq:loi}. It is located in a drainage gallery, elevated 45$^\circ$ above and 33
 m from the CMS experiment, with 17 m of rock in between that naturally
-suppresses beam-based backgrounds. The proposed design consists of four stacked ``layers'' of plastic 
-scintillator arrays, with each scintillating bar coupled to a photomultiplier tube (PMT).
+suppresses beam-based backgrounds. The proposed design consists of four stacked ``layers'' of arrays of plastic 
+scintillator bars, with each scintillating bar coupled to a photomultiplier tube (PMT).
 The arrays are pointed at the interaction point (IP), such that a particle originating
-from a $pp$ collision would pass through all three layers in a straight line.
+from a $pp$ collision will generally pass through all four layers in a straight line.
 The bars are sensitive enough to detect individual photoelectrons produced by
-throughgoing mCPs, and requiring a simultaneous hit in all three layers drastically
+throughgoing mCPs, and requiring a simultaneous hit in all four layers drastically
 reduces background, which mostly consists of random overlap of pulses from
 PMT dark rate, environmental radiation, cosmic rays, and afterpulsing.
 
@@ -92,8 +92,8 @@ of the planned full detector.
 
 The 18 scintillator bars each measure 5 cm $\times$ 5 cm $\times$ 80 cm, and are
 wrapped in layers of reflective and light-blocking materials to ensure optimal
-efficiency. 3D-printed plastic casings couple the bars to individual PMTs
-(two Hamamatsu R7725s, four Electron Tube 9814Bs, and 12 Hamamatsu R878s).
+light-collection efficiency. 3D-printed plastic casings couple the bars to individual PMTs
+(two Hamamatsu R7725s, four Electron Tube 9814Bs, and twelve Hamamatsu R878s).
 
 \begin{figure}[t]
   \begin{center}
@@ -185,7 +185,7 @@ area can be computed by integrating over a fixed time window. The offset voltage
 and noise levels are estimated from the sideband before the pulse time window; this offset
 is subtracted off before integrating to get the area. Doing this for many
 events, one can build up a histogram of pulse areas, and if the LED intensity is
-set correctly one can observed distinct peaks in the distribution corresponding
+set correctly one can observe distinct peaks in the distribution corresponding
 to 0, 1, 2, $\dots$ PE events. Fig.~\ref{fig:led_events} shows an example
 R878 waveform and the pulse area distributions for a few different 
 high-voltages (HVs).
@@ -305,7 +305,7 @@ area distribution for SPEs to be used for pulse injection.
 The fitted functions for all three types of PMTs are shown in Fig.~\ref{fig:area_dists}.
 
 One final piece of information that we need to extract from the LED tests are SPE pulse shape
-templates for all PMT types. Like the above, these are used during pulse injection, described
+templates for all PMT types. Like the pulse area distributions described above, these are used during pulse injection, described
 in Sec.~\ref{sec:mq_mcgen}. The procedure is as follows:
 
 \begin{figure}[t!]
@@ -770,12 +770,13 @@ The signal appears as four large pulses in the four slabs, with timing consisten
 with a particle coming from the beam (roughly, $t_4-t_1=10\pm10$~ns); no requirement is
 placed on hits in the bars or panels.
 
-In data, the rate is measured at 0.21 muons/pb$^{-1}$, with negligible statistical
-uncertainty. For the rate from simulation, we must account for various systematic
-uncertainties. For the rate from heavy-flavor mesons, we scaled the cross section
+In data, the rate is measured at $0.20\pm0.01$ muons/pb$^{-1}$, where the uncertainty
+comes primarily from the uncertainty in the total integrated luminosity.
+For the predicted rate from simulation, we must account for various systematic
+uncertainties. For the rate from heavy-flavor mesons, we scale the cross section
 by $1.25\pm0.25$ based on a comparison of FONLL with measured CMS data, so we take
 a 20\% uncertainty. The rate from light-flavor mesons is sub-dominant but we take a
-50\% uncertainty. Finally, we assess a systematic on the material modeling
+50\% uncertainty. Finally, we assess a systematic uncertainty in the material modeling
 of CMS and the rock by varying the density of all materials up and down by 7\%.
 This translates to a 25\% uncertainty in muon rate due to the rapidly falling
 momentum spectrum. All together, the predicted rate from simulation is
@@ -798,7 +799,7 @@ arises from the non-modeling of PMT saturation. The \Npe threshold in simulation
 to count a hit as muon-like is adjusted until the ratio of the middle bin in the right
 plot to the two neighboring bins is the same as in data (these all correspond to 
 an angle of 0$^\circ$, but the middle bin has a lower rate due to the higher probability of a fake).
-After making this correction, one sees that the observed angular distribution in data matches that
+After making this correction, we see that the observed angular distribution in data matches that
 from simulation quite well. 
 
 \begin{figure}[t]
@@ -885,7 +886,7 @@ The panel veto reduces contributions from cosmic and beam-based showers, and the
 large pulses from throughgoing muons. The max/min bar \Npe and timing cuts again drastically reduce random
 background, which is largely uncorrelated in both pulse size and time.
 
-This baseline signal region is divided into 5 separate signal regions used for the final interpretation,
+This baseline signal region is divided into five separate signal regions used for the final interpretation,
 based on the number of slab hits and minimum bar \Npe. These are listed in Table~\ref{tab:mq_srdefs}.
 The first two regions target small charges, roughly less than $\sim$0.01$e$, as these generally produce
 no pulses in the slabs and small bar pulses. The second two regions target intermediate charges, 
@@ -999,12 +1000,12 @@ but not the $\geq$2 slab region as there are not enough events.
 
 We assess a number of systematic uncertainties both on the background estimate and the
 signal yield prediction. On the background estimate, the primary uncertainty arises
-from the statistical uncertainty on the ABCD prediction, especially for the $\geq$1
+from the statistical uncertainty in the ABCD prediction, especially for the $\geq$1
 slab regions where statistics are lower. These uncertainties are given
 in the final column of Table~\ref{tab:mq_abcd_valid}. Additionally, we assess a systematic
 based on the small prediction/observation disagreements in the beam-off data.
 
-For the signal yield prediction, we assess a systematic uncertainty on the differential cross
+For the signal yield prediction, we assess a systematic uncertainty in the differential cross
 section of each production mode individually, as well as an overall proton-proton inelastic
 cross section uncertainty used for the light meson production modes. Details are given in
 Sec.~\ref{sec:mq_mcgen}. 
@@ -1016,7 +1017,7 @@ distance and density of the intervening rock). This is negligible for all but th
 ($>$0.1$e$), and even for these it remains a sub-leading source of uncertainty.
 
 We also account for uncertainties in the per-channel \Npe calibrations, but this is non-trivial
-to propagate to final signal region yields. The uncertainty on each channel's calibration
+to propagate to final signal region yields. The uncertainty in each channel's calibration
 comes from a number of sources, some correlated and some not:
 \begin{itemize}\setlength\itemsep{-1mm}
 \item Statistical uncertainty from fit: 10--20\%, uncorrelated everywhere
@@ -1056,7 +1057,7 @@ are shown in Fig.~\ref{fig:mq_calib_toys}.
   \end{center}
 \end{figure}
 
-Finally, we assess a systematic uncertainty on the time smearing correction applied to signal simulation.
+Finally, we assess a systematic uncertainty in the time smearing correction applied to signal simulation.
 As the time resolution discrepancies between simulation and data have an unknown origin,
 the full size of the correction is used as a systematic uncertainty.
 
@@ -1072,7 +1073,7 @@ uncertainties are listed in Table~\ref{tab:mq_results}, along with the observed 
 The observed counts agree with predictions within the uncertainty in all cases.
 
 \begin{table}[t]
-\caption{Predictions and observations in the 5 orthogonal signal regions.
+\caption{Predictions and observations in the five orthogonal signal regions.
 Uncertainties shown in the predictions include both statistical uncertainty
 from the limited size of the control regions, and systematic uncertainty from small disagreements
 in the beam-off validation.
@@ -1114,7 +1115,7 @@ confidence level in mass and charge of the mCP.
 The existence of new particles with masses between 20 and 4700\MeV is excluded for charges varying
  between $0.006e$ and $0.3e$, depending on mass.
 Compared to existing constraints, 
-the milliQan demonstrator provides unique sensitivity for mCP masses above 700\MeV.
+the milliQan demonstrator provides new sensitivity for mCP masses above 700\MeV.
 %% The successful operation of the milliQan demonstrator and the search carried out have shown the feasibility of a 
 %% dedicated detector for millicharged particles at the LHC,
 %%  and provided important lessons for the design of the full detector. 
