@@ -1,6 +1,6 @@
 \newcommand{\Npe}{\ensuremath{N_\mrm{PE}}\xspace}
 
-\chapter{milliQan: A Search for Millicharged Particles at the LHC}
+\chapter{milliQan: Searching for Millicharged Particles at the LHC}
 {%\small
 
 Here we report on a new experiment, milliQan, designed to search for
@@ -16,10 +16,10 @@ It is the first search at a hadron collider for particles with charges ${\leq}0.
 Section~\ref{sec:mq_motivation} briefly outlines some of the theoretical motivation
 for millicharged particles, Secs.~\ref{sec:mq_overview}--\ref{sec:insitu_calib} describe
 the design of the milliQan detector and the various calibrations performed to characterize
-its performance, Secs.~\ref{sec:mq_mcgen}--\ref{sec:mq_sim_valid} detail the procedure 
+its performance, Sec.~\ref{sec:mq_mcgen} detail the procedure 
 for the simulation of signal and background processes, 
 and Sec.~\ref{sec:mq_results} presents the design and results
-of the data analysis.
+of the final analysis.
 
 
 \section{Motivation of a search for millicharged particles}
@@ -231,15 +231,15 @@ high-voltages (HVs).
 \end{figure}
 
 The actual calibration method makes use of the fact that the number of observed photoelectrons
-after the LED light is heavily filtered is a Poisson process. Two datasets are recorded:
+after the LED light is heavily filtered is a Poisson process. Two data sets are recorded:
 one with no cardboard light-blocker, and the LED intensity set so that there
 is $\mathcal{O}(1)$ PE on average per event, and one with the light-blocker inserted
 (but with the LED running at the same intensity, so that any electronic effects
 are still captured).
 
-The LED-blocked dataset is a pure sample of 0 PE events, and the resulting pulse area distribution
+The LED-blocked data set is a pure sample of 0 PE events, and the resulting pulse area distribution
 (which is just a Gaussian near 0) can be scaled to fit the left edge of the area distribution
-of the non-blocked dataset. It is important to fit only the left edge, and not the full 0-PE peak,
+of the non-blocked data set. It is important to fit only the left edge, and not the full 0-PE peak,
 as the right side can have contributions from sub-optimal 1 PE events. By taking the ratio
 of the areas of the scaled LED-blocked histogram and the non-blocked histogram, one can get
 the fraction $f_0$ of 0 PE events. Since \Npe is Poisson, we can then compute the
@@ -250,8 +250,8 @@ mean and variance as
 
 Once we have this, it is straightforward to compute the mean and variance
 of the area distribution of an SPE pulse. Denoting $A_\mrm{SPE}$ as the area distribution of an SPE
-pulse, $A_\mrm{nb}$ as the area distribution of the non-blocked dataset, and $A_\mrm{b}$ as
-the area distribution of the LED-blocked dataset, the mean and variance are given by
+pulse, $A_\mrm{nb}$ as the area distribution of the non-blocked data set, and $A_\mrm{b}$ as
+the area distribution of the LED-blocked data set, the mean and variance are given by
 \be\label{eq:mean_spe}
 \langle A_\mrm{SPE}\rangle = \frac{\langle A_\mrm{nb}\rangle - \langle A_\mrm{b}\rangle}{\langle \Npe \rangle}
 \ee
@@ -507,8 +507,8 @@ muons, as expected if the calibration is done correctly.
       for events in which a muon is tagged in all four slabs and bars in all
       three layers. Cosmic and beam muons are distinguished based on the time difference
       in the first and fourth slabs. The beam muon distribution is centered at 0 ns as expected,
-      and has a resolution of $\sim$5 ns. The cosmic distribution is centered at 15 ns,
-      exactly as expected from time-of-flight considerations ($\Delta t=2\times 2.2\text{ m}/c = 15$ ns).
+      and has a resolution of $\sim$4 ns. The cosmic distribution is centered at $\sim$14 ns,
+      as expected from time-of-flight considerations ($\Delta t=2\times 2\text{ m}/c = 13.3$ ns).
             }
     \label{fig:mq_time_calib}
   \end{center}
@@ -547,8 +547,17 @@ in Fig.~\ref{fig:mq_time_walk}) is slightly worse in data than in simulation. To
 this, we smear the reconstructed pulse times in simulation by an area-dependent factor such
 that the time resolutions match those measured in data.
 
-\section{Monte Carlo generation}
+\section{Simulation}
 \label{sec:mq_mcgen}
+
+Estimated signal yields are obtained via simulation,
+by generating events of mCP pair production, propagating to the
+milliQan detector, and simulating the detector and electronic responses.
+Additionally, muons from both beam-based processes and cosmic rays
+are simulated for calibration and background studies.
+
+\subsection{Event generation}
+
 Any process at the LHC that produces an $e^+e^-$ pair via a virtual
 photon can also produce a $\chi^+\chi^-$ pair (we use $\chi$ as the symbol for an mCP).
 This includes the direct vector meson decays $V\to e^+e^-$, where 
@@ -636,7 +645,7 @@ account for the modeling of meson rates per minimum bias event.
       For DY, the plotted cross section requires at least one mCP
       to have $|\eta|<1$. The plateau in DY cross section below 
       $m_\chi=1\GeV$ is due to a 2\GeV $\chi^+\chi^-$ invariant
-      mass cut in \textsc{MadGraph}. The gray band on the total
+      mass cut in \textsc{MadGraph5}. The gray band on the total
       cross section represents the total theoretical uncertainty
       in the cross section, adding in quadrature the uncertainties
       on each individual mode (with the exception of the 12.5\%
@@ -670,7 +679,7 @@ known to be low based on a measurement from CMS~\cite{CMS:bhadron}, so the total
 rate is scaled up by a factor of $1.25\pm0.25$.
 Differential cross sections for light-flavor meson and tau decay are taken from
 \textsc{pythia8} MinBias generation with the CUETP8M1 tune. Rates from $W$ and $Z$ decay
-are taken from \textsc{MadGraph}.
+are taken from \textsc{MadGraph5}.
 
 The composition and \pt distribution of muons that make it to the milliQan detector
 face (after the propagation described shortly) are shown in Fig.~\ref{fig:mq_muon_ptdist}.
@@ -693,13 +702,15 @@ or taus, 3\% are from $W$ bosons, and 1\% are from $Z$ bosons.
   \end{center}
 \end{figure}
 
+\subsection{Propagation and detector response}
+
 Once mCP or muon four vectors are generated, they are propagated
 through a model of the CMS and its environment, including
 the magnetic field (see Fig.~\ref{fig:cms_bfield} for a colored map
 of the magnetic field that is used), detector material, and 17 m of
 rock between the IP and the drainage gallery.
 
-The material geometry of CMS was extracted from a \textsc{Root} model,
+The material geometry of CMS was extracted from a \textsc{root} model,
 and simplified into a series of concentric
 iron cylinders, such that the total material budget is the same as that of the
 real detector. Iron is placed at radii
@@ -739,11 +750,11 @@ angular deflection.
 Finally, at each timestep the particle loses energy according to the Bethe equation
 \be
 \left\langle-\frac{dE}{dx}\right\rangle = Kz^2\frac{Z}{A}\frac{1}{\beta^2}\left[\frac{1}{2}\log\frac{2m_ec^2\beta^2\gamma^2W_\text{max}}{I^2} - \beta^2 - \frac{\delta(\beta\gamma)}{2} \right],
-\ee{equation}
+\ee
 where all terms and parameters are defined in the PDG~\cite{PDGreview33}.
 Note that energy loss is a stochastic process, and at each timestep the actual energy loss follows a highly skewed Landau distribution.
 However, the amount of material traversed in this application is quite large, so it should be sufficient to use the mean value
-at each timestep. At any rate, a systematic is assessed on the interaction with matter that should cover for any inaccuracies
+at each timestep. At any rate, a systematic uncertainty is assessed on the interaction with matter that should cover for any inaccuracies
 in the modeling of energy loss.
 
 Particles (either muons or mCPs) are propagated until 2 m before the face of the milliQan detector
@@ -754,7 +765,7 @@ Quantum efficiencies of the simulated PMTs are set individually on a per-channel
 basis so that the average number of PEs generated by a cosmic and/or beam 
 muon match that measured data, from the calibrations described in 
 Sec.~\ref{sec:insitu_calib}. An illustration of a beam-based muon
-traveling through the \textsc{Geant} model of the detector is 
+traveling through the \textsc{Geant4} model of the detector is 
 shown in Fig.~\ref{fig:mq_geant}.
 
 \begin{figure}[t]
@@ -769,7 +780,7 @@ shown in Fig.~\ref{fig:mq_geant}.
   \end{center}
 \end{figure}
 
-The exact time of each detected photoelectron is saved, so that the \textsc{Geant} output
+The exact time of each detected photoelectron is saved, so that the \textsc{Geant4} output
 events can be used for \textit{pulse injection}, in which simulated PMT waveforms
 are overlaid on zero-bias (i.e. random trigger) data, in order to generate realistic
 detector signals that can be processed and analyzed with the same software as real data.
@@ -781,8 +792,7 @@ area and overlaid on a random zero-bias event. These pulse-injected simulated ev
 then look just like real data, with the exception that they do not model
 PMT saturation effects (however, this does not matter in practice).
 
-\section{Simulation validation and comparisons with data}
-\label{sec:mq_sim_valid}
+\subsection{Simulation validation and comparisons with data}
 
 Simulation is validated by comparing various predicted quantities and distributions
 to those measured in real data. The simplest comparison is the rate of muons coming
@@ -905,14 +915,15 @@ The backgrounds described above are largely reduced through the following baseli
 \item max $\Delta t$(bars) $<15$ ns
 \end{itemize}
 
-The first requirement reduces combinatoric background, as almost all background is uncorrelated between layers.
+The first requirement reduces backgrounds that cause multiple hits per layer (mostly cosmic showers), 
+as well as backgrounds that are uncorrelated in position between layers (almost all backgrounds).
 The panel veto reduces contributions from cosmic and beam-based showers, and the slab veto removes
-large pulses from throughgoing muons. The max/min bar \Npe and timing cuts again drastically reduce random
-background, which is largely uncorrelated in both pulse size and time.
+large pulses from throughgoing muons. The max/min bar \Npe and timing cuts reduce random
+backgrounds that are largely uncorrelated in both pulse size and time.
 
 This baseline signal region is divided into five separate signal regions used for the final interpretation,
 based on the number of slab hits and minimum bar \Npe. These are listed in Table~\ref{tab:mq_srdefs}.
-The first two regions target small charges, roughly less than $\sim$0.01$e$, as these generally produce
+The first two regions target small charges, roughly less than $\sim$0.02$e$, as these generally produce
 no pulses in the slabs and small bar pulses. The second two regions target intermediate charges, 
 roughly in the range 0.01 to 0.03$e$, which produce $\mathcal{O}(1)$ slab hit and slightly larger
 bar pulses. The final region targets larger charges, which leave hits in two or more slabs.
@@ -1089,7 +1100,7 @@ the full size of the correction is used as a systematic uncertainty.
 
 \subsection{Results and limits}
 
-Predictions are made from the beam-on dataset, representing 37.5 fb$^{-1}$ of proton-proton collision data
+Predictions are made from the beam-on data set, representing 37.5 fb$^{-1}$ of proton-proton collision data
 taken in 2018, using the ABCD method described in
 Sec.~\ref{sec:mq_bkg_est}. In addition to the statistical uncertainty from
 the limited size of the control regions, an additional systematic uncertainty is

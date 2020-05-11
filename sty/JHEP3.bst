@@ -245,6 +245,17 @@ FUNCTION {format.names}
     { namesleft #0 > }
     { s nameptr "{f.~}{vv~}{ll}{, jj}" format.name$ 't :=
       nameptr #1 >
+          
+          % CHANGE #3 HERE TO HOWEVER MANY NAMES YOU WANT BEFORE et al.
+          nameptr #3
+          #1 + =
+          numnames #3
+          > and
+            { "others" 't :=
+              #1 'namesleft := }
+            'skip$
+          if$
+
 	{ namesleft #1 >
 	    { ", " * t * }
 	    { numnames #2 >
@@ -252,7 +263,7 @@ FUNCTION {format.names}
 		'skip$
 	      if$
 	      t "others" =
-		{ " {\em et.~al.}" * }
+		{ " {\em et~al.}" * }
 		{ " and " * t * }
 	      if$
 	    }
