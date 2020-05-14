@@ -42,6 +42,8 @@
 % \smallssp is used to produce tabular environments in the small font.
 % \scriptsizessp is a still smaller version of the same thing.
 \def\ssp{\def\baselinestretch{1.0}\large\normalsize}
+\def\acknowledgesp{\def\baselinestretch{1.45}\large\small}
+\def\abstractsp{\def\baselinestretch{1.55}\large\small}
 %\def\dsp{\def\baselinestretch{1.5}\large\normalsize}
 \def\dsp{\def\baselinestretch{1.655}\large\normalsize}
 \def\smallssp{\def\baselinestretch{1.0}\large\small}
@@ -324,7 +326,8 @@
   \if@openright\cleardoublepage \else\clearpage \fi
   \begin{center} {\large \bfseries \acknowledgename}
   \end{center}
-  \ifnum \@draftmark = 1    \ssp \else  \dsp \fi
+  %% \ifnum \@draftmark = 1    \ssp \else  \dsp \fi
+  \acknowledgesp
 }{}
 
 % DISCLAIMER
@@ -360,14 +363,15 @@
     \if@openright\cleardoublepage \else\clearpage \fi
     \begin{center}
       {\fmfont {\bfseries \abstractname}\par
-      \vspace{.3in} \@title\par
-      \vspace{.1in} by\par
-      \vspace{.1in} \@author\par}
+      \vspace{.20in} \@title\par
+      \vspace{.07in} by\par
+      \vspace{.07in} \@author\par}
 %      \vspace{.5in} \@title\par
 %      \vspace{.1in} by\par
 %      \vspace{.1in} \@author\par}
     \end{center}
-    \ifnum \@draftmark = 1  \ssp \else  \dsp \fi
+    %% \ifnum \@draftmark = 1  \ssp \else  \dsp \fi
+    \abstractsp
 }{\par\vfil\null}
 
 
