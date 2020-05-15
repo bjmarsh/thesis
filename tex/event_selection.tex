@@ -30,10 +30,10 @@ took place, pileup vertices from pileup interactions, and, potentially, secondar
 such as b hadrons. Algorithms for reconstructing vertices are described in~\cite{TRK_vertexing}. For this analysis,
 we consider a reconstructed vertex as good if it satisfies:
 \begin{itemize}\setlength\itemsep{-1mm}
-\item not ``fake'' - if no vertices are reconstructed from tracks, a default vertex based on the beam-spot 
-(luminous region produced by proton beam collision) is used, and is labeled as ``fake''.
+\item not ``fake'' - if no vertices are reconstructed from tracks (rare), CMS software assigns a default vertex based on the beam-spot 
+(luminous region produced by proton beam collision), and labels it as ``fake''. We do not consider such vertices.
 \item $N_\mrm{dof}>4$ - $N_\mrm{dof}$ is the number of degrees of freedom in the fit of the position
-of the vertex, essentially the number of tracks consistent with originating from the vertex.
+of the vertex, strongly correlated with the number of tracks consistent with originating from the vertex.
 \item $|z|<25$ cm - the longitudinal distance from the beam-spot.
 \item $\rho<2$ cm - the distance from the beam axis.
 \end{itemize}
@@ -44,9 +44,9 @@ vertex.
 
 \subsection{Jets}
 
-Jets are clustered using the anti-$k_\mrm{T}$ algorithm with distance parameter $R=0.4$.
 Charged hadrons from pileup interactions are identified and removed based on the ``charged hadron
 subtraction'' algorithm~\cite{JME_pileup_removal_algo}.
+Jets are then clustered using the anti-$k_\mrm{T}$ algorithm with distance parameter $R=0.4$.
 Jet energies are corrected for pileup contamination and detector response with CMS-derived
 era-dependent jet energy corrections.
 We select jets that satisfy $\pt>30\GeV$ and $|\eta|<2.4$, and pass PF jet loose ID (2016)
@@ -74,7 +74,7 @@ We define \Nj as the number of jets passing the above selections, and \Ht as
 the scalar sum of \pt values for all such jets.
 
 Jets originating from b quarks are tagged using the DeepCSV algorithm \cite{BTV_btagging}, at the medium working point. 
-For the purposes of counting the number of b-tags (\Nb), we loosen the \pt threshold for b-tagged jets to 20\GeV.
+For the purposes of counting the number of b tags (\Nb), we loosen the \pt threshold for b-tagged jets to 20\GeV.
 This helps to add sensitivity to compressed-spectrum signals with jets from b quarks.
 
 \subsection{\ptmiss}
@@ -623,7 +623,7 @@ The same triggers are used as in the signal regions.
 \section{2018 HEM-15/16 failure}
 \label{sec:hem}
 
-During 2018 data taking, two modules in the minus-side HCAL endcap (HEM), 
+During 2018 data taking, two modules in the $z<0$ side HCAL endcap (HEM), 
 representing about a 45$^\circ$ angle, were lost.
 This means that any energy deposited in these modules was not recorded.
 The effects of this are (1) under-measured jets in the region,
@@ -634,8 +634,8 @@ energy ratios.
 Studies showed this has negligible impact on backgrounds with real \ptmiss
 (i.e. invisible $Z$ and lost lepton), but a significant effect
 on the fake-\ptmiss QCD multijet background.  Fig.~\ref{fig:hem} shows
-on the left the actual observed effect on an imbalanced dijet control region,
-and on the right the estimated effect on QCD yields in the signal regions,
+on top the actual observed effect on an imbalanced dijet control region,
+and on bottom the estimated effect on QCD yields in the signal regions,
 found by modifying the Rebalance \& Smear method with special HEM response
 functions measured in HEM-emulated data. Up to an 8-fold increase in QCD
 background is observed.
@@ -663,7 +663,8 @@ and $d_\mrm{xy}<0.1$ cm (a ``lost track'' is any track not reconstructed as a PF
     \includegraphics[width=0.48\textwidth]{figs/event_selection/hem_subleadjeteta.pdf}
     \includegraphics[width=0.48\textwidth]{figs/event_selection/hem_subleadjetphi.pdf} \\
     \includegraphics[width=0.70\textwidth]{figs/event_selection/mc_closure_sr.pdf}
-    \caption{(top) Sub-leading jet $\eta$ and $\phi$ before and after the HEM issue.
+    \caption{(top) Sub-leading jet $\eta$ and $\phi$ before and after the HEM issue
+      in an imbalanced dijet control region ($\njets=2$, $\dpmin<0.3$).
       Black points are 2017, and are flat in $\phi$ and agree with MC. White
       points are early pre-HEM issue 2018 data, flat in $\phi$ but with 
       a uniform barrel-only excess due to an unrelated filter issue that was since fixed.

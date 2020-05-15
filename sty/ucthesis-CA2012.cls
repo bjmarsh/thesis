@@ -43,7 +43,7 @@
 % \scriptsizessp is a still smaller version of the same thing.
 \def\ssp{\def\baselinestretch{1.0}\large\normalsize}
 \def\acknowledgesp{\def\baselinestretch{1.45}\large\small}
-\def\abstractsp{\def\baselinestretch{1.55}\large\small}
+\def\abstractsp{\def\baselinestretch{1.50}\large\small}
 %\def\dsp{\def\baselinestretch{1.5}\large\normalsize}
 \def\dsp{\def\baselinestretch{1.655}\large\normalsize}
 \def\smallssp{\def\baselinestretch{1.0}\large\small}
@@ -75,7 +75,7 @@
 \def\abstractname{Abstract}
 \def\acknowledgename{Acknowledgments}
 \def\disclaimername{Disclaimer}
-\def\vitaename{Curriculum Vit\ae}
+\def\vitaename{Curriculum Vitae}
 \def\@chapapp{\chaptername} % For use in the old 'book' style commands
 
 

@@ -45,7 +45,7 @@ thus sought a next-generation machine that could find these things.
 Since the Higgs and potential new physics were at energy scales above the reach of
 present experiments, a higher energy collider was needed. 
 Circular lepton colliders like LEP
-are limited in energy, as the energy radiated by an accelerating charged particle falls as 
+are limited in energy, as the energy radiated by an charged particle traveling in a circular path falls as 
 $1/m^4r^2$, and so the size of the necessary electron collider would be prohibitive.
 The much heavier proton is far easier to accelerate to high energies, and an accelerator
 in the pre-existing LEP tunnel was sufficient to achieve the necessary energies
@@ -103,7 +103,7 @@ for a relativistic charged particle in a uniform magnetic field, the necessary a
 magnetic field is $B=\gamma m\beta/qR=5.1~\mrm{T}$. However, the magnets are not all the
 way around the ring so the peak dipole magnetic field is 7.74 T. In addition to the dipole magnets,
 quadrupole magnets are used for beam focusing, and higher multipole magnets are used for finer
-corrections. In total there are nearly 10,000 individual magnets. In order to maintain a such a
+corrections. In total there are nearly 10,000 individual magnets. In order to maintain such a
 strong field, the superconducting magnets operate at a temperature of only 1.9 K, achieved
 using 96 tons of superfluid helium~\cite{lhc_guide}.
 
@@ -323,7 +323,7 @@ from crystals of lead tungstate (PbWO$_4$). This material is very
 dense, good for producing showers and stopping particles in a short distance,
 and is also optically clear and scintillates when electrons and photons
 pass through it. The scintillation timescale is also short,
-making for fast, well-defined photon pulses.
+making for fast, well-defined pulses.
 
 The crystals are individually 22 mm $\times$ 22 mm $\times$ 230 mm,
 giving the detector a depth of 26 radiation lengths
@@ -506,7 +506,7 @@ size is 330 kB.
 \item {MINIAOD}: a further reduction of the {AOD} tier, eliminating much rarely-used information
 and adding some relevant high-level information used by many analyses (e.g. b-tagging information, jet/lepton IDs, etc.)
 A typical JetHT event size is 40 kB. This is the data format used for the analysis in this dissertation.
-\item NANOAOD: a newly introduced format, consisting of a lightweight flat ntuple built from MINIAOD. Much low-level
+\item NANOAOD: a newly introduced format, consisting of a lightweight columnar data set built from MINIAOD. Much low-level
 particle information is dropped, keeping only higher level variables used for a majority of analyses.
 A typical JetHT event size is 0.7 kB.
 \end{itemize}
@@ -520,6 +520,8 @@ realistic detector hits that can then be processed with the same code as is used
 producing the same data formats as above. For certain samples where computation time is prohibitive
 (usually for BSM models), CMS has developed a fast simulation (``FastSim'') framework~\cite{CMS:fastsim} that forgoes
 the full \textsc{Geant4} simulation in favor of a much faster parametric approach.
+Separate simulation is generated for each year of data collection (2016, 2017, and 2018 for the analysis
+presented here), as pileup and detector conditions change from year to year.
 
 \section{Phase-2 CMS MIP timing detector}
 

@@ -2,16 +2,16 @@
 
 Understanding the production and measurement of hadronic jets is 
 of central importance to any hadron collider experiment.
-Not only is pure multijet production the most common type of event,
+Not only is pure multijet production the most common type of high-\pt event,
 but \textit{any} process can be accompanied by one or more jets
 arising from initial- or final-state radiation of quarks and gluons.
 Moreover, any mis-measurement of jet energies harms the experiment's 
-ability to measure the imbalance in transverse energy, a key component
+ability to measure the imbalance in transverse momentum, a key component
 of many analyses. Understanding jet mis-measurement is thus highly important
-for any analysis sensitive to this fake missing energy, such as the
+for any analysis sensitive to this fake missing transverse momentum, such as the
 one presented here.
 Secs.~\ref{sec:cmsjet} and \ref{sec:cmsmet}
-describe how jets and missing energy are measured at CMS, 
+describe how jets and missing transverse momentum are measured at CMS, 
 Sec.~\ref{sec:jetmismeas} summarizes the various sources of
 jet mis-measurement, and Sec.~\ref{sec:jrt} details how
 the jet response of the detector is actually measured
@@ -65,7 +65,7 @@ PF neutral hadrons (HCAL) or photons (ECAL).
 
 Once particles are identified, they are clustered into ``PF jets''.
 There are a variety of ways to do this, but the most commonly used
-at CMS and the one used for this analysis is the anti-$k_t$
+at CMS and the one used for this analysis is the anti-$k_\mrm{T}$
 algorithm~\cite{Cacciari:antikt}. Essentially, this defines a distance metric
 parametrized by a characteristic size $R$ and iteratively combines objects
 until a certain criterion is met. The parameter $R$ roughly corresponds
@@ -81,9 +81,9 @@ pileup interactions being clustered into jets originating from
 the primary vertex, artificially increasing their energies.
 There are a number of ways to attempt to account for this.
 The first, used for jets in this analysis, is known
-as ``charged hadron subtraction'' (CHS). After the jets
-are clustered, one simply removes all of the charged hadrons
-whose tracks are unambiguously associated with a pileup vertex.
+as ``charged hadron subtraction'' (CHS). One simply removes all of the charged hadrons
+whose tracks are unambiguously associated with a pileup vertex before
+clustering the remaining particles into jets.
 This method is simple, but does not account for any pileup contribution
 from particles that are not charged hadrons.
 
@@ -94,7 +94,7 @@ by considering the shape of the energy distribution in the immediate
 vicinity of the particle. The particle energies are then scaled by this weight
 when computing jet energies. The PUPPI algorithm gives slightly
 better resolution in jet \pt and mass, and is used by analyses that
-are sensitive to these quantities.
+are particularly sensitive to these quantities.
 
 \subsection{Jet energy corrections}
 The measurement of jet energies is imperfect, as there are
@@ -193,7 +193,7 @@ flavor. The entire event is then weighted by a factor
 w = \frac{P(\mrm{data})}{P(\mrm{MC})}.
 \ee
 
-\section{Missing transverse energy at CMS}
+\section{Missing transverse momentum at CMS}
 \label{sec:cmsmet}
 
 As protons are composite particles, the underlying collisions at the LHC are between
@@ -206,14 +206,15 @@ is negligible at the LHC energy scales).
 
 If all produced particles were perfectly measured, then, the vector sum of their \vpt
 values should be zero. This is not the case in practice, however. Any measured imbalance in
-the transverse momentum is referred to as \textit{missing transverse momentum/energy}, referred
+the transverse momentum is called \textit{missing transverse momentum/energy} (though
+``energy'' is a bit of a misnomer, as energy is a scalar with no directionality), referred
 to variously as $\vMet$, $\vec{E}_\mrm{T}^\mrm{miss}$, $\vec{\slashed{E}}_\mrm{T}$, or MET.
 Real \ptmiss comes from undetectable particles such as neutrinos or hypothetical LSPs.
 Fake \ptmiss can arise from effects like pileup contamination or imperfect detector
 response; a central part of this analysis will be measuring the CMS jet response distributions
 to estimate contribution from events with fake \ptmiss from mis-measured jets.
 
-At CMS, the primary way of computing \ptmiss, called PF-MET, is to simply sum the momenta
+At CMS, the primary way of computing \ptmiss, called PFMET, is to simply sum the momenta
 of all reconstructed particle-flow candidates. The raw \ptmiss can thus be defined
 \vskip-2mm
 \be
@@ -259,8 +260,8 @@ It is found that the templates are described well by a central Gaussian core (re
 with larger, non-Gaussian tails (green).
 Details on the exact derivation of these functions, and the procedure for fitting
 the core and tails, are given in Sec.~\ref{sec:jrt}. For now, it is sufficient
-to know that they are measured in simulation by matching reconstructed jets
-(``reco jets'') to generator-level jets (``gen jets'') and comparing their \pt values.
+to know that they are measured in simulation by matching jets clustered from reconstructed PF candidates
+(``reco jets'') to jets clustered from generator-level particles (``gen jets'') and comparing their \pt values.
 
 \begin{figure}[htbp]
   \begin{center}
@@ -279,7 +280,7 @@ to know that they are measured in simulation by matching reconstructed jets
 \end{figure}
 
 The size and shape of the core are due to standard stochastic smearing in the calorimeters. 
-The width of this Gaussian core, referred to
+The width of this Gaussian core relative to the jet \pt, referred to
 as the ``jet resolution'', generally falls as $1/\sqrt{E}$. This is illustrated in 
 Fig.~\ref{fig:jrt_res_pt} (left), which shows the measured
 resolution improving as jet \pt increases.
@@ -370,9 +371,9 @@ The algorithm for matching is outlined here; the reasoning for and effect of var
 \item Find all ``loose pairs'' of reco/gen jets that have $\Delta R$(reco, gen) $<0.5$
 \item Identify the reco jets and gen jets that are in more than one loose pair
 \item Throw away any tight pairs that contain a jet identified in the previous step
-\item Throw away pairs where in which the reco jet is within one of the manually-identified calorimeter holes
-\item Throw away pairs where in which the reco jet fails tight jet ID
-\item Throw away pairs where in which the reco jet fails loose pileup jet ID
+\item Throw away pairs in which the reco jet is within one of the manually-identified calorimeter holes
+\item Throw away pairs in which the reco jet fails tight jet ID
+\item Throw away pairs in which the reco jet fails loose pileup jet ID
 \item For all remaining tight pairs, identify the correct \pt/$\eta$-binned histograms and fill:
   \begin{itemize}
     \item b jet histogram with weight \\
@@ -406,9 +407,6 @@ of tails in the measured templates: the ``splitting'' of gen and/or reco jets. T
   among the gen jets compared to reco. This enhances both tails, depending on how the energy distribution
   and matching happens.
 \end{itemize}
-Requiring that there are no secondary nearby gen (reco) jets within $\Delta R<0.5$ of the reco (gen) jet protects against these scenarios.
-The effect on a sample template is shown in Fig.~\ref{fig:jrt_matching_effect}. 
-The reduction in the tails after applying this cut is seen to be quite large.
 
 \begin{figure}[t!]
   \begin{center}
@@ -426,11 +424,15 @@ The reduction in the tails after applying this cut is seen to be quite large.
   \end{center}
 \end{figure}
 
+Requiring that there are no secondary nearby gen (reco) jets within $\Delta R<0.5$ of the reco (gen) jet protects against these scenarios.
+The effect on a sample template is shown in Fig.~\ref{fig:jrt_matching_effect}. 
+The reduction in the tails after applying this cut is seen to be quite large.
+
 Step 6 throws away pairs involving a reco jet in one of a number of manually-identified ``dead'' spots in the detector.
 When plotting an $\eta-\phi$ map of the jets with small ($<$0.5) $\pt^\text{reco}/\pt^\text{gen}$ values,
 we observe a number of ``hot-spots'', corresponding to calorimeter regions that are dead or off in the simulation.
 These do not generally correspond to real effects in the data, and lead to artificially large left tails in the templates.
-We identify these regions (separately for each year) and remove any jet pairs that contain a reco jet in one of these regions.
+We identify these regions (separately for each year's MC, as the hole locations are different) and remove any jet pairs that contain a reco jet in one of these regions.
 Fig.~\ref{fig:jrt_ecalDeadCell} shows these cells highlighted for 2017 simulation on the left, and
 the effect on an example template on the right.
 
@@ -453,10 +455,9 @@ In the main analysis, we reject the entire event if any jet with $\pt>30$\GeV
 fails this ID. We apply the same ID here to avoid including these jets in 
 the templates. It is found to have minimal effect, except for very high eta ($|\eta|>4.0$).
 
-Step 8 rejects jets that fail loose pileup jet ID~\cite{JME_pileup_id}. In the rebalancing and smearing steps,
-jets with $\pt<100$\GeV that fail this pileup ID are left untouched (i.e., not included
-in the rebalancing and not smeared), in order to avoid trying to balance an event
-against a pileup jet. Since we do not use them in the rebalancing and smearing, 
+Step 8 rejects jets that fail loose pileup jet ID~\cite{JME_pileup_id}. Jets that fail this pileup ID are 
+not included in the Rebalance and Smear method described in Chapter~\ref{chap:qcd}.
+Since we do not use them there, 
 we do not want to include them in the templates.
 Vetoing jets that fail pileup ID has a fairly significant effect on the tails.
 At higher \pt, we see a reduction in the left tail from gen jets that were
@@ -469,8 +470,8 @@ mis-matched to a low-\pt pileup jet. At lower \pt, we see a reduction in both ta
     \includegraphics[width=0.325\textwidth]{figs/jetmet/compare_puJetID_highPt.pdf}
     \includegraphics[width=0.325\textwidth]{figs/jetmet/compare_puJetID_lowPt.pdf}
     \caption{(left) and (center) show the effect of applying tight jet ID and loose pileup jet ID, respectively,
-    to the same template as in Fig.~\ref{fig:jrt_matching_effect}. Jet ID has negligible effect,
-    while the pileup jet ID leads to a reduction in the left tail.
+    to the same template as in Fig.~\ref{fig:jrt_matching_effect}. Jet ID has a relatively small effect,
+    while the pileup jet ID leads to a fairly large reduction in the left tail.
     (right) The effect of pileup jet ID on a lower \pt template ($30\leq\pt<50$\GeV). Here we observe
     a reduction in both tails.
     }
@@ -498,9 +499,9 @@ An example of the effect is shown in Fig.~\ref{fig:jrt_nb}.
     (described in Chapter~\ref{chap:qcd}),
     when (left) filling a single template based on reco jet medium b tagging, and (right) filling both histograms with
     weights given by the corrected probability of tagging a given jet as a medium b jet. Observed data are shown
-    as black points, and prediction from the full Rebalance and Smear method is shown in yellow.
-    Significant improvement is seen when using the second method. Residual shape discrepancies are 
-    covered by a dedicated \nbtags shape systematic in the final estimate.
+    as black points, and predictions from the full Rebalance and Smear method (Chapter~\ref{chap:qcd}) utilizing
+    the templates are shown in yellow.
+    Significant improvement is seen when using the second method. 
     }
     \label{fig:jrt_nb}
   \end{center}
@@ -514,7 +515,7 @@ Once the templates are derived, it is useful to split each template into a Gauss
 non-Gaussian ``tails'' The reason for this is twofold. First, it is known that jet resolution
 is slightly different in data than in MC. This only applies to the standard Gaussian smearing of the jets,
 so in order to correct for the differences the Gaussian core must be isolated.
-Second, is is useful for studies on systematics to be able to alter the core/tails of the
+Second, is is useful for studies on systematic uncertainties to be able to alter the core/tails of the
 templates individually. For example, to study the effect of mis-modeling in the tails,
 one should be able to modify the size of the tails without affecting the size/shape
 of the Gaussian core.
@@ -541,9 +542,9 @@ cores are shown in red, and the tails in green.
 
 The first way that these fits are used is in the correction of the templates for jet energy resolution
 differences between data and MC. The JetMET group provides year-dependent scale factors binned in 
-$\eta$, shown in Table~\ref{tab:jrt_jersfs}. When smearing data events, the core of the template for a given jet
-is widened by this scale factor before drawing a random smear factor from the distribution. This is done in a 
-way to preserve the relative core/tail normalization. Specifically, if $\alpha$ is the scale factor by which we
+$\eta$, shown in Table~\ref{tab:jrt_jersfs}. When using MC-derived templates for real data, the core of the template for a given jet
+is first widened by this scale factor. This is done in a 
+way that preserves the relative core/tail normalization. Specifically, if $\alpha$ is the scale factor by which we
 want to widen the core, the modified template is given by
 \[
 f_\alpha(x) = \frac{1}{\alpha}\cdot\text{Core}((x-1)/\alpha+1) + \text{Tail}(x).
@@ -575,13 +576,7 @@ $|\eta| \geq 3.2$       & $1.192\pm0.149$ & $1.154\pm0.152$ & $1.082\pm0.198$ \\
 \end{tabular}
 \end{table}
 
-To assign a systematic from uncertainty in the jet energy resolution modeling, the smearing is run three times:
-once using the central values in Table~\ref{tab:jrt_jersfs}, once with the $+1\sigma$ values,
-and once with the $-1\sigma$ values. The differences in final signal region predictions,
-integrated over each \Ht region, are used to assign a systematic uncertainty. The results of this
-procedure are shown in Fig.~\ref{Fig:rs_data_JER_var} in Sec.~\ref{sec:rs_jrt_core}.
-
-The fitted tails are used in a similar way to assign a systematic due to uncertainty in the tail modeling.
+The fitted tails are used in a similar way to study systematic uncertainties in the tail modeling.
 The tails are not stretched along the $x$ direction, but instead simply scaled up/down (i.e., their normalization
 relative to the core is increased/decreased). Formally, to increase the tail size by a factor $\beta$, the
 modified template is given by
@@ -589,6 +584,4 @@ modified template is given by
    f_\beta(x) = N_\beta(\text{Core}(x) + \beta\cdot\text{Tail}(x)),
 \]
 where $N_\beta$ is a normalization factor to ensure that the template integral remains equal to one.
-Results of applying this procedure to the smearing of QCD MC with $\beta=1.25$ and 1.50 
-are shown in Fig.~\ref{Fig:rs_modify_tail} in Sec.~\ref{sec:rs_jrt_tail}. 
-The differences in final signal region yields with $\beta=1.25$ are used to assign a systematic uncertainty.
+The effect of varying the tail normalization on the QCD background estimate is studied in Sec.~\ref{sec:rs_systematics}.

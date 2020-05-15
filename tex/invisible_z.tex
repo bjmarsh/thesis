@@ -18,6 +18,15 @@ final estimate.
 
 \section{Estimating \texorpdfstring{\znunu}{Z\unichar{"2192}\unichar{"03BD}\unichar{"03BD}} from \texorpdfstring{\zll}{Z\unichar{"2192}ll}}
 \label{sec:znunu_from_zll}
+
+In previous iterations of this analysis~\cite{CMS:mt22015,CMS:mt22016}, the primary \znunu estimate was performed
+using a control sample of $\gamma$+jets events rather than \zll events. The cross section for $\gamma$+jets production is much
+larger than that for \zjets production, and so the number of events in $\gamma$+jets control regions is much
+higher than for the corresponding \zll control regions. However, systematic uncertainties associated with photon
+reconstruction efficiencies and fake rates are significantly larger than those for an estimate based on \zll events.
+As the integrated luminosity has increased four-fold from the 2016 analysis, the loss in statistical precision
+is less important and so the \zll method is used instead.
+
 The exact definition of the dilepton control region used in the \znunu estimate is described in Sec.~\ref{sec:dilep_cr}.
 It is constructed to be enriched in \zll events (as opposed to other dilepton-producing processes, such as \ttbar),
 and the lepton \vSS{p}{T}{} vectors are added to the \vMet in order to mimic the kinematics of \znunu events.
@@ -60,7 +69,7 @@ $\mttwo>200\GeV$ are used in the control region even though the signal region st
 Once the per-topological region estimate is done, a hybrid approach using both data and MC is
 used to extrapolate along the \mttwo dimension, as described in Sec.~\ref{sec:zinv_mt2}.
 
-\begin{figure}[ht]
+\begin{figure}[t]
   \begin{center}
     \includegraphics[width=0.48\textwidth]{figs/zinv/crdybase_nJet30_ge7j.pdf}
     \includegraphics[width=0.48\textwidth]{figs/zinv/crdybase_nBJet20_ge7j.pdf} \\
@@ -113,7 +122,7 @@ of $\pt(\ell\ell)$ in the baseline dilepton control region (with the $m_{\ell\el
 $\pt(\ell\ell)<200\GeV$). We see that the $\pt(\ell\ell)>200\GeV$ region is almost entirely from \zll events,
 and the $\pt(\ell\ell)<200\GeV$ region comes predominantly from top (\ttbar and $t\bar{t}V$) processes.
 
-\begin{figure}[ht]
+\begin{figure}[t]
   \begin{center}
     \includegraphics[width=0.55\textwidth]{figs/zinv/crdybase_zllpt.pdf}
     \caption{$\pt(\ell\ell)$ in the baseline dilepton control region, with the exception
@@ -134,16 +143,6 @@ opposite-flavor (OF) control region (same cuts as the nominal same-flavor (SF) d
 requiring one $e$ and one $\mu$), and then convert this to an estimated same-flavor rate by 
 multiplying by a transfer factor $R^\mrm{SF/OF}$.
 
-While this SF/OF ratio is in theory equal to 1 at the production level (since branching fractions to electrons
-and muons are the same), different reconstruction efficiencies for electrons and muons cause it to deviate 
-from 1 at the reconstructed level. We measure this ratio in data in a top-enriched dilepton control region,
-which is the same as the baseline dilepton control region but with $|m_{\ell\ell}-m_Z|>20\GeV$ and
-$\pt(\ell\ell)<200\GeV$ (the portion of Fig.~\ref{fig:zllpt} with $\pt(\ell\ell)$ below 200\GeV).
-The measurement is done inclusively in all analysis variables, to get a single number that is applied 
-to every topological region. The measured ratio is plotted as a function of the analysis variables to
-ensure that it is actually constant, and a systematic uncertainty on $R^\mrm{SF/OF}$ is assessed to
-cover for any observed variation.
-
 \begin{figure}[t]
   \begin{center}
     \includegraphics[width=0.48\textwidth]{figs/zinv/rsfof_ht.pdf}
@@ -158,6 +157,16 @@ cover for any observed variation.
     \label{fig:rsfof}
   \end{center}
 \end{figure}
+
+While this SF/OF ratio is in theory equal to 1 at the production level (since branching fractions to electrons
+and muons are the same), different reconstruction efficiencies for electrons and muons cause it to deviate 
+from 1 at the reconstructed level. We measure this ratio in data in a top-enriched dilepton control region,
+which is the same as the baseline dilepton control region but with $|m_{\ell\ell}-m_Z|>20\GeV$ and
+$\pt(\ell\ell)<200\GeV$ (the portion of Fig.~\ref{fig:zllpt} with $\pt(\ell\ell)$ below 200\GeV).
+The measurement is done inclusively in all analysis variables, to get a single number that is applied 
+to every topological region. The measured ratio is plotted as a function of the analysis variables to
+ensure that it is actually constant, and a systematic uncertainty on $R^\mrm{SF/OF}$ is assessed to
+cover for any observed variation.
 
 This is illustrated in Fig.~\ref{fig:rsfof}, in which $R^\mrm{SF/OF}$ as measured in data is plotted
 as a function of \Ht, \mttwo, \Nj, and \Nb. The ratio is measured to be $1.06\pm0.03$, and is seen to 
@@ -190,7 +199,7 @@ up to \mttwo values of about 1\TeV.
 Thus, we build \mttwo shape templates from data and MC in each $(\Ht,\Nj)$ bin for regions
 with $\Ht<1500\GeV$, integrating over \Nb, while one single hybrid template is built for the
 Extreme $\Ht>1500\GeV$ region, integrating also over \Nj. The one exception is for regions with
-exactly 2 or 2--6 jets and $\geq$3 b tags. To avoid sculpting the \Nj distribution by requiring
+2--6 jets and $\geq$3 b tags. To avoid sculpting the \Nj distribution by requiring
 $\Nb\geq3$, we use regions with $\Nj\geq3$ to obtain \mttwo shape templates in these regions.
 
 \begin{figure}[ht]
@@ -235,7 +244,7 @@ uncertainty assigned to the \znunu shape, as described in Sec.~\ref{sec:zinv_sys
 It is seen than any discrepancies in shape are covered by the assigned systematic.
 
 
-\begin{figure}[ht]
+\begin{figure}[t]
   \begin{center}
     \includegraphics[width=0.45\textwidth]{figs/zinv/MT2L_W_GJ_log.pdf}
     \includegraphics[width=0.45\textwidth]{figs/zinv/MT2H_W_GJ_log.pdf}

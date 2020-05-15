@@ -63,10 +63,13 @@ The strong interaction further binds these into nuclei, which themselves bind to
 interaction to form atoms.
 
 More generally, the strong interaction allows quarks to bind themselves into \textit{hadrons}, either in quark-antiquark
-pairs called \textit{mesons}, or in three-quark configurations called \textit{baryons}. The net ``color content''
+pairs called \textit{mesons}, or in three-quark configurations called \textit{baryons}
+(as well as more exotic structures such as tetraquarks~\cite{tetraquark}, pentaquarks~\cite{pentaquark}, and glueballs~\cite{glueball}). 
+The net ``color content''
 must be zero, which means mesons must contain e.g. a red quark and anti-red antiquark, and baryons
-must contain exactly one red, blue, and green quark. The only stable baryon is the proton (the neutron
-becomes stable when confined in a nucleus), and there are no stable mesons.
+must contain exactly one red, blue, and green quark. The only stable baryon is the proton 
+(at least, its lifetime is longer than ${\sim}10^{34}$~years~\cite{proton_lifetime}! The neutron decays
+to a proton, electron, and antineutrino with lifetime 15~minutes but becomes stable when confined in a nucleus). There are no stable mesons.
 
 Moving to the right in the diagram, in red we have the four gauge bosons, which have spin-1
 and which mediate the fundamental interactions. Their integer spin means they obey Bose statistics,
@@ -111,7 +114,7 @@ It turns out we can fix this by adding an extra term $-q\bar{\psi}\gamma^\mu\psi
 $A_\mu$ is a new vector field that transforms by $A_\mu\to A_\mu+\partial_\mu\theta$. The new terms
 introduced by the gauge transformation then cancel, and the Lagrangian is invariant.  The field
 $A_\mu$ represents a new spin-1 particle, and to ensure that the Klein-Gordon equation is satisfied,
-we must also add a ``free'' term. Doing this, it turns out the boson must be massless to ensure gauge invariance is
+we must also add a ``free'' term. Doing this, it turns out the boson must be massless to ensure that gauge invariance is
 maintained.
 
 So by requiring that the Lagrangian for a free fermion is invariant under a local $U(1)$ transformation,
@@ -280,7 +283,7 @@ The answer lies in the Higgs mechanism and spontaneous symmetry breaking, mentio
 Again the details can be found in any quantum field theory textbook, but the basic idea is this:
 imagine that there exists a scalar complex field $\phi\equiv\phi_1+i\phi_2$ governed by the Lagrangian
 \be
-\mathcal{L} = \frac{1}{2}\partial_\mu\phi^*\partial_\mu\phi + \frac{1}{2}\mu^2\phi^*\phi - \frac{1}{4}(\phi^*\phi)^2.
+\mathcal{L} = \frac{1}{2}\partial_\mu\phi^*\partial_\mu\phi + \frac{1}{2}\mu^2\phi^*\phi - \frac{1}{4}\lambda^2(\phi^*\phi)^2.
 \ee
 
 This  Lagrangian already has a global $U(1)$ symmetry, and requiring local symmetry again requires the addition
@@ -344,7 +347,7 @@ The Standard Model has a long history of making successful predictions about the
 world: the existence of the charm and top quarks, gluons, the weak bosons, and the Higgs boson;
 branching ratios and lifetimes of the fundamental particles and hadrons; the precise value of the
 electron's anomalous magnetic moment (down to one part in a billion, making it one of the most accurate
-verified predictions in the history of physics); and more. Many experiments continue today to verify the SM's
+verified predictions in the history of science); and more. Many experiments continue today to verify the SM's
 accuracy. However, it is not a perfect theory and cannot sufficiently explain a number of observed
 phenomena.
 
@@ -665,7 +668,7 @@ This is quantified in what are called ``parton distribution functions'' (PDFs),
 which are probability densities of finding a particular particle with longitudinal
 momentum fraction $x$, given an energy scale $Q^2$. Examples are shown in 
 Fig.~\ref{fig:pdfs} for $Q^2=10\GeV^2$ and $10^4\GeV^2$. One sees that the
-PDFs for valence $u$ and $d$ quarks peak near one, as these are disproportionately
+PDFs for valence $u$ and $d$ quarks peak near 1/3, as these are disproportionately
 likely to carry a significant fraction of the proton's momentum.
 The sea quarks and gluons peak lower, and become more prominent at higher $Q^2$.
 These PDFs must be taken into account when computing cross sections for the various
@@ -730,7 +733,7 @@ show up as two jets. This diagram thus represents a leptonic \wjets
 event.
 
 Next in the middle left  is a generic diagram representing QCD multijet production,
-the most common type of event at hadron colliders. 
+the most common type of high-\pt event at hadron colliders. 
 In this case we have an interaction between a valence quark and sea
 gluon, which results in a final state of three quarks and a gluon,
 giving a four jet event. By tacking on more quark/gluon vertices to this
@@ -770,12 +773,18 @@ cross sections agree well with the theoretical predictions in all cases.
 Theorists can also calculate the cross sections of hypothetical BSM production modes,
 such as SUSY. Fig.~\ref{fig:susy_xsecs} shows the cross sections for the pair production
 of gluinos and squarks at $\sqrt{s}=13\TeV$. One sees that the cross section exponentially
-falls with sparticle mass.
+falls with sparticle mass. Comparing with Fig.~\ref{fig:cms_xsecs}, one can get a sense for
+how much rarer these SUSY processes are than the SM processes that will constitute backgrounds
+for the search. For example, 2\TeV gluino pair production has a cross section of
+$\mathcal{O}(10^{-3})$ pb, five to six orders of magnitude smaller than that for $W$, $Z$, or $\ttbar$
+production.
+Similar theoretical cross sections for the pair production of
+leptoquarks are shown in Fig.~\ref{fig:lq} in Sec.~\ref{sec:interp_lq}.
 
 
 \begin{figure}[htb]
   \begin{center}
-    \includegraphics[width=0.55\textwidth]{figs/theory/susy_xsecs.pdf}
+    \includegraphics[width=0.65\textwidth]{figs/theory/susy_xsecs.pdf}
     \caption{Cross sections for pair production of SUSY particles at the LHC at $\sqrt{s}=13\TeV$,
       computed at NNLO(approx)+NNLL order~\cite{Beenakker:nnll} and assuming squarks and gluinos are decoupled. 
       The $x$ axis is the mass of the relevant particle.
