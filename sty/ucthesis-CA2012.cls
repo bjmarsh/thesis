@@ -284,7 +284,7 @@
       \vspace{\@approvalspace}
     \fi
 
-    $\:\overline{~~~~ \mbox{\rule{0in}{0.16in} \hspace{3.15in}}}\:$ \\
+    $\:\overline{~~~~ \mbox{\rule{0in}{0.16in} \hspace{3.5in}}}\:$ \\
     \vspace{\@approvaladjust} {\@chair}, Committee Chair \\
     \vspace{\@approvalspace}
     \vspace{-.25in}
